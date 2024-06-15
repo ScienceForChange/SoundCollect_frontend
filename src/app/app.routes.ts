@@ -94,6 +94,17 @@ export const routes: Routes = [
   {
     path: 'observation-details',
     loadComponent: () => import('./pages/observation-details/observation-details.page').then(m => m.ObservationDetailsPage)
+  },
+  {
+    path: 'calibrate-sound',
+    loadComponent: () => import('./pages/calibrate-sound/calibrate-sound.page').then(m => m.CalibrateSoundPage)
+  },
+  {
+    path: 'calibrate-done',
+    loadComponent: () => import('./pages/calibrate-done/calibrate-done.page').then(m => m.CalibrateDonePage)
+  },
+  {
+    path: 'achievements',
+    loadComponent: () => import('./pages/achievements/achievements.page').then( m => m.AchievementsPage)
   }
-
 ];

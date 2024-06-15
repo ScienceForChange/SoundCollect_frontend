@@ -45,8 +45,6 @@
 	<true/>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -70,6 +68,14 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
+	<key>NSPrivacyAccessedAPICategoryUserDefaults</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
+	<key>NSPrivacyAccessedAPICategoryFileTimestamp</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
+	<key>NSPrivacyAccessedAPICategoryDiskSpace</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
+	<key>NSPrivacyAccessedAPICategorySystemBootTime</key>
 	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
 </dict>
 </plist>

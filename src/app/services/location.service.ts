@@ -1,82 +1,45 @@
-import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
-import { LocationAccuracy } from '@ionic-native/location-accuracy';
-import { Capacitor } from "@capacitor/core";
 import { Injectable } from '@angular/core';
-import {Geolocation} from "@ionic-native/geolocation/ngx";
+import { Geolocation } from '@capacitor/geolocation';
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Injectable({
     providedIn: 'root'
 })
 export class LocationService {
+  httpClient: HttpClient
     constructor(
-      private androidPermissions: AndroidPermissions,
-      private geolocation: Geolocation,
     ) { }
 
-    // Check if application having GPS access permission
-    async checkGPSPermission(): Promise<boolean> {
-        return await new Promise((resolve, reject) => {
-            if (Capacitor.isNativePlatform()) {
-                this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.ACCESS_FINE_LOCATION).then(
-                    result => {
-                        if (result.hasPermission) {
-                            // If having permission show 'Turn On GPS' dialogue
-                            resolve(true);
-                        } else {
-                            // If not having permission ask for permission
-                            resolve(false);
-                        }
-                    },
-                    err => { alert(err); }
-                );
-            }
-            else { resolve(true); }
-        })
-    }
-
-    async requestGPSPermission(): Promise<string> {
-        return await new Promise((resolve, reject) => {
-            LocationAccuracy.canRequest().then((canRequest: boolean) => {
-                if (canRequest) {
-                    resolve('CAN_REQUEST');
-                } else {
-                    // Show 'GPS Permission Request' dialogue
-                    this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.ACCESS_FINE_LOCATION)
-                        .then(
-                            (result) => {
-                                if (result.hasPermission) {
-                                    // call method to turn on GPS
-                                    resolve('GOT_PERMISSION');
-                                } else {
-                                    resolve('DENIED_PERMISSION');
-                                }
-                            },
-                            error => {
-                                // Show alert if user click on 'No Thanks'
-                                alert('requestPermission Error requesting location permissions ' + error);
-                            }
-                        );
-                }
-            });
-        })
-    }
-    async askToTurnOnGPS(): Promise<boolean> {
-        return await new Promise((resolve, reject) => {
-            LocationAccuracy.canRequest().then((canRequest: boolean) => {
-                if (canRequest) {
-                    // the accuracy option will be ignored by iOS
-                    LocationAccuracy.request(LocationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY).then(
-                        () => {
-                            resolve(true);
-                        },
-                        error => { resolve(false); });
-                }
-                else { resolve(false); }
-            });
-        })
-    }
-
   async getCoordinates() {
-    return await this.geolocation.getCurrentPosition();
+    return await Geolocation.getCurrentPosition({ enableHighAccuracy: true });
   }
+
+  checkAppPermissions = async () => {
+    const permissions = await Geolocation.checkPermissions();
+    console.log('checkAppPermissions2222222', permissions);
+    if (permissions.location === 'granted') {
+      console.log("you have both ACCESS_COARSE_LOCATION and ACCESS_FINE_LOCATION permissions!");
+      return true;
+    } else if (permissions.coarseLocation === 'granted') {
+      console.log("you have ACCESS_COARSE_LOCATION permission only!");
+      return true;
+    } else {
+      console.log("you don't have any permission!")
+      return false;
+    }
+  }
+
+  async requestAppPermissions(){
+    try {
+      const permissions = await Geolocation.requestPermissions();
+      console.log('requestAppPermissions', permissions)
+      if (permissions.location !== 'granted') {
+        await Geolocation.requestPermissions();
+      }
+    }catch (error){
+      console.error('Error requesting permissions', error)
+    }
+  }
+
 }

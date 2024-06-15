@@ -1,6 +1,6 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, inject, Input, OnInit, ViewChild } from '@angular/core';
 import { IonicModule } from "@ionic/angular";
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import Chart from 'chart.js/auto';
 
 
@@ -15,7 +15,7 @@ import Chart from 'chart.js/auto';
   ]
 })
 export class GraphComponent implements OnInit {
-
+private translateService=inject(TranslateService);
   // @ts-ignore
   @ViewChild('lineCanvas') private lineCanvas: ElementRef;
   lineChart: Chart;
@@ -25,7 +25,6 @@ export class GraphComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('dataset', this.dataset)
   }
 
   ngAfterViewInit() {
@@ -35,10 +34,15 @@ export class GraphComponent implements OnInit {
 
   createLineChart() {
     let labelsDates: string[] = [];
+    let labelsValues: number[] = [];
     let contador = 0;
-    this.dataset.forEach((data: any) => {
-      labelsDates.push(contador++ + '');
-    });
+    let arrayDataSet = this.dataset.toString().split(","); // Divide la cadena en caracteres individuales
+    if (arrayDataSet && arrayDataSet.length > 0) {
+      arrayDataSet.forEach((data: any) => {
+        labelsDates.push(String(contador++));
+        labelsValues.push(Number(data));
+      });
+    }
 
     this.lineChart = new Chart(this.lineCanvas.nativeElement, {
       type: 'line',
@@ -46,16 +50,34 @@ export class GraphComponent implements OnInit {
         labels: labelsDates,
         datasets: [{
           label: '',
-          data: this.dataset,
+          data: labelsValues,
           backgroundColor: 'rgba(32,106,113,0.2)',
           borderColor: '#206A71',
-          borderWidth: 1
+          borderWidth: 1,
         }]
       },
       options: {
         scales: {
           y: {
+            title: {
+              display: true,
+              text: this.translateService.instant('sounds.graphic.title_y')
+            },
+            beginAtZero: false,
+            suggestedMax: 100,
+            suggestedMin: 20
+          },
+          x: {
+            title: {
+              display: true,
+              text: this.translateService.instant('sounds.graphic.title_x')
+            },
             beginAtZero: true
+          }
+        },
+        plugins:{
+          legend:{
+            display:false
           }
         }
       }

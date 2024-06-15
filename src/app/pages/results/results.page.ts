@@ -1,15 +1,17 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {AlertController, IonicModule, NavController} from '@ionic/angular';
-import { Router, RouterLink } from "@angular/router";
+import { AlertController, IonicModule, NavController } from '@ionic/angular';
+import { NavigationExtras, Router, RouterLink } from "@angular/router";
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { IObservation } from 'src/app/models/iobservation';
 import { ObservationsService } from 'src/app/services/observations.service';
 import { ObservationsRepoHttp } from 'src/app/repos/observations-repo-http';
 import { CommonService } from "../../services";
 import { image } from 'ionicons/icons';
-import {GraphComponent} from "../../components/graph/graph.component";
+import { GraphComponent } from "../../components/graph/graph.component";
+import { UserService } from 'src/app/services/user-service';
+import { UserHTTP } from 'src/app/repos/user-repo-http';
 
 @Component({
   selector: 'app-results',
@@ -17,29 +19,32 @@ import {GraphComponent} from "../../components/graph/graph.component";
   styleUrls: ['./results.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule, RouterLink, TranslateModule, NgOptimizedImage, GraphComponent],
-  providers: [ObservationsService, ObservationsRepoHttp]
+  providers: [ObservationsService, ObservationsRepoHttp, UserService, UserHTTP]
 })
 export class ResultsPage implements OnInit {
   private navController = inject(NavController);
   private router = inject(Router);
   private observationsService = inject(ObservationsService);
+  private userService = inject(UserService);
   translate = inject(TranslateService);
   commonService = inject(CommonService);
   dataNavigation: any;
 
   observation: IObservation;
   fileList: File[];
+  fileListUrl: string[] = [];
+  isExpert = false;
 
   constructor(private alertController: AlertController) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.dataNavigation = this.router.getCurrentNavigation()?.extras?.state;
     this.observation = this.dataNavigation.observation;
     this.fileList = this.dataNavigation.fileList;
-    console.log('this.observation: ', this.observation);
+    this.isExpert = this.dataNavigation.isExpert;
   }
 
-  async goBack() {
+  async goExit() {
     const message = await this.translate.instant('sounds.results.alert');
     const btn_accept = await this.translate.instant('sounds.results.yes');
     const btn_cancel = await this.translate.instant('sounds.results.no');
@@ -50,7 +55,7 @@ export class ResultsPage implements OnInit {
         {
           text: btn_accept,
           handler: async () => {
-            await this.navController.navigateForward("tabs/home", { animated: false });
+            await this.navController.navigateRoot("tabs/home", { animated: false });
           }
         },
         {
@@ -64,9 +69,22 @@ export class ResultsPage implements OnInit {
     await alert.present();
 
   }
+  async goBack() {
+    console.log('back');
+    const navigationExtras: NavigationExtras = {
+      state: {
+        observation: this.observation,
+        fileList: this.fileList
+      },
+    };
+    await this.navController.navigateBack('/collect-sound', navigationExtras);
+  }
 
-  getImgUrl(file: File): string {
-    return URL.createObjectURL(file);
+  getImgUrl(index: number): string {
+    if (!this.fileListUrl[index]) {
+      this.fileListUrl[index] = URL.createObjectURL(this.fileList[index]);
+    }
+    return this.fileListUrl[index];
   }
 
   async sendObservation() {
@@ -74,7 +92,7 @@ export class ResultsPage implements OnInit {
       await this.commonService.showLoader();
       await this.observationsService.postObservation(this.observationToFormData(this.observation));
       await this.commonService.hideLoader();
-      await this.navController.navigateForward("tabs/home", { animated: false });
+      await this.navController.navigateRoot("tabs/home", { animated: false });
     } catch (error) {
       const description = await this.translate.instant('global_error.label.message');
       this.commonService.alertModal("", description);
@@ -103,5 +121,7 @@ export class ResultsPage implements OnInit {
 
     return formData;
   }
-
+  noOrder() {
+    return false;
+  }
 }

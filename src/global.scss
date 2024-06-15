@@ -177,6 +177,11 @@ button:hover {
   font-size: clamp(1.13rem, calc(0.89rem + 1.11vw), 1.75rem);
   font-weight: 400;
 }
+.H6-16-700-SpaceGrotesk {
+  font-family: SpaceGrotesk, serif !important;
+  font-size: 16px;
+  font-weight: 700;
+}
 .H6-14-400-SpaceGrotesk {
   font-family: SpaceGrotesk, serif !important;
   font-size: clamp(0.88rem, calc(0.64rem + 1.11vw), 1.5rem);
@@ -480,7 +485,15 @@ ion-modal {
     font-weight: 700 !important;
   }
 }
-
+ion-alert{
+  font-family: SpaceGrotesk, serif;
+  button{
+    font-family: SpaceGrotesk, serif;
+  }
+  h2{
+    font-family: SpaceGrotesk, serif;
+  }
+}
 .my-alert {
   .alert-wrapper {
     border-radius: 12px;
@@ -493,7 +506,7 @@ ion-modal {
     background: var(--color-text-red);
     border-radius: 69px !important;
     color: white;
-    font-family: lato, serif;
+    font-family: SpaceGrotesk, serif;
     font-size: 1.1rem !important;
     font-weight: 600;
     border: 2px solid var(--color-text-red);
@@ -518,7 +531,7 @@ ion-modal.my-custom-modal {
   --width: unset;
   --border-radius: 16px;
   --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 ion-modal.my-custom-modal::part(content) {
@@ -571,4 +584,41 @@ select:focus {
 .full-size-modal {
   --width: 100%;
   --height: 100%;
+}
+
+input[type='search']:focus {
+  outline: none;
+  border-color: #6b7280;
+  box-shadow: none;
+}
+
+.inputSearchWithList{
+  border-top-color: #fff;
+  border-left-color: #fff;
+  border-right-color: #fff;
+  border-bottom-color: #6b7280;
+}
+
+.inputSearchWithList:focus{
+  border-top-color: #6b7280!important;
+  border-left-color: #6b7280!important;
+  border-right-color: #6b7280!important;
+  border-bottom-color: #6b7280!important;
+}
+
+.inputSearchWithoutList{
+  border-top-color: #fff;
+  border-left-color: #fff;
+  border-right-color: #fff;
+  border-bottom-color: #fff;
+  -webkit-box-shadow: 0 0 20px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0 0 20px 5px rgba(0,0,0,0.75);
+  box-shadow: 0 0 20px 5px rgba(0,0,0,0.75);
+}
+
+.inputSearchWithoutList:focus{
+  border-top-color: #6b7280!important;
+  border-left-color: #6b7280!important;
+  border-right-color: #6b7280!important;
+  border-bottom-color: #6b7280!important;
 }

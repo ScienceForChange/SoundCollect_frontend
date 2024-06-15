@@ -1,24 +1,30 @@
-.orange-bg{
-  background-color: #FDA568;
+.orange-bg {
+  background-color: #fda568;
 }
 ion-range {
- --bar-height: 6px;
+  --bar-height: 6px;
   --bar-border-radius: 100px;
   --knob-background: var(--ion-color-primary);
   --knob-size: 22px;
   --pin-background: rgba(255, 175, 204, 0);
   --pin-color: #fff;
 }
-.img-box{
-  padding: .5rem;
+.img-box {
   width: 109px;
   height: 127px;
   flex-shrink: 0;
   border-radius: 20px;
-  border: 2px solid #206A71;
+  border: 2px solid #206a71;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  overflow: hidden;
+  position: relative;
+  .delete-image {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+  }
 }
 ion-radio.source::part(container) {
   width: 20px;
@@ -59,8 +65,10 @@ ion-radio.radio-checked::part(mark) {
   transform: rotate(45deg);
 }
 
-.icon-mic-style{
-  font-size: 300%; display: block; color: white;
+.icon-mic-style {
+  font-size: 300%;
+  display: block;
+  color: white;
 }
 
 .circle-container {
@@ -78,16 +86,16 @@ ion-radio.radio-checked::part(mark) {
   background-color: blue;
 }
 
-
 .animated-circle-full {
   width: 100%;
   height: 100%;
   background-color: rgba(32, 106, 113, 0.39);
   opacity: 0.5;
-  animation: decreaseScale 2.5s ease-out infinite, increaseScale 2.5s ease-in infinite;
+  animation: decreaseScale 2.5s ease-out infinite,
+    increaseScale 2.5s ease-in infinite;
 }
 
-.icon-btn-mic{
+.icon-btn-mic {
   font-size: 200%;
   display: block;
   color: white;
@@ -124,6 +132,22 @@ ion-radio.radio-checked::part(mark) {
   border-radius: 50%;
   background: rgba(203, 210, 247, 0.15);
 }
-.done{
-  background: #CFD3C4;
+.done {
+  background: #cfd3c4;
+}
+.require {
+  font-size: small;
+  color: red;
+  position: relative;
+  display: block;
+  margin-top: -4px;
+}
+button:disabled {
+  opacity: 0.5 !important;
+}
+ion-popover {
+  --width: 98vw;
+}
+ion-item::part(native) {
+  background: none;
 }

@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, inject } from '@angular/core';
-import {CommonModule, NgOptimizedImage} from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {IonicModule, ModalController, NavController} from '@ionic/angular';
+import { IonicModule, ModalController, NavController } from '@ionic/angular';
 import { NavParams } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ObservationsService } from 'src/app/services/observations.service';
@@ -10,14 +10,16 @@ import { CommonService } from 'src/app/services';
 import { TranslateModule } from '@ngx-translate/core';
 import { Swiper } from "swiper";
 import { Navigation, Pagination } from 'swiper/modules';
-import {GraphComponent} from "../../components/graph/graph.component";
+import { GraphComponent } from "../../components/graph/graph.component";
+import { ParseFloatPipe } from 'src/app/pipes/format-str2float.pipe';
+import { ComponentsModule } from 'src/app/pipes/components.module';
 
 @Component({
   selector: 'app-observation-details',
   templateUrl: './observation-details.page.html',
   styleUrls: ['./observation-details.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, NgOptimizedImage, GraphComponent],
+  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, NgOptimizedImage, GraphComponent, ComponentsModule],
   providers: [ObservationsRepoHttp, ObservationsService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
@@ -63,6 +65,6 @@ export class ObservationDetailsPage implements OnInit {
     }
   }
   async goBack() {
-    await this.modalCtl.dismiss()
+    await this.modalCtl.dismiss('closed');
   }
 }

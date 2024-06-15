@@ -29,7 +29,7 @@ export class ChangeLanguagePage {
       if (lang) {
         this.selectedLanguage = lang;
       } else {
-        this.selectedLanguage = 'es';
+        this.selectedLanguage = 'ca';
       }
     });
   }

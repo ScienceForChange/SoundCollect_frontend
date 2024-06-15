@@ -36,6 +36,7 @@
             {{'profile.label.age'|translate}} {{ calcAge() }}
             {{'profile.label.years'|translate}}
           </ion-text>
+
           <ion-text
             class="H-16-400 my-text-dark"
             style="padding: 0 24px"
@@ -43,6 +44,13 @@
           >
             {{'about_me.label.gender'|translate}}: {{'profile.label.' +
             gender|translate}}
+          </ion-text>
+          <ion-text
+            class="H-16-400 my-text-dark"
+            style="padding: 0 24px"
+            *ngIf="gender"
+          >
+            {{'recovery_pass.label.email'|translate}}: {{email}}
           </ion-text>
           <div
             class="w-full py-3"
@@ -65,111 +73,146 @@
       <div *ngIf="!isUserAuth" class="my-5">
         <app-no-user-auth></app-no-user-auth>
       </div>
-<!--      <section class="mb-4" *ngIf="authService.isAuthenticated.getValue()">-->
-<!--        <div class="flex justify-between w-full items-center mb-3">-->
-<!--          <ion-text class="H-20-700 my-text-header"-->
-<!--            >{{'profile.label.my_contribution'|translate}}</ion-text-->
-<!--          >-->
-<!--        </div>-->
-<!--        <div class="box-style">-->
-<!--          <label-->
-<!--            class="H-20-700 my-text-header flex justify-between items-center w-full"-->
-<!--            style="padding: 0 24px"-->
-<!--          >-->
-<!--            <span>Nivel X</span>-->
-<!--            <span class="flex">-->
-<!--              <img-->
-<!--                class="me-3"-->
-<!--                src="../../../assets/images/SoundCollect/Ilustraciones/solar.svg"-->
-<!--              />-->
-<!--              Principiante-->
-<!--            </span>-->
-<!--          </label>-->
-<!--          <ion-text-->
-<!--            class="H6-14-400-SpaceGrotesk my-text-dark"-->
-<!--            style="padding: 0 24px"-->
-<!--          >-->
-<!--            5 contribuciones para llegar al próximo nivel-->
-<!--          </ion-text>-->
-<!--          <div-->
-<!--            class="w-full flex justify-between"-->
-<!--            style="border-top: 1.5px solid #f2f4f3"-->
-<!--          >-->
-<!--            <div-->
-<!--              class="flex flex-col items-center gap-2 w-full py-6"-->
-<!--              style="border-right: 1.5px solid #f2f4f3"-->
-<!--            >-->
-<!--              <label class="H-24-700 my-text-header">25</label>-->
-<!--              <label class="H6-14-400-SpaceGrotesk my-text-header"-->
-<!--                >{{'profile.label.study_areas'|translate}}</label-->
-<!--              >-->
-<!--            </div>-->
-<!--            <div class="flex flex-col items-center gap-2 w-full py-6">-->
-<!--              <label class="H-24-700 my-text-header">25</label>-->
-<!--              <label class="H6-14-400-SpaceGrotesk my-text-header"-->
-<!--                >{{'profile.label.recorded_sounds'}}</label-->
-<!--              >-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">-->
-<!--            <button-->
-<!--              (click)="goToMySounds()"-->
-<!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
-<!--            >-->
-<!--              <label class="flex justify-between w-full me-5">-->
-<!--                <span>{{'profile.label.my_sounds'|translate}}</span>-->
-<!--                <span>5</span></label-->
-<!--              >-->
-<!--              <img-->
-<!--                class="me-8"-->
-<!--                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"-->
-<!--              />-->
-<!--            </button>-->
-<!--          </div>-->
-<!--          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">-->
-<!--            <button-->
-<!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
-<!--            >-->
-<!--              <label class="flex justify-between w-full me-5">-->
-<!--                <span>{{'profile.label.study_areas'|translate}}</span>-->
-<!--                <span>5</span></label-->
-<!--              >-->
-<!--              <img-->
-<!--                class="me-8"-->
-<!--                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"-->
-<!--              />-->
-<!--            </button>-->
-<!--          </div>-->
-<!--          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">-->
-<!--            <button-->
-<!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
-<!--            >-->
-<!--              <label class="flex justify-between w-full me-5"-->
-<!--                ><span>{{'profile.label.badges_earned'|translate}}</span>-->
-<!--                <span>5</span></label-->
-<!--              >-->
-<!--              <img-->
-<!--                class="me-8"-->
-<!--                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"-->
-<!--              />-->
-<!--            </button>-->
-<!--          </div>-->
-<!--          <div class="w-full py-2" style="border-top: 1.5px solid #f2f4f3">-->
-<!--            <button-->
-<!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
-<!--            >-->
-<!--              <label class="flex justify-between w-full me-5"-->
-<!--                ><span>{{'profile.label.download_information'|translate}}</span>-->
-<!--                <span></span-->
-<!--              ></label>-->
-<!--              <img-->
-<!--                class="me-8"-->
-<!--                src="../../../assets/images/SoundCollect/Iconos/download.svg"-->
-<!--              />-->
-<!--            </button>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </section>-->
+      <!--      <section class="mb-4" *ngIf="authService.isAuthenticated.getValue()">-->
+      <!--        <div class="flex justify-between w-full items-center mb-3">-->
+      <!--          <ion-text class="H-20-700 my-text-header"-->
+      <!--            >{{'profile.label.my_contribution'|translate}}</ion-text-->
+      <!--          >-->
+      <!--        </div>-->
+      <!--        <div class="box-style">-->
+      <!--          <label-->
+      <!--            class="H-20-700 my-text-header flex justify-between items-center w-full"-->
+      <!--            style="padding: 0 24px"-->
+      <!--          >-->
+      <!--            <span>Nivel X</span>-->
+      <!--            <span class="flex">-->
+      <!--              <img-->
+      <!--                class="me-3"-->
+      <!--                src="../../../assets/images/SoundCollect/Ilustraciones/solar.svg"-->
+      <!--              />-->
+      <!--              Principiante-->
+      <!--            </span>-->
+      <!--          </label>-->
+      <!--          <ion-text-->
+      <!--            class="H6-14-400-SpaceGrotesk my-text-dark"-->
+      <!--            style="padding: 0 24px"-->
+      <!--          >-->
+      <!--            5 contribuciones para llegar al próximo nivel-->
+      <!--          </ion-text>-->
+      <!--          <div-->
+      <!--            class="w-full flex justify-between"-->
+      <!--            style="border-top: 1.5px solid #f2f4f3"-->
+      <!--          >-->
+      <!--            <div-->
+      <!--              class="flex flex-col items-center gap-2 w-full py-6"-->
+      <!--              style="border-right: 1.5px solid #f2f4f3"-->
+      <!--            >-->
+      <!--              <label class="H-24-700 my-text-header">25</label>-->
+      <!--              <label class="H6-14-400-SpaceGrotesk my-text-header"-->
+      <!--                >{{'profile.label.study_areas'|translate}}</label-->
+      <!--              >-->
+      <!--            </div>-->
+      <!--            <div class="flex flex-col items-center gap-2 w-full py-6">-->
+      <!--              <label class="H-24-700 my-text-header">25</label>-->
+      <!--              <label class="H6-14-400-SpaceGrotesk my-text-header"-->
+      <!--                >{{'profile.label.recorded_sounds'}}</label-->
+      <!--              >-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">-->
+      <!--            <button-->
+      <!--              (click)="goToMySounds()"-->
+      <!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
+      <!--            >-->
+      <!--              <label class="flex justify-between w-full me-5">-->
+      <!--                <span>{{'profile.label.my_sounds'|translate}}</span>-->
+      <!--                <span>5</span></label-->
+      <!--              >-->
+      <!--              <img-->
+      <!--                class="me-8"-->
+      <!--                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"-->
+      <!--              />-->
+      <!--            </button>-->
+      <!--          </div>-->
+      <!--          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">-->
+      <!--            <button-->
+      <!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
+      <!--            >-->
+      <!--              <label class="flex justify-between w-full me-5">-->
+      <!--                <span>{{'profile.label.study_areas'|translate}}</span>-->
+      <!--                <span>5</span></label-->
+      <!--              >-->
+      <!--              <img-->
+      <!--                class="me-8"-->
+      <!--                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"-->
+      <!--              />-->
+      <!--            </button>-->
+      <!--          </div>-->
+      <!--          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">-->
+      <!--            <button-->
+      <!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
+      <!--            >-->
+      <!--              <label class="flex justify-between w-full me-5"-->
+      <!--                ><span>{{'profile.label.badges_earned'|translate}}</span>-->
+      <!--                <span>5</span></label-->
+      <!--              >-->
+      <!--              <img-->
+      <!--                class="me-8"-->
+      <!--                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"-->
+      <!--              />-->
+      <!--            </button>-->
+      <!--          </div>-->
+      <!--          <div class="w-full py-2" style="border-top: 1.5px solid #f2f4f3">-->
+      <!--            <button-->
+      <!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
+      <!--            >-->
+      <!--              <label class="flex justify-between w-full me-5"-->
+      <!--                ><span>{{'profile.label.download_information'|translate}}</span>-->
+      <!--                <span></span-->
+      <!--              ></label>-->
+      <!--              <img-->
+      <!--                class="me-8"-->
+      <!--                src="../../../assets/images/SoundCollect/Iconos/download.svg"-->
+      <!--              />-->
+      <!--            </button>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </section>-->
+
+      <section class="mb-4">
+        <div class="flex justify-between w-full items-center mb-3">
+          <ion-text class="H-20-700 my-text-header">
+            {{'profile.label.calibrate_sound'|translate}}
+          </ion-text>
+        </div>
+        <div class="box-style">
+          <div class="w-full pt-1 pb-3">
+            <button [routerLink]="['/calibrate-sound']" class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400">
+              <label class="flex justify-between w-full me-5">
+                <span>{{'profile.label.calibrate_access'|translate}}</span>
+                <span></span></label>
+              <img class="me-8" src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"/>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="mb-4">
+        <div class="flex justify-between w-full items-center mb-3">
+          <ion-text class="H-20-700 my-text-header">
+            {{'profile.label.my_contribution'|translate}}
+          </ion-text>
+        </div>
+        <div class="box-style">
+          <div class="w-full pt-1 pb-3">
+            <button [routerLink]="['/achievements']" class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400">
+              <label class="flex justify-between w-full me-5">
+                <span>{{'profile.label.badges_earned'|translate}}</span>
+                <span>{{level}}</span></label>
+              <img class="me-8" src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"/>
+            </button>
+          </div>
+        </div>
+      </section>
       <section class="mb-4">
         <div class="flex justify-between w-full items-center mb-3">
           <ion-text class="H-20-700 my-text-header"
@@ -177,28 +220,13 @@
           >
         </div>
         <div class="box-style">
-          <div class="w-full pt-2">
-            <button
-              [routerLink]="['/user-guide']"
-              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
-            >
-              <label class="flex justify-between w-full me-5"
-                ><span>{{'profile.label.user_guide'|translate}}</span>
-                <span></span
-              ></label>
-              <img
-                class="me-8"
-                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
-              />
-            </button>
-          </div>
-<!--          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">-->
+<!--          <div class="w-full pt-2">-->
 <!--            <button-->
-<!--              [routerLink]="['/change-language']"-->
+<!--            [routerLink]="['/user-guide']"-->
 <!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
 <!--            >-->
 <!--              <label class="flex justify-between w-full me-5"-->
-<!--                ><span>{{'profile.label.language'|translate}}</span>-->
+<!--                ><span>{{'profile.label.user_guide'|translate}}</span>-->
 <!--                <span></span-->
 <!--              ></label>-->
 <!--              <img-->
@@ -207,22 +235,25 @@
 <!--              />-->
 <!--            </button>-->
 <!--          </div>-->
-          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">
-            <button
-              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
-              (click)="goToTerminos()"
-            >
-              <label class="flex justify-between w-full me-5"
-                ><span>{{'about_me.label.terms'|translate}}</span> <span></span
-              ></label>
-              <img
-                class="me-8"
-                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
-              />
+          <div class="w-full pt-2">
+            <button [routerLink]="['/change-language']" class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400">
+              <label class="flex justify-between w-full me-5">
+                <span>{{'profile.label.language'|translate}}</span>
+                <span></span></label>
+              <img class="me-8" src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"/>
+            </button>
+          </div>
+          <div class="w-full pt-4 pb-1" style="border-top: 1.5px solid #f2f4f3">
+            <button class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400" (click)="goToTerminos()">
+              <label class="flex justify-between w-full me-5">
+                <span>{{'about_me.label.terms'|translate}}</span>
+                <span></span>
+              </label>
+              <img class="me-8" src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"/>
             </button>
           </div>
 
-          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">
+          <!-- <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">
             <button
               class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
             >
@@ -234,8 +265,8 @@
                 src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
               />
             </button>
-          </div>
-          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">
+          </div> -->
+          <div class="w-full py-3" style="border-top: 1.5px solid #f2f4f3">
             <button
               class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
               (click)="goToLegalNotice()"
@@ -250,7 +281,7 @@
               />
             </button>
           </div>
-          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">
+          <!-- <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">
             <button
               class="mx-5 w-full mb-2 flex items-center bg-transparent my-text-header H-16-400"
             >
@@ -263,7 +294,7 @@
                 src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
               />
             </button>
-          </div>
+          </div> -->
         </div>
       </section>
       <!--      <section class="mb-4" *ngIf="authService.isAuthenticated.getValue()">-->
@@ -349,7 +380,7 @@
       </section>
       <button
         *ngIf="isUserAuth"
-        class="my-btn-login mt-8 mx-auto"
+        class="my-btn-login my-btn-close-session mt-8 mx-auto"
         (click)="logout()"
       >
         {{'profile.label.close_session'|translate}}

@@ -34,11 +34,15 @@ export class AuthService {
       this.isAuthenticated.next(true);
       const gender = await this.commonService.getItem('gender');
       const birthYear = await this.commonService.getItem('birthYear');
+      const email = await this.commonService.getItem('email');
       if (gender) {
         this.gender.next(gender);
       }
       if (birthYear) {
         this.birthYear.next(Number(birthYear));
+      }
+      if (email) {
+        this.email.next(email);
       }
     }
   }
@@ -54,12 +58,16 @@ export class AuthService {
 
   async saveDataUser(data: any) {
     try {
+      console.log(data);
       this.isAuthenticated.next(true);
       await this.commonService.setItem(this.jwtTokenName, data.token);
       this.gender.next(data?.user?.attributes?.profile?.gender);
       this.birthYear.next(data?.user?.attributes?.profile?.birthYear);
+      const email_val = await this.commonService.getItem('email');
+      if (email_val) this.email.next(email_val);
       await this.commonService.setItem('gender', data?.user?.attributes?.profile?.gender);
       await this.commonService.setItem('birthYear', data?.user?.attributes?.profile?.birthYear);
+      // await this.commonService.setItem('email', data?.user?.attributes?.profile?.email);
     } catch (e) {
       console.error(e);
       return false;
@@ -99,6 +107,12 @@ export class AuthService {
 
   async logout() {
     try {
+      localStorage.removeItem("email");
+      localStorage.removeItem("birthYear");
+      localStorage.removeItem("jwt_token");
+      localStorage.removeItem("gender");
+      localStorage.removeItem("email");
+      localStorage.removeItem("badges");
       await this.authHTTP.logout();
     }
     catch (e) {

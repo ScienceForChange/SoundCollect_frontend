@@ -1,16 +1,14 @@
-import {Component, inject, OnDestroy, OnInit} from '@angular/core';
-import {IonicModule, ModalController, NavController} from '@ionic/angular';
+import { Component, inject, OnInit } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 import { RouterLink } from "@angular/router";
 import { ComponentsModule } from "../../pipes/components.module";
-import {DecimalPipe, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+import { DecimalPipe, NgForOf, NgIf, NgOptimizedImage } from "@angular/common";
 import { TranslateModule } from "@ngx-translate/core";
 import { MySoundsComponent } from "../../components/my-sounds/my-sounds.component";
 import { ObservationsService } from 'src/app/services/observations.service';
 import { ObservationsRepoHttp } from 'src/app/repos/observations-repo-http';
-import {AuthService, CommonService} from 'src/app/services';
-import { IObservation } from 'src/app/models/iobservation';
-import {NoUserAuthComponent} from "../../components/no-user-auth/no-user-auth.component";
-import {ObservationDetailsPage} from "../observation-details/observation-details.page";
+import { AuthService, CommonService } from 'src/app/services';
+import { NoUserAuthComponent } from "../../components/no-user-auth/no-user-auth.component";
 
 @Component({
   selector: 'app-sounds',
@@ -20,7 +18,7 @@ import {ObservationDetailsPage} from "../observation-details/observation-details
   imports: [IonicModule, RouterLink, ComponentsModule, DecimalPipe, NgForOf, NgIf, TranslateModule, MySoundsComponent, NgOptimizedImage, NoUserAuthComponent],
   providers: [ObservationsService, ObservationsRepoHttp, CommonService]
 })
-export class SoundsPage implements OnInit{
+export class SoundsPage implements OnInit {
 
   content = true;
   soundsCant = 0;

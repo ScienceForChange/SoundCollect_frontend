@@ -33,4 +33,16 @@ safety: string;
 influence: string;
 landmark: string;
 protection: string;
+pleasant: string;
+chaotic: string;
+vibrant: string;
+uneventful: string;
+calm: string;
+annoying: string;
+eventful: string;
+monotonous: string;
+environment:string;
+exp_acoustic?:{[key: string]: string };//{pleasant:string,chaotic:string,vibrant:string,uneventful:string,calm:string,annoying:string,eventful:string,monotonous:string};
+exp_current?:string;
+path:string;
 }

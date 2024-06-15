@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import { Observable, lastValueFrom, of } from 'rxjs';
+import { lastValueFrom, of } from 'rxjs';
 import { mutations } from '../_graphql/_mutations';
 import { queries } from '../_graphql/_queries';
 
@@ -12,10 +12,10 @@ export class UserHTTP {
 
   createUserRecord(userRecordOptions: any): Promise<any> {
     try {
-      return this.apollo.mutate<any>({
+      return lastValueFrom(this.apollo.mutate<any>({
         mutation: mutations.userRecord.create(),
         variables: userRecordOptions
-      }).toPromise();
+      }));
     } catch (e) {
       return new Promise((resolve) => {
         of(resolve);
@@ -30,10 +30,10 @@ export class UserHTTP {
         value,
         detail
       };
-      return this.apollo.mutate<any>({
+      return lastValueFrom(this.apollo.mutate<any>({
         mutation: mutations.userRecord.update(),
         variables: values
-      }).toPromise();
+      }));
     } catch (e) {
       return new Promise((resolve) => {
         of(resolve);
@@ -46,10 +46,10 @@ export class UserHTTP {
       const values: any = {
         id
       };
-      return this.apollo.mutate<any>({
+      return lastValueFrom(this.apollo.mutate<any>({
         mutation: mutations.userRecord.remove(),
         variables: values
-      }).toPromise();
+      }));
     } catch (e) {
       return new Promise((resolve) => {
         of(resolve);

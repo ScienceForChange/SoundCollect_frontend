@@ -1,5 +1,8 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar color="ligth" class="ion-no-margin ion-no-padding ion-no-border bg-white">
+  <ion-toolbar
+    color="ligth"
+    class="ion-no-margin ion-no-padding ion-no-border bg-white"
+  >
     <div class="flex items-center justify-between px-3">
       <ion-text class="H2-22-700 self-start ms-16 my-text-header">
         {{'observations.label.detail'|translate}}
@@ -11,7 +14,8 @@
         ngSrc="assets/images/SoundCollect/Iconos/close.svg"
         alt="back"
         width="24"
-        height="24"/>
+        height="24"
+      />
     </div>
   </ion-toolbar>
 </ion-header>
@@ -20,12 +24,16 @@
     <label class="H2-22-700 my-text-header">Automóviles</label>
   </div> -->
   <div class="p-4 flex flex-col">
-    <div class="w-full h-full py-4" *ngIf="observation?.attributes?.images?.length > 0">
+    <div
+      class="w-full h-full py-4"
+      *ngIf="observation?.attributes?.images?.length > 0"
+    >
       <swiper-container
         [slidesPerView]="1"
         [loop]="false"
         [pagination]="true"
-        [allowTouchMove]="true">
+        [allowTouchMove]="true"
+      >
         <swiper-slide *ngFor="let image of observation?.attributes?.images">
           <div
             class="frame pb-6"
@@ -43,13 +51,24 @@
     <label class="H-20-700 my-text-header">
       {{ "sounds.label.info_general" | translate }}
     </label>
-    <div class="flex w-full mt-3 justify-between items-center" *ngIf="observation?.relationships?.types.length > 0">
+    <div
+      class="flex w-full mt-3 justify-between items-center"
+      *ngIf="observation?.relationships?.types.length > 0"
+    >
       <div class="flex flex-col">
         <label class="H-16-400 my-text-header flex items-center gap-3">
           {{ "sounds.label.sound_type" | translate }}
         </label>
-        <label *ngFor="let item of observation?.relationships?.types" class="H-16-400 my-text-header flex items-center gap-3">
-          <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" alt="" height="16" width="16"/>{{item?.name}}
+        <label
+          *ngFor="let item of observation?.relationships?.types"
+          class="H-16-400 my-text-header flex items-center gap-3"
+        >
+          <img
+            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+            alt=""
+            height="16"
+            width="16"
+          />{{item?.name}}
         </label>
       </div>
     </div>
@@ -67,46 +86,81 @@
       {{'observations.weather.title'|translate}}
     </label>
     <div class="flex w-full mt-3 justify-between items-stretch">
-      <div class="flex flex-col justify-center text-center align-middle w-1/4 py-5 me-1" style="background-color: #FFF8F2; border-radius: 20px">
+      <div
+        class="flex flex-col justify-center text-center align-middle w-1/4 py-5 me-1"
+        style="background-color: #fff8f2; border-radius: 20px"
+      >
         <label class="H6-14-400-SpaceGrotesk my-text-header">
           {{'observations.weather.wind'|translate}}
         </label>
         <div class="flex justify-center">
-          <img ngSrc="assets/images/SoundCollect/Iconos/air.svg" height="32" width="32" alt=""/>
+          <img
+            ngSrc="assets/images/SoundCollect/Iconos/air.svg"
+            height="32"
+            width="32"
+            alt=""
+          />
         </div>
         <label class="H6-14-700-SpaceGrotesk my-text-header text-center">
           {{ observation?.attributes?.wind_speed }}km/h
         </label>
       </div>
-      <div class="flex flex-col justify-center text-center align-middle w-1/4 py-5 me-1" style="background-color: #FFF8F2; border-radius: 20px">
+      <div
+        class="flex flex-col justify-center text-center align-middle w-1/4 py-5 me-1"
+        style="background-color: #fff8f2; border-radius: 20px"
+      >
         <label class="H6-14-400-SpaceGrotesk my-text-header">
           {{'observations.weather.humidity'|translate}}
         </label>
         <div class="flex justify-center">
-          <img ngSrc="assets/images/SoundCollect/Iconos/humidity_mid.svg" height="32" width="32" alt=""/>
+          <img
+            ngSrc="assets/images/SoundCollect/Iconos/humidity_mid.svg"
+            height="32"
+            width="32"
+            alt=""
+          />
         </div>
-        <label class="H6-14-700-SpaceGrotesk my-text-header text-center" >
+        <label class="H6-14-700-SpaceGrotesk my-text-header text-center">
           {{ observation?.attributes?.humidity }}%
         </label>
       </div>
-      <div class="flex flex-col justify-center text-center align-middle w-1/4 py-5 me-1" style="background-color: #FFF8F2; border-radius: 20px">
+      <div
+        class="flex flex-col justify-center text-center align-middle w-1/4 py-5 me-1"
+        style="background-color: #fff8f2; border-radius: 20px"
+      >
         <label class="H6-14-400-SpaceGrotesk my-text-header">
           {{'observations.weather.temperature'|translate}}
         </label>
         <div class="flex justify-center">
-          <img ngSrc="assets/images/SoundCollect/Iconos/temp.svg" height="32" width="32" alt=""/>
+          <img
+            ngSrc="assets/images/SoundCollect/Iconos/temp.svg"
+            height="32"
+            width="32"
+            alt=""
+          />
         </div>
-        <label class="H6-14-700-SpaceGrotesk my-text-header text-center" >
-          {{ observation?.attributes?.temperature }}c</label>
+        <label class="H6-14-700-SpaceGrotesk my-text-header text-center">
+          {{ observation?.attributes?.temperature }}c</label
+        >
       </div>
-      <div class="flex flex-col justify-center text-center align-middle w-1/4 py-5" style="background-color: #FFF8F2; border-radius: 20px">
+      <div
+        class="flex flex-col justify-center text-center align-middle w-1/4 py-5"
+        style="background-color: #fff8f2; border-radius: 20px"
+      >
         <label class="H6-14-400-SpaceGrotesk my-text-header">
-          {{'observations.weather.pressure'|translate}}</label>
+          {{'observations.weather.pressure'|translate}}</label
+        >
         <div class="flex justify-center">
-          <img ngSrc="assets/images/SoundCollect/Iconos/press.svg" height="32" width="32" alt=""/>
+          <img
+            ngSrc="assets/images/SoundCollect/Iconos/press.svg"
+            height="32"
+            width="32"
+            alt=""
+          />
         </div>
-        <label class="H6-14-700-SpaceGrotesk my-text-header text-center" >
-          {{ observation?.attributes?.pressure }} hPa</label>
+        <label class="H6-14-700-SpaceGrotesk my-text-header text-center">
+          {{ observation?.attributes?.pressure }} hPa</label
+        >
       </div>
     </div>
     <label class="H-20-700 mt-5 my-text-header">
@@ -116,52 +170,125 @@
       >Lorem ipsum dolor sit amet consectetur. Urna cras at elit lectus
       consectetur convallis aliquet.</label > -->
     <!-- <label class="H-16-400 my-text-header">Parametros</label> -->
-    <div class="flex w-full justify-between items-center">
-      <div class="H-16-400 my-text-header flex flex-col">
+    <div class="flex w-full justify-start items-center">
+      <div class="H-16-400 my-text-header flex flex-col w-full">
         <div class="w-full flex m-2">
-          <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
-          <strong>{{'sounds.collect.process.L10' |translate}}</strong>: {{observation?.attributes?.L10 | number:'1.0-0'}}
+          <img
+            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+            height="16"
+            width="16"
+            alt=""
+            class="me-1"
+          />
+          <strong>{{'sounds.collect.process.L10' |translate}}</strong>:
+          {{observation?.attributes?.L10 | parseFloat | number:'1.0-0'}}
         </div>
         <div class="w-full flex m-2">
-          <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
-          <strong>{{'sounds.collect.process.L90' |translate}}</strong>: {{observation?.attributes?.L90 | number:'1.0-0'}}
+          <img
+            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+            height="16"
+            width="16"
+            alt=""
+            class="me-1"
+          />
+          <strong>{{'sounds.collect.process.L90' |translate}}</strong>:
+          {{observation?.attributes?.L90 | parseFloat | number:'1.0-0'}}
         </div>
         <div class="w-full flex m-2">
-          <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
-          <strong>{{'sounds.collect.process.Leq' |translate}}</strong>: {{observation?.attributes?.Leq| number:'1.0-0'}}
+          <img
+            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+            height="16"
+            width="16"
+            alt=""
+            class="me-1"
+          />
+          <strong>{{'sounds.collect.process.Leq' |translate}}</strong>:
+          {{observation?.attributes?.Leq | parseFloat | number:'1.0-0'}}
         </div>
         <div class="w-full flex m-2">
-          <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
-          <strong>{{'sounds.collect.process.LAmax' |translate}}</strong>: {{observation?.attributes?.LAmax| number:'1.0-0'}}
+          <img
+            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+            height="16"
+            width="16"
+            alt=""
+            class="me-1"
+          />
+          <strong>{{'sounds.collect.process.LAmax' |translate}}</strong>:
+          {{observation?.attributes?.LAmax | parseFloat | number:'1.0-0'}}
         </div>
         <div class="w-full flex m-2">
-          <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
-          <strong>{{'sounds.collect.process.LAmin' |translate}}</strong>: {{observation?.attributes?.LAmin| number:'1.0-0'}}
+          <img
+            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+            height="16"
+            width="16"
+            alt=""
+            class="me-1"
+          />
+          <strong>{{'sounds.collect.process.LAmin' |translate}}</strong>:
+          {{observation?.attributes?.LAmin | parseFloat | number:'1.0-0'}}
         </div>
-        <div class="w-full flex m-2">
-          <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
-          <strong>{{'sounds.collect.process.sharpness_S' |translate}}</strong>: {{observation?.attributes?.sharpness_S| number:'1.0-0'}}
-        </div>
-        <div class="w-full flex m-2">
-          <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
-          <strong>{{'sounds.collect.process.loudness_N' |translate}}</strong>: {{observation?.attributes?.loudness_N| number:'1.0-0'}}
-        </div>
-        <div class="w-full flex m-2">
-          <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
-          <strong>{{'sounds.collect.process.roughtness_R' |translate}}</strong>: {{observation?.attributes?.roughtness_R| number:'1.0-0'}}
-        </div>
-        <div class="w-full flex m-2">
-          <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
-          <strong>{{'sounds.collect.process.fluctuation_strength_F' |translate}}</strong>: {{observation?.attributes?.fluctuation_strength_F| number:'1.0-0'}}
-        </div>
-        <div class="w-100 flex justify-center flex-col" *ngIf="showGraph">
+<!--        <div class="w-full flex m-2">-->
+<!--          <img-->
+<!--            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"-->
+<!--            height="16"-->
+<!--            width="16"-->
+<!--            alt=""-->
+<!--            class="me-1"-->
+<!--          />-->
+<!--          <strong>{{'sounds.collect.process.sharpness_S' |translate}}</strong>:-->
+<!--          {{observation?.attributes?.sharpness_S | parseFloat | number:'1.0-0'}}-->
+<!--        </div>-->
+<!--        <div class="w-full flex m-2">-->
+<!--          <img-->
+<!--            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"-->
+<!--            height="16"-->
+<!--            width="16"-->
+<!--            alt=""-->
+<!--            class="me-1"-->
+<!--          />-->
+<!--          <strong>{{'sounds.collect.process.loudness_N' |translate}}</strong>:-->
+<!--          {{observation?.attributes?.loudness_N | parseFloat | number:'1.0-0'}}-->
+<!--        </div>-->
+<!--        <div class="w-full flex m-2">-->
+<!--          <img-->
+<!--            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"-->
+<!--            height="16"-->
+<!--            width="16"-->
+<!--            alt=""-->
+<!--            class="me-1"-->
+<!--          />-->
+<!--          <strong>{{'sounds.collect.process.roughtness_R' |translate}}</strong>:-->
+<!--          {{observation?.attributes?.roughtness_R | parseFloat |-->
+<!--          number:'1.0-0'}}-->
+<!--        </div>-->
+<!--        <div class="w-full flex m-2">-->
+<!--          <img-->
+<!--            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"-->
+<!--            height="16"-->
+<!--            width="16"-->
+<!--            alt=""-->
+<!--            class="me-1"-->
+<!--          />-->
+<!--          <strong-->
+<!--            >{{'sounds.collect.process.fluctuation_strength_F'-->
+<!--            |translate}}</strong-->
+<!--          >: {{observation?.attributes?.fluctuation_strength_F | parseFloat |-->
+<!--          number:'1.0-0'}}-->
+<!--        </div>-->
+        <div class="w-full flex justify-center flex-col" *ngIf="showGraph">
           <div class="H-16-400 my-text-header flex items-center">
             <div class="w-full flex m-2">
-              <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
+              <img
+                ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+                height="16"
+                width="16"
+                alt=""
+                class="me-1"
+              />
               <strong>{{'sounds.collect.process.LAeqT'|translate}}</strong>:
             </div>
           </div>
-          <div class="w-80">
+          <div class="w-full mt-1">
             <app-graph [dataset]="observation?.attributes?.LAeqT"></app-graph>
           </div>
         </div>
@@ -175,10 +302,10 @@
     <label class="H-16-400 my-text-header"
       >{{ observation?.attributes?.comments }}</label
     >
-<!--    <button class="my-btn-custome mt-5" style="background-color: #d02424">-->
-<!--      <img src="assets/images/SoundCollect/Iconos/delete.svg" />{{-->
-<!--      "sounds.label.remove_sound" | translate }}-->
-<!--    </button>-->
+    <!--    <button class="my-btn-custome mt-5" style="background-color: #d02424">-->
+    <!--      <img src="assets/images/SoundCollect/Iconos/delete.svg" />{{-->
+    <!--      "sounds.label.remove_sound" | translate }}-->
+    <!--    </button>-->
     <br />
     <br />
   </div>

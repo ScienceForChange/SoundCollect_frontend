@@ -1,0 +1,90 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="ligth" class="ion-no-margin ion-no-padding ion-no-border bg-white">
+    <div class="flex items-center justify-between px-3">
+      <ion-text class="H2-22-700 self-start my-text-header">
+        {{'calibration.popupTitle' | translate}}
+      </ion-text>
+      <img tappable="true" class="mt-1" (click)="goToHome()" src="assets/images/SoundCollect/Iconos/close.svg" alt="back" width="24"/>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <div *ngIf="isUserAuth" class="flex-col flex w-full justify-between items-center p-3" style="height: 77vh">
+    <div class="w-full flex flex-col" *ngIf="myStep === 1">
+      <label class="H-20-700 mt-4 my-text-header w-full flex justify-between items-center">
+        {{'calibration.beginCalibrationTitle' | translate}}
+      </label>
+      <label class="H-16-400 my-text-header mt-2"> {{'calibration.beginCalibrationTxt' | translate}}</label>
+      <div class="w-full flex justify-center p-3">
+        <div class="circle-container" tappable (click)="initRecord()">
+          <div class="circle back-circle"></div>
+          <div class="circle w-100" [ngClass]="recording ? 'animated-circle-full' : ''"></div>
+          <div class="circle center-circle">
+            <ion-icon name="mic" class="icon-mic-style"></ion-icon>
+          </div>
+        </div>
+      </div>
+      <div class="w-full flex flex-col justify-center text-center" *ngIf="flagViewControls">
+        <div class="flex justify-center text-center mb-5">
+          <label class="H-20-700 mt-4 my-text-header flex items-center"><p>{{ timer }}</p></label>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="myStep > 1">
+      <div class="w-full flex flex-col">
+        <label class="H-20-700 mt-4">
+          {{'calibration.calibration_value' | translate}}
+        </label>
+        <label class="H-16-400 my-3">
+          {{'calibration.calibration_value_desc' | translate}}
+        </label>
+        <div class="w-full flex justify-center">
+          <label class="H1-34-600">
+            {{calibrateValueApi}}
+          </label>
+        </div>
+
+        <div class="w-100 flex flex-col mt-10">
+          <label class="H-16-400 my-3">
+            {{'calibration.calibration_value_desc2' | translate}}
+          </label>
+          <label class="H8-12-400-SpaceGrotesk mb-7">
+            {{'calibration.calibration_value_desc3' | translate}}
+          </label>
+          <ion-checkbox class="around flex" labelPlacement="end" justify="start" mode="md" (ionChange)="isChecked($event)">
+            <div class="ion-text-wrap">
+              {{'calibration.calibration_value_desc4' | translate}}
+            </div>
+          </ion-checkbox>
+          <ion-input class="text-start input px-3 mt-3" #newValueCalibration
+            autofocus="true"
+            type="number"
+            placeholder=""
+            style="background: #f3f6f5;"
+            [disabled]="!checkManual"
+            [(ngModel)]="manualValueCalibration"
+          ></ion-input>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isUserAuth" class="my-5">
+    <app-no-user-auth></app-no-user-auth>
+  </div>
+</ion-content>
+
+<ion-footer style="background-color: #e7ffff !important">
+  <div class="ion-no-border px-3 pt-2" *ngIf="isUserAuth && myStep > 1">
+    <div class="flex w-full flex-col justify-evenly gap-3">
+      <div class="flex gap-6 justify-evenly">
+        <button (click)="sendValueCalibration()" [disabled]="!canSendAudio" class="my-btn-login" [ngClass]="!canSendAudio ? 'opacity-50' : ''">
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-footer>

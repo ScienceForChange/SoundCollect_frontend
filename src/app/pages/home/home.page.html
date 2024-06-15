@@ -2,35 +2,43 @@
   <div style="height: 105%; position: relative">
     <capacitor-google-map #map></capacitor-google-map>
   </div>
-<!--  <div class="w-full" style="position: absolute; top: 20px">-->
-<!--        <div class="flex flex-col px-3 w-full items-center justify-center">-->
-<!--          <div class="relative w-full margin-top-safe-area">-->
-<!--            <input-->
-<!--              class="w-full"-->
-<!--              placeholder="Ubicación"-->
-<!--              type="search"-->
-<!--              style="border-radius: 100px; background: #fff; padding: 8px 16px"-->
-<!--            />-->
-<!--            <img-->
-<!--              class="absolute"-->
-<!--              src="assets/images/SoundCollect/Iconos/filter.svg"-->
-<!--              style="top: 0; bottom: 0; margin: auto; right: 13px"-->
-<!--            />-->
-<!--          </div>-->
-<!--          <div class="relative w-full">-->
-<!--            <label-->
-<!--              class="absolute H3-18-700-SpaceGrotesk my-text-header"-->
-<!--              style="top: 9px; bottom: 0; margin: auto; right: 6px; z-index: 10"-->
-<!--              >120db</label-->
-<!--            >-->
-<!--            <label-->
-<!--              class="absolute H3-18-700-SpaceGrotesk my-text-header"-->
-<!--              style="top: 9px; bottom: 0; margin: auto; left: 6px; z-index: 10"-->
-<!--              >2db</label-->
-<!--            >-->
-<!--            <ion-range class="w-full"></ion-range>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="p-3 flex flex-col w-full h-full"></div>-->
-<!--  </div>-->
+ <div class="w-full" style="position: absolute; top: 20px">
+          <div class="flex flex-col px-3 w-full items-center justify-center">
+            <div class="relative w-full margin-top-safe-area">
+              <input [(ngModel)]="searchText" (ngModelChange)="searchLocations()"
+                     class="w-full"
+                     [ngClass]="predictions.length === 0 ? 'inputSearchWithoutList' : 'inputSearchWithList'"
+                     placeholder="{{ 'home.search' | translate }}"
+                     type="search"
+                     style="background: #fff; padding: 8px 16px"
+                     [ngStyle]="predictions.length === 0 ? {'border-radius': '100px'} : {'border-radius': '0px'}"
+              />
+              <ion-icon class="absolute" *ngIf="searchText.length === 0" name="search-outline" style="top: 0; bottom: 0; margin: auto; right: 13px"></ion-icon>
+              <ion-icon (click)="clearSearch()" class="absolute" *ngIf="searchText.length > 0" name="close-outline" style="top: 0; bottom: 0; margin: auto; right: 13px"></ion-icon>
+            </div>
+            <ion-list [hidden]="predictions.length === 0" class="w-full listSearch">
+              <ion-item *ngFor="let item of predictions" tappable (click)="selectPlace(item)">
+                {{ item.description }}
+              </ion-item>
+            </ion-list>
+          </div>
+          <div class="p-3 flex flex-col w-full h-full"></div>
+    </div>
+  <ion-modal id="modal-badge" #modal [isOpen]="isOpenBadgeModal" (didDismiss)="isOpenBadgeModal = false">
+  <ng-template>
+    <ion-content>
+      <ion-toolbar>
+        <ion-title class="H2-22-700" slot="start">{{'achievements_modal.new_achievements'|translate}}</ion-title>
+        <ion-buttons slot="end">
+          <ion-button color="light" (click)="modal.dismiss()"><img src="assets/images/SoundCollect/close.svg"></ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <div class="flex flex-col justify-center gap-4 items-center" style="padding:38px ">
+        <img src="assets/images/SoundCollect/lvl{{level}}.svg" width="146" />
+        <label class="H6-16-700-SpaceGrotesk" >{{'achievements_modal.lvl'+level|translate}}</label>
+        <label class="H6-16-400-SpaceGrotesk" >{{'achievements_modal.arg'|translate}}</label>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
 </ion-content>

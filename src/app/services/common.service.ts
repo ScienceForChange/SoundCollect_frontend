@@ -270,4 +270,10 @@ export class CommonService {
       await modal.dismiss();
     }, duration);
   }
+
+
+  obtenerParteEntera(numero: number): number {
+    return Math.trunc(numero);
+  }
+
 }

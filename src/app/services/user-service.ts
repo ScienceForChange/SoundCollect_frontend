@@ -1,12 +1,13 @@
 import { UserHTTP } from '../repos/user-repo-http';
 import { Injectable } from '@angular/core';
+import { ObservationsService } from './observations.service';
+import moment from 'moment/moment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
-  constructor(private userHTTP: UserHTTP) {
+  constructor(private userHTTP: UserHTTP, private observationService: ObservationsService) {
   }
 
   /**
@@ -65,5 +66,53 @@ export class UserService {
       throw new Error(("Error: " + e));
       console.error(e);
     }
+  }
+  async userGamificationPoints() {
+    let points = 0;
+    let sameDayExtraPoints = { day: '1970-01-01', used: false };
+    const res = await this.observationService.getMyObservations();
+    if (res.status === 'success') {
+      res.data.forEach((observationData: any) => {
+        if (observationData.attributes.images) {
+          points += 2;
+        } else {
+          points += 1;
+        }
+        const date1 = moment(sameDayExtraPoints.day);
+        const date2 = moment(observationData.attributes.created_at);
+        if (date1.isSame(date2, 'day')) {
+          if (!sameDayExtraPoints.used) {
+            points += 3;
+            sameDayExtraPoints.used = true;
+          }
+        } else {
+          sameDayExtraPoints = { day: observationData.attributes.created_at, used: false };
+        }
+      });
+    }
+    return points;
+  }
+  async isExpert() {
+    const points = await this.userGamificationPoints();
+    if (points >= 21) return true;
+    return false;
+  }
+  async gamificationLevel(totalPoints?: number) {
+    const points = totalPoints ? totalPoints : await this.userGamificationPoints();
+
+    if (points > 20) {
+      return 5;
+    } else if (points > 12) {
+      return 4;
+    } else if (points > 6) {
+      return 3;
+    } else if (points > 2) {
+      return 2;
+    } else {
+      return 1
+    }
+  }
+  gamificationCalcProgressBar(totalPoints: number) {
+    return +(totalPoints / 21).toFixed(2);
   }
 }

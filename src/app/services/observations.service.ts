@@ -14,6 +14,15 @@ export class ObservationsService {
     return  await this.observationsRepoHttp.sendSound(data);
   }
 
+  async calibrateSound(formData: any) {
+    console.log('calibrateSound in services observationnnnn: ', formData);
+    return  await this.observationsRepoHttp.calibrateSound(formData);
+  }
+
+  async valueCalibration(val: number) {
+    return  await this.observationsRepoHttp.valueCalibration(val);
+  }
+
   async deleteObservation(uuid: string): Promise<any> {
     return await this.deleteObservation(uuid);
   }

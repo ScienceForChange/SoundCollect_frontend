@@ -1,13 +1,14 @@
-import {Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, inject, OnInit, ViewChild} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {RouterLink, RouterLinkActive} from "@angular/router";
-import {IonicModule, IonicSlides, NavController} from '@ionic/angular';
-import {TranslateModule} from '@ngx-translate/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterLink, RouterLinkActive } from "@angular/router";
+import { IonicModule, IonicSlides, NavController } from '@ionic/angular';
+import { TranslateModule } from '@ngx-translate/core';
 import Swiper from 'swiper';
-import {HttpClient} from '@angular/common/http';
-import {AuthService, CommonService} from '../../services';
-import {AuthHTTP} from '../../repos';
+import { HttpClient } from '@angular/common/http';
+import { AuthService, CommonService } from '../../services';
+import { AuthHTTP } from '../../repos';
+
 
 @Component({
     selector: 'app-onboarding',
@@ -25,7 +26,7 @@ export class OnboardingPage implements OnInit {
     commonService = inject(CommonService);
     swiper?: Swiper;
     swiperModules = [IonicSlides];
-    index = 1;
+    currentIndex = 1;
     readonly INTRO_KEY = 'has_seen_onboarding';
     constructor() {
     }
@@ -38,13 +39,19 @@ export class OnboardingPage implements OnInit {
     }
 
     goNext() {
-        this.swiperRef?.nativeElement.swiper.slideNext(300)
-        this.index++;
+        this.swiperRef?.nativeElement.swiper.slideNext(300);
+        this.currentIndex++;
     }
 
     async finished() {
         await this.commonService.setItem(this.INTRO_KEY, 'TRUE');
         await this.navController.navigateRoot('/login');
+    }
+
+    onSlideChange() {
+        // Obtener el índice actual del slide
+        this.currentIndex = this.swiperRef?.nativeElement.swiper.activeIndex;
+        this.currentIndex++;
     }
 }
 

@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import {CommonModule, NgOptimizedImage} from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IonicModule, ModalController, NavController } from '@ionic/angular';
 import { Router, RouterLink } from "@angular/router";
@@ -82,7 +82,8 @@ export class LoginPage implements OnInit {
         if (result?.status === "success") {
           await this.authService.saveDataUser(result?.data);
           this.authService.isAuthenticated.next(true);
-          await this.navController.navigateRoot('/tabs', {animated: false});
+          this.commonService.setItem('email', this.email?.value);
+          await this.navController.navigateRoot('/tabs', { animated: false });
         } else {
           await this.navController.navigateForward('/password-new');
         }
@@ -97,6 +98,6 @@ export class LoginPage implements OnInit {
   }
 
   async goToHome() {
-    await this.navController.navigateRoot('/tabs', {animated: false});
+    await this.navController.navigateRoot('/tabs', { animated: false });
   }
 }

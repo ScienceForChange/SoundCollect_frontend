@@ -1,0 +1,113 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar
+    color="ligth"
+    class="ion-no-margin ion-no-padding ion-no-border bg-white"
+  >
+    <div class="flex justify-between items-center px-3">
+      <img
+        tappable="true"
+        class=""
+        [routerLink]="['/tabs/profile']"
+        src="assets/images/SoundCollect/Iconos/back.svg"
+        alt="back"
+        width="24"
+      />
+      <ion-text class="H2-22-700 self-start my-text-header">
+        {{'achievements.my_achievements'|translate}}
+      </ion-text>
+      <div class="w-1.5"></div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div
+    class="flex flex-col h-full"
+    style="background: linear-gradient(180deg, #fff 57.81%, #e7ffff 100%)"
+  >
+    <div class="flex flex-col p-3 bg-transparent">
+      <label class="H6-16-700-SpaceGrotesk self-start my-text-dark">
+        {{points}} {{'achievements.points'|translate}}
+      </label>
+      <ion-progress-bar class="my-3" value="{{progressBar}}"></ion-progress-bar>
+      <div class="flex justify-between">
+        <label class="H6-14-400-SpaceGrotesk self-start my-text-dark">
+          {{'achievements.level'|translate}}1
+        </label>
+        <label class="H6-14-400-SpaceGrotesk self-start my-text-dark">
+          {{'achievements.level'|translate}}5
+        </label>
+      </div>
+    </div>
+    <div class="flex flex-col p-3">
+      <label class="H-20-700 self-start my-text-dark">
+        {{'achievements.achievements'|translate}}
+      </label>
+      <div class="flex justify-between items-center element">
+        <img src="assets/images/SoundCollect/lvl1.svg" width="68" />
+        <label class="H6-14-400-SpaceGrotesk my-text-dark">
+          {{'achievements.lvl1'|translate}}
+        </label>
+        <img src="assets/images/SoundCollect/ok.svg" />
+      </div>
+      <div class="flex justify-between items-center element">
+        <img
+          [ngClass]="level >= 2 ? '' : 'myDisabled'"
+          src="assets/images/SoundCollect/lvl2.svg"
+          width="68"
+        />
+        <label class="H6-14-400-SpaceGrotesk my-text-dark">
+          {{ 'achievements.lvl2' | translate }}
+        </label>
+        <img
+          [ngClass]="level >= 2 ? '' : 'myDisabled'"
+          src="assets/images/SoundCollect/ok.svg"
+        />
+      </div>
+
+      <div class="flex justify-between items-center element">
+        <img
+          [ngClass]="level >= 3 ? '' : 'myDisabled'"
+          src="assets/images/SoundCollect/lvl3.svg"
+          width="68"
+        />
+        <label class="H6-14-400-SpaceGrotesk my-text-dark">
+          {{ 'achievements.lvl3' | translate }}
+        </label>
+        <img
+          [ngClass]="level >= 3 ? '' : 'myDisabled'"
+          src="assets/images/SoundCollect/ok.svg"
+        />
+      </div>
+
+      <div class="flex justify-between items-center element">
+        <img
+          [ngClass]="level >= 4 ? '' : 'myDisabled'"
+          src="assets/images/SoundCollect/lvl4.svg"
+          width="68"
+        />
+        <label class="H6-14-400-SpaceGrotesk my-text-dark">
+          {{ 'achievements.lvl4' | translate }}
+        </label>
+        <img
+          [ngClass]="level >= 4 ? '' : 'myDisabled'"
+          src="assets/images/SoundCollect/ok.svg"
+        />
+      </div>
+
+      <div class="flex justify-between items-center element">
+        <img
+          [ngClass]="level >= 5 ? '' : 'myDisabled'"
+          src="assets/images/SoundCollect/lvl5.svg"
+          width="68"
+        />
+        <label class="H6-14-400-SpaceGrotesk my-text-dark">
+          {{ 'achievements.lvl5' | translate }}
+        </label>
+        <img
+          [ngClass]="level >= 5 ? '' : 'myDisabled'"
+          src="assets/images/SoundCollect/ok.svg"
+        />
+      </div>
+    </div>
+  </div>
+</ion-content>

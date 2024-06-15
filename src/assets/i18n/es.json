@@ -25,7 +25,6 @@
       "btn_2": "Acceder"
     }
   },
-
   "login": {
     "btn": {
       "sign_in": "Acceder",
@@ -43,7 +42,6 @@
       "email_invalid": "El correo electrónico no es correcto"
     }
   },
-
   "recovery_pass": {
     "label": {
       "title": "Recuperar contraseña",
@@ -70,7 +68,6 @@
       "USER_NOT_FOUND": "No hemos podido encontrar a este usuario"
     }
   },
-
   "register": {
     "label": {
       "required_data": "Datos requeridos*",
@@ -96,7 +93,6 @@
       "terms-strong-end": "privacidad de los datos"
     }
   },
-
   "greets": {
     "label": {
       "subtitle": "¡Te has registrado correctamente!"
@@ -105,7 +101,6 @@
       "in-to-app": "Entrar a la App"
     }
   },
-
   "change_pass": {
     "label": {
       "change_success": "La contraseña se ha cambiado correctamente"
@@ -115,7 +110,6 @@
       "password_no_match": "El email o la contraseña introducidos no son correctos."
     }
   },
-
   "about_me": {
     "label": {
       "close_session": "Estás seguro que deseas cerrar sesión",
@@ -140,7 +134,6 @@
       "btn_cancel": "Cancelar"
     }
   },
-
   "profile": {
     "label": {
       "title": "Mi perfil",
@@ -169,16 +162,16 @@
       "non-binary": "No binario",
       "others": "Otros",
       "prefer-not-to-say": "Prefiero no decirlo",
-      "select_gender": "Seleccione su género"
+      "select_gender": "Seleccione su género",
+      "calibrate_sound": "Calibración de dispositivo",
+      "calibrate_access": "Acceder a la calibración"
     }
   },
-
   "language": {
     "label": {
       "change_language_subtitle": "Escoge el idioma de la App"
     }
   },
-
   "sounds": {
     "label": {
       "message1": "Parece que todavía no has registrado ningún sonido.",
@@ -202,22 +195,28 @@
       "details": "Detalles del sonido",
       "stop": "Parar",
       "reset": "Reiniciar",
+      "take_photo": "Tomar foto",
+      "file_picker": "Seleccionar imagen",
+      "camera_permission": "La App no tiene permiso para acceder a la cámara",
+      "location_permission": "No se han otorgado permisos de ubicación.",
       "process": {
         "sharpness_S": "Nitidez",
         "loudness_N": "Volumen",
         "roughtness_R": "Aspereza",
         "fluctuation_strength_F": "Intensidad de fluctuación",
-        "Leq": "Nivel de sonido continuo (Leq)",
-        "LAeqT": "Nivel de sonido continuo equivalente (LAeqT)",
-        "LAmax": "Nivel de sonido máximo (LAmax)",
-        "LAmin": "Nivel de sonido mínimo (LAmin)",
-        "L90": "Nivel de sonido (L90)",
-        "L10": "Nivel de sonido (L10)"
-      }
+        "Leq": "Nivel SPL equivalente LAeq",
+        "LAeqT": "Nivel SPL continuo equivalente LAeq,t",
+        "LAmax": "Nivel máximo Lmax",
+        "LAmin": "Nivel mínimo Lmin",
+        "L90": "Nivell percentil L90",
+        "L10": "Nivel percentil L10"
+      },
+      "required":"* Requerido"
     },
     "btn": {
       "back": "Atrás",
       "next": "Siguiente",
+      "analyze-sound": "Analizar sonido",
       "resume": "Resumen",
       "send": "Enviar"
     },
@@ -228,6 +227,10 @@
       "alert": "¿Estás seguro de que quieres salir? Al salir se perderán todos los datos no guardados.",
       "yes": "Sí, salir",
       "no": "No, continuar"
+    },
+    "graphic": {
+      "title_x": "Tiempo (segundos)",
+      "title_y": "Nivel de presión sonora (dBA)"
     }
   },
   "global": {
@@ -236,19 +239,18 @@
       "header_update_app": "Descarga la última versión",
       "message_update_app": "Es necesario que descargues la última versión de la app.",
       "btn_update_app": "Descargar nueva versión",
-      "loading_processing_sound": "Procesando el audio... espera por favor"
+      "loading_processing_sound": "Procesando el audio... espera por favor",
+      "saving_data": "Guardando datos..."
     }
   },
-
   "global_error": {
     "label": {
       "header": "Información",
       "message": "No se ha podido completar la acción, contacte con el equipo de desarrollo.",
       "credencial_invalid": "El email o la contraseña introducidos no son correctos.",
-      "error_ocurred": "Ha ocurrido un error"
+      "error_ocurred": "Ha ocurrido un error, por favor, intente más tarde"
     }
   },
-
   "observations": {
     "label": {
       "detail": "Detalle de la Observación"
@@ -269,9 +271,9 @@
       "question6": "¿Cómo influye el sonido de esta ubicación en tu estado de ánimo / tus emociones?",
       "question7": "¿Es este sonido un punto de referencia?",
       "question8": "¿Quieres que este sitio esté protegido? ¿Cómo?",
-      "questionExp1": "Para cada una de las 8 escalas siguientes, ¿en qué medida está de acuerdo o en desacuerdo con que el entorno sonoro actual es...? Por favor, marque una alternativa de respuesta por escala",
+      "questionExp1": "El entorno acústico actual es…? Por favor, marque una alternativa de respuesta por escala",
       "questionExp2": "En general, ¿cómo describiría el entorno sonoro actual?",
-      "questionExp3": "En general, ¿en qué medida el entorno sonoro actual es adecuado para el lugar actual? Marque una respuesta"
+      "questionExp3": "En general, ¿en qué medida el entorno sonoro actual se corresponde con el lugar en que te encuentras? Marque una respuesta"
     },
     "answers": {
       "Q1A1": "Sonido natural: canto de los pájaros, agua en movimiento, viento y vegetación.",
@@ -289,7 +291,7 @@
       "Q3A4": "Bueno",
       "Q3A5": "Muy bueno",
       "Q4A1": "Muy mala",
-      "Q4A2": "Malo",
+      "Q4A2": "Mala",
       "Q4A3": "Regular",
       "Q4A4": "Buena",
       "Q4A5": "Muy Buena",
@@ -298,13 +300,18 @@
       "Q5A3": "Regular",
       "Q5A4": "Buena",
       "Q5A5": "Muy buena",
+      "QE1A1": "Totalmente de acuerdo",
+      "QE1A2": "De acuerdo",
+      "QE1A3": "Ni de acuerdo ni en desacuerdo",
+      "QE1A4": "En desacuerdo",
+      "QE1A5": "Totalmente en desacuerdo",
       "questionExp1A1": "Agradable",
       "questionExp1A2": "Caótico",
-      "questionExp1A3": "Vibrante",
-      "questionExp1A4": "Sin incidentes",
-      "questionExp1A5": "Tranquilo",
-      "questionExp1A6": "Molesto",
-      "questionExp1A7": "Agitado",
+      "questionExp1A3": "Estimulante",
+      "questionExp1A4": "Sin actividad",
+      "questionExp1A5": "Calmado",
+      "questionExp1A6": "Desagradable",
+      "questionExp1A7": "Con actividad",
       "questionExp1A8": "Monótono",
       "questionExp2A1": "Muy malo",
       "questionExp2A2": "Malo",
@@ -318,17 +325,57 @@
       "questionExp3A5": "Perfectamente"
     }
   },
-
   "terms_and_conditions": {
-    "title": "<p><strong>Términos y condiciones</strong></p>",
-    "description": "<br><p>Bienvenido a los términos y condiciones que regulan tu uso de SoundCollect y su software, aplicaciones, servicios y tecnologías. Por favor, lea atentamente los términos y condiciones.</p><br><p><strong>Propósito</strong></p><p>SoundCollect ofrece a las personas usuarias una aplicación para teléfonos móviles inteligentes, para que las personas usuarias puedan reportar información sobre espacios comunitarios de alto valor acústico y socioambiental, con el fin de crear un mapa colaborativo de zonas tranquilas a escala local que permita mejorar la gestión, protección y conservación de estos espacios.</p><br><p><strong>El servicio</strong></p><p>El servicio incluye todas las funciones y software que proporcionamos para crear una aplicación impulsada por las personas usuarias con el fin de generar un mapa interactivo que te permitirá descubrir lugares e informar sobre su estado a través de las herramientas que te ofrece SoundCollect, entre ellas, la posibilidad de adjuntar imágenes y sonidos.</p><p>Solo puede utilizar el servicio:</p><ul><li>Si aceptas los términos y condiciones y la política de privacidad</li><li>Si tienes la edad legal para prestar el consentimiento para que tus datos sean tratados, o si provees una declaración jurada de que tus padres o tutores legales han consentido en el uso del servicio.</li></ul><br><p>Usa el servicio de manera responsable.</p><p>Por favor, cuida siempre de tu entorno y nunca te pongas en peligro mientras utilizas el SoundCollect. Nunca registres datos en condiciones inseguras. Tenga siempre en cuenta ante todo su seguridad. El uso de SoundCollect, se realiza bajo su propia responsabilidad.</p><br><p><strong>Tu cuenta de usuario/a</strong></p><p>Con nuestro servicio queremos contribuir a identificar espacios públicos de alto valor acústico y socioambiental, para promover su democratización, conocimiento, mantenimiento y preservación, de un modo colectivo, responsable y ecológico. Es decir, este servicio permite generar conocimiento sobre el valor ambiental de los espacios circundantes y, en última instancia, influir en los responsables políticos para que adopten medidas para recuperarlos, y preservarlos de una manera sostenible e inclusiva.</p><p>Una cuenta de usuario/a es necesaria para el uso de la plataforma. Para el registro se requiere una cantidad mínima de datos personales, en concreto, se necesita un seudónimo y un correo electrónico activo. El resto de datos que se solicitan son de carácter opcional. Todos los datos personales son tratados de manera lícita y respetando la normativa europea sobre protección de datos, todo ello según se detalla en nuestra política de privacidad.</p><p>Al registrarte y aceptar los términos de uso, nos estás concediendo permiso para el tratamiento de tus datos personales. También está aceptando el tratamiento por parte de servicios externos, como servidores, proveedores de alojamiento en la nube, servicios integrados y otros componentes necesarios para el uso de SoundCollect</p><br><p><strong>Uso de SoundCollect sin estar registrado</strong></p><p>Siempre podrás visualizar el contenido de SoundCollect sin registrarte ni iniciar sesión para navegar. Sin embargo, si quieres participar activamente y efectuar registros, tienes que crear tu propia cuenta de usuario o iniciar sesión para poder formar parte de nuestra comunidad.</p><br><p><strong>Restricciones geo-espaciales</strong></p><p>Declaras que no compartirá información que entre en conflicto con la propiedad o privacidad de otros o que sea obtenida en áreas restringidas. Al aportar y localizar datos sobre un espacio público, asumes la responsabilidad legal plena y completa de su aportación. Confirma que es legal, según las leyes locales, crear y compartir datos en ese lugar, y que ningún tercero se verá limitado o perjudicado, o que el valor de cualquier propiedad de terceros se verá disminuido por su contribución.</p><br><p><strong>Violación de los términos de uso</strong></p><p>Respetamos los derechos de autor y de propiedad intelectual, la privacidad de terceros, las marcas registradas y los derechos de licencia.</p><p>Nos reservamos el derecho irrestricto para eliminar cualquier contenido que haya sido aportado en violación de estos términos, de los términos de la licencia o de cualquier regulación aplicable.</p><br><p><strong>GDPR y nuestro equipo</strong></p><p>Para utilizar la aplicación SoundCollect se requieren algunos datos personales. Todos los datos personales están regulados por el Reglamento General de Protección de Datos (UE) 2016/679 (GRPD). Puedes borrar todos tus datos personales de toda la plataforma del proyecto en cualquier momento. También puedes descargar todos los datos que has proporcionado al proyecto. La participación en este proyecto es completamente voluntaria.</p><p>Nuestro equipo está informado sobre el Reglamento General de Protección de Datos (RGPD) y sus obligaciones. Formamos continuamente a nuestro equipo en materia de protección de datos, derechos personales, derechos de autor, derechos de marcas y licencias y aspectos de la privacidad digital, en particular también sobre una ética de protección de datos vivida en un mundo moderno y conectado.</p><br><p><strong>Consideraciones éticas</strong></p><p>No está permitido utilizar la aplicación de manera poco ética, es decir, no puedes cargar datos falsos de mala fe, ni tampoco cargar imágenes o audios que permitan identificar a terceras personas, es decir que puedan ser considerados como datos personales de terceros (en cualquier caso, los datos falsos, o datos personales de terceros se identifican durante el proceso de validación de datos y no se cargan en el mapa público si son detectados).</p><p>¿Cuáles serán los beneficios o riesgos de participar en SoundCollect?</p><p>Cualquier persona mayor de edad puede participar de esta iniciativa de ciencia ciudadana. No hay incentivos económicos asociados a su participación en el proyecto. Nuestro objetivo es generar datos sobre espacios públicos de valor acústico y socioambiental, los que podrán ser utilizados por distintos actores para crear soluciones a la problemática de su uso y conservación. No obstante lo anterior, este es un proyecto de investigación colaborativa que no tiene relación directa con ningún tipo de actores involucrados en las decisiones que puedan afectar la administración y gestión de tales espacios.</p><p>¿Existe alguna conexión directa entre este proyecto de investigación colaborativa y la acción del gobierno?</p><p>No existe una conexión directa entre este proyecto de investigación y la acción del gobierno, o cualquier otra acción que puedan emprender las actividades emisoras de contaminación acústica.</p><p>¿Cómo puedo abandonar el proyecto?</p><p>Eres libre de abandonar el proyecto en cualquier momento. Todos los datos personales están regulados por la GRPD, por lo que puedes ejercer tus derechos de acuerdo con esta ley. La aplicación SoundCollect proporciona una interfaz para borrar todos tus datos personales, aunque por defecto, se mantendrán los datos de observación y otros datos no personales que hayas subido a la plataforma. Sin embargo, puede solicitar su completa eliminación por correo electrónico en hello@soundcollect.eu</p>"
+    "title": "Términos y condiciones",
+    "description": "<br><p>Bienvenido a los términos y condiciones que regulan tu uso de SoundCollect y su software, aplicaciones, servicios y tecnologías. Por favor, lea atentamente los términos y condiciones.</p><br><p><strong>Propósito</strong></p><p>SoundCollect ofrece a las personas usuarias una aplicación para teléfonos móviles inteligentes, para que las personas usuarias puedan reportar información sobre espacios comunitarios de alto valor acústico y socioambiental, con el fin de crear un mapa colaborativo de zonas tranquilas a escala local que permita mejorar la gestión, protección y conservación de estos espacios.</p><br><p><strong>El servicio</strong></p><p>El servicio incluye todas las funciones y software que proporcionamos para crear una aplicación impulsada por las personas usuarias con el fin de generar un mapa interactivo que te permitirá descubrir lugares e informar sobre su estado a través de las herramientas que te ofrece SoundCollect, entre ellas, la posibilidad de adjuntar imágenes y sonidos.</p><p>Solo puede utilizar el servicio:</p><ul><li>Si aceptas los términos y condiciones y la política de privacidad</li><li>Si tienes la edad legal para prestar el consentimiento para que tus datos sean tratados, o si provees una declaración jurada de que tus padres o tutores legales han consentido en el uso del servicio.</li></ul><br><p>Usa el servicio de manera responsable.</p><p>Por favor, cuida siempre de tu entorno y nunca te pongas en peligro mientras utilizas el SoundCollect. Nunca registres datos en condiciones inseguras. Tenga siempre en cuenta ante todo su seguridad. El uso de SoundCollect, se realiza bajo su propia responsabilidad.</p><br><p><strong>Tu cuenta de usuario/a</strong></p><p>Con nuestro servicio queremos contribuir a identificar espacios públicos de alto valor acústico y socioambiental, para promover su democratización, conocimiento, mantenimiento y preservación, de un modo colectivo, responsable y ecológico. Es decir, este servicio permite generar conocimiento sobre el valor ambiental de los espacios circundantes y, en última instancia, influir en los responsables políticos para que adopten medidas para recuperarlos, y preservarlos de una manera sostenible e inclusiva.</p><p>Una cuenta de usuario/a es necesaria para el uso de la plataforma. Para el registro se requiere una cantidad mínima de datos personales, en concreto, se necesita un seudónimo y un correo electrónico activo. El resto de datos que se solicitan son de carácter opcional. Todos los datos personales son tratados de manera lícita y respetando la normativa europea sobre protección de datos, todo ello según se detalla en nuestra política de privacidad.</p><p>Al registrarte y aceptar los términos de uso, nos estás concediendo permiso para el tratamiento de tus datos personales. También está aceptando el tratamiento por parte de servicios externos, como servidores, proveedores de alojamiento en la nube, servicios integrados y otros componentes necesarios para el uso de SoundCollect</p><br><p><strong>Uso de SoundCollect sin estar registrado</strong></p><p>Siempre podrás visualizar el contenido de SoundCollect sin registrarte ni iniciar sesión para navegar. Sin embargo, si quieres participar activamente y efectuar registros, tienes que crear tu propia cuenta de usuario o iniciar sesión para poder formar parte de nuestra comunidad.</p><br><p><strong>Restricciones geo-espaciales</strong></p><p>Usted declara que no compartirá información que entre en conflicto con la propiedad o privacidad de otros o que sea obtenida en áreas restringidas. Al aportar y localizar datos sobre un espacio público, usted asume la responsabilidad legal plena y completa de su aportación. Usted confirma que es legal, según las leyes locales, crear y compartir datos en ese lugar, y que ningún tercero se verá limitado o perjudicado, o que el valor de cualquier propiedad de terceros se verá disminuido por su contribución.</p><br><p><strong>Violación de los términos de uso</strong></p><p>Respetamos los derechos de autor y de propiedad intelectual, la privacidad de terceros, las marcas registradas y los derechos de licencia.</p><p>Nos reservamos el derecho irrestricto para eliminar cualquier contenido que haya sido aportado en violación de estos términos, de los términos de la licencia o de cualquier regulación aplicable.</p><br><p><strong>GDPR y nuestro equipo</strong></p><p>Para utilizar la aplicación SoundCollect se requieren algunos datos personales. Todos los datos personales están regulados por el Reglamento General de Protección de Datos (UE) 2016/679 (GRPD). Puedes borrar todos tus datos personales de toda la plataforma del proyecto en cualquier momento. También puedes descargar todos los datos que has proporcionado al proyecto. La participación en este proyecto es completamente voluntaria.</p><p>Nuestro equipo está informado sobre el Reglamento General de Protección de Datos (RGPD) y sus obligaciones. Formamos continuamente a nuestro equipo en materia de protección de datos, derechos personales, derechos de autor, derechos de marcas y licencias y aspectos de la privacidad digital, en particular también sobre una ética de protección de datos vivida en un mundo moderno y conectado.</p><br><p><strong>Consideraciones éticas</strong></p><p>No está permitido utilizar la aplicación de manera poco ética, es decir, no puedes cargar datos falsos de mala fe, ni tampoco cargar imágenes o audios que permitan identificar a terceras personas, es decir que puedan ser considerados como datos personales de terceros (en cualquier caso, los datos falsos, o datos personales de terceros se identifican durante el proceso de validación de datos y no se cargan en el mapa público si son detectados).</p><p>¿Cuáles serán los beneficios o riesgos de participar en SoundCollect?</p><p>Cualquier persona mayor de edad puede participar de esta iniciativa de ciencia ciudadana. No hay incentivos económicos asociados a su participación en el proyecto. Nuestro objetivo es generar datos sobre espacios públicos de valor acústico y socioambiental, los que podrán ser utilizados por distintos actores para crear soluciones a la problemática de su uso y conservación. No obstante lo anterior, este es un proyecto de investigación colaborativa que no tiene relación directa con ningún tipo de actores involucrados en las decisiones que puedan afectar la administración y gestión de tales espacios.</p><p>¿Existe alguna conexión directa entre este proyecto de investigación colaborativa y la acción del gobierno?</p><p>No existe una conexión directa entre este proyecto de investigación y la acción del gobierno, o cualquier otra acción que puedan emprender las actividades emisoras de contaminación acústica.</p><p>¿Cómo puedo abandonar el proyecto?</p><p>Eres libre de abandonar el proyecto en cualquier momento. Todos los datos personales están regulados por la GRPD, por lo que puedes ejercer tus derechos de acuerdo con esta ley. La aplicación SoundCollect proporciona una interfaz para borrar todos tus datos personales, aunque por defecto, se mantendrán los datos de observación y otros datos no personales que hayas subido a la plataforma. Sin embargo, puede solicitar su completa eliminación por correo electrónico en hello@soundcollect.eu</p>"
   },
   "privacy_policy": {
-    "title": "<p><strong>Política de privacidad</strong></p>",
-    "description": "<p>¿Estás dispuesto a participar en SoundCollect, un proyecto de ciencia ciudadana basado en la implicación directa de ciudadanía, responsables políticos, científicos, industrias y PYMEs que tiene como objetivo identificar y proteger espacios comunitarios? Con tu ayuda buscamos reconocer y visibilizar lugares de valor acústico y socioambiental con el fin de promover su conocimiento, cuidado y preservación.</p>\n\n<p>Para nosotros es esencial que entiendas qué datos personales estamos recogiendo y cómo vamos a tratar esta información. Nos preocupamos por tus datos personales y tus derechos sobre ellos. Tus datos serán tratados de forma lícita, con sujeción en todo momento a los principios y derechos consagrados en el Reglamento General de Protección de Datos (Directiva de la EU 2016/679), la LOPDGDD 3/2018 y todas las demás normativas relevantes en materia de protección de datos personales.</p>\n\n<p>Por favor, lee esta información cuidadosamente. Si tienes alguna duda o algo no te queda claro, escríbenos al correo electrónico <a href='mailto:hello@soundcollect.eu'>hello@soundcollect.eu</a>.</p>\n\n<p><strong>Responsable del tratamiento</strong></p>\n\n<p>Identidad: SCIENCE FOR CHANGE<br>C.I.F: B67362392<br>Domicilio: C/ Vilamarí, n.º 50, 7º, 08015, Barcelona, España<br>Dirección de correo electrónico: <a href='mailto:hello@soundcollect.eu'>hello@soundcollect.eu</a>.<br>Web: <a href='https://www.scienceforchange.eu/'>Science for Change</a><br>Teléfono: 932 43 33 10</p>\n\n<p><strong>Datos personales tratados</strong></p>\n\n<p>Recolectamos diferentes tipos de datos. Para la utilización de SoundCollect te solicitaremos los siguientes Datos Personales:<br>- Correo electrónico<br>- Seudónimo / nombre<br>- Geolocalización<br>- Fecha y la hora de tu registro.<br>- Opcionales: Año de nacimiento y género.</p>\n\n<p><strong>Propósito del tratamiento de datos personales</strong></p>\n\n<p>Tratamos tus datos personales con el propósito de permitir el funcionamiento de SoundCollect. El fin de la plataforma es identificar espacios públicos con un alto valor socioambiental para generar un mapa interactivo a partir de estos. Este mapa busca democratizar los espacios públicos, permitiendo a los ciudadanos conocerlos, valorizarlos, cuidarlos y preservarlos. Por otra parte, el tratamiento de tus datos tiene como fin mantenerte informado sobre las novedades del proyecto, sus beneficios y avances.</p>\n\n<p>El tratamiento de tus datos personales es necesario para la creación de tu cuenta de usuario y para que puedas utilizar todas las funcionalidades de SoundCollect. Es decir, para que puedas registrar la ubicación de un sitio, cargar imágenes que permiten al resto de usuarios visualizarlo, y cargar sonidos para ayudar a la comunidad a entender la atmósfera sonora del lugar. También utilizaremos tu correo, si es que nos autorizas con este fin, para enviarte información sobre eventos específicos o sobre resultados relacionados con el proyecto.</p>\n\n<p>La información sobre tu año de nacimiento y género serán utilizados exclusivamente con fines estadísticos, científicos y con miras al interés general.</p>\n\n<p>Por otra parte, tratamos tus datos de geolocalización con el objetivo de que puedas reportar la ubicación de un lugar público de valor socioambiental para la elaboración de un mapa colectivo e interactivo.</p>\n\n<p><strong>Legitimación del tratamiento</strong></p>\n\n<p>La base de legitimación del tratamiento de los datos es el consentimiento que otorga el usuario al seleccionar la casilla de aceptación de nuestra política de privacidad y la casilla sobre información y comunicaciones de SoundCollect. El usuario tiene derecho a revocar su consentimiento en cualquier momento sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>\n\n<p><strong>Cesión o comunicación de datos personales y transferencias internacionales</strong></p>\n\n<p>Sus datos no se comunicarán ni serán cedidos a terceros, salvo que exista alguna obligación legal o aquellos prestadores vinculados al Responsable que actúan como encargados del tratamiento. No se realizan transferencias internacionales, para el caso en que en algún momento pudieran realizarse, se le comunicarán con el objeto de obtener su consentimiento.</p>\n\n<p><strong>Periodo de retención</strong></p>\n\n<p>Estos datos se conservarán durante el tiempo estrictamente necesario para cumplir con la finalidad para la que fueron recabados y, solo mientras el usuario no revoque su consentimiento al tratamiento de los mismos.</p>\n\n<p><strong>Tus derechos y cómo ejercerlos</strong></p>\n\n<p>El usuario puede ejercer todos los derechos reconocidos por el RGPD 2016/679 y demás normativa vigente relativa a la protección de datos. En particular, tiene los siguientes derechos:<br>- Solicitar información sobre los datos personales que tenemos sobre ti y, en caso afirmativo, qué información tenemos, por qué la tenemos y cómo la estamos utilizando.<br>- Solicitar acceso a tus datos personales. Esto te permite recibir una copia de tus datos personales y corregir cualquier información incompleta o incorrecta que tengamos sobre ellos.<br>- Solicitar la limitación del tratamiento de tus datos<br>- Oponerte al tratamiento de los mismos revocando su consentimiento.<br>- Solicitar la rectificación o eliminación de tus datos personales. Esto te permite borrar o pedirnos que borremos sus datos personales.<br>- Solicitar la transferencia de tus datos personales a ti o a un tercero en un formato electrónico y estructurado - comúnmente conocido como el derecho a la portabilidad de datos.</p>\n\n<p>Puede ejercer sus derechos contactando con en la siguiente casilla de correo electrónico: <a href='mailto:hello@scienceforchange.eu'>hello@scienceforchange.eu</a>. Si considera que sus derechos no se han atendido debidamente, tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos.</p>\n\n<p><strong>Tratamiento de datos de menores de edad</strong></p>\n\n<p>Quien facilita los datos a través de los formularios de esta web y acepta su tratamiento declara ser mayor de 14 años, quedando prohibido el acceso y uso del portal a menores de dicha edad. Si en algún momento, el Responsable detecta que un menor de 14 años ha proporcionado datos de carácter personal, procederemos a la cancelación de los mismos. Asimismo, los padres o tutores podrán en cualquier caso dirigirse a SCIENCE FOR CHANGE para bloquear la cuenta de acceso de los menores a su cargo que se hubieran registrado falseando su identidad.</p>\n\n<p><strong>Medidas de seguridad</strong></p>\n\n<p>En SCIENCE FOR CHANGE tratamos sus datos de manera lícita y en cumplimiento de la normativa vigente en materia de protección de datos. Con este objetivo, hemos implementado medidas de seguridad de índole técnica y organizativas que permiten garantizar la seguridad de los datos personales del usuario y evitar su alteración, pérdida, tratamiento y acceso no autorizado, así como para evitar cualquier otro riesgo no permitido al que puedan estar expuestos.</p>\n\n<p>Las medidas incluyen, entre otras, la salvaguarda de la confidencialidad, integridad y disponibilidad de los datos mediante el control del acceso físico y electrónico a los mismos, así como el acceso, introducción, transmisión, aseguramiento y separación de los datos. Además, hemos establecido procedimientos para garantizar que se respeten los derechos de los interesados, que se borren los datos y que estamos preparados para responder con rapidez a las amenazas a los datos. Además, tenemos en cuenta la protección de los datos personales desde el desarrollo o la selección de hardware, software y proveedores de servicios, de acuerdo con el principio de privacidad desde el diseño y privacidad por defecto.</p>\n\n<p>Para proteger de la mejor manera posible sus datos transmitidos a través de nuestros servicios en línea, utilizamos, entre otras, técnicas de cifrado, anonimización y pseudonimización.</p>"
+    "title": "Política de privacidad",
+    "description": "<p>¿Estás dispuesto a participar en SoundCollect, un proyecto de ciencia ciudadana basado en la implicación directa de ciudadanía, responsables políticos, científicos, industrias y PYMEs que tiene como objetivo identificar y proteger espacios comunitarios? Con tu ayuda buscamos reconocer y visibilizar lugares de valor acústico y socioambiental con el fin de promover su conocimiento, cuidado y preservación.</p>\n</br><p>Para nosotros es esencial que entiendas qué datos personales estamos recogiendo y cómo vamos a tratar esta información. Nos preocupamos por tus datos personales y tus derechos sobre ellos. Tus datos serán tratados de forma lícita, con sujeción en todo momento a los principios y derechos consagrados en el Reglamento General de Protección de Datos (Directiva de la EU 2016/679), la LOPDGDD 3/2018 y todas las demás normativas relevantes en materia de protección de datos personales.</p>\n</br><p>Por favor, lee esta información cuidadosamente. Si tienes alguna duda o algo no te queda claro, escríbenos al correo electrónico <a href='mailto:hello@soundcollect.eu'>hello@soundcollect.eu</a>.</p>\n</br><p><strong>Responsable del tratamiento</strong></p>\n</br><p>Identidad: SCIENCE FOR CHANGE<br>C.I.F: B67362392<br>Domicilio: C/ Vilamarí, n.º 50, 7º, 08015, Barcelona, España<br>Dirección de correo electrónico: <a href='mailto:hello@soundcollect.eu'>hello@soundcollect.eu</a>.<br>Web: <a href='https://www.scienceforchange.eu/'>www.scienceforchange.eu</a><br>Teléfono: 932 43 33 10</p>\n</br><p><strong>Datos personales tratados</strong></p>\n</br><p>Recolectamos diferentes tipos de datos. Para la utilización de SoundCollect te solicitaremos los siguientes Datos Personales:<br>- Correo electrónico<br>- Seudónimo / nombre<br>- Geolocalización<br>- Fecha y la hora de tu registro.<br>- Opcionales: Año de nacimiento y género.</p>\n</br><p><strong>Propósito del tratamiento de datos personales</strong></p>\n</br><p>Tratamos tus datos personales con el propósito de permitir el funcionamiento de SoundCollect. El fin de la plataforma es identificar espacios públicos con un alto valor socioambiental para generar un mapa interactivo a partir de estos. Este mapa busca democratizar los espacios públicos, permitiendo a los ciudadanos conocerlos, valorizarlos, cuidarlos y preservarlos. Por otra parte, el tratamiento de tus datos tiene como fin mantenerte informado sobre las novedades del proyecto, sus beneficios y avances.</p>\n</br><p>El tratamiento de tus datos personales es necesario para la creación de tu cuenta de usuario y para que puedas utilizar todas las funcionalidades de SoundCollect. Es decir, para que puedas registrar la ubicación de un sitio, cargar imágenes que permiten al resto de usuarios visualizarlo, y cargar sonidos para ayudar a la comunidad a entender la atmósfera sonora del lugar. También utilizaremos tu correo, si es que nos autorizas con este fin, para enviarte información sobre eventos específicos o sobre resultados relacionados con el proyecto.</p>\n</br><p>La información sobre tu año de nacimiento y género serán utilizados exclusivamente con fines estadísticos, científicos y con miras al interés general.</p>\n</br><p>Por otra parte, tratamos tus datos de geolocalización con el objetivo de que puedas reportar la ubicación de un lugar público de valor socioambiental para la elaboración de un mapa colectivo e interactivo.</p>\n</br><p><strong>Legitimación del tratamiento</strong></p>\n</br><p>La base de legitimación del tratamiento de los datos es el consentimiento que otorga el usuario al seleccionar la casilla de aceptación de nuestra política de privacidad y la casilla sobre información y comunicaciones de SoundCollect. El usuario tiene derecho a revocar su consentimiento en cualquier momento sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>\n</br><p><strong>Cesión o comunicación de datos personales y transferencias internacionales</strong></p>\n</br><p>Sus datos no se comunicarán ni serán cedidos a terceros, salvo que exista alguna obligación legal o aquellos prestadores vinculados al Responsable que actúan como encargados del tratamiento. No se realizan transferencias internacionales, para el caso en que en algún momento pudieran realizarse, se le comunicarán con el objeto de obtener su consentimiento.</p>\n</br><p><strong>Periodo de retención</strong></p>\n</br><p>Estos datos se conservarán durante el tiempo estrictamente necesario para cumplir con la finalidad para la que fueron recabados y, solo mientras el usuario no revoque su consentimiento al tratamiento de los mismos.</p>\n</br><p><strong>Tus derechos y cómo ejercerlos</strong></p>\n</br><p>El usuario puede ejercer todos los derechos reconocidos por el RGPD 2016/679 y demás normativa vigente relativa a la protección de datos. En particular, tiene los siguientes derechos:<br>- Solicitar información sobre los datos personales que tenemos sobre ti y, en caso afirmativo, qué información tenemos, por qué la tenemos y cómo la estamos utilizando.<br>- Solicitar acceso a tus datos personales. Esto te permite recibir una copia de tus datos personales y corregir cualquier información incompleta o incorrecta que tengamos sobre ellos.<br>- Solicitar la limitación del tratamiento de tus datos<br>- Oponerte al tratamiento de los mismos revocando su consentimiento.<br>- Solicitar la rectificación o eliminación de tus datos personales. Esto te permite borrar o pedirnos que borremos sus datos personales.<br>- Solicitar la transferencia de tus datos personales a ti o a un tercero en un formato electrónico y estructurado - comúnmente conocido como el derecho a la portabilidad de datos.</p>\n</br><p>Puede ejercer sus derechos contactando con en la siguiente casilla de correo electrónico: <a href='mailto:hello@scienceforchange.eu'>hello@scienceforchange.eu</a>. Si considera que sus derechos no se han atendido debidamente, tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos.</p>\n</br><p><strong>Tratamiento de datos de menores de edad</strong></p>\n</br><p>Quien facilita los datos a través de los formularios de esta web y acepta su tratamiento declara ser mayor de 14 años, quedando prohibido el acceso y uso del portal a menores de dicha edad. Si en algún momento, el Responsable detecta que un menor de 14 años ha proporcionado datos de carácter personal, procederemos a la cancelación de los mismos. Asimismo, los padres o tutores podrán en cualquier caso dirigirse a SCIENCE FOR CHANGE para bloquear la cuenta de acceso de los menores a su cargo que se hubieran registrado falseando su identidad.</p>\n</br><p><strong>Medidas de seguridad</strong></p>\n</br><p>En SCIENCE FOR CHANGE tratamos sus datos de manera lícita y en cumplimiento de la normativa vigente en materia de protección de datos. Con este objetivo, hemos implementado medidas de seguridad de índole técnica y organizativas que permiten garantizar la seguridad de los datos personales del usuario y evitar su alteración, pérdida, tratamiento y acceso no autorizado, así como para evitar cualquier otro riesgo no permitido al que puedan estar expuestos.</p>\n</br><p>Las medidas incluyen, entre otras, la salvaguarda de la confidencialidad, integridad y disponibilidad de los datos mediante el control del acceso físico y electrónico a los mismos, así como el acceso, introducción, transmisión, aseguramiento y separación de los datos. Además, hemos establecido procedimientos para garantizar que se respeten los derechos de los interesados, que se borren los datos y que estamos preparados para responder con rapidez a las amenazas a los datos. Además, tenemos en cuenta la protección de los datos personales desde el desarrollo o la selección de hardware, software y proveedores de servicios, de acuerdo con el principio de privacidad desde el diseño y privacidad por defecto.</p>\n</br><p>Para proteger de la mejor manera posible sus datos transmitidos a través de nuestros servicios en línea, utilizamos, entre otras, técnicas de cifrado, anonimización y pseudonimización.</p>"
   },
   "no_user_auth": {
     "text": "Para poder visualizar el contenido, debes iniciar sesión o crearte una cuenta.",
     "btn": "Iniciar sesión o crear cuenta"
+  },
+  "calibration": {
+    "popupTitle": "Calibración del dispositivo",
+    "popupTxt": "Para mejorar la calidad del registro de audio, es necesario que hagas una calibración del dispositivo.",
+    "popupBtn1": "Realizar la calibración",
+    "popupBtn2": "Continuar sin calibrar",
+    "beginCalibrationTitle": "Empieza la calibración",
+    "beginCalibrationTxt": "Para calibrar el dispositivo, necesitas un espacio tranquilo y silencioso. Registra el sonido durante 10 segundos. Pulsa en el botón para empezar.",
+    "doneValidationTitle": "¡Se ha calibrado correctamente!",
+    "doneValidationTxt": "Ahora ya puedes seguir registrando audios de la manera habitual.",
+    "doneValidationBtn": "Registrar un nuevo sonido",
+    "calibration_value": "Valor de la calibración",
+    "calibration_value_desc": "Este es el valor obtenido de calibración:",
+    "calibration_value_desc2": "¿Conoces el valor real?",
+    "calibration_value_desc3": "El rango debe estar entre 20 y 140 dBA.",
+    "calibration_value_desc4": "Sí, lo puedo medir manualmente"
+
+  },
+  "achievements": {
+    "my_achievements": "Mis Insignias",
+    "point": " punto",
+    "points": " puntos",
+    "level": "Nivel ",
+    "achievements": "Logros",
+    "lvl1": "Contribuyente",
+    "lvl2": "Ciudadano/a Acústico/a",
+    "lvl3": "Explorador/a Acústico/a",
+    "lvl4": "Viajero/a Sonoro/a",
+    "lvl5": "Informador/a experto/a"
+  },
+  "achievements_modal": {
+    "new_achievements": "Nuevo logro",
+    "lvl1": "Contribuyente",
+    "lvl2": "Ciudadano/a Acústico/a",
+    "lvl3": "Explorador/a Acústico/a",
+    "lvl4": "Viajero/a Sonoro/a",
+    "lvl5": "Informador/a experto/a",
+    "arg": "¡Has desbloqueado un nuevo logro!\nHas conseguido pasar de nivel para convertirte aún en más experto."
+  },
+  "home": {
+    "search": "Ubicación"
   }
 }

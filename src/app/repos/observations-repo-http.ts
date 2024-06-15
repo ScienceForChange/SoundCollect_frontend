@@ -8,11 +8,22 @@ import { IObservation } from '../models/iobservation';
 export class ObservationsRepoHttp {
   private http = inject(HttpClient);
   constructor() { }
+
   async sendSound(data: FormData) {
    return lastValueFrom(this.http.post<any>(`${environment.serverURL}/api/audio-process`, data));
   }
+
+  async calibrateSound(formData: any) {
+    console.log('calibrateSound in repooooo http para enviar: ', formData)
+    return lastValueFrom(this.http.post<any>(`${environment.serverCalibrationURL}/calibrate`, formData));
+  }
+
+  async valueCalibration(val: number) {
+    return lastValueFrom(this.http.post<any>(`${environment.serverURL}/api/user/autocalibration`, { autocalibration: val }));
+  }
+
   /**
-   * Deletes a observation
+   * Deletes an observation
    * @param uuid
    * @returns
    */
