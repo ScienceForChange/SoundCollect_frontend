@@ -1,0 +1,250 @@
+{
+  "onboarding": {
+    "slider": {
+      "title": "Bienvenido a SoundCollect",
+      "desc": "Bienvenido/a a nuestra aplicación de telerehabilitación, diseñada para ayudarte a recibir atención de alta calidad desde la comodidad de tu hogar"
+    },
+    "slider2": {
+      "title": "La nueva fisioterapia",
+      "desc": "Descubre las múltiples funcionalidades de nuestra aplicación de telerehabilitación, diseñada para personalizar tu tratamiento, mantener una comunicación efectiva con tu fisioterapeuta y hacer un seguimiento de tu progreso"
+    },
+    "slider3": {
+      "title": "El motion track",
+      "desc": "Nuestra funcionalidad Motion Track te permite hacer un seguimiento de tu progreso en tiempo real, ver tu evolución en gráficos y estadísticas y recibir recomendaciones específicas para ti, todo en un solo lugar"
+    },
+    "btn": {
+      "btn_1": "Següent",
+      "btn_2": "Accedir"
+    }
+  },
+  "tabs": {
+    "tab_home": "Inici",
+    "tab_exercise": "Exercicis",
+    "tab_content": "Contingut",
+    "tab_connect": "Connecta",
+    "tab_about": "Sobre mi"
+  },
+  "login": {
+    "btn": {
+      "sign_in": "Entrar",
+      "register": "Registra’t",
+      "recovery_pass": "Recuperar contrasenya"
+    },
+    "label": {
+      "title": "Bienvenido a SoundCollect",
+      "sub_title": "MútuaTerrassa",
+      "username": "Usuari",
+      "email": "Correu",
+      "password": "Contrasenya",
+      "Register": "Registra’t",
+      "msg_error_email_pass": "L'usuari o la contrasenya són incorrectes",
+      "no_account": "Encara no tens compte?",
+      "oblidat_contrasenya": "Recuperar contrasenya",
+      "login_face": "Accedir amb Face Id",
+      "login_finger": "Accedir amb Petjada",
+      "request_reset_password": "Has oblidat la teva contrasenya?",
+      "email_required": "Correu requerit",
+      "pass_required": "Contrasenya requerida",
+      "email_invalid": "El correu electrònic no és correcte"
+    }
+  },
+  "change_pass": {
+    "label": {
+      "title": "Canviar la contrasenya",
+      "sub_title": "Crea la teva nova contrasenya",
+      "email": "Correu",
+      "actual": "Contrasenya actual",
+      "new": "Crea la teva nova contrasenya",
+      "change_success": "La contrasenya s’ha canviat correctament"
+    },
+    "btn": {
+      "save": "Guardar"
+    },
+    "error": {
+      "password_min_length": "La contrasenya ha de tenir almenys 9 caràcters",
+      "password_required": "Contrasenya requerit",
+      "password_no_match": "Contrasenyes no coincideixen",
+      "email_required": "Correu requerit",
+      "email_invalid": "El correu electrònic no és correcte",
+      "input_required": "Es requereix una entrada",
+      "OLD-PASSWORD_INVALID": "La contrasenya anterior no és vàlida",
+      "PASSWORD_RESET_UNSUCCESSFUL": "Restabliment de la contrasenya insuficient"
+    }
+  },
+  "recovery_pass": {
+    "label": {
+      "title": "Recuperar la contrasenya",
+      "sub_title": "Per recuperar la contrasenya t'enviarem un email, recorda mirar la carpeta d'spam.",
+      "sub_title2": "T'hem enviat un codi a l'email",
+      "sub_title3": "Introdueix el codi per accedir a SoundCollect, si no el trobes potser el tinguis a correu brossa. És el darrer pas :)!",
+      "email": "Correu",
+      "email_required": "Correu requerit",
+      "email_invalid": "El correu electrònic no és correcte",
+      "email_sended": "S'ha enviat un correu electrònic a nom correu que conté un enllaç on podeu fer clic per restablir la contrasenya.",
+      "expires_msg": "Aquest enllaç caducarà",
+      "hours_msg": "3 hores.",
+      "footer_msg": "Si l'email encara no ha arribat provi a verificar la safata d'spam o",
+      "try_again": "intenteu-ho de nou",
+      "password_changed": "Contraseña cambiada satisfactoriamente",
+      "RESET_PASSWORD_EMAIL_CODE_SENDED": "S'ha enviat un codi al teu correu",
+      "INVALID_CHANGE_PASSWORD_CODE": "Codi no és vàlid"
+    },
+    "btn": {
+      "btn-apply": "Sol·licitar correu",
+      "btn-recovery": "Recuperar",
+      "btn-verify": "Verificar"
+    },
+    "errors": {
+      "USER_NOT_FOUND": "No hem pogut trobar aquest usuari"
+    }
+  },
+  "code_verify": {
+    "label": {
+      "title": "Hem enviat un codi al teu telèfon per verificar el teu compte\n",
+      "enter_code": "Introdueix el codi de verificació",
+      "no_received_msg": "Si no has rebut el correu, espera uns segons i torna a sol·licitar-ho",
+      "password": "Contrasenya",
+      "code": "Codi",
+      "code_verified": "Codi verificat satisfactòriament"
+    },
+    "errors": {
+      "password_required": "Contrasenya requerida",
+      "code_required": "Codi necessari",
+      "INSUFFICIENT_DATA": "Falten dades per la verificació",
+      "PASSWORD_MIN_LENGTH_NOT_VALID": "La contrasenya no és vàlida"
+    },
+    "btn": {
+      "btn-verify": "Verificar"
+    }
+  },
+  "home": {
+    "label": {
+      "title": "Hola ",
+      "sub_title": "Objectius de la setmana:",
+      "title_questionary_card": "Qüestionari {{name}}",
+      "title_questionary_answer": "Respondre qüestionari",
+      "title_questionary_answer1": "Gràcies per contestar el qüestionari.",
+      "title_exercise_card1": "Exercicis Mindfulness",
+      "title_exercise_card": "Exercicis Rehabilitació",
+      "title_exercise_answer": "Realitzar exercicis",
+      "title_recomendation_card": "Recomanacions del dia",
+      "title_recomendation_answer": "Llegir recomanació",
+      "title_welcome_card": "Benvingut",
+      "title_welcome_answer": "Saber més",
+      "title_card": "Entrenament",
+      "know_more": "Saber més",
+      "timing": "Avui",
+      "end": "Finalitza",
+      "video": "Reproduir vídeo",
+      "view_video": "Veure vídeo",
+      "no_program": "Cap programa actiu.",
+      "title_alert_step": "Passes  del dia",
+      "msg_alert_step": "Introdueix les passes que heu realitzat avui",
+      "btn_alert_step": "Afegir",
+      "input_alert_step_ph": "N. de passes",
+      "physical_activity": "Activitat física",
+      "text_perform": "Realitza",
+      "text_steps_x_day": "passes al dia",
+      "text_add_step": "Afegir passes ",
+      "text_view": "Tornar a veure",
+      "text_exercices": "Exercici",
+      "text_google_fit": "Vols carregar els passes de HealthKit/Fit?"
+    },
+    "buttons": {
+      "llegir_recomanacio": "Llegir recomanació",
+      "realialized_act": "Realitzar activitat",
+      "btn_accept": "Accepta",
+      "btn_cancel": "Cancel·la"
+    },
+    "tab1": {
+      "label": {
+        "sunday": "Diu",
+        "monday": "Lun",
+        "tuesday": "Dim",
+        "wednesday": "Mie",
+        "thursday": "Jue",
+        "friday": "Vie",
+        "saturday": "Sab",
+        "questionnaire": "Qüestionari",
+        "physical_activity": "Activitat física",
+        "scale": "Escala de dolor",
+        "no_data": "Cap dada per mostrar"
+      }
+    }
+  },
+  "about_me": {
+    "label": {
+      "close_session": "Estás segurx que deseas cerrar sesión"
+    },
+    "buttons": {
+      "btn_accept": "Accepta",
+      "btn_cancel": "Cancel·la"
+    }
+  },
+  "questionary": {
+    "label": {
+      "question": "Preguntes",
+      "write_question": "Escriure resposta",
+      "activity_finalized": "Activitat finalitzada"
+    },
+    "btn": {
+      "back": "Enrere",
+      "next": "Següent",
+      "finished": "Finalitzar"
+    }
+  },
+  "exercises": {
+    "label": {
+      "title": "Exercicis d'avui",
+      "subtitle": "Estiraments | 15-30 min",
+      "type": "Tipus",
+      "entrenament": "Estiraments",
+      "duration": "Durada",
+      "num_exercises": "Nº Exercicis",
+      "summary": "Resum",
+      "footer_title": "Enfocament",
+      "description": "Està enfocat a la millora de les cervicals",
+      "finalized": "Exercici finalitzat"
+    },
+    "btn": {
+      "start_training": "Començar entrenament"
+    }
+  },
+  "training": {
+    "label": {
+      "title": "Pregunta inicial",
+      "subtitle": "¿Ha sentit millora des de la sessió anterior fins ara?",
+      "note_title": "Podries especificar en què ho notes?"
+    },
+    "btn": {
+      "yes": "Si",
+      "no": "No",
+      "dont_know": "No es",
+      "next": "Siguiente",
+      "start_record": "Iniciar enregistrament",
+      "record_in": "Enregistrant",
+      "stop_record": "Aturar enregistrament",
+      "continue": "Continuar amb l'entrenament",
+      "record_again": "Tornar a gravar",
+      "finish": "Finalitzar",
+      "play": "Començar",
+      "stop": "Aturar",
+      "pause": "Pausa"
+    }
+  },
+  "global": {
+    "label": {
+      "loading": "Carregant...",
+      "information": "Informació"
+    }
+  },
+  "global_error": {
+    "label": {
+      "header": "Informació",
+      "message": "No s'ha pogut completar l'acció, contacteu amb l'equip de desenvolupament.",
+      "credencial_invalid": "Credencials no vàlides.",
+      "loading": "Carregant...",
+      "user_invalid": "Usuari no és vàlid"
+    }
+  }
+}

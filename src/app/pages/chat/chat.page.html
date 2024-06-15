@@ -1,0 +1,30 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="my-bg ion-no-margin ion-no-padding">
+    <div class="m-2">
+      <div class="flex flex-col items-center justify-between  pb-3" style="width: 100%;min-height: 135px;background: var(--ion-color-primary);border-radius: 10px;">
+        <img class="self-start m-3" (click)="goBack()" src="assets/images/general/back.svg" alt="back" width="31">
+        <ion-text class="H2-22-700 self-start mx-3 leading-9 mb-2 my-text-header-secondary">User Name</ion-text>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="flex h-full justify-start gap-3 align-middle w-full flex-col pt-4 px-2">
+    <div class="chat bot">Lorem ipsum dolor.</div>
+    <div class="chat user">Lorem ipsum dolor sit amet.</div>
+    <div class="user chat">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolore, eveniet fugiat ipsam, iste iure iusto magnam magni nam placeat praesentium rerum temporibus voluptatem? At esse id natus officia quidem.</div>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <div class="flex px-3 py-2 justify-between align-middle">
+    <div class="relative flex justify-between align-middle w-full">
+      <textarea class="w-full" style="border: 2px solid #0D423E;border-radius: 69px;height:55px;padding: 0.8rem 2.4rem;"></textarea>
+      <img class="absolute bottom-0 top-0 m-auto left-3" src="assets/images/tab1/toy.svg">
+      <img class="absolute bottom-0 top-0 m-auto right-3" src="assets/images/tab1/camara.svg">
+    </div>
+    <button class="ms-3"><img src="assets/images/tab1/play.svg"></button>
+  </div>
+
+
+
+</ion-footer>

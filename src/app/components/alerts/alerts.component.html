@@ -1,0 +1,80 @@
+<!--
+    <div class="rounded-tl-3xl rounded-br-3xl" [ngClass]="mySuccess ? 'my-success' : myWarning ? 'my-warning': 'my-danger'" >
+    </div>-->
+<div
+  class="MessageFrame p-4"
+  [ngClass]="classSelector[myColor]"
+  style="border-radius: 16px; width: 96vw"
+>
+  <div class="flex justify-evenly items-center">
+    <div class="">
+      <img
+        alt="img"
+        *ngIf="myColor === 'warning'"
+        src="assets/images/SoundCollect/Iconos/warning.svg"
+        width="78"
+      />
+      <img
+        alt="img"
+        *ngIf="myColor === 'success'"
+        src="assets/images/SoundCollect/Iconos/warning.svg"
+        width="78"
+      />
+      <img
+        alt="img"
+        *ngIf="myColor === 'danger'"
+        src="assets/images/SoundCollect/Iconos/danger.svg"
+        width="78"
+      />
+    </div>
+    <div
+      class="Message w-72 flex-col justify-center items-start gap-px inline-flex"
+    >
+      <div *ngIf="myColor === 'success'" class="Text self-stretch">
+        <span class="H7-20-500" style="color:black">{{
+          myText | translate
+        }}</span
+        ><span
+          style="
+            color: #0b186d;
+            font-size: 1.25rem;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+          "
+        >
+          {{ myText2Bold | translate }}</span
+        >
+      </div>
+      <div *ngIf="myColor === 'warning'" class="Text self-stretch">
+        <span class="H7-20-500" style="color: #black">{{
+          myText | translate
+        }}</span
+        ><span
+          style="
+            color: #0b186d;
+            font-size: 1.25rem;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+          "
+        >
+          {{ myText2Bold | translate }}</span
+        >
+      </div>
+      <div *ngIf="myColor === 'danger'" class="Text self-stretch">
+        <span class="H7-20-500" style="color: black">{{
+          myText | translate
+        }}</span
+        ><span
+          style="
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+          "
+        >
+          {{ myText2Bold | translate }}</span
+        >
+      </div>
+    </div>
+  </div>
+</div>

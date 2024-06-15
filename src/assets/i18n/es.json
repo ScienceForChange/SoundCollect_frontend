@@ -1,0 +1,378 @@
+{
+  "onboarding": {
+    "slider": {
+      "title": "Bienvenido a SoundCollect",
+      "desc": "Lorem ipsum dolor sit amet consectetur. Et et arcu imperdiet vestibulum laoreet commodo. "
+    },
+    "slider2": {
+      "title": "Objetivo del mapeo de áreas tranquilas ",
+      "desc": "Lorem ipsum dolor sit amet consectetur. Et et arcu imperdiet vestibulum laoreet commodo. "
+    },
+    "slider3": {
+      "title": "Variables que recolecta la App",
+      "sub_title": "Salud mental y física",
+      "desc": "Lorem ipsum dolor sit amet consectetur. Et et arcu imperdiet vestibulum laoreet commodo. "
+    },
+    "slider4": {
+      "title": "Consultar otros sonidos registrados",
+      "sub_title": "Salud mental y física",
+      "desc": "Lorem ipsum dolor sit amet consectetur. Et et arcu imperdiet vestibulum laoreet commodo. "
+    },
+    "slider5": {
+      "title": "Comunidad",
+      "sub_title": "Salud mental y física",
+      "desc": "Lorem ipsum dolor sit amet consectetur. Et et arcu imperdiet vestibulum laoreet commodo. "
+    },
+    "btn": {
+      "btn_1": "Siguiente",
+      "btn_2": "Acceder",
+      "btn_3": "Atrás"
+    }
+  },
+  "login": {
+  "btn": {
+    "sign_in": "Acceder",
+    "register": "Registrarse",
+    "recovery_pass": "He olvidado mi contraseña"
+  },
+  "label": {
+    "title": "Bienvenido a SoundCollect",
+    "sub_title": "SoundCollect",
+    "username": "Usuario",
+    "email": "Correu",
+    "password": "Contraseña",
+    "Register": "Registrarse",
+    "msg_error_email_pass": "El usuario o la contraseña no son correctos",
+    "no_account": "¿Aún no tienes cuenta?",
+    "oblidat_contrasenya": "He olvidado mi contraseña",
+    "login_face": "Acceder con FaceID",
+    "login_finger": "Acceder con huella",
+    "request_reset_password": "Has olvidado tu contraseña?",
+    "email_required": "Correo requerido",
+    "pass_required": "Contraseña requerida",
+    "email_invalid": "El correo electrónico no es correcto"
+  }
+},
+  "recovery_pass": {
+  "label": {
+    "title": "Recuperar contraseña",
+    "sub_title": "Para recuperar la contraseña te enviaremos un email, recuerda mirar la carpeta de spam.",
+    "sub_title2": "Te hemos envíado un código al email",
+    "sub_title3": "Introduce el código para acceder a SoundCollect, si no lo encuentras quizás lo tengas en spam. ¡Es el último paso :)!",
+    "email": "Correo",
+    "email_required": "Correo requerido",
+    "email_invalid": "El correo electrónico no es correcto",
+    "email_sended": "Se ha enviado un correo electrónico que contiene un enlace en el que puede hacer clic para restablecer su contraseña.",
+    "expires_msg": "Este enlace caducará",
+    "hours_msg": "3 horas.",
+    "footer_msg": "Si el email aún no ha llegado pruebe a verificar su bandeja de spam o",
+    "try_again": "inténtelo de nuevo",
+    "password_changed": "Contraseña cambiada satisfactoriamente",
+    "RESET_PASSWORD_EMAIL_CODE_SENDED": "Se ha enviado un código al correo electrónico",
+    "INVALID_CHANGE_PASSWORD_CODE": "Código no es valido"
+  },
+  "btn": {
+    "btn-apply": "Solicitar correo",
+    "btn-recovery": "Enviar",
+    "btn-verify": "Guardar cambios"
+  },
+  "errors": {
+    "USER_NOT_FOUND": "No hemos podido encontrar a este usuario"
+  }
+},
+  "tabs": {
+    "tab_home": "Inicio",
+    "tab_exercise": "Ejercicios",
+    "tab_content": "Contenidos",
+    "tab_connect": "Conecta",
+    "tab_about": "Sobre mi"
+  },
+  "today_exercises": {
+    "type": "Tipo",
+    "duration": "Duración",
+    "amount": "Nº Ejercicios",
+    "resume": "Resumen",
+    "Approach": "Enfoque",
+    "warm_up": "Calentamiento",
+    "btn1": "Comenzar entrenamiento"
+  },
+  "tabs1": {
+    "MONDAY": "Lunes",
+    "TUESDAY": "Martes",
+    "WEDNESDAY": "Miercoles",
+    "THURSDAY": "Jueves",
+    "FRIDAY": "Viernes",
+    "SATURDAY": "Sabado",
+    "SUNDAY": "Domingo",
+    "activities_on": "Actividades del",
+    "physical_activity": "Actividad física",
+    "today_exercises": "Ejercicios de hoy",
+    "stretching": "Estiramientos",
+    "questionnaire": "Cuestionario",
+    "pain_scale": "Escala de dolor",
+    "minutes": "minutos",
+    "your_plan": "Tu plan"
+  },
+
+  "change_pass": {
+    "label": {
+      "title": "Cambiar la contraseña",
+      "sub_title": "Crea tu nueva contraseña",
+      "email": "Correo",
+      "actual": "Contraseña actual",
+      "new": "Crea tu nueva contraseña",
+      "change_success": "La contraseña se ha cambiado correctamente"
+    },
+    "btn": {
+      "save": "Guardar"
+    },
+    "error": {
+      "password_min_length": "La contraseña debe tener al menos 8 caracteres",
+      "password_required": "Contraseña requerida",
+      "password_no_match": "El email o la contraseña introducidos no son correctos.",
+      "email_required": "Correo requerido",
+      "email_invalid": "El correo electrónico no es correcto",
+      "input_required": "Es requerido",
+      "OLD-PASSWORD_INVALID": "La contraseña anterior no es correcta",
+      "PASSWORD_RESET_UNSUCCESSFUL": "Restablecimiento de contraseña no exitoso"
+    }
+  },
+
+  "code_verify": {
+    "label": {
+      "title": "Hemos enviado un código al correo electrónico",
+      "enter_code": "Introduzca el código",
+      "no_received_msg": "Si no has rebut el correu, espera uns segons i torna a sol·licitar-ho",
+      "password": "Contraseña",
+      "code": "Código",
+      "code_verified": "Código verificado"
+    },
+    "errors": {
+      "password_required": "Contraseña requerida",
+      "code_required": "Codi necessari",
+      "INSUFFICIENT_DATA": "Falten dades per la verificació",
+      "PASSWORD_MIN_LENGTH_NOT_VALID": "La contraseña no és vàlida"
+    },
+    "btn": {
+      "btn-verify": "Verificar"
+    }
+  },
+  "home": {
+    "label": {
+      "title": "Hola ",
+      "sub_title": "Objetivos de la semana:",
+      "title_questionary_card": "Cuestionario {{name}}",
+      "title_questionary_answer": "Responde el cuestionario",
+      "title_questionary_answer1": "Gracias por contestar el cuestionario.",
+      "title_exercise_card1": "Ejercicios Mindfulness",
+      "title_exercise_card": "Ejercicios Rehabilitación",
+      "title_exercise_answer": "Realitzar ejercicios",
+      "title_recomendation_card": "Recomendaciones del dia",
+      "title_recomendation_answer": "Leer recomendación",
+      "title_welcome_card": "Bienvenido",
+      "title_welcome_answer": "Saber més",
+      "title_card": "Entrenamiento",
+      "know_more": "Saber más",
+      "timing": "Hoy",
+      "end": "Finalitza",
+      "video": "Reproduir vídeo",
+      "view_video": "Veure vídeo",
+      "no_program": "Cap programa actiu.",
+      "title_alert_step": "Passes  del dia",
+      "msg_alert_step": "Introdueix les passes que heu realitzat avui",
+      "btn_alert_step": "Afegir",
+      "input_alert_step_ph": "N. de passes",
+      "physical_activity": "Activitat física",
+      "text_perform": "Realitza",
+      "text_steps_x_day": "passes al dia",
+      "text_add_step": "Afegir passes ",
+      "text_view": "Tornar a veure",
+      "text_exercices": "Ejercicio",
+      "text_google_fit": "Vols carregar els passes de HealthKit/Fit?"
+    },
+    "buttons": {
+      "llegir_recomanacio": "Llegir recomanació",
+      "realialized_act": "Realitzar activitat",
+      "btn_accept": "Aceptar",
+      "btn_cancel": "Cancelar",
+      "btn_close":"Cerrar",
+      "btn_reload":"Reintentar"
+    },
+    "error":{
+      "reload":"Ha ocurrido un error durante la carga de datos. Por favor intente nuevamente."
+    },
+    "tab1": {
+      "label": {
+        "sunday": "Dom",
+        "monday": "Lun",
+        "tuesday": "Mar",
+        "wednesday": "Mie",
+        "thursday": "Jue",
+        "friday": "Vie",
+        "saturday": "Sab",
+        "questionnaire": "Questionario",
+        "physical_activity": "Actividad física",
+        "scale": "Escala del dolor",
+        "no_data": "Ningún dato que mostrar"
+      }
+    }
+  },
+  "about_me": {
+    "label": {
+      "close_session": "Estás seguro que deseas cerrar sesión",
+      "evolution": "Evolución",
+      "weekly_summary": "Resumen semanal",
+      "evolution_pain": "Evolución de dolor",
+      "monthly": "Mensual",
+      "weekly": "Semanal",
+      "annual": "Anual",
+      "effort": "Esfuerzo",
+      "personal_inf": "Información personal",
+      "edit": "Editar",
+      "name_last": "Nombre y apellidos",
+      "gender":"Género",
+      "birthdate": "Fecha de nacimiento",
+      "telephone": "Telefono",
+      "setting": "Configuración",
+      "change": "Cambiar",
+      "lang": "Idioma",
+      "spanish": "Castellano",
+      "Catalan": "Catalan",
+      "notification": "Notificaciones",
+      "others": "Otros",
+      "report_error": "Informa de un error",
+      "terms": "Términos y condiciones",
+      "privacy": "Privacidad",
+      "version": "Versión n",
+      "log_out": "Salir de la App",
+      "repetition": "Repetición",
+      "repetitions": "Repeticiones"
+    },
+    "buttons": {
+      "btn_1": "Ver todo",
+      "btn_accept": "Aceptar",
+      "btn_cancel": "Cancelar"
+    }
+  },
+  "profile":{
+    "label":{
+      "edit_profile_title":"Editar información personal",
+      "edit_profile_subtitle":"Modifique su información.",
+      "button_save":"Guardar Cambios",
+      "login_required":"Requiere iniciar sesión nuevamente.",
+      "name":"Nombre",
+      "lastname":"Apellidos"
+    },
+    "error":{
+      "required":"Requerido"
+    }
+  },
+  "language":{
+    "label":{
+      "change_language_title":"Cambiar idioma",
+      "change_language_subtitle":"Seleccione su idioma preferido"
+    }
+  },
+  "questionary": {
+    "label": {
+      "question": "Preguntas",
+      "write_question": "Escriube respuesta",
+      "activity_finalized": "Actividad finalizada"
+    },
+    "btn": {
+      "back": "Atrás",
+      "next": "Siguiente",
+      "finished": "Finalizar"
+    }
+  },
+  "exercises": {
+    "label": {
+      "title": "Ejercicios de hoy",
+      "subtitle": "Estiramientos | 15-30 min",
+      "type": "Tipo",
+      "entrenament": "Estiramientos",
+      "duration": "Duración",
+      "num_exercises": "Nº Ejercicios",
+      "summary": "Resumen",
+      "footer_title": "Enfoque",
+      "description": "Descripción del programa",
+      "finalized": "Ejercicio finalizado",
+      "series":"Series",
+      "serie":"Serie"
+    },
+    "btn": {
+      "start_training": "Comenzar entrenamiento"
+    }
+  },
+  "training": {
+    "btn_1": "Repetir",
+    "btn_2": "Iniciar grabación",
+    "btn_3": "Grabando en 3, 2, 1...",
+    "btn_4": "Terminar ejercicio",
+    "btn_5": "Continuar el entrenamiento",
+    "btn_6": "Saltar",
+    "btn_7": "Pausa",
+    "btn_8": "Iniciar",
+    "label": {
+      "title": "Pregunta inicial",
+      "subtitle": "¿Ha sentido mejoría desde la sesión anterior hasta ahora?",
+      "note_title": "¿Nos especificas el porqué?",
+      "pain_scale_question": "¿Cuánto dolor sentiste?",
+      "pain_scale_no_pain": "sin dolor",
+      "pain_scale_extreme_pain": "dolor extremo",
+      "borg_scale_question": "¿Cuánto te esforzaste?",
+      "borg_scale_no_effort": "reposo total",
+      "borg_scale_max_effort": "máximo esfuerzo",
+      "open_question": "¿Quieres añadir alguna información más sobre los ejercicios?",
+      "pd_loading": "Cargando el detector...",
+      "img_loading": "Esperando descarga...",
+      "alert_header":"Cerrar sin guardar",
+      "alert_message":"¿Seguro que quieres cerrar sin guardar los ejercicios del entrenamiento? Se perderá el progreso.",
+      "rest_message":"Recuerda que cada persona necesita sus tiempos, si necesita un poco más para recuperarse tómese su tiempo",
+      "final_questionnaire_title":"Cuestionario final",
+      "final_questionnaire_subtitle":"Evalúe cómo te sentiste durante el entrenamiento"
+    },
+    "error":{
+      "initial_questionnaire_empty":"Usted debe responder el cuestionario para poder comenzar con el entrenamiento",
+      "exercise_done":"Ya realizó ese entrenamiento",
+      "exercise_of_another_day":"Ya pasó el día que tenía asignado para esos ejercicios"
+    },
+    "btn": {
+      "yes": "Si",
+      "no": "No",
+      "dont_know": "No se",
+      "next": "Siguiente",
+      "start_record": "Comenzar grabación",
+      "record_in": "Grabando",
+      "stop_record": "Detener grabación",
+      "continue": "Continuar el entrenamiento",
+      "record_again": "Volver a grabar",
+      "finish": "Finalizar",
+      "play": "Comenzar",
+      "stop": "Detener",
+      "pause": "Pausa",
+      "start_training": "Comenzar entrenamiento",
+      "next_training": "Siguiente ejercicio",
+      "stop_training": "Terminar ejercicio",
+      "finish_training": "Fin del entrenamiento"
+    }
+  },
+  "global": {
+    "label": {
+      "loading": "Cargando...",
+      "information": "Información",
+      "header_update_app": "Descarga la última versión",
+      "message_update_app": "Es necesario que descargues la última versión de la app.",
+      "btn_update_app": "Descargar nueva versión"
+    }
+  },
+  "global_error": {
+    "label": {
+      "header": "Información",
+      "message": "No se ha podido completar la acción, contacte con el equipo de desarrollo.",
+      "credencial_invalid": "El email o la contraseña introducidos no son correctos.",
+      "user_invalid": "Usuario no es válido",
+      "upload_media":"No se pudo enviar el video. Compruebe su conexión y reintente el envío. Si pulsa Cerrar, saldrá del entrenamiento y no se guardará el progreso."
+    }
+  }
+}

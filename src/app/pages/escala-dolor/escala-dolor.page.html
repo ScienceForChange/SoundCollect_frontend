@@ -1,0 +1,62 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar class="my-bg ion-no-margin ion-no-padding">
+        <div class="m-2">
+            <div class="flex flex-col items-center justify-between  pb-3"
+                 style="width: 100%;min-height: 135px;background: var(--ion-color-primary);border-radius: 10px;">
+                <img class="self-start m-3" (click)="goBack()" src="assets/images/general/back.svg" alt="back"
+                     width="31">
+                <ion-text
+                        class="H2-22-700 self-start mx-3 leading-9 mb-2 my-text-header-secondary">{{'tabs1.pain_scale'|translate}}</ion-text>
+                <ion-text
+                        class="H6-14-400SpaceGrotesk self-start mx-3 text-start my-text-yellow">{{'tabs1.questionnaire'|translate}}
+                    | 5 {{'tabs1.minutes'|translate | slice:0:3}}</ion-text>
+            </div>
+        </div>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <swiper-container #swiperQuestions class="swiper-q" (afterinit)="swiperReady()" [modules]="swiperModules"
+                      [slidesPerView]="1">
+        <swiper-slide class="swiper-slide-questionary"
+                      *ngFor="let question of questionary?.questions.collection; let pos = index;">
+            <div class="flex flex-col mt-4 px-2" *ngIf="!processing">
+                <ion-text class="H6-14-400SpaceGrotesk my-text-dark">{{questionary.title}}</ion-text>
+                <ion-text class="H3-18-700SpaceGrotesk my-text-dark">{{question.text}}</ion-text>
+                <div class="flex w-full mt-4 items-center gap-3 flex-col">
+                    <button *ngFor="let childs of question.options.collection; let i = index;"
+                            (click)="pickAnswer(pos, childs, $event)"
+                            class="items-list bg-transparent text-start"
+                            style="padding: 22px 16px;gap: 10px;width: 90vw;min-height: 75px;background: #FFFFFF;border-radius: 7px;">
+                        <ion-text class="my-text-dark H6-14-700SpaceGrotesk">{{childs.answer}}</ion-text>
+                    </button>
+                </div>
+
+                <div class="w-100" *ngIf="question.type === 'text'">
+                    <div class="w-100 py-5 d-flex flex-column align-items-center"
+                         style="background: #FFF9F4;border-top-left-radius: 21px;border-top-right-radius: 21px;min-height: 77vh">
+                        <ion-textarea class="ion-padding-horizontal" label=""
+                                      style="text-align: left;padding-end: 0px; --padding-start: 0px;padding-left: 0px;"
+                                      (ionChange)="onChangeAnswer()"
+                                      placeholder="{{'questionary.label.write_question' | translate}}"
+                                      [(ngModel)]="answerText">
+                        </ion-textarea>
+                    </div>
+                </div>
+            </div>
+        </swiper-slide>
+    </swiper-container>
+</ion-content>
+<ion-footer class="px-3">
+    <div class="flex w-full p-3 justify-end gap-3" *ngIf="!processing">
+        <button #btnOnboardingPrev class="mt-5 rounded-full" [disabled]="swiper?.isBeginning"
+                (click)="setSwiperInstance('prev');goPrev()"
+                style="color: #0D423E;padding: 16px 28px;border: 1px solid var(--ion-color-primary);">
+            <span class="ion-text-nowrap">{{'questionary.btn.back'|translate}}</span>
+        </button>
+        <button #btnOnboarding class="mt-5 my-btn-custome w-full" [disabled]="!answer[step]"
+                (click)="setSwiperInstance('next');goNext()"
+                style="padding: 16px 28px">
+            <span>{{btnText}}</span>
+        </button>
+    </div>
+</ion-footer>

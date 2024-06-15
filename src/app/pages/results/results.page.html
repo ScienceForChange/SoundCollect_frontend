@@ -1,0 +1,64 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="secondary" class="ion-no-margin ion-no-padding ion-no-border">
+    <div class="flex items-center justify-start px-3">
+      <img tappable="true" class="mt-1" (click)="goBack()" src="assets/images/SoundCollect/Iconos/back-white.svg" alt="back" width="24">
+      <ion-text class="H2-22-700 self-start ms-16 text-white">
+        Resumen del sonido
+      </ion-text>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" style="--background: var(--ion-color-secondary)">
+  <div class="flex items-center gap-4 pt-6 flex-col justify-start w-full h-full">
+    <label class="H-20-700 text-white text-start w-full ms-8">Información multimedia</label>
+    <div class="blue-box">
+      <label class="H-20-700 my-text-header">Audio registrado</label>
+      <label class="H-16-400 my-text-header">Lorem ipsum dolor sit amet consectetur. Urna cras at elit lectus consectetur convallis aliquet.</label>
+      <div class="flex w-full mt-5 justify-start gap-8 items-center">
+        <div class="flex flex-col">
+          <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Parameters</label>
+          <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Parameters</label>
+        </div>
+        <div class="flex flex-col">
+          <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg">Parameters</label>
+          <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg">Parameters</label>
+        </div>
+      </div>
+      <div class="flex  gap-2  justify-start items-center p-2" style="overflow: scroll">
+        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
+        </div>
+        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
+        </div>
+        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
+        </div>
+      </div>
+    </div>
+    <label class="H-20-700 text-white text-start w-full ms-8">Más información sobre el sonido</label>
+    <div class="blue-box">
+      <div class="flex flex-col w-full mt-3 justify-between items-start">
+        <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Tipo de sonido</label>
+        <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Tipo de fuente</label>
+        <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Tipo de percepción del entorno</label>
+    </div>
+      <label class="H-16-700 my-text-header">Comentarios:</label>
+      <label class="H-16-400 my-text-header">Lorem ipsum dolor sit amet consectetur. Malesuada egestas morbi imperdiet aliquam proin a bibendum morbi. Neque ac mauris tincidunt blandit.</label>
+    </div>
+
+  </div>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+</ion-content>
+
+<ion-footer class="ion-no-border" style="background-color: var(--ion-color-secondary)">
+  <div class="ion-no-border px-3 pt-2">
+    <div class="flex w-full flex-col justify-evenly gap-3">
+      <button class="my-btn-login-inverted mx-auto">
+        <ion-text class="ion-text-nowrap">
+          Enviar
+        </ion-text>
+      </button>
+    </div>
+  </div>
+</ion-footer>

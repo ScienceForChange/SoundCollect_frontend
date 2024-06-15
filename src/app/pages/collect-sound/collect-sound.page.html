@@ -1,0 +1,140 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="ligth" class="ion-no-margin ion-no-padding ion-no-border bg-white">
+    <div class="flex items-center justify-start px-3">
+      <img tappable="true" class="mt-1" (click)="goBack()" src="assets/images/SoundCollect/Iconos/back.svg" alt="back" width="24">
+      <ion-text class="H2-22-700 self-start ms-16 my-text-header">
+        Añadir nuevo sonido
+      </ion-text>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="flex items-center px-3 py-2 w-full justify-between">
+      <div [ngClass]="myStep>=1?'orange-bg':''" class="text-center flex items-center justify-center" style="border-radius: 50%;min-width: 32px;height: 32px;border: 2px solid #FDA568">1</div>
+      <div class="w-full" style="height: 2px;background-color: #FDA568"></div>
+      <div [ngClass]="myStep>=2?'orange-bg':''" class="text-center flex items-center justify-center" style="border-radius: 50%;min-width: 32px;height: 32px;border: 2px solid #FDA568">2</div>
+      <div class="w-full" style="height: 2px;background-color: #FDA568"></div>
+      <div [ngClass]="myStep>=3?'orange-bg':''" class="text-center flex items-center justify-center" style="border-radius: 50%;min-width: 32px;height: 32px;border: 2px solid #FDA568">3</div>
+ </div>
+  <div class="flex-col flex w-full justify-between items-center p-3" style="height: 77vh;">
+   <div class="w-full flex flex-col" *ngIf="myStep===1">
+     <label class="H-20-700 mt-4 my-text-header w-full flex justify-between items-center">Audio registrado <img src="assets/images/SoundCollect/Iconos/edit-dark.svg"></label>
+     <div class="flex gap-5 mt-2 justify-between items-center p-2" style="border-radius: 100px;background: #DEEEEF;">
+       <img src="assets/images/SoundCollect/Iconos/play.svg">
+       <ion-range></ion-range>
+       <ion-label class="H-10-400 my-text-header">00:05:00</ion-label>
+     </div>
+     <label class="H-20-700 mt-8 my-text-header">Audio registrado</label>
+     <label class="H-16-400 my-text-header">Lorem ipsum dolor sit amet consectetur. Urna cras at elit lectus consectetur convallis aliquet.</label>
+     <div class="flex w-full mt-5 justify-between items-center">
+       <div class="flex flex-col">
+         <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Parameters</label>
+         <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Parameters</label>
+       </div>
+       <div class="flex flex-col">
+         <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg">Parameters</label>
+         <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg">Parameters</label>
+       </div>
+     </div>
+   </div>
+   <div class="w-full flex flex-col" *ngIf="myStep===2">
+      <label class="H-20-700  px-2 my-text-header w-full flex justify-start items-center">Imágenes</label>
+      <div class="flex flex-wrap gap-2  justify-start items-center p-2">
+        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/plus.svg)">
+          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
+        </div>
+        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
+          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
+        </div>
+        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
+          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
+        </div>
+        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
+          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
+        </div>
+        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
+          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
+        </div>
+        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
+          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
+        </div>
+        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
+          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
+        </div>
+        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
+          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
+        </div>
+        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
+          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
+        </div>
+        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
+          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
+        </div>
+        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
+          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
+        </div>
+        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
+          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
+        </div>
+        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
+          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
+        </div>
+      </div>
+     <br><br><br><br><br><br><br><br>
+    </div>
+   <div class="w-full flex flex-col" *ngIf="myStep===3">
+      <label class="H-20-700  px-2 my-text-header w-full flex justify-start items-start">Detalles del sonido</label>
+      <div class="flex flex-col gap-2 mt-2  justify-start items-start p-2" style="height: 67vh;overflow: scroll">
+        <label class="H3-18-400-SpaceGrotesk mb-3 my-text-header">Tipo de sonido:</label>
+        <input class="input" placeholder="Escoge una opción" list="type" type="text">
+        <datalist id="type">
+          <option value="Opción 1"></option>
+          <option value="Opción 2"></option>
+          <option value="Opción 3"></option>
+        </datalist>
+        <div class="mt-2">
+          <label class="H3-18-700 my-text-header">Tipo de fuente:</label>
+          <ion-radio-group>
+            <div>
+              <ion-radio class="source ion-padding-top ion-padding-bottom" value="1" labelPlacement="end" justify="start">Opción 1</ion-radio>
+            </div>
+            <div>
+              <ion-radio class="source ion-padding-top ion-padding-bottom" value="2"  labelPlacement="end" justify="start">Opción 2</ion-radio>
+            </div>
+          </ion-radio-group>
+        </div>
+        <div class="mt-2">
+          <label class="H3-18-700 my-text-header">Tipo de percepción del entorno:</label>
+          <ion-radio-group>
+            <div>
+              <ion-radio class="around ion-padding-top ion-padding-bottom" value="1" labelPlacement="end" justify="start">Opción 1</ion-radio>
+            </div>
+            <div>
+              <ion-radio class="around ion-padding-top ion-padding-bottom" value="2"  labelPlacement="end" justify="start">Opción 2</ion-radio>
+            </div>
+          </ion-radio-group>
+        </div>
+        <div class="mt-2">
+          <label class="H3-18-700 my-text-header">Comentarios:</label>
+          <textarea class="input" placeholder="Añade un comentar" ></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer style="background-color: #E7FFFF!important;">
+  <div class="ion-no-border px-3 pt-2">
+    <div class="flex w-full flex-col justify-evenly gap-3">
+      <button *ngIf="myStep===1" (click)="next()" class="my-btn-login mx-auto">Siguiente</button>
+      <div class="flex gap-6 justify-evenly"  *ngIf="myStep>=2">
+        <button  (click)="back()" class="my-btn-login" style="background: #B2EAEE;color: black">Atrás</button>
+        <button *ngIf="myStep<=2" (click)="next()" class="my-btn-login">Siguiente</button>
+        <button *ngIf="myStep===3" [routerLink]="['/results']" class="my-btn-login">Resumen</button>
+      </div>
+    </div>
+  </div>
+
+</ion-footer>

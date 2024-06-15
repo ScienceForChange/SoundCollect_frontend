@@ -1,0 +1,95 @@
+ion-content#training-content {
+  --ion-background-color: #ffffff;
+}
+ion-footer .button-div-container {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 0.5rem 6px;
+  width: auto;
+  margin-bottom: 0.5rem;
+}
+ion-footer .back-primary {
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  background: var(--ion-color-primary) !important;
+}
+.my-selected-option {
+  border: 2px solid #0d423e;
+  background: #ffffff !important;
+}
+.my-padding {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.zero-height {
+  height: 0;
+}
+
+.video-player-wrapper {
+  transition-duration: 500ms;
+  border-radius: 8px;
+}
+
+.video-player-wrapper-h {
+  height: 78vh;
+}
+
+.transition {
+  transition-duration: 1500ms;
+}
+
+.main-screen {
+  width: 90vw;
+  height: 63vh;
+}
+
+.video-minimized {
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 8px;
+  position: absolute !important;
+  top: 3px;
+  left: 3px;
+}
+
+.pos-canvas {
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.btn-eval,
+.btn-borg {
+  --background: #f3f6f5;
+  --border-style: solid;
+  --border-width: 1px;
+  --border-color: #f3f6f5;
+  position: relative;
+  --padding-start: 0.7em;
+  --padding-end: 0.7em;
+  --ripple-color: #ffffff;
+}
+ion-button.btn-eval-active {
+  --background: #ffffff;
+  --border-color: #0d423e;
+  z-index: 10;
+}
+button#training-next-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.up-keyboard {
+  height: 60vh;
+}
+#img-waiting {
+  position: absolute;
+  display: flex;
+  z-index: 99;
+  width: 98vw;
+  justify-content: center;
+  height: 60vh;
+  align-items: center;
+}

@@ -1,0 +1,67 @@
+<ion-header
+  class="ion-no-border alinear-inicio col-md-8 col-lg-6 align-self-md-center align-self-lg-center align-self-md-center"
+  style="justify-self: center"
+>
+  <ion-toolbar
+    class="ion-no-border ion-no-margin ion-no-padding"
+    style="--background: #b3f299"
+  >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="background: #b3f299">
+  <div
+    class="w-100 d-flex flex-column justify-content-between align-items-center"
+    style="
+      height: 100%;
+      background: #b3f299;
+      display: flex;
+      align-items: center;
+    "
+  >
+    <div
+      class="w-100 d-flex flex-column align-items-center mt-5"
+      style="width: 100%; display: flex; justify-content: center"
+    >
+      <img src="/assets/icon/update_app.svg" alt="logo" />
+    </div>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="p-5"
+    style="--background: #ffffff; display: flex; justify-content: center"
+  >
+    <div
+      class="mb-5"
+      style="width: 100%; display: flex; justify-content: center;flex-direction: column;"
+    >
+      <ion-text class="mt-3 mb-3 H3-18-700SpaceGrotesk my-text-dark" style="text-align: center;"
+        >{{'global.label.header_update_app' | translate }}</ion-text
+      >
+      <ion-text class="H4-text-16-secondary-500 mt-1 mb-4 text-center w-75"
+        ><span
+          >{{'global.label.message_update_app' | translate }}
+        </span></ion-text
+      >
+    </div>
+    <div
+      class="mb-4"
+      style="width: 100%; display: flex; justify-content: center"
+    >
+      <button
+      [hidden]="true"
+        (click)="updateApp()"
+        class="mx-auto mt-3 mb-5 text-white"
+        style="
+          background: var(--ion-color-primary);
+          width: 80vw;
+          border: 2px solid white;
+          border-radius: 12px;
+          height: 61px;
+        "
+      >
+        {{ "global.label.btn_update_app" | translate }}
+      </button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

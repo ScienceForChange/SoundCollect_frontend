@@ -1,0 +1,6 @@
+<ion-content>
+  <video class="video" [hidden]="true" #liveVideo></video>
+  <canvas #canvasElement style="width: 100%; height:90%; transform: scaleX(-1);"></canvas>
+  <ion-button (click)="videoPlay()">play</ion-button>
+  <ion-button (click)="videoStop()">stop</ion-button>
+</ion-content>

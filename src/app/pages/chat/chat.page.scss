@@ -1,0 +1,20 @@
+.chat{
+  width: 270px;
+  margin:.1rem 1rem ;
+  padding: .7rem;
+  font-family: SpaceGrotesk, serif!important;
+  font-size: clamp(0.88rem, calc(0.64rem + 1.11vw), 1.50rem);
+  font-weight: 400;
+  border-radius: 15px;
+}
+.bot{
+  align-self: baseline;
+  color: white;
+  background: #0D423E;
+}
+
+.user{
+  align-self: flex-end;
+  background: #F3F6F5;
+  text:var(--ion-color-primary)
+}

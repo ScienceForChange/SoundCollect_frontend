@@ -1,0 +1,95 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="ligth" class="ion-no-margin ion-no-padding ion-no-border">
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" scroll-y="false" style="--padding-start: 0.5rem; --padding-end: 0.5rem">
+  <swiper-container
+    #swiperBoarding
+    (afterinit)="swiperReady()"
+    [modules]="swiperModules"
+    [slidesPerView]="1"
+    [loop]="false"
+    [pagination]="true"
+    [allowTouchMove]="false"
+  >
+    <swiper-slide>
+      <img src="assets/images/SoundCollect/Logotipo/logo_black.svg" style="margin: 10vh auto auto;">
+      <div class="container-slider mx-4 mt-8">
+        <ion-text class="H-20-700 my-text-header text-center"
+          >{{'onboarding.slider.title'|translate}}</ion-text
+        >
+        <ion-text class="H6-14-700SpaceGrotesk mt-8 text-center my-text-dark">
+          {{'onboarding.slider.desc'|translate}}
+        </ion-text>
+      </div>
+    </swiper-slide>
+    <swiper-slide style="height: 93vh">
+      <img src="assets/images/SoundCollect/Ilustraciones/Goal.svg"style="margin: 10vh auto auto;">
+      <div class="container-slider mx-4 mt-8">
+        <ion-text class="H-20-700 my-text-header text-center"
+        >{{'onboarding.slider2.title'|translate}}</ion-text
+        >
+        <ion-text
+          class="H6-14-700SpaceGrotesk mt-8 text-center my-text-dark"
+
+        >
+          {{'onboarding.slider2.desc'|translate}}
+        </ion-text>
+      </div>
+    </swiper-slide>
+    <swiper-slide style="height: 93vh">
+      <img src="assets/images/SoundCollect/Ilustraciones/App.svg" style="margin: 10vh auto auto;">
+      <div class="container-slider mx-4 mt-8">
+        <ion-text class="H-20-700 my-text-header text-center"
+        >{{'onboarding.slider3.title'|translate}}</ion-text
+        >
+        <ion-text
+          class="H6-14-700SpaceGrotesk mt-8 text-center my-text-dark"
+
+        >
+          {{'onboarding.slider3.desc'|translate}}
+        </ion-text>
+      </div>
+    </swiper-slide>
+    <swiper-slide style="height: 93vh">
+      <img src="assets/images/SoundCollect/Ilustraciones/Registros.svg" style="margin: 10vh auto auto;">
+      <div class="container-slider mx-4 mt-8">
+        <ion-text class="H-20-700 my-text-header text-center"
+        >{{'onboarding.slider4.title'|translate}}</ion-text
+        >
+        <ion-text
+          class="H6-14-700SpaceGrotesk mt-8 text-center my-text-dark"
+
+        >
+          {{'onboarding.slider4.desc'|translate}}
+        </ion-text>
+      </div>
+    </swiper-slide>
+    <swiper-slide style="height: 93vh">
+      <img src="assets/images/SoundCollect/Ilustraciones/App.svg" style="margin: 10vh auto auto;">
+      <div class="container-slider mx-4 mt-8">
+        <ion-text class="H-20-700 my-text-header text-center"
+        >{{'onboarding.slider5.title'|translate}}</ion-text
+        >
+        <ion-text
+          class="H6-14-700SpaceGrotesk mt-8 text-center my-text-dark"
+
+        >
+          {{'onboarding.slider5.desc'|translate}}
+        </ion-text>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</ion-content>
+<ion-footer class="ion-padding ion-no-border">
+  <button
+    *ngIf="index<=4"
+    class="block my-btn-login"
+    (click)="goNext()"
+  >
+    {{'onboarding.btn.btn_1'|translate}}
+  </button>
+  <button *ngIf="index>4" class="block my-btn-login" (click)="finished()">
+    {{'onboarding.btn.btn_2'|translate}}
+  </button>
+</ion-footer>

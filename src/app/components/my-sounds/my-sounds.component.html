@@ -1,0 +1,106 @@
+<div class="my-sound-style" [ngClass]="myDb<=10?'low-volume': myDb>=11?'mid-volume': myDb>=51?'hi-volume':''">
+  <div class="flex w-full justify-between items-center">
+    <label class="H6-14-400-SpaceGrotesk my-text-header">22/04/23 - 9:30h</label>
+    <label class="meter">{{myDb}}db <img src="assets/images/SoundCollect/Iconos/dB.svg"></label>
+  </div>
+  <label class="H-16-700 my-text-header">Automóviles</label>
+  <label class="H6-14-400-SpaceGrotesk my-text-header">Carrer del Foc, Barcelona</label>
+  <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Tipo de sonido</label>
+  <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Tipo de fuente</label>
+  <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Tipo de percepción</label>
+  <div class="w-full flex justify-end">
+    <div style="width: 100px">
+     <button id="open-modal" class="my-btn-login" style="padding:0 13px; height: 34px">Ver todo</button>
+    </div>
+  </div>
+</div>
+
+<ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.95" [breakpoints]="[0.95]">
+  <ng-template>
+    <ion-content>
+      <div class="flex p-3 w-full justify-between items-center">
+        <label class="H2-22-700 my-text-header">Automóviles</label>
+        <button class="bg-transparent" (click)="modal.dismiss()"><img src="assets/images/SoundCollect/Iconos/close.svg" width="24"></button>
+      </div>
+      <div class="p-4 flex flex-col" style="max-height: 87vh;overflow: scroll">
+        <div class="w-full py-4">
+          <swiper-container
+            (afterinit)="swiperReady()"
+            [modules]="swiperModules"
+            [slidesPerView]="1"
+            [loop]="false"
+            [pagination]="true"
+            [allowTouchMove]="false"
+          >
+            <swiper-slide>
+              <div class="frame pb-6" style="background-image: url(assets/images/SoundCollect/Ilustraciones/car.svg)"></div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="frame" style="background-image: url(assets/images/SoundCollect/Ilustraciones/car.svg)"></div>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="frame" style="background-image: url(assets/images/SoundCollect/Ilustraciones/car.svg)"></div>
+            </swiper-slide>
+          </swiper-container>
+        </div>
+        <label class="H-20-700 my-text-header">Información general</label>
+        <div class="flex w-full mt-3 justify-between items-center">
+          <div class="flex flex-col">
+            <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Tipo de sonido</label>
+            <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Tipo de fuente</label>
+          </div>
+          <div class="flex flex-col">
+            <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Tipo de percepción</label>
+            <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Fecha y hora</label>
+          </div>
+        </div>
+        <div class="flex   mt-5 flex-col w-full gap-3 justify-between items-start">
+          <label class="flex gap-3 H-16-400"><img src="assets/images/SoundCollect/Iconos/location.svg">Carrer del Foc, Barcelona</label>
+          <div class="frame" style="background-image: url(assets/images/SoundCollect/Ilustraciones/modal-map.svg)"></div>
+        </div>
+        <label class="H-20-700 mt-5 my-text-header">Información meteorológica</label>
+        <div class="flex w-full mt-3 justify-between items-stretch">
+          <div class="info-box"  >
+            <label class="H6-14-400-SpaceGrotesk my-text-header">Viento</label>
+            <img src="assets/images/SoundCollect/Iconos/air.svg">
+            <label class="H6-14-700-SpaceGrotesk my-text-header text-center" style="width: 6ch">13km/h NW</label>
+          </div>
+          <div class="info-box"  >
+            <label class="H6-14-400-SpaceGrotesk my-text-header">Humedad</label>
+            <img src="assets/images/SoundCollect/Iconos/air.svg">
+            <label class="H6-14-700-SpaceGrotesk my-text-header text-center" style="width: 6ch">50%</label>
+          </div>
+          <div class="info-box"  >
+            <label class="H6-14-400-SpaceGrotesk my-text-header">Temp.</label>
+            <img src="assets/images/SoundCollect/Iconos/air.svg">
+            <label class="H6-14-700-SpaceGrotesk my-text-header text-center" style="width: 6ch">30c</label>
+          </div>
+          <div class="info-box"  >
+            <label class="H6-14-400-SpaceGrotesk my-text-header">Presión</label>
+            <img src="assets/images/SoundCollect/Iconos/air.svg">
+            <label class="H6-14-700-SpaceGrotesk my-text-header text-center" style="width: 6ch">1010 hPa</label>
+          </div>
+        </div>
+        <label class="H-20-700 mt-5 my-text-header">Audio registrado</label>
+        <label class="H-16-400 my-text-header">Lorem ipsum dolor sit amet consectetur. Urna cras at elit lectus consectetur convallis aliquet.</label>
+        <div class="flex w-full mt-3 justify-between items-center">
+          <div class="flex flex-col">
+            <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Parameters</label>
+            <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Parameters</label>
+          </div>
+          <div class="flex flex-col">
+            <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg">Parameters</label>
+            <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg">Parameters</label>
+          </div>
+        </div>
+        <label class="H-20-700 mt-5 my-text-header">Comentarios</label>
+        <label class="H-16-400 my-text-header">Lorem ipsum dolor sit amet consectetur. Nulla elementum vitae tincidunt sit purus vel pulvinar enim amet. Id tortor odio ipsum vestibulum volutpat.</label>
+       <button class="my-btn-custome mt-5" style="background-color: #D02424"><img src="assets/images/SoundCollect/Iconos/delete.svg">Borrar sonido registrado</button>
+        <br>
+        <br>
+      </div >
+
+
+    </ion-content>
+  </ng-template>
+</ion-modal>

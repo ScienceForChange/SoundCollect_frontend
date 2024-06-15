@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="ligth" class="ion-no-margin ion-no-padding ion-no-border bg-white">
+    <div class="flex justify-start items-center px-3">
+      <img tappable="true" class="" [routerLink]="['/tabs/tab3']" src="assets/images/SoundCollect/Iconos/back.svg" alt="back" width="24">
+      <ion-text class="ms-28 H2-22-700 self-start my-text-header">
+        Idioma
+      </ion-text>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="flex flex-col px-3 justify-between">
+    <section class="flex gap-3 flex-col">
+      <form class="mt-5 flex flex-col justify-content-between p-3">
+        <div class="mb-4">
+          <label class="H3-18-700 my-text-header">Escoge el idioma de la App:</label>
+          <ion-radio-group formControlName="locale" name="locale">
+            <div>
+              <ion-radio class="lang ion-padding-top ion-padding-bottom" value="CA" labelPlacement="end" justify="start">Català</ion-radio>
+            </div>
+            <div>
+              <ion-radio class="lang ion-padding-top ion-padding-bottom" value="ES"  labelPlacement="end" justify="start">Castellano</ion-radio>
+            </div>
+            <div>
+              <ion-radio class="lang ion-padding-top ion-padding-bottom" value="EN" labelPlacement="end" justify="start">Inglés</ion-radio>
+            </div>
+          </ion-radio-group>
+        </div>
+      </form>
+    </section>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="ion-no-border px-3 pt-2">
+    <div class="flex w-full flex-col justify-evenly gap-3">
+      <button class="my-btn-login mx-auto">
+        <ion-text class="ion-text-nowrap"
+        >Guardar cambios</ion-text
+        >
+      </button>
+    </div>
+  </div>
+</ion-footer>
+

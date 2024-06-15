@@ -1,0 +1,63 @@
+.orange-bg{
+  background-color: #FDA568;
+}
+ion-range {
+ --bar-height: 6px;
+  --bar-border-radius: 100px;
+  --knob-background: var(--ion-color-primary);
+  --knob-size: 22px;
+  --pin-background: rgba(255, 175, 204, 0);
+  --pin-color: #fff;
+
+}
+.img-box{
+  padding: .5rem;
+  width: 109px;
+  height: 127px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  border: 2px solid #206A71;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+ion-radio.source::part(container) {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px !important;
+  border: 2px solid #ddd;
+}
+ion-radio.around::part(container) {
+  width: 20px;
+  height: 20px;
+  border-radius: 50% !important;
+  border: 2px solid #ddd;
+}
+
+ion-radio::part(mark) {
+  background: none;
+  transition: none;
+  transform: none;
+  border-radius: 0;
+}
+ion-radio.source::part(mark) {
+  background: none;
+  transition: none;
+  transform: none;
+}
+
+ion-radio.radio-checked::part(container) {
+  background: var(--ion-color-primary);
+  border-color: transparent;
+}
+
+ion-radio.radio-checked::part(mark) {
+  width: 6px;
+  height: 10px;
+
+  border-width: 0px 2px 2px 0px;
+  border-style: solid;
+  border-color: #fff;
+
+  transform: rotate(45deg);
+}

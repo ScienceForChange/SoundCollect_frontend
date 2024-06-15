@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="ligth" class="ion-no-margin ion-no-padding ion-no-border bg-white">
+    <div class="flex items-center justify-center px-3">
+      <ion-text class="H-24-700 my-text-header">
+        Mis sonidos (10)
+      </ion-text>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="flex-col flex my-bg-profile">
+    <div class="p-3 flex flex-col w-full h-full">
+      <div class="relative w-full">
+        <input class="w-full" placeholder="Buscador" type="search" style="border-radius: 100px;background:#DEEEEF;padding:8px 16px">
+        <img class="absolute" src="assets/images/SoundCollect/Iconos/filter.svg" style="top: 0 ;bottom: 0;margin:auto;right: 13px">
+      </div>
+      <div class="flex justify-end w-full">
+        <select >
+          <option selected disabled>Ordenar por</option>
+          <option value="saab">Más antiguos</option>
+          <option value="mercedes">Más reciente</option>
+        </select>
+      </div>
+      <div class="flex flex-col justify-start">
+        <div *ngIf="content">
+          <app-my-sounds myDb="5"></app-my-sounds>
+        </div>
+        <div *ngIf="!content" class="flex flex-col gap-8 items-center">
+            <img class="mt-6" src="assets/images/SoundCollect/Ilustraciones/Sound_off.svg" alt="noSOUNDS" width="210">
+          <label class="H-16-400 my-text-header text-center px-6">Parece que todavía no has registrado ningún sonido.</label>
+          <label class="H-16-400 my-text-header text-center px-6">Pulsa en el botón de “Añadir” para registrar tu primer sonido.</label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>

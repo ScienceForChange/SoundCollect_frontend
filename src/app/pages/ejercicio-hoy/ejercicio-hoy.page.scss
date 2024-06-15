@@ -1,0 +1,19 @@
+.items-exercise {
+  padding: 8px;
+  gap: 8px;
+  width: 94vw;
+  min-height: 76px;
+  background: #F3F6F5;
+  border-radius: 6px;
+}
+.text-nowrap{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.vw-70{
+  max-width:70vw;
+}
+.vw-90{
+  max-width: 90vw;
+}

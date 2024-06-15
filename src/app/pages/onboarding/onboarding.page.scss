@@ -1,0 +1,27 @@
+.container-slider{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100%;
+  border-radius: 21px;
+}
+
+swiper-container::part(pagination) {
+  bottom:17vh;
+}
+swiper-container::part(bullet-active) {
+  background-color: #FDA568;
+  width: 28px;
+  height: 12px;
+  border-radius: 100px;
+}
+swiper-container::part(bullet) {
+  width: 12px;
+  height: 12px;
+  border-radius: 100px;
+  background: #FDA568;
+}

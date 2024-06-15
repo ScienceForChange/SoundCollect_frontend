@@ -1,0 +1,90 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="my-bg ion-no-margin ion-no-padding">
+    <div class="m-2">
+      <div
+        class="flex flex-col items-center justify-between pb-3"
+        style="
+          width: 100%;
+          min-height: 135px;
+          background: var(--ion-color-primary);
+          border-radius: 10px;
+        "
+      >
+        <img
+          class="self-start m-3"
+          (click)="goBack()"
+          src="assets/images/general/back.svg"
+          alt="back"
+          width="31"
+        />
+
+        <ion-text
+          class="H2-22-700 self-start mx-3 leading-9 mb-2 my-text-header-secondary"
+        >
+          {{'tabs1.today_exercises'|translate}}
+        </ion-text>
+        <ion-text
+          class="H6-14-400-SpaceGrotesk self-start mx-3 text-start my-text-yellow"
+          >{{'today_exercises.amount'|translate}}: {{exercises.length}}
+        </ion-text>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="flex flex-col mt-4 px-3" *ngIf="!processing">
+    <section class="flex gap-3 mt-4 flex-col">
+      <ion-text class="H3-18-700-SpaceGrotesk my-text-dark"
+        >{{'exercises.label.summary'|translate}}</ion-text
+      >
+      <div
+        class="flex items-center items-exercise"
+        *ngFor="let exercise of exercises"
+      >
+        <img
+          *ngIf="false"
+          width="60"
+          height="60"
+          [src]="'assets/images/ejercicio/'+exercise.activityTematicCategoryTitle+'.png'"
+        />
+        <!--<img [src]="urlBackend +'/'+ exercise.activityUrl">-->
+        <div class="flex flex-col ion-text-start vw-90">
+          <ion-text class="H3-18-700-SpaceGrotesk my-text-dark text-nowrap"
+            >{{exercise.activityTitle}}</ion-text
+          >
+          <ion-text class="H6-14-400-SpaceGrotesk my-text-dark text-start"
+            >{{exercise.exerciseSeries+"
+            "+((exercise.exerciseSeries===1?'exercises.label.serie':'exercises.label.series')|translate
+            )+" x "+ exercise.exerciseRepetitions}} {{
+            (exercise.exerciseRepetitions===1?'about_me.label.repetition':'about_me.label.repetitions')|translate}}
+          </ion-text>
+        </div>
+      </div>
+      <ion-text class="H3-18-700-SpaceGrotesk mt-3 my-text-dark"
+        >{{'exercises.label.description'|translate}}</ion-text
+      >
+      <ion-text class="H6-14-400-SpaceGrotesk my-text-dark"
+        >{{programDescription||"Buscando la descripción ..."}}</ion-text
+      >
+      <!-- <ion-text class="H3-18-700-SpaceGrotesk mt-3 my-text-dark"
+        >{{'today_exercises.Approach'|translate}}</ion-text
+      >
+      <ng-container *ngFor="let exercise of exercises;let i = index">
+        <ion-text class="H6-14-400-SpaceGrotesk my-text-dark"
+          >Ejercicio {{i+1}}: {{exercise.activityDesc||"Sin información"}}</ion-text
+        >
+      </ng-container> -->
+    </section>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="p-3">
+  <div class="flex w-full flex-col justify-evenly gap-3 mb-5">
+    <button class="my-btn-login mx-auto" (click)="goToTraining()">
+      <ion-text class="ion-text-nowrap"
+        >{{'today_exercises.btn1'|translate}}</ion-text
+      >
+    </button>
+  </div>
+</ion-toolbar>
+</ion-footer>

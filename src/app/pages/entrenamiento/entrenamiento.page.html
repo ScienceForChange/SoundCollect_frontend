@@ -1,0 +1,395 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar
+    id="training-toolbar"
+    class="ion-no-margin ion-no-padding"
+    style="border-color: transparent !important"
+  >
+    <div class="m-2" *ngIf="index===0">
+      <div
+        class="flex flex-col items-center justify-between pb-3"
+        style="
+          width: 100%;
+          min-height: 135px;
+          background: var(--ion-color-primary);
+          border-radius: 10px;
+        "
+      >
+        <img
+          class="self-start m-3"
+          (click)="goBack()"
+          src="assets/images/general/back.svg"
+          alt="back"
+          width="31"
+        />
+        <ion-text
+          class="H2-22-700 self-start mx-3 leading-9 mb-2 my-text-header-secondary"
+        >
+          {{'training.label.title'|translate}}
+        </ion-text>
+        <ion-text
+          class="H6-14-400-SpaceGrotesk self-start mx-3 pe-32 text-start my-text-yellow"
+        >
+          {{'training.label.subtitle'|translate}}
+        </ion-text>
+      </div>
+    </div>
+    <div class="mt-2" *ngIf="index!==0 && index < exercises.length">
+      <div>
+        <img
+          class="float-right mr-3"
+          (click)="closeTraining()"
+          src="assets/images/general/close.svg"
+          alt="back"
+          width="31"
+        />
+      </div>
+    </div>
+    <div
+      class="mt-2"
+      *ngIf="step === 5"
+      style="
+        border-top-right-radius: 12px;
+        border-top-left-radius: 12px;
+        background: var(--ion-color-primary);
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      "
+    >
+      <div class="flex items-center justify-end">
+        <img
+          (click)="closeTraining()"
+          class="m-3"
+          src="assets/images/general/close.svg"
+          alt="back"
+          width="31"
+        />
+      </div>
+    </div>
+    <div class="m-2" *ngIf="evaluationsTest">
+      <div
+        class="flex flex-col items-center justify-between py-3"
+        style="
+          width: 100%;
+          min-height: 135px;
+          background: var(--ion-color-primary);
+          border-radius: 10px;
+        "
+      >
+        <ion-text
+          class="H2-22-700 self-start mx-3 leading-9 my-text-header-secondary"
+        >
+          {{'training.label.final_questionnaire_title'|translate}}
+        </ion-text>
+        <ion-text
+          class="H6-14-400-SpaceGrotesk self-start mx-3 pe-32 text-start my-text-yellow"
+        >
+          {{'training.label.final_questionnaire_subtitle'|translate}}
+        </ion-text>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content
+  #ionContent
+  id="training-content"
+  scroll-y="false"
+  style="--padding-start: 0.5rem; --padding-end: 0.5rem; position: relative"
+>
+  <app-video-record
+    class="video-canvas pos-canvas video-minimized"
+    (click)="switchScreen()"
+    *ngIf="step === 2 && isPlaying"
+  ></app-video-record>
+  <div
+    *ngIf="step===1 && gifId<(index-1)"
+    height="480"
+    id="img-waiting"
+    width="360"
+  >
+    <ion-spinner color="primary"></ion-spinner>
+    <ion-label>&nbsp;{{'training.label.img_loading'|translate}}</ion-label>
+  </div>
+  <swiper-container
+    #mySwiperElement
+    [slidesPerView]="1"
+    [loop]="false"
+    [allowTouchMove]="false"
+    style="z-index: 15 !important; position: relative; height: 100%"
+  >
+    <swiper-slide style="height: 93vh">
+      <div class="flex w-full mt-4 items-center gap-3 flex-col">
+        <button
+          (click)="setStrIndex(index)"
+          [ngClass]="myStrIndex.toString() ===options.value ? 'my-selected-option': ''"
+          *ngFor="let options of options;index as index"
+          class="bg-transparent text-start"
+          style="
+            padding: 16px;
+            gap: 10px;
+            width: 90vw;
+            min-height: 5vh;
+            background: #f3f6f5;
+            border-radius: 7px;
+          "
+        >
+          <ion-text [id]="options.value" class="my-text-dark H6-14-700-SpaceGrotesk"
+            >{{options.label}}</ion-text
+          >
+        </button>
+
+        <ion-text
+          class="ms-3 mt-4 mb-3 H3-18-700-SpaceGrotesk my-text-dark self-start"
+        >
+          {{'training.label.note_title'|translate}}
+        </ion-text>
+        <textarea
+          class="input"
+          rows="5"
+          cols="33"
+          placeholder="Describe el motivo"
+          [(ngModel)]="motiveText"
+        >
+        </textarea>
+      </div>
+    </swiper-slide>
+    <swiper-slide
+      style="position: relative; height: 100%"
+      *ngFor="let exercise of exercises;index as i;"
+    >
+      <div
+        class="flex w-full pt-2 gap-3 flex-col"
+        style="position: relative; height: 100%"
+      >
+        <div
+          [class]="'w-full flex flex-col justify-end container-video-' + i"
+          style="position: relative; height: 100%"
+        >
+          <video
+            *ngIf="!isGif(exercise.exerciseVideoUrl)"
+            [class]="'video-player-wrapper zero-height video-' + i"
+            (click)="switchScreen()"
+            [hidden]="(index-1)!==i"
+            playsinline
+            loop
+            autoplay
+            style="background-color: #ffffff"
+          >
+            <source
+              [src]="urlBackend +'/'+ exercise.exerciseVideoUrl"
+              type="video/mp4"
+            />
+          </video>
+          <img
+            [id]="'img-'+i"
+            *ngIf="isGif(exercise.exerciseVideoUrl)"
+            [class]="'video-player-wrapper zero-height video-' + i"
+            (click)="switchScreen()"
+            [hidden]="(index-1)!==i"
+            [src]="0===i?urlBackend +'/'+ exercise.exerciseVideoUrl:''"
+          />
+          <!-- <video
+            *ngIf="step===3 && url"
+            playsinline
+            autoplay
+            controls
+            style="background-color: #ffffff; max-height: 100%"
+          >
+            <source [src]="url" type="video/webm" />
+          </video>
+          <div
+            *ngIf="step===3 && !url"
+            class="ion-justify-content-center ion-align-items-center"
+            style="display: flex; width: 100%; height: 100%"
+          >
+            <ion-spinner size="large" style="align-self: center"></ion-spinner>
+          </div> -->
+
+          <div class="flex flex-col">
+            <ion-text class="H1-30-700-SpaceGrotesk my-text-red"
+              >{{exercise.exerciseSeries}}
+              <span class="my-text-header H2-22-700">x</span>
+              {{exercise.exerciseRepetitions}}</ion-text
+            >
+            <ion-text class="H3-18-700-SpaceGrotesk my-text-header"
+              >{{exercise.activityTitle}}</ion-text
+            >
+            <ion-text
+              class="H6-14-400SpaceGrotesk my-text-header"
+              *ngIf="!!exercises[i+1]"
+            >
+              Siguiente: {{exercises[i + 1]?.exerciseSeries}} x {{exercises[i +
+              1]?.exerciseRepetitions}} - {{exercises[i + 1]?.activityTitle}}
+            </ion-text>
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide style="height: 92vh">
+      <app-cronometro segundos="50" style="margin-top: -3px"></app-cronometro>
+    </swiper-slide>
+    <swiper-slide style="height: 92vh; overflow-y: scroll">
+      <ng-container *ngIf="step===6">
+        <div>
+          <ion-row class="eval-pain">
+            <ion-col size="12">
+              <ion-text class="ml-1 font-bold"
+                >{{'training.label.pain_scale_question'|translate}}</ion-text
+              >
+            </ion-col>
+            <ion-col size="12">
+              <div
+                style="
+                  display: flex;
+                  flex-direction: row;
+                  align-content: space-around;
+                  width: 100%;
+                "
+              >
+                <ion-button
+                  *ngFor="let val of [].constructor(11); let j = index"
+                  style="max-width: 8%"
+                  fill="clear"
+                  class="btn-eval"
+                  (click)="scaleButon($event,'pain', j)"
+                >
+                  {{j}}
+                </ion-button>
+              </div>
+              <div style="margin-top: -8px">
+                <ion-row>
+                  <ion-col size="6" class="ion-text-start"
+                    >{{'training.label.pain_scale_no_pain'|translate}}</ion-col
+                  >
+                  <ion-col size="6" class="ion-text-end"
+                    >{{'training.label.pain_scale_extreme_pain'|translate}}</ion-col
+                  >
+                </ion-row>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="eval-borg">
+            <ion-col size="12">
+              <ion-text class="ml-1 font-bold"
+                >{{'training.label.borg_scale_question'|translate}}</ion-text
+              >
+            </ion-col>
+            <ion-col size="12">
+              <div
+                style="
+                  display: flex;
+                  flex-direction: row;
+                  align-content: space-around;
+                  width: 100%;
+                "
+              >
+                <ion-button
+                  *ngFor="let val of [].constructor(11); let j = index"
+                  style="max-width: 8%"
+                  fill="clear"
+                  class="btn-eval"
+                  (click)="scaleButon($event,'borg', j)"
+                >
+                  {{j}}
+                </ion-button>
+              </div>
+              <div style="margin-top: -8px">
+                <ion-row>
+                  <ion-col size="6" class="ion-text-start"
+                    >{{'training.label.borg_scale_no_effort'|translate}}</ion-col
+                  >
+                  <ion-col size="6" class="ion-text-end"
+                    >{{'training.label.borg_scale_max_effort'|translate}}</ion-col
+                  >
+                </ion-row>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="description-training">
+            <ion-col>
+              <textarea
+                class="input"
+                rows="4"
+                cols="33"
+                placeholder="Describe como se ha sentido tras el entrenamiento"
+                [(ngModel)]="finalTestComment"
+              >
+              </textarea>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <ion-text class="ml-1 font-bold"
+                >{{'training.label.open_question'|translate}}</ion-text
+              >
+            </ion-col>
+            <ion-col>
+              <textarea
+                class="input"
+                rows="4"
+                cols="33"
+                placeholder=""
+                [(ngModel)]="openQuestion"
+              >
+              </textarea>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="up-keyboard" size="12"> &nbsp; </ion-col>
+          </ion-row>
+        </div>
+      </ng-container>
+    </swiper-slide>
+  </swiper-container>
+</ion-content>
+
+<ion-footer
+  class="ion-no-border ion-no-padding p-3"
+  style="background: #ffffff"
+>
+  <div
+    style="background: #ffffff"
+    class="flex w-full button-div-container justify-evenly gap-1"
+    [ngClass]="step===5?'back-primary':''"
+  >
+    <button
+      *ngIf="step===4"
+      (click)="goPerv(2)"
+      class="mt-5 rounded-full"
+      [ngClass]="index===2 ? 'my-btn-bg-red' : ''"
+      style="
+        color: #0d423e;
+        padding: 16px 28px;
+        border: 1px solid var(--ion-color-primary);
+      "
+    >
+      <span class="ion-text-nowrap">
+        {{'training.btn.record_again'|translate}}
+      </span>
+    </button>
+    <button
+      id="training-next-button"
+      (click)="goNext()"
+      class="my-btn-custome mb-3"
+      [ngClass]="step===2 || step===5? 'my-btn-bg-red' : ''"
+      style="padding: 16px 28px !important"
+    >
+      <span *ngIf="step===0">{{'training.btn.start_training'|translate}}</span>
+      <span *ngIf="step===1">{{'training.btn.start_record'|translate}}</span>
+      <span *ngIf="step===2" class="ion-text-nowrap"
+        >{{'training.btn.stop_training'|translate}}</span
+      >
+      <span *ngIf="step===3" class="ion-text-nowrap"
+        >{{((index===exercises.length)?'training.btn.finish_training':'training.btn.next_training')|translate}}</span
+      >
+      <span *ngIf="step===4" class="ion-text-nowrap"
+        >{{'training.btn.finish'|translate}}</span
+      >
+      <span *ngIf="step===5" class="ion-text-wrap"
+        >{{'training.btn.continue'|translate}}</span
+      >
+      <span *ngIf="step===6" class="ion-text-nowrap"
+        >{{'training.btn.finish'|translate}}</span
+      >
+    </button>
+  </div>
+</ion-footer>

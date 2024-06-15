@@ -1,0 +1,17 @@
+.my-bg-home{
+  background-image: url("../../assets/images/SoundCollect/Ilustraciones/home-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+ion-range {
+  --bar-background: linear-gradient(0deg, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.30) 100%), linear-gradient(90deg, #B135A2 0%, #EB3565 9.38%, #F43B33 16.15%, #FC7600 27.6%, #FFE900 36.98%, #9BC422 46.88%, #3D9F39 57.81%, #005AA6 67.71%, #0043E4 80.21%, #5F3DCD 90.1%, #A637AD 97.92%);
+  --bar-background-active: rgba(189, 224, 254, 0);
+  --bar-height: 20px;
+  --bar-border-radius: 100px;
+  --knob-background: rgba(255, 200, 221, 0);
+  --knob-size: 40px;
+  --pin-background: rgba(255, 175, 204, 0);
+  --pin-color: #fff;
+
+}

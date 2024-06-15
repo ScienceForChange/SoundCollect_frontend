@@ -1,0 +1,184 @@
+<ion-content [fullscreen]="true">
+  <div class="p-3">
+    <div class="flex items-center justify-between ">
+      <ion-text class="H2-22-700 self-start my-text-header">
+        Editar información personal
+      </ion-text>
+      <img tappable="true" class="mt-1" (click)="goBack()" src="assets/images/SoundCollect/Iconos/close.svg" alt="back" width="24">
+    </div>
+  </div>
+  <div class="flex flex-col px-3">
+    <section class="flex gap-3 flex-col">
+      <form
+        [formGroup]="profileForm"
+        (submit)="sendProfileForm()"
+        class="mt-5 flex flex-col justify-content-between p-3"
+      >
+        <div class="mb-4">
+          <label class="H-20-700 my-text-header">Datos requeridos*</label>
+          <input
+            class="input ps-3"
+            formControlName="name"
+            type="text"
+            name="name"
+            placeholder="{{'profile.label.name'|translate}}"
+          />
+
+          <div
+            class="validation-msg-error"
+            *ngIf="name && name.invalid && (name.dirty || name.touched)"
+          >
+            <div *ngIf="name && name.errors.required">
+              {{'profile.error.required'|translate}}
+            </div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <ion-text color="primary" class="H6-14-400-SpaceGrotesk font-bold"
+            >{{'profile.label.lastname'|translate}}:</ion-text
+          >
+          <input
+            class="input ps-3"
+            formControlName="lastname"
+            type="text"
+            name="lastname"
+            placeholder=""
+          />
+
+          <div
+            class="validation-msg-error"
+            *ngIf="lastname && lastname.invalid && (lastname.dirty || lastname.touched)"
+          >
+            <div *ngIf="lastname && lastname.errors.required">
+              {{'profile.error.required'|translate}}
+            </div>
+          </div>
+        </div>
+        <label class="H-20-700 my-text-header">Datos opcionales</label>
+
+        <div class="mb-4">
+          <ion-text color="primary" class="H6-14-400-SpaceGrotesk font-bold"
+            >{{'change_pass.label.email'|translate}}:</ion-text
+          >
+          <input
+            class="input ps-3"
+            formControlName="email"
+            type="email"
+            name="email"
+            placeholder="user@email.com"
+          />
+          <div class="validation-msg-error" *ngIf="email && email.valid && profile?.email!==email.value">
+            <ion-text color="warning"><ion-icon name="alert-circle"></ion-icon>{{'profile.label.login_required'|translate}}</ion-text>
+          </div>
+          <div
+            class="validation-msg-error"
+            *ngIf="email && email.invalid && (email.dirty || email.touched)"
+          >
+            <div *ngIf="email && email.errors.required">
+              {{'login.label.email_required'|translate}}
+            </div>
+            <div *ngIf="email && email.errors.email">
+              {{'login.label.email_invalid'|translate}}
+            </div>
+          </div>
+        </div>
+        <div class="gender-input mb-4">
+          <ion-text color="primary" class="H6-14-400-SpaceGrotesk font-bold"
+            >Género:</ion-text
+          >
+          <ion-list class="p-0">
+            <ion-item class="p-0" lines="full">
+              <ion-select
+                class="p-0 input"
+                toggleIcon="chevron-down"
+                formControlName="gender"
+                name="gender"
+                aria-label="Gender"
+                interface="popover"
+                placeholder="Seleccione su género"
+                style="padding: 0 0 0 18px"
+              >
+                <ion-select-option value="M">Masculino</ion-select-option>
+                <ion-select-option value="F">Femenino</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </div>
+
+        <div class="mb-4">
+          <ion-text color="primary" class="H6-14-400-SpaceGrotesk font-bold"
+            >{{'about_me.label.birthdate'|translate}}:</ion-text
+          >
+
+          <input
+            id="birthdate-modal"
+            class="input ps-3"
+            [value]="birthdate?.value*1000|date:'dd/MM/yyyy'"
+            type="text"
+            placeholder=""
+            readonly
+          />
+          <ion-modal
+            trigger="birthdate-modal"
+            [initialBreakpoint]="0.4" [breakpoints]="[0, 0.4]"
+            [keepContentsMounted]="true"
+          >
+            <ng-template>
+              <ion-datetime
+                id="datetime"
+                presentation="date"
+                [preferWheel]="true"
+                [value]="profileEdited.birthdate*1000|date:'yyyy-MM-dd'"
+                (ionChange)="changeBirthdate($event)"
+                locale="es"
+              ></ion-datetime>
+            </ng-template>
+          </ion-modal>
+          <div
+            class="validation-msg-error"
+            *ngIf="birthdate && birthdate.invalid && (birthdate.dirty || birthdate.touched)"
+          >
+            <div *ngIf="birthdate && birthdate.errors.required">
+              {{'login.label.email_required'|translate}}
+            </div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <ion-text color="primary" class="H6-14-400-SpaceGrotesk font-bold"
+            >{{'about_me.label.telephone'|translate}}:</ion-text
+          >
+          <input
+            class="input ps-3"
+            formControlName="mobile"
+            type="text"
+            name="mobile"
+            placeholder=""
+          />
+
+          <div
+            class="validation-msg-error"
+            *ngIf="mobile && mobile.invalid && (mobile.dirty || mobile.touched)"
+          >
+            <div *ngIf="mobile && mobile.errors.required">
+              {{'profile.error.required'|translate}}
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <div class="flex w-full flex-col justify-evenly gap-3">
+    <button class="my-btn-login mx-auto">
+      <ion-text class="ion-text-nowrap"
+        >{{'profile.label.button_save'|translate}}</ion-text
+      >
+    </button>
+    <button [routerLink]="['/delete-account']" class="my-btn-login mx-auto" style="background-color: #D02424">
+      <ion-text class="ion-text-nowrap"
+      >Borrar la cuenta</ion-text
+      >
+    </button>
+  </div>
+</ion-footer>
