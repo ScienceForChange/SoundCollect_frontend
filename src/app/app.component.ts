@@ -6,6 +6,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AuthService, CommonService } from './services';
 import { environment } from 'src/environments/environment';
 import { AuthHTTP } from './repos';
+import {SplashScreen} from "@capacitor/splash-screen";
+import {TextZoom} from "@capacitor/text-zoom";
 register();
 @Component({
   selector: 'app-root',
@@ -24,44 +26,40 @@ export class AppComponent {
 
   constructor() { }
   async ngOnInit() {
-    const locale = await this.common.getItem('locale');
-    console.log("Lang: ", locale);
-    locale && this.translate.use(locale.toLowerCase());
-    this.initializeApp();
-
+    //const locale = await this.common.getItem('locale');
+    //console.log("Lang: ", locale);
+    //locale && this.translate.use(locale.toLowerCase());
+    //if (!locale) this.translate.use("ca");
+    this.translate.use("ca");
+    await this.initializeApp();
   }
   async initializeApp() {
-    await this.checkVersion();
+    // await this.checkVersion();
     if (!this.common.isWeb()) {
-      //@ts-ignore
-      await window.screen.orientation.lock('portrait');
-      /*await SplashScreen.show({
+      await SplashScreen.show({
         showDuration: 5000,
         autoHide: true,
-      });*/
-    }
-  }
-  async checkVersion() {
-    const actualVersion = environment.API_VERSION;
-    let minVersion = 1;
-    try {
-      const response = await this.authService.verifyVersion();
-      console.log("Verify Version", response);
-      if (response.status)
-        minVersion = response.version;
-
-    } catch (e: any) {
-      console.log(e);
-    }
-    if (actualVersion < minVersion) {
-      console.log("Actualizar la versión");
-
-      await this.navController.navigateForward("update-app", {
-        state: {
-          minVersion: minVersion,
-          actualVersion: actualVersion
-        },
       });
+      await TextZoom.set({value: 1});
     }
+
   }
+
+  // async checkVersion() {
+  //   const actualVersion = environment.API_VERSION;
+  //   let minVersion = 1;
+  //   try {
+  //     const response = await this.authService.verifyVersion();
+  //     console.log("Verify Version", response);
+  //     if (response.status)
+  //       minVersion = response.version;
+  //   } catch (e: any) {
+  //     console.log(e);
+  //   }
+  //   if (actualVersion < minVersion) {
+  //     console.log("Actualizar la versión");
+  //         actualVersion: actualVersion
+  //     });
+  //   }
+  // }
 }

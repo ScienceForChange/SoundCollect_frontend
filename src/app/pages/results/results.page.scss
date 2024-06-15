@@ -20,3 +20,13 @@
   background-position: center;
   background-size: cover;
 }
+
+
+ion-range {
+  --bar-height: 6px;
+  --bar-border-radius: 100px;
+  --knob-background: var(--ion-color-primary);
+  --knob-size: 22px;
+  --pin-background: rgba(255, 175, 204, 0);
+  --pin-color: #fff;
+}

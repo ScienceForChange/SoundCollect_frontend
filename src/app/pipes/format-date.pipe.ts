@@ -1,13 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import * as moment from 'moment/moment';
-import {AuthService} from '../services/auth.service';
+import moment from 'moment/moment';
+import { AuthService } from '../services/auth.service';
 
 @Pipe({
   name: 'formatDate'
 })
 export class FormatDatePipe implements PipeTransform {
 
-  constructor() {}
+  constructor() { }
   transform(value: number): string {
     const ll = moment(value * 1000).format('HH:mm a,dddd');
     const myDate = ll.split(',');

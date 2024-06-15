@@ -1,13 +1,10 @@
 import { inject, Injectable } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { BehaviorSubject, lastValueFrom } from 'rxjs';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { IChangePassword, ICredentials, IToken } from '../models';
-import { AuthHTTP } from '../repos/auth-repo-http';
+import { AuthHTTP } from '../repos';
 import { CommonService } from './common.service';
-import { TranslateService } from '@ngx-translate/core';
-import { ITokenDecoded } from '../models/itoken-decoded';
-const helper = new JwtHelperService();
+import { UserCreate } from '../models/iuser';
+import { ICredentials } from "../models";
 
 @Injectable({
   providedIn: 'root',
@@ -18,72 +15,70 @@ export class AuthService {
   private commonService = inject(CommonService);
 
   readonly jwtTokenName = 'jwt_token';
-  readonly jwtTokenRefresh = 'jwt_token_refresh';
-  readonly firstLogin = 'first_login';
-  readonly username = 'username';
-  readonly email = 'email';
   readonly locale = 'locale';
-  readonly INTRO_KEY = 'has_seen_onboarding';
-  jwtHelper: JwtHelperService = new JwtHelperService();
-  isAuthenticated: BehaviorSubject<boolean | string> = new BehaviorSubject<boolean | string>('');
+  isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  token: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  email: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  birthYear: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  gender: BehaviorSubject<string> = new BehaviorSubject<string>('');
+
   constructor(
-    private translate: TranslateService
-  ) { }
+  ) {
+    this.checkToken().then();
+  }
+
+  async checkToken() {
+    const token = await this.commonService.getItem(this.jwtTokenName);
+    if (token) {
+      this.token.next(token);
+      this.isAuthenticated.next(true);
+      const gender = await this.commonService.getItem('gender');
+      const birthYear = await this.commonService.getItem('birthYear');
+      if (gender) {
+        this.gender.next(gender);
+      }
+      if (birthYear) {
+        this.birthYear.next(Number(birthYear));
+      }
+    }
+  }
+
+  getToken() {
+    return this.token.getValue();
+  }
 
   async login(credentials: ICredentials) {
     const data$ = await this.authHTTP.login(credentials);
-    const token = await lastValueFrom(data$);
-    if ('token' in token) {
-      return await this.saveToken(token);
-    } else {
-      return false;
-    }
+    return await lastValueFrom(data$);
   }
-  async saveToken(token: IToken): Promise<boolean> {
+
+  async saveDataUser(data: any) {
     try {
-      const decoded = helper.decodeToken(token.token);
-      console.log('decoded decoded decoded', decoded);
-      if (decoded.roles[0] === 'ROLE_PATIENT') {
-        this.isAuthenticated.next(true);
-        await this.commonService.setItem(this.username, decoded.user.username);
-        await this.commonService.setItem(this.email, decoded.user.email);
-        await this.commonService.setItem(this.locale, decoded.user.locale);
-        await this.commonService.setItem(this.jwtTokenName, token.token);
-        await this.commonService.setItem(this.jwtTokenRefresh, token.refresh_token);
-        localStorage.setItem(this.jwtTokenName, token.token);
-        localStorage.setItem(this.jwtTokenRefresh, token.refresh_token);
-        const firstLogin = await this.commonService.getItem(this.firstLogin);
-        if (!decoded.user.lastLogin && ((!firstLogin) || (firstLogin !== 'FALSE'))) {
-          await this.setFirsLogin('TRUE');
-          await this.navController.navigateForward('/password-new');
-          return false;
-        } else {
-          await this.setFirsLogin('FALSE');
-          return true;
-        }
-      } else {
-        const title = await this.translate.instant('global_error.label.header');
-        const message = await this.translate.instant('global_error.label.user_invalid');
-        this.commonService.alertModal(title, message);
-        return false;
-      }
+      this.isAuthenticated.next(true);
+      await this.commonService.setItem(this.jwtTokenName, data.token);
+      this.gender.next(data?.user?.attributes?.profile?.gender);
+      this.birthYear.next(data?.user?.attributes?.profile?.birthYear);
+      await this.commonService.setItem('gender', data?.user?.attributes?.profile?.gender);
+      await this.commonService.setItem('birthYear', data?.user?.attributes?.profile?.birthYear);
     } catch (e) {
       console.error(e);
       return false;
     }
   }
-  async changePassword(credentials: IChangePassword) {
-    const data$ = await this.authHTTP.changePassword(credentials);
-    const result = await lastValueFrom(data$);
-    console.log('result', result);
-    const firstLogin = await this.commonService.getItem(this.firstLogin);
-    if (firstLogin === 'TRUE') {
-      await this.setFirsLogin('FALSE');
-    }
-    return true;
-  }
-  async resetPassword(email: string) {
-    const data$ = await this.authHTTP.resetPassword(email);
+
+  // async changePassword(credentials: IChangePassword) {
+  //   const data$ = await this.authHTTP.changePassword(credentials);
+  //   const result = await lastValueFrom(data$);
+  //   console.log('result', result);
+  //   const firstLogin = await this.commonService.getItem(this.firstLogin);
+  //   if (firstLogin === 'TRUE') {
+  //     await this.setFirsLogin('FALSE');
+  //   }
+  //   return true;
+  // }
+
+  async resetPassword(email: string | null, new_password: string, new_password_confirmation: string, otp: string) {
+    const data$ = await this.authHTTP.resetPassword(email, new_password, new_password_confirmation, otp);
     return await lastValueFrom(data$);
   }
 
@@ -92,34 +87,44 @@ export class AuthService {
     return await lastValueFrom(data$);
   }
 
-  async logout() {
-    await this.commonService.removeItem(this.jwtTokenName);
-    await this.commonService.removeItem(this.jwtTokenRefresh);
-    await this.commonService.removeItem(this.username);
-    await this.commonService.removeItem(this.email);
-    await this.commonService.removeItem(this.locale);
-    localStorage.removeItem(this.jwtTokenName);
-    localStorage.removeItem(this.jwtTokenRefresh);
+  async requestOtp(email: string | null, type: string) {
+    const data$ = await this.authHTTP.requestOtp(email, type);
+    return await lastValueFrom(data$);
+  }
 
-    this.isAuthenticated.next(false);
-    await this.goToLogin();
+  async verifyEmail(email: string, otp: string) {
+    const data$ = await this.authHTTP.verifyEmail(email, otp);
+    return await lastValueFrom(data$);
   }
-  async getFisrtLogin() {
-    return await this.commonService.getItem(this.firstLogin);
+
+  async logout() {
+    try {
+      await this.authHTTP.logout();
+    }
+    catch (e) {
+      console.log(e);
+    }
+
   }
-  async setFirsLogin(value: string) {
-    return await this.commonService.setItem(this.firstLogin, value);
+
+  async getUser(): Promise<any> {
+    const data$ = await this.authHTTP.user();
+    return await lastValueFrom(data$);
   }
-  async getUser(): Promise<ITokenDecoded> {
-    const jwtHelper = new JwtHelperService();
-    const token = await this.commonService.getItem(this.jwtTokenName);
-    // @ts-ignore
-    return jwtHelper.decodeToken(token);
-  }
-  async goToLogin() {
-    await this.navController.navigateRoot('/login', { replaceUrl: true });
-  }
+
   async verifyVersion() {
     return await this.authHTTP.verifyVersion();
+  }
+
+  async register(info: UserCreate): Promise<any> {
+    return await this.authHTTP.register(info);
+  }
+
+  async removeProfile() {
+    return await this.authHTTP.removeProfile();
+  }
+
+  async updateProfile(gender: string, birth_year: number) {
+    return await this.authHTTP.updateProfile(gender, birth_year);
   }
 }

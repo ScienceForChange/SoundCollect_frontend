@@ -1,11 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import * as moment from 'moment/moment';
+import moment from 'moment/moment';
 @Pipe({
   name: 'birthdateDate'
 })
 export class BirthdateDatePipe implements PipeTransform {
-  constructor() {}
+  constructor() { }
   transform(value: number): string {
-    return  moment(value * 1000).format('LL');
+    return moment(value * 1000).format('LL');
   }
 }

@@ -6,9 +6,9 @@ export const introGuard: CanActivateFn =  async () => {
 
   const commonService = inject(CommonService);
   const navController = inject(NavController);
-  const authService = inject(AuthService);
+  const INTRO_KEY = 'has_seen_onboarding';
 
-  const hasSeenIntro = await commonService.getItem(authService.INTRO_KEY);
+  const hasSeenIntro = await commonService.getItem(INTRO_KEY);
   console.log('hasSeenIntro hasSeenIntro', (hasSeenIntro && (hasSeenIntro === 'TRUE')));
   console.log('hasSeenIntro hasSeenIntro', commonService.isWeb());
   if ((hasSeenIntro && (hasSeenIntro === 'TRUE'))) {

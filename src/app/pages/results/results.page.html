@@ -1,62 +1,135 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="secondary" class="ion-no-margin ion-no-padding ion-no-border">
-    <div class="flex items-center justify-start px-3">
-      <img tappable="true" class="mt-1" (click)="goBack()" src="assets/images/SoundCollect/Iconos/back-white.svg" alt="back" width="24">
-      <ion-text class="H2-22-700 self-start ms-16 text-white">
-        Resumen del sonido
-      </ion-text>
+    <div class="flex items-center justify-between px-3">
+      <ion-text class="H2-22-700 self-start ms-16 text-white"> {{'sounds.results.title'|translate}} </ion-text>
+      <img tappable="true" class="mt-1" (click)="goBack()" ngSrc="assets/images/SoundCollect/Iconos/close_white.svg" alt="back" width="24"
+           height="24"/>
     </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" style="--background: var(--ion-color-secondary)">
   <div class="flex items-center gap-4 pt-6 flex-col justify-start w-full h-full">
-    <label class="H-20-700 text-white text-start w-full ms-8">Información multimedia</label>
+    <label class="H-20-700 text-white text-start w-full ms-8">{{'sounds.results.info_multimedia'|translate}}</label>
     <div class="blue-box">
-      <label class="H-20-700 my-text-header">Audio registrado</label>
-      <label class="H-16-400 my-text-header">Lorem ipsum dolor sit amet consectetur. Urna cras at elit lectus consectetur convallis aliquet.</label>
-      <div class="flex w-full mt-5 justify-start gap-8 items-center">
-        <div class="flex flex-col">
-          <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Parameters</label>
-          <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Parameters</label>
-        </div>
-        <div class="flex flex-col">
-          <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg">Parameters</label>
-          <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg">Parameters</label>
-        </div>
-      </div>
-      <div class="flex  gap-2  justify-start items-center p-2" style="overflow: scroll">
-        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
-        </div>
-        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
-        </div>
-        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
-        </div>
+<!--      <label class="H-20-700 my-text-header">{{'sounds.collect.images'|translate}}</label>-->
+      <div class="flex gap-2 justify-start items-center p-2" style="overflow: scroll">
+        <div *ngFor="let file of fileList" class="img-box" [style]="'background: url(' + getImgUrl(file) + ') center/cover'"></div>
       </div>
     </div>
-    <label class="H-20-700 text-white text-start w-full ms-8">Más información sobre el sonido</label>
+    <label class="H-20-700 text-white text-start w-full ms-8 mt-5">{{'sounds.collect.details'|translate}}</label>
     <div class="blue-box">
-      <div class="flex flex-col w-full mt-3 justify-between items-start">
-        <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Tipo de sonido</label>
-        <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Tipo de fuente</label>
-        <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Tipo de percepción del entorno</label>
+      <div class="w-100 flex flex-col">
+        <div class="H-16-400 my-text-header flex">
+          <label> {{'observations.questions.question1'|translate}}: <br><strong *ngFor="let sound of observation.sound_types; let first = first;">
+            <span *ngIf="!first">, </span>
+            <span *ngIf="sound === 0">{{'observations.answers.Q1A1'|translate}}</span>
+            <span *ngIf="sound === 1">{{'observations.answers.Q1A2'|translate}}</span>
+            <span *ngIf="sound === 2">{{'observations.answers.Q1A3'|translate}}</span>
+            <span *ngIf="sound === 3">{{'observations.answers.Q1A4'|translate}}</span>
+          </strong></label>
+        </div>
+      </div>
+      <div class="w-100 flex flex-col mt-2">
+        <div class="H-16-400 my-text-header flex">
+          <label> {{'observations.questions.question2'|translate}}: <br><strong>{{observation.quiet}}</strong></label>
+        </div>
+      </div>
+      <div class="w-100 flex flex-col my-2">
+        <div class="H-16-400 my-text-header flex">
+          <label> {{'observations.questions.question3'|translate}}: <br><strong>{{observation.cleanliness}}</strong></label>
+        </div>
+      </div>
+      <div class="w-100 flex flex-col">
+        <div class="H-16-400 my-text-header flex">
+          <label> {{'observations.questions.question4'|translate}}: <br><strong>{{observation.accessibility}}</strong></label>
+        </div>
+      </div>
+      <div class="w-100 flex flex-col">
+        <div class="H-16-400 my-text-header flex">
+          <label> {{'observations.questions.question5'|translate}}: <br><strong>{{observation.safety}}</strong></label>
+        </div>
+      </div>
+      <div class="w-100 flex flex-col">
+        <div class="H-16-400 my-text-header flex">
+          <label> {{'observations.questions.question6'|translate}}: <br><strong>{{observation.influence}}</strong></label>
+        </div>
+      </div>
+      <div class="w-100 flex flex-col">
+        <div class="H-16-400 my-text-header flex">
+          <label> {{'observations.questions.question7'|translate}}: <br><strong>{{observation.landmark}}</strong></label>
+        </div>
+      </div>
+      <div class="w-100 flex flex-col">
+        <div class="H-16-400 my-text-header flex">
+          <label> {{'observations.questions.question8'|translate}}: <br><strong>{{observation.protection}}</strong></label>
+        </div>
+      </div>
     </div>
-      <label class="H-16-700 my-text-header">Comentarios:</label>
-      <label class="H-16-400 my-text-header">Lorem ipsum dolor sit amet consectetur. Malesuada egestas morbi imperdiet aliquam proin a bibendum morbi. Neque ac mauris tincidunt blandit.</label>
+    <label class="H-20-700 text-white text-start w-full ms-8 mt-5">{{'sounds.results.more_info'|translate}}</label>
+    <div class="blue-box">
+      <div class="flex flex-col">
+        <div class="H-16-400 my-text-header flex flex-col">
+          <div class="w-full flex m-2">
+            <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
+            <strong>{{'sounds.collect.process.L10' |translate}}</strong>: {{observation.L10 | number:'1.0-0'}}
+          </div>
+          <div class="w-full flex m-2">
+            <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
+            <strong>{{'sounds.collect.process.L90' |translate}}</strong>: {{observation.L90 | number:'1.0-0'}}
+          </div>
+          <div class="w-full flex m-2">
+            <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
+            <strong>{{'sounds.collect.process.Leq' |translate}}</strong>: {{observation.Leq| number:'1.0-0'}}
+          </div>
+          <div class="w-full flex m-2">
+            <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
+            <strong>{{'sounds.collect.process.LAmax' |translate}}</strong>: {{observation.LAmax| number:'1.0-0'}}
+          </div>
+          <div class="w-full flex m-2">
+            <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
+            <strong>{{'sounds.collect.process.LAmin' |translate}}</strong>: {{observation.LAmin| number:'1.0-0'}}
+          </div>
+          <div class="w-full flex m-2">
+            <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
+            <strong>{{'sounds.collect.process.sharpness_S' |translate}}</strong>: {{observation.sharpness_S| number:'1.0-0'}}
+          </div>
+          <div class="w-full flex m-2">
+            <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
+            <strong>{{'sounds.collect.process.loudness_N' |translate}}</strong>: {{observation.loudness_N| number:'1.0-0'}}
+          </div>
+          <div class="w-full flex m-2">
+            <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
+            <strong>{{'sounds.collect.process.roughtness_R' |translate}}</strong>: {{observation.roughtness_R| number:'1.0-0'}}
+          </div>
+          <div class="w-full flex m-2">
+            <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
+            <strong>{{'sounds.collect.process.fluctuation_strength_F' |translate}}</strong>: {{observation.fluctuation_strength_F| number:'1.0-0'}}
+          </div>
+          <div class="w-100 flex justify-center flex-col">
+            <div class="H-16-400 my-text-header flex items-center">
+              <div class="w-full flex m-2">
+                <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
+                <strong>{{'sounds.collect.process.LAeqT'|translate}}:</strong>
+              </div>
+            </div>
+            <div class="w-80">
+              <app-graph [dataset]="observation.LAeqT"></app-graph>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
   </div>
-  <br><br><br>
-  <br><br><br>
-  <br><br><br>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </ion-content>
 
 <ion-footer class="ion-no-border" style="background-color: var(--ion-color-secondary)">
   <div class="ion-no-border px-3 pt-2">
     <div class="flex w-full flex-col justify-evenly gap-3">
-      <button class="my-btn-login-inverted mx-auto">
+      <button (click)="sendObservation()" class="my-btn-login-inverted mx-auto">
         <ion-text class="ion-text-nowrap">
-          Enviar
+          {{'sounds.btn.send'|translate}}
         </ion-text>
       </button>
     </div>

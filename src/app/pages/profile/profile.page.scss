@@ -1,0 +1,17 @@
+.my-bg-profile{
+    background-image: url("../../../assets/images/SoundCollect/Ilustraciones/mis-registros.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.box-style{
+    display: flex;
+    padding-top: 12px;
+    width: 96vw;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 20px;
+    border: 1.5px solid #F2F4F3;
+    background:  #FFF;
+}

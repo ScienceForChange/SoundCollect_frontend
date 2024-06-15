@@ -1,10 +1,33 @@
 <ion-content [fullscreen]="true">
-  <div class="flex items-center flex-col justify-center gap-12 w-full h-full px-10" style="background-color: var(--ion-color-secondary)">
-    <img src="assets/images/SoundCollect/Logotipo/logo_white.svg" WIDTH="210">
-    <label class="H-24-700 text-white text-center">Sentimos que quieras irte de SoundCollect</label>
-    <label class="H-16-400 text-white text-center">Recuerda que al borrar tu cuenta se borrarán todos los datos y tus aportaciones.</label>
-    <label class="H-16-400 text-white text-center">Si quisieras volver en el futuro, deberías volver a registrarte y empezar a colaborar de nuevo.</label>
-    <button [routerLink]="['/edit-profile']" class="my-btn-login" style="padding:16px;background-color: white;color:black">Seguir colaborando</button>
-    <button [routerLink]="['/login']" class="my-btn-login" style="padding:16px;background-color: #D02424;color:white">Borrar mi cuenta y datos</button>
+  <div
+    class="flex items-center flex-col justify-center gap-12 w-full h-full px-10"
+    style="background-color: var(--ion-color-secondary)"
+  >
+    <img src="assets/images/SoundCollect/Logotipo/logo_white.svg" width="210" />
+    <label class="H-24-700 text-white text-center"
+      >Sentimos que quieras irte de SoundCollect</label
+    >
+    <label class="H-16-400 text-white text-center"
+      >Recuerda que al borrar tu cuenta se borrarán todos los datos y tus
+      aportaciones.</label
+    >
+    <label class="H-16-400 text-white text-center"
+      >Si quisieras volver en el futuro, deberías volver a registrarte y empezar
+      a colaborar de nuevo.</label
+    >
+    <button
+      [routerLink]="['/edit-profile']"
+      class="my-btn-login"
+      style="padding: 16px; background-color: white; color: black"
+    >
+      Seguir colaborando
+    </button>
+    <button
+      (click)="deleteProfile()"
+      class="my-btn-login"
+      style="padding: 16px; background-color: #d02424; color: white"
+    >
+      Borrar mi cuenta y datos
+    </button>
   </div>
 </ion-content>

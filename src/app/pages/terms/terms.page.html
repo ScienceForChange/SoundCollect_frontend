@@ -1,0 +1,23 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="ligth" class="ion-no-margin ion-no-padding ion-no-border bg-white">
+    <div class="flex items-center justify-between px-3">
+      <ion-text class="H2-22-700 self-start ms-16 my-text-header">
+        {{'terms_and_conditions.title'|translate}}
+      </ion-text>
+      <img
+        tappable="true"
+        class="mt-1"
+        (click)="goBack()"
+        ngSrc="assets/images/SoundCollect/Iconos/close.svg"
+        alt="back"
+        width="24"
+        height="24"/>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="flex flex-col p-5">
+      <label class="H8-12-400-SpaceGrotesk ion-text-justify" [innerHTML]="'terms_and_conditions.description'|translate"></label>
+  </div>
+</ion-content>

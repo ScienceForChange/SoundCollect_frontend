@@ -1,0 +1,39 @@
+<div class="modal-md ion-text-center">
+  <div class="header">
+    <img
+      height="auto"
+      width="100%"
+      src="assets/illustrations/shapes.svg"
+      alt="Header"
+    />
+  </div>
+  <div class="content ion-padding">
+    <ion-text color="primary">
+      <h3 class="ion-no-margin">{{ marker?.title }}</h3>
+    </ion-text>
+    <ion-text color="dark">
+      <p>{{ marker?.snippet }}</p>
+    </ion-text>
+    <div
+      class="flex gap-5 mt-2 justify-between items-center p-2"
+      style="border-radius: 100px; background: #deeeef"
+    >
+      <ion-button fill="clear" (click)="start(false)" *ngIf="!isPlaying">
+        <img src="assets/images/SoundCollect/Iconos/play.svg" />
+      </ion-button>
+      <ion-button fill="clear" (click)="start(true)" *ngIf="isPlaying">
+        <img src="assets/images/SoundCollect/Iconos/play.svg" />
+      </ion-button>
+      <ion-range
+        #range
+        [(ngModel)]="progress"
+        max="100"
+        (touchend)="seek()"
+        (mouseup)="seek()"
+      >
+      </ion-range>
+      <ion-label class="H-10-400 my-text-header">{{ duration }}</ion-label>
+    </div>
+    <ion-button (click)="dismiss()">Cerrar</ion-button>
+  </div>
+</div>

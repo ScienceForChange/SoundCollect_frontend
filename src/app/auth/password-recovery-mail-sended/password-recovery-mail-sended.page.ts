@@ -1,13 +1,15 @@
-import {Component, inject, OnInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {IonButton, IonicModule, IonInput, NavController} from '@ionic/angular';
-import {Router, RouterLink} from "@angular/router";
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {HttpClient} from '@angular/common/http';
-import {ConfirmPasswordValidator} from '../../validator/confirm-password.validator';
-import {AuthService, CommonService, CryptoService} from '../../services';
-import {AuthHTTP} from '../../repos';
+import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { IonButton, IonicModule, IonInput, NavController } from '@ionic/angular';
+import { Router, RouterLink } from "@angular/router";
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { ConfirmPasswordValidator } from '../../validator/confirm-password.validator';
+import { AuthService, CommonService, CryptoService } from '../../services';
+import { AuthHTTP } from '../../repos';
+import { otpType } from '../password-recovery/password-recovery.page';
+import { PasswordValidator } from 'src/app/validator/strong-pass.validator';
 
 @Component({
     selector: 'app-password-recovery-mail-sended',
@@ -43,18 +45,16 @@ export class PasswordRecoveryMailSendedPage implements OnInit {
     model = {
         password: '',
         cpassword: '',
-        lpassword: ''
     };
 
     constructor() {
         this.newFormGroup = this.fb.group({
-            password: [this.model.password, [Validators.required]],
-            lpassword: [this.model.lpassword, [Validators.required]],
-            cpassword: [this.model.cpassword, [Validators.required]],
-            step1: ['', [Validators.required]],
-            step2: ['', [Validators.required]],
-            step3: ['', [Validators.required]],
-            step4: ['', [Validators.required]]
+            password: [this.model.password, [Validators.required, Validators.minLength(8), PasswordValidator.strong]],
+            cpassword: [this.model.cpassword, [Validators.required, Validators.minLength(8)]],
+            code1: ['', [Validators.required]],
+            code2: ['', [Validators.required]],
+            code3: ['', [Validators.required]],
+            code4: ['', [Validators.required]]
         }, {
             validator: ConfirmPasswordValidator.matchPassword
         });
@@ -73,46 +73,65 @@ export class PasswordRecoveryMailSendedPage implements OnInit {
         return this.newFormGroup.get('cpassword');
     }
 
-    get _step1() {
-        return this.newFormGroup.get('step1');
+    get _code1() {
+        return this.newFormGroup.get('code1');
     }
 
-    get _step2() {
-        return this.newFormGroup.get('step2');
+    get _code2() {
+        return this.newFormGroup.get('code2');
     }
 
-    get _step3() {
-        return this.newFormGroup.get('step3');
+    get _code3() {
+        return this.newFormGroup.get('code3');
     }
 
-    get _step4() {
-        return this.newFormGroup.get('step4');
+    get _code4() {
+        return this.newFormGroup.get('code4');
     }
 
-    get lpassword() {
-        return this.newFormGroup.get('lpassword');
-    }
-
-    async resetPassword() {
+    async resendOtpEmail() {
+        const email = localStorage.getItem('resetpass-email');
         await this.commonService.showLoader();
-        this.authService.resetPassword(this.email).then(async result => {
-            await this.commonService.hideLoader();
-            const title = await this.translate.instant('global_error.label.header');
-            if (result.status && result.message === 'RESET_PASSWORD_EMAIL_CODE_SENDED') {
-                const message = await this.translate.instant('recovery_pass.label.RESET_PASSWORD_EMAIL_CODE_SENDED');
-                await this.commonService.alertModal(title, message);
-            }
-        }).catch(async response => {
-            await this.commonService.hideLoader();
-            const title = await this.translate.instant('global_error.label.header');
-            const {description} = response?.error;
-            console.error(description);
-            if (description === 'USER_NOT_FOUND') {
-                const message = await this.translate.instant('recovery_pass.errors.USER_NOT_FOUND');
-                await this.commonService.alertModal(title, message);
-            }
-        });
+        try {
+            this.authService.requestOtp(email, otpType.newPassword)
+                .then(async (result) => {
+                    if (result?.status === 'success') {
+                        await this.commonService.hideLoader();
+                        this.commonService.alertModal('', result?.data?.message);
+                    }
+                }).catch(async (response) => {
+                    if (response?.error?.status === 'fail') {
+                        const message = await this.translate.instant(response?.error?.data?.message);
+                      this.commonService.alertModal('', message);
+                    }
+                    await this.commonService.hideLoader();
+                }).finally(() => this.commonService.hideLoader());
+        }
+        catch (e) {
+            console.log(e);
+        }
     }
+
+    // async resetPassword() {
+    //     await this.commonService.showLoader();
+    //     this.authService.resetPassword(this.email).then(async result => {
+    //         await this.commonService.hideLoader();
+    //         const title = await this.translate.instant('global_error.label.header');
+    //         if (result.status && result.message === 'RESET_PASSWORD_EMAIL_CODE_SENDED') {
+    //             const message = await this.translate.instant('recovery_pass.label.RESET_PASSWORD_EMAIL_CODE_SENDED');
+    //             await this.commonService.alertModal(title, message);
+    //         }
+    //     }).catch(async response => {
+    //         await this.commonService.hideLoader();
+    //         const title = await this.translate.instant('global_error.label.header');
+    //         const { description } = response?.error;
+    //         console.error(description);
+    //         if (description === 'USER_NOT_FOUND') {
+    //             const message = await this.translate.instant('recovery_pass.errors.USER_NOT_FOUND');
+    //             await this.commonService.alertModal(title, message);
+    //         }
+    //     });
+    // }
 
     changeImage(item: number) {
         if (this.myEye[item] === 'eye') {
@@ -124,43 +143,52 @@ export class PasswordRecoveryMailSendedPage implements OnInit {
         }
     }
 
-    async gotoNextField(nextElement: IonInput | IonButton | HTMLElement) {
-        if (nextElement instanceof IonInput) {
-            await nextElement.setFocus();
-        } else if (nextElement instanceof IonButton) {
-            // @ts-ignore
-            nextElement.el.focus();
-        }
+    async setFocus(nextElement: IonInput | IonButton | HTMLElement) {
+      if (nextElement instanceof IonInput) {
+        await nextElement.setFocus();
+      }
     }
 
     async submit() {
+      if (this.newFormGroup.invalid) {
+        console.log(this.newFormGroup.errors);
+        this.commonService.alertModal('Error', 'Debe completar todos los datos para continuar.');
+      }else{
         await this.commonService.showLoader();
-        this.authService.checkPasswordCode(
-            `${this._step1?.value}${this._step2?.value}${this._step3?.value}${this._step4?.value}`,
-            this.cryptoJS.encrypt(this.password?.value)
-        ).then(async result => {
+
+        const email = localStorage.getItem('resetpass-email');
+        const pass = this.password?.value;
+        const cpass = this.cpassword?.value;
+        const otp = `${this._code1?.value}${this._code2?.value}${this._code3?.value}${this._code4?.value}`;
+
+        try {
+          this.authService.resetPassword(email, pass, cpass, otp).then(async result => {
             await this.commonService.hideLoader();
             const title = await this.translate.instant('global_error.label.header');
-            if (result.status && result.description === 'INVALID_CHANGE_PASSWORD_CODE') {
-                const message = await this.translate.instant('recovery_pass.label.INVALID_CHANGE_PASSWORD_CODE');
-                await this.commonService.alertModal(title, message);
-            } else if (result.status) {
-                const message = await this.translate.instant('recovery_pass.label.password_changed');
-                await this.authService.setFirsLogin('FALSE');
-                await this.commonService.alertModal(title, message);
-                await this.goTo('login');
+            if (result.status === 'success') {
+              const message = await this.translate.instant('recovery_pass.label.password_changed');
+              this.commonService.alertModal(title, message);
+              await this.goTo('login');
             }
-        }).catch(async response => {
+          }).catch(async response => {
+            if (response?.error?.status === 'fail') {
+              const message = await this.translate.instant(response?.error?.data?.message);
+              this.commonService.alertModal('Error', message);
+            }
             await this.commonService.hideLoader();
-            console.error(response);
-        });
+          });
+        } catch (e) {
+          await this.commonService.hideLoader();
+          console.error(e);
+        }
+      }
     }
 
     async goTo(url: string) {
-        await this.navController.navigateRoot([url], {replaceUrl: true});
+        await this.navController.navigateRoot([url], { replaceUrl: true });
     }
 
-  goBack() {
-    this.navController.back();
-  }
+    goBack() {
+        this.navController.back();
+    }
 }

@@ -1,0 +1,50 @@
+import { Injectable, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { lastValueFrom } from 'rxjs';
+import { IObservation } from '../models/iobservation';
+
+@Injectable()
+export class ObservationsRepoHttp {
+  private http = inject(HttpClient);
+  constructor() { }
+  async sendSound(data: FormData) {
+   return lastValueFrom(this.http.post<any>(`${environment.serverURL}/api/audio-process`, data));
+  }
+  /**
+   * Deletes a observation
+   * @param uuid
+   * @returns
+   */
+  async deleteObservation(uuid: string) {
+    return await lastValueFrom(this.http.delete<any>(`${environment.serverURL}/api/observations/${uuid}`));
+  }
+
+  /**
+   * Store an observation in the database.
+   * @param observation
+   * @returns
+   */
+  async postObservation(observation: IObservation) {
+    return lastValueFrom(this.http.post<any>(`${environment.serverURL}/api/observations`, observation));
+  }
+
+  /**
+   * @param uuid
+   * @returns Returns an observation object.
+   */
+  async getObservationByUUID(uuid: string) {
+    return await lastValueFrom(this.http.get<any>(`${environment.serverURL}/api/observations/${uuid}`));
+  }
+
+  /**
+   * @returns Returns a list of all observations in the database.
+   */
+  async getMyObservations() {
+    return await lastValueFrom(this.http.get<any>(`${environment.serverURL}/api/user/observations`));
+  }
+
+  async getMapObservations() {
+    return await lastValueFrom(this.http.get<any>(`${environment.serverURL}/api/map/observations`));
+  }
+}

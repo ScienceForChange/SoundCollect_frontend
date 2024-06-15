@@ -6,7 +6,6 @@ import {environment} from '../../environments/environment';
   providedIn: 'root'
 })
 export class CryptoService {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   ENCRYPTION_KEY = `${environment.encryptionKey}`;
 
   constructor() {

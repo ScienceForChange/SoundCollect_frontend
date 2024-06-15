@@ -1,0 +1,65 @@
+.my-bg-home {
+  background-image: url("../../../assets/images/SoundCollect/Ilustraciones/home-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+ion-range {
+  --bar-background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.3) 100%
+    ),
+    linear-gradient(
+      90deg,
+      #b135a2 0%,
+      #eb3565 9.38%,
+      #f43b33 16.15%,
+      #fc7600 27.6%,
+      #ffe900 36.98%,
+      #9bc422 46.88%,
+      #3d9f39 57.81%,
+      #005aa6 67.71%,
+      #0043e4 80.21%,
+      #5f3dcd 90.1%,
+      #a637ad 97.92%
+    );
+  --bar-background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.3) 100%
+    ),
+    linear-gradient(
+      90deg,
+      #b135a2 0%,
+      #eb3565 9.38%,
+      #f43b33 16.15%,
+      #fc7600 27.6%,
+      #ffe900 36.98%,
+      #9bc422 46.88%,
+      #3d9f39 57.81%,
+      #005aa6 67.71%,
+      #0043e4 80.21%,
+      #5f3dcd 90.1%,
+      #a637ad 97.92%
+    );
+  --bar-background-active: rgba(189, 224, 254, 0);
+  --bar-height: 20px;
+  --bar-border-radius: 100px;
+  --knob-background: rgba(255, 200, 221, 0);
+  --knob-size: 40px;
+  --pin-background: rgba(255, 175, 204, 0);
+  --pin-color: #fff;
+}
+capacitor-google-map {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+ion-content {
+  --background: transparent !important;
+}
+
+body {
+  background: transparent !important;
+}

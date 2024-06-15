@@ -36,10 +36,9 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/theme/variables.scss", "src/global.scss", "./node_modules/@videogular/ngx-videogular/fonts/videogular.css"],
+            "styles": ["src/theme/variables.scss", "src/global.scss"],
             "scripts": [],
             "allowedCommonJsDependencies": [
-              "@mediapipe/pose",
               "long",
               "crypto-js",
               "moment/moment",

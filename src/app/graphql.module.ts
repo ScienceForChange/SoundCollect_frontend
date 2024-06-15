@@ -5,7 +5,6 @@ import {HttpLink} from 'apollo-angular/http';
 import { environment } from 'src/environments/environment';
 
 const uri = `${environment.serverURL}/api/graphql`;
-// const uri = `https://apicampus.mutuaterrassa.cat:11443/api/graphql`;
 export const createApollo = (httpLink: HttpLink): ApolloClientOptions<any> => ({
   link: httpLink.create({uri}),
   cache: new InMemoryCache(),

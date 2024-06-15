@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {AuthService} from '../services/auth.service';
-import * as moment from 'moment';
+import { AuthService } from '../services/auth.service';
+import moment from 'moment';
 
 @Pipe({
   name: 'formatEpoch'

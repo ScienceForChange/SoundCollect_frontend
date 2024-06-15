@@ -1,8 +1,22 @@
 <ion-content [fullscreen]="true">
-  <div class="flex items-center flex-col justify-center gap-12 w-full h-full px-6" style="background-color: var(--ion-color-secondary)">
-      <img src="assets/images/SoundCollect/Ilustraciones/Like.svg" WIDTH="210">
-       <label class="H-24-700 text-white text-center">¡Te has registrado correctamente!</label>
-       <label class="H-16-400 text-white text-center">Te enviaremos email para verificar tu cuenta. Una vez verificada, podrás acceder a la App.</label>
-       <button [routerLink]="['/login']" class="my-btn-login" style="background-color: white;color:black">Volver al inicio</button>
+  <div
+    class="flex items-center flex-col justify-center gap-12 w-full h-full px-6"
+    style="background-color: var(--ion-color-secondary)"
+  >
+    <img src="assets/images/SoundCollect/Ilustraciones/Like.svg" width="210" />
+    <label class="H-24-700 text-white text-center"
+      >{{'greets.label.subtitle'|translate}}</label
+    >
+    <!--    <label class="H-16-400 text-white text-center"-->
+    <!--      >Te enviaremos email para verificar tu cuenta. Una vez verificada, podrás-->
+    <!--      acceder a la App.</label-->
+    <!--    >-->
+    <button
+      [routerLink]="['/tabs/home']"
+      class="my-btn-login"
+      style="background-color: white; color: black"
+    >
+      {{'greets.btn.in-to-app'|translate}}
+    </button>
   </div>
 </ion-content>

@@ -1,38 +1,31 @@
 import { Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import {introGuard} from '../guards/intro-fn.guard';
-import {HttpClient} from '@angular/common/http';
 import {AuthService} from '../services';
-import {AuthHTTP} from '../repos/auth-repo-http';
+import {AuthHTTP} from '../repos';
 export const routes: Routes = [
   {
     path: 'tabs',
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'home',
         loadComponent: () =>
-          import('../tab1/tab1.page').then((m) => m.Tab1Page),
+          import('../pages/home/home.page').then((m) => m.HomePage),
       },
       {
-        path: 'tab2',
+        path: 'sounds',
         loadComponent: () =>
-          import('../tab2/tab2.page').then((m) => m.Tab2Page),
+          import('../pages/sounds/sounds.page').then((m) => m.SoundsPage),
       },
       {
-        path: 'tab3',
+        path: 'profile',
         loadComponent: () =>
-          import('../tab3/tab3.page').then((m) => m.Tab3Page),
+          import('../pages/profile/profile.page').then((m) => m.ProfilePage),
       },
-      {
-        path: 'collectSound',
-        loadComponent: () =>
-          import('../pages/collect-sound/collect-sound.page').then((m) => m.CollectSoundPage),
-      },
-
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/home',
         pathMatch: 'full',
       },
     ],

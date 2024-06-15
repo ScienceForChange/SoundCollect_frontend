@@ -1,4 +1,4 @@
-import {Injectable, Sanitizer, SecurityContext} from '@angular/core';
+import { Injectable, Sanitizer, SecurityContext } from '@angular/core';
 import { Preferences } from '@capacitor/preferences';
 
 import {
@@ -9,9 +9,10 @@ import {
   ToastController,
   NavController, Platform
 } from '@ionic/angular';
-import {StatusBar, Style} from '@capacitor/status-bar';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {TranslateService} from '@ngx-translate/core';
+import { StatusBar, Style } from '@capacitor/status-bar';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { AlertsComponent } from '../components/alerts/alerts.component';
 
 export enum ToastPosition {
   'top' = 'top',
@@ -98,9 +99,18 @@ export class CommonService {
     await loading.present();
   }
 
+
+  async showLoaderWithMsg(locale_message?: string) {
+    const message = this.translate.instant('global.label.' + locale_message);
+    const loading = await this.loadingController.create({
+      message
+    });
+    await loading.present();
+  }
+
   async hideLoader() {
     const loadingCtrl = await this.loadingController.getTop();
-    if (!! loadingCtrl) {
+    if (!!loadingCtrl) {
       await loadingCtrl.dismiss();
     }
   }
@@ -118,14 +128,14 @@ export class CommonService {
   }
 
   getEpochDate() {
-    return Math.floor(new Date().getTime()/1000.0);
+    return Math.floor(new Date().getTime() / 1000.0);
   }
 
   isSameDay(day: number) {
     const d1 = new Date(day * 1000);
     const d2 = new Date();
     return d1.getFullYear() === d2.getFullYear() &&
-          d1.getUTCDate() === d2.getUTCDate() &&
+      d1.getUTCDate() === d2.getUTCDate() &&
       d1.getMonth() === d2.getMonth();
   }
 
@@ -135,14 +145,14 @@ export class CommonService {
       message,
       cssClass: 'alertMessages',
       buttons: [{
-        text: 'Cancelar',
+        text: 'OK',
         role: 'cancel'
       }]
     }).then(alertElement => alertElement.present());
     return;
   }
 
-  sanitizerImg(url: string){
+  sanitizerImg(url: string) {
     return this.sanitizer.sanitize(SecurityContext.URL, url);
   }
 
@@ -153,53 +163,56 @@ export class CommonService {
     return parseFloat(sat.replace('px', '')) + parseFloat(sab.replace('px', ''));
   }*/
 
-  convertH2M(timeInHour: string){
+  convertH2M(timeInHour: string) {
     const timeParts = timeInHour.split(':');
     return Number(timeParts[0]) * 60 + Number(timeParts[1]);
   }
 
   delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   setItem = async (key: string, value: string) => {
-    await Preferences.set({
-      key,
-      value
-    });
+    // await Preferences.set({
+    //   key,
+    //   value
+    // });
+    localStorage.setItem(key, value);
   };
 
-  getItem = async (key:string) => {
-    const { value } = await Preferences.get({ key });
-    return value;
+  getItem = async (key: string) => {
+    // const { value } = await Preferences.get({ key });
+    // return value;
+    return localStorage.getItem(key);
   };
 
-  removeItem= async (key:string) => {
-    await Preferences.remove({ key });
+  removeItem = async (key: string) => {
+    // await Preferences.remove({ key });
+    localStorage.removeItem(key);
   };
 
-  isWeb(){
+  isWeb() {
     return this.platform.is('mobileweb') || this.platform.is('desktop');
   }
 
-  isAppleDevices(){
+  isAppleDevices() {
     return this.platform.is('ios') || this.platform.is('iphone')
-      || this.platform.is('ipad' );
+      || this.platform.is('ipad');
   }
 
-  isMobileWidth(){
+  isMobileWidth() {
     return this.platform.width() < 450;
   }
 
-  setStatusBarLigth(){
-    if (!this.isWeb()){
-      StatusBar.setStyle({style: Style.Light}).then();
+  setStatusBarLigth() {
+    if (!this.isWeb()) {
+      StatusBar.setStyle({ style: Style.Light }).then();
     }
   }
 
-  setStatusBarDark(){
-    if (!this.isWeb()){
-      StatusBar.setStyle({style: Style.Dark}).then();
+  setStatusBarDark() {
+    if (!this.isWeb()) {
+      StatusBar.setStyle({ style: Style.Dark }).then();
     }
   }
 
@@ -214,7 +227,7 @@ export class CommonService {
       buttons: ['OK'],
       inputs: [
         {
-          type:'textarea',
+          type: 'textarea',
           placeholder: 'Token FCM',
           value: text
         },
@@ -223,12 +236,12 @@ export class CommonService {
 
     await alert.present();
   }
-   /**
-   * Convert and id to API Iri
-   * @param entity
-   * @param id
-   */
-   static idToIri(entity: string, id: string) {
+  /**
+  * Convert and id to API Iri
+  * @param entity
+  * @param id
+  */
+  static idToIri(entity: string, id: string) {
     return `/api/${entity}/${id}`;
   }
 
@@ -241,4 +254,20 @@ export class CommonService {
     return Number(parts[parts.length - 1]);
   }
 
+  async presentNotification(message: string, message2Bold: string = "", color: "success" | "warning" | "danger" = "success", duration: number = 3000) {
+    const modal = await this.modalController.create({
+      component: AlertsComponent, // Reemplaza 'MiComponenteModalPage' con el nombre de tu componente modal
+      cssClass: 'my-custom-modal',
+      componentProps: {
+        myText: message,
+        myText2Bold: message2Bold,
+        myColor: color,
+        mySuccess: true,
+      }
+    });
+    await modal.present();
+    setTimeout(async () => {
+      await modal.dismiss();
+    }, duration);
+  }
 }

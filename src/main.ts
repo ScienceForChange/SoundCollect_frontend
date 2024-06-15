@@ -8,7 +8,6 @@ import {
     withInterceptors,
     HttpBackend,
     HttpClient,
-    HTTP_INTERCEPTORS
 } from '@angular/common/http';
 import { Preferences } from '@capacitor/preferences';
 import {JwtModule} from '@auth0/angular-jwt';
@@ -21,11 +20,13 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {ApolloModule} from 'apollo-angular';
 import {GraphQLModule} from './app/graphql.module';
 import localeEs from '@angular/common/locales/es';
-import localeCaEs from '@angular/common/locales/ca-ES-valencia';
+import localeCa from '@angular/common/locales/ca';
+import localeEn from '@angular/common/locales/en';
 import {registerLocaleData} from '@angular/common';
 
 registerLocaleData(localeEs, 'es');
-registerLocaleData(localeCaEs, 'ca');
+registerLocaleData(localeCa, 'ca');
+registerLocaleData(localeEn, 'en');
 
 if (environment.production) {
   enableProdMode();

@@ -1,9 +1,19 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar color="ligth" class="ion-no-margin ion-no-padding ion-no-border bg-white">
+  <ion-toolbar
+    color="ligth"
+    class="ion-no-margin ion-no-padding ion-no-border bg-white"
+  >
     <div class="flex justify-start items-center px-3">
-      <img tappable="true" class="" [routerLink]="['/tabs/tab3']" src="assets/images/SoundCollect/Iconos/back.svg" alt="back" width="24">
+      <img
+        tappable="true"
+        class=""
+        [routerLink]="['/tabs/profile']"
+        src="assets/images/SoundCollect/Iconos/back.svg"
+        alt="back"
+        width="24"
+      />
       <ion-text class="ms-28 H2-22-700 self-start my-text-header">
-        Idioma
+        {{'profile.label.language'|translate}}
       </ion-text>
     </div>
   </ion-toolbar>
@@ -12,22 +22,40 @@
 <ion-content [fullscreen]="true">
   <div class="flex flex-col px-3 justify-between">
     <section class="flex gap-3 flex-col">
-      <form class="mt-5 flex flex-col justify-content-between p-3">
-        <div class="mb-4">
-          <label class="H3-18-700 my-text-header">Escoge el idioma de la App:</label>
-          <ion-radio-group formControlName="locale" name="locale">
-            <div>
-              <ion-radio class="lang ion-padding-top ion-padding-bottom" value="CA" labelPlacement="end" justify="start">Català</ion-radio>
-            </div>
-            <div>
-              <ion-radio class="lang ion-padding-top ion-padding-bottom" value="ES"  labelPlacement="end" justify="start">Castellano</ion-radio>
-            </div>
-            <div>
-              <ion-radio class="lang ion-padding-top ion-padding-bottom" value="EN" labelPlacement="end" justify="start">Inglés</ion-radio>
-            </div>
-          </ion-radio-group>
-        </div>
-      </form>
+      <div class="mb-4">
+        <label class="H3-18-700 my-text-header"
+          >{{'language.label.change_language_subtitle'|translate}}:</label
+        >
+        <ion-radio-group name="locale" [(ngModel)]="selectedLanguage">
+          <div>
+            <ion-radio
+              class="lang ion-padding-top ion-padding-bottom"
+              value="ca"
+              labelPlacement="end"
+              justify="start"
+              >{{'about_me.label.Catalan'|translate}}</ion-radio
+            >
+          </div>
+          <div>
+            <ion-radio
+              class="lang ion-padding-top ion-padding-bottom"
+              value="es"
+              labelPlacement="end"
+              justify="start"
+              >{{'about_me.label.spanish'|translate}}</ion-radio
+            >
+          </div>
+          <div>
+            <ion-radio
+              class="lang ion-padding-top ion-padding-bottom"
+              value="en"
+              labelPlacement="end"
+              justify="start"
+              >{{'about_me.label.ingles'|translate}}</ion-radio
+            >
+          </div>
+        </ion-radio-group>
+      </div>
     </section>
   </div>
 </ion-content>
@@ -36,11 +64,10 @@
   <div class="ion-no-border px-3 pt-2">
     <div class="flex w-full flex-col justify-evenly gap-3">
       <button class="my-btn-login mx-auto">
-        <ion-text class="ion-text-nowrap"
-        >Guardar cambios</ion-text
+        <ion-text class="ion-text-nowrap" (click)="guardarCambioIdioma()"
+          >Guardar cambios</ion-text
         >
       </button>
     </div>
   </div>
 </ion-footer>
-

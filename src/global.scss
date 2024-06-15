@@ -25,20 +25,6 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-@font-face {
-  font-family: SpaceGrotesk;
-  font-style: normal;
-  src: url("/src/assets/fonts/SpaceGrotesk/SpaceGrotesk-Bold.ttf");
-  font-display: swap;
-  font-weight: 600;
-}
-@font-face {
-  font-family: SpaceGrotesk;
-  font-style: normal;
-  src: url("/src/assets/fonts/SpaceGrotesk/SpaceGrotesk-Bold.ttf");
-  font-display: swap;
-  font-weight: 700;
-}
 
 @font-face {
   font-family: SpaceGrotesk;
@@ -56,7 +42,7 @@
 }
 
 :root {
-  --color-text-dark: #0D2D30;
+  --color-text-dark: #0d2d30;
   --color-text-header: #a0df87;
   --color-text-red: #ff5b23;
 }
@@ -67,12 +53,12 @@ ion-content {
   }
 }
 
-ion-footer{
-  padding-bottom: calc(env(safe-area-inset-bottom) + 20px)!important;
+ion-footer {
+  padding-bottom: calc(env(safe-area-inset-bottom) + 20px) !important;
 }
 
-.margin-top-safe-area{
-  margin-top: calc(env(safe-area-inset-top) + 20px)!important;
+.margin-top-safe-area {
+  margin-top: calc(env(safe-area-inset-top) + 20px) !important;
 }
 
 .my-text-dark {
@@ -95,12 +81,12 @@ body {
 }
 
 .my-bg {
-  background:linear-gradient(180deg, #FFF 50%, #E6FFFF 100%);
-  --background:linear-gradient(180deg, #FFF 50%, #E6FFFF 100%);
+  background: linear-gradient(180deg, #fff 50%, #e6ffff 100%);
+  --background: linear-gradient(180deg, #fff 50%, #e6ffff 100%);
 }
 
 ion-content {
-  --ion-background-color: linear-gradient(180deg, #FFF 50%, #E6FFFF 100%);
+  --ion-background-color: linear-gradient(180deg, #fff 50%, #e6ffff 100%);
   //--keyboard-offset:0!important;
 }
 
@@ -201,6 +187,11 @@ button:hover {
   font-size: clamp(0.88rem, calc(0.64rem + 1.11vw), 1.5rem);
   font-weight: 700;
 }
+.H6-14-700SpaceGrotesk{
+  font-family: SpaceGrotesk, serif !important;
+  font-size: clamp(0.88rem, calc(0.64rem + 1.11vw), 1.5rem);
+  font-weight: 700;
+}
 
 .H8-12-400-SpaceGrotesk {
   font-family: SpaceGrotesk, serif !important;
@@ -226,7 +217,7 @@ button:hover {
   height: 60px;
   align-items: center;
   border-radius: 6px;
-  background: #DEEEEF;
+  background: #deeeef;
   opacity: 0.5;
 }
 .input:focus {
@@ -436,6 +427,8 @@ ion-progress-bar.modal-progress {
 }
 ion-modal {
   --border-radius: 40px;
+  --height: unset;
+  --width: unset;
 }
 .normal-plan {
   .my-bg-exag {
@@ -480,10 +473,10 @@ ion-modal {
   }
 }
 .tab-selected {
-  color: rgba(255, 255, 255,1) !important;
+  color: rgba(255, 255, 255, 1) !important;
   font-weight: 700 !important;
   ion-label {
-    color: rgba(255, 255, 255,1) !important;
+    color: rgba(255, 255, 255, 1) !important;
     font-weight: 700 !important;
   }
 }
@@ -501,7 +494,7 @@ ion-modal {
     border-radius: 69px !important;
     color: white;
     font-family: lato, serif;
-    font-size: 1.10rem!important;
+    font-size: 1.1rem !important;
     font-weight: 600;
     border: 2px solid var(--color-text-red);
     margin: 1.25rem 5px 0.35rem;
@@ -513,7 +506,7 @@ ion-modal {
   }
 }
 
-.auth-style{
+.auth-style {
   background-image: url("assets/images/SoundCollect/Ilustraciones/login-bg.svg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -521,14 +514,15 @@ ion-modal {
   min-height: 100vh;
 }
 ion-modal.my-custom-modal {
-  --height: max-content;
-  --width: max-content;
+  --height: unset;
+  --width: unset;
   --border-radius: 16px;
-  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 ion-modal.my-custom-modal::part(content) {
- position: absolute;
+  position: unset;
   top: 20px;
 }
 ion-modal::part(backdrop) {
@@ -538,34 +532,43 @@ ion-modal::part(backdrop) {
 ion-modal .wrapper {
   margin-bottom: 300px;
 }
-.my-danger{
-  background: var(--ion-color-danger) ;
+.my-danger {
+  background: var(--ion-color-danger);
 }
-.my-success{
-  background: var(--ion-color-success) ;
+.my-success {
+  background: var(--ion-color-success);
 }
-.my-warning{
-  background: var(--ion-color-warning) ;
+.my-warning {
+  background: var(--ion-color-warning);
 }
 ion-tab-button {
   background-color: transparent;
-  ion-icon{
-    color:rgba(255, 255, 255,0.70) !important;
+  ion-icon {
+    color: rgba(255, 255, 255, 0.7) !important;
   }
-  ion-label{
-    color:rgba(255, 255, 255,0.70) !important;
+  ion-label {
+    color: rgba(255, 255, 255, 0.7) !important;
   }
 }
 
-select{
+select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-size: 24px 24px!important; /* Tamaño del icono */
-  border: none!important;
-  color:var(--color-text-dark)!important;
+  background-size: 24px 24px !important; /* Tamaño del icono */
+  border: none !important;
+  color: var(--color-text-dark) !important;
 }
-select:focus{
-  outline: none!important;
-  box-shadow:none!important;
+select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+/* Modal classes */
+/* Custom CSS components */
+@import "./theme/modals.scss";
+
+
+.full-size-modal {
+  --width: 100%;
+  --height: 100%;
 }

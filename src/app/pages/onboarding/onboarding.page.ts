@@ -20,15 +20,13 @@ import {AuthHTTP} from '../../repos';
 })
 export class OnboardingPage implements OnInit {
     @ViewChild('swiperBoarding') swiperRef!: ElementRef;
-
     navController = inject(NavController);
     authService = inject(AuthService);
     commonService = inject(CommonService);
-
     swiper?: Swiper;
     swiperModules = [IonicSlides];
     index = 1;
-
+    readonly INTRO_KEY = 'has_seen_onboarding';
     constructor() {
     }
 
@@ -45,7 +43,7 @@ export class OnboardingPage implements OnInit {
     }
 
     async finished() {
-        await this.commonService.setItem(this.authService.INTRO_KEY, 'TRUE');
+        await this.commonService.setItem(this.INTRO_KEY, 'TRUE');
         await this.navController.navigateRoot('/login');
     }
 }

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>ca</string>
 	<key>CFBundleDisplayName</key>
 	<string>SoundCollect</string>
 	<key>CFBundleExecutable</key>
@@ -45,5 +45,31 @@
 	<true/>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Cal permís per oferir una millor experiència d&apos;usuari</string>
 </dict>
 </plist>

@@ -1,0 +1,364 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar
+    color="ligth"
+    class="ion-no-margin ion-no-padding ion-no-border bg-white"
+  >
+    <div class="flex items-center justify-center px-3">
+      <ion-text class="H-24-700 my-text-header">
+        {{'profile.label.title'|translate}}
+      </ion-text>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="flex-col flex my-bg-profile">
+    <div class="p-3 flex flex-col w-full h-full">
+      <section class="mb-4" *ngIf="isUserAuth">
+        <div class="flex justify-between w-full items-center mb-3">
+          <ion-text
+            class="H-20-700 my-text-header"
+            *ngIf="((calcAge() > 0 && calcAge() < 99) || gender)"
+            >{{'about_me.label.personal_inf'|translate}}</ion-text
+          >
+        </div>
+        <div
+          class="box-style"
+          *ngIf="((calcAge() > 0 && calcAge() < 99) || gender)"
+        >
+          <!--          <ion-text class="H-16-400 my-text-dark" style="padding: 0 24px" *ngIf="user?.attributes?.email">-->
+          <!--            Email: {{user?.attributes?.email}}-->
+          <!--          </ion-text>-->
+          <ion-text
+            class="H-16-400 my-text-dark"
+            style="padding: 0 24px"
+            *ngIf="calcAge() > 0 && calcAge() < 99"
+          >
+            {{'profile.label.age'|translate}} {{ calcAge() }}
+            {{'profile.label.years'|translate}}
+          </ion-text>
+          <ion-text
+            class="H-16-400 my-text-dark"
+            style="padding: 0 24px"
+            *ngIf="gender"
+          >
+            {{'about_me.label.gender'|translate}}: {{'profile.label.' +
+            gender|translate}}
+          </ion-text>
+          <div
+            class="w-full py-3"
+            style="padding: 24px 0; border-top: 1.5px solid #f2f4f3"
+            *ngIf="((calcAge() > 0 && calcAge() < 99) || gender)"
+          >
+            <button
+              (click)="goToEditProfile()"
+              class="ms-3 flex items-center bg-transparent my-text-red H3-18-700"
+            >
+              <img
+                src="../../../assets/images/SoundCollect/Iconos/edit.svg"
+                class="me-2"
+              />
+              {{'profile.label.edit_profile_title'|translate}}
+            </button>
+          </div>
+        </div>
+      </section>
+      <div *ngIf="!isUserAuth" class="my-5">
+        <app-no-user-auth></app-no-user-auth>
+      </div>
+<!--      <section class="mb-4" *ngIf="authService.isAuthenticated.getValue()">-->
+<!--        <div class="flex justify-between w-full items-center mb-3">-->
+<!--          <ion-text class="H-20-700 my-text-header"-->
+<!--            >{{'profile.label.my_contribution'|translate}}</ion-text-->
+<!--          >-->
+<!--        </div>-->
+<!--        <div class="box-style">-->
+<!--          <label-->
+<!--            class="H-20-700 my-text-header flex justify-between items-center w-full"-->
+<!--            style="padding: 0 24px"-->
+<!--          >-->
+<!--            <span>Nivel X</span>-->
+<!--            <span class="flex">-->
+<!--              <img-->
+<!--                class="me-3"-->
+<!--                src="../../../assets/images/SoundCollect/Ilustraciones/solar.svg"-->
+<!--              />-->
+<!--              Principiante-->
+<!--            </span>-->
+<!--          </label>-->
+<!--          <ion-text-->
+<!--            class="H6-14-400-SpaceGrotesk my-text-dark"-->
+<!--            style="padding: 0 24px"-->
+<!--          >-->
+<!--            5 contribuciones para llegar al próximo nivel-->
+<!--          </ion-text>-->
+<!--          <div-->
+<!--            class="w-full flex justify-between"-->
+<!--            style="border-top: 1.5px solid #f2f4f3"-->
+<!--          >-->
+<!--            <div-->
+<!--              class="flex flex-col items-center gap-2 w-full py-6"-->
+<!--              style="border-right: 1.5px solid #f2f4f3"-->
+<!--            >-->
+<!--              <label class="H-24-700 my-text-header">25</label>-->
+<!--              <label class="H6-14-400-SpaceGrotesk my-text-header"-->
+<!--                >{{'profile.label.study_areas'|translate}}</label-->
+<!--              >-->
+<!--            </div>-->
+<!--            <div class="flex flex-col items-center gap-2 w-full py-6">-->
+<!--              <label class="H-24-700 my-text-header">25</label>-->
+<!--              <label class="H6-14-400-SpaceGrotesk my-text-header"-->
+<!--                >{{'profile.label.recorded_sounds'}}</label-->
+<!--              >-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">-->
+<!--            <button-->
+<!--              (click)="goToMySounds()"-->
+<!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
+<!--            >-->
+<!--              <label class="flex justify-between w-full me-5">-->
+<!--                <span>{{'profile.label.my_sounds'|translate}}</span>-->
+<!--                <span>5</span></label-->
+<!--              >-->
+<!--              <img-->
+<!--                class="me-8"-->
+<!--                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"-->
+<!--              />-->
+<!--            </button>-->
+<!--          </div>-->
+<!--          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">-->
+<!--            <button-->
+<!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
+<!--            >-->
+<!--              <label class="flex justify-between w-full me-5">-->
+<!--                <span>{{'profile.label.study_areas'|translate}}</span>-->
+<!--                <span>5</span></label-->
+<!--              >-->
+<!--              <img-->
+<!--                class="me-8"-->
+<!--                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"-->
+<!--              />-->
+<!--            </button>-->
+<!--          </div>-->
+<!--          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">-->
+<!--            <button-->
+<!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
+<!--            >-->
+<!--              <label class="flex justify-between w-full me-5"-->
+<!--                ><span>{{'profile.label.badges_earned'|translate}}</span>-->
+<!--                <span>5</span></label-->
+<!--              >-->
+<!--              <img-->
+<!--                class="me-8"-->
+<!--                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"-->
+<!--              />-->
+<!--            </button>-->
+<!--          </div>-->
+<!--          <div class="w-full py-2" style="border-top: 1.5px solid #f2f4f3">-->
+<!--            <button-->
+<!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
+<!--            >-->
+<!--              <label class="flex justify-between w-full me-5"-->
+<!--                ><span>{{'profile.label.download_information'|translate}}</span>-->
+<!--                <span></span-->
+<!--              ></label>-->
+<!--              <img-->
+<!--                class="me-8"-->
+<!--                src="../../../assets/images/SoundCollect/Iconos/download.svg"-->
+<!--              />-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </section>-->
+      <section class="mb-4">
+        <div class="flex justify-between w-full items-center mb-3">
+          <ion-text class="H-20-700 my-text-header"
+            >{{'profile.label.about_the_app'|translate}}</ion-text
+          >
+        </div>
+        <div class="box-style">
+          <div class="w-full pt-2">
+            <button
+              [routerLink]="['/user-guide']"
+              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
+            >
+              <label class="flex justify-between w-full me-5"
+                ><span>{{'profile.label.user_guide'|translate}}</span>
+                <span></span
+              ></label>
+              <img
+                class="me-8"
+                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
+              />
+            </button>
+          </div>
+<!--          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">-->
+<!--            <button-->
+<!--              [routerLink]="['/change-language']"-->
+<!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
+<!--            >-->
+<!--              <label class="flex justify-between w-full me-5"-->
+<!--                ><span>{{'profile.label.language'|translate}}</span>-->
+<!--                <span></span-->
+<!--              ></label>-->
+<!--              <img-->
+<!--                class="me-8"-->
+<!--                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"-->
+<!--              />-->
+<!--            </button>-->
+<!--          </div>-->
+          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">
+            <button
+              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
+              (click)="goToTerminos()"
+            >
+              <label class="flex justify-between w-full me-5"
+                ><span>{{'about_me.label.terms'|translate}}</span> <span></span
+              ></label>
+              <img
+                class="me-8"
+                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
+              />
+            </button>
+          </div>
+
+          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">
+            <button
+              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
+            >
+              <label class="flex justify-between w-full me-5"
+                ><span>GDPR info</span> <span></span
+              ></label>
+              <img
+                class="me-8"
+                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
+              />
+            </button>
+          </div>
+          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">
+            <button
+              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
+              (click)="goToLegalNotice()"
+            >
+              <label class="flex justify-between w-full me-5"
+                ><span>{{'about_me.label.privacy_policy'|translate}}</span>
+                <span></span
+              ></label>
+              <img
+                class="me-8"
+                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
+              />
+            </button>
+          </div>
+          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">
+            <button
+              class="mx-5 w-full mb-2 flex items-center bg-transparent my-text-header H-16-400"
+            >
+              <label class="flex justify-between w-full me-5"
+                ><span>{{'profile.label.legal_info'|translate}}</span>
+                <span></span
+              ></label>
+              <img
+                class="me-8"
+                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
+              />
+            </button>
+          </div>
+        </div>
+      </section>
+      <!--      <section class="mb-4" *ngIf="authService.isAuthenticated.getValue()">-->
+      <!--        <div class="flex justify-start w-full items-center">-->
+      <!--          <ion-text class="H3-18-700 my-text-header"-->
+      <!--            >{{'about_me.label.setting'|translate}}</ion-text-->
+      <!--          >-->
+      <!--        </div>-->
+      <!--        <div class="box-style">-->
+      <!--          <button-->
+      <!--            (click)="goToChangePassword()"-->
+      <!--            class="mx-5 w-full flex items-center mb-2 bg-transparent my-text-header H-16-400"-->
+      <!--          >-->
+      <!--            <label class="flex justify-between w-full me-5"-->
+      <!--              ><span>{{'login.label.password'|translate}}</span> <span></span-->
+      <!--            ></label>-->
+      <!--            <img-->
+      <!--              class="me-8"-->
+      <!--              src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"-->
+      <!--            />-->
+      <!--          </button>-->
+      <!--          &lt;!&ndash; <div-->
+      <!--            class="flex ms-2 justify-between p-2"-->
+      <!--            style="border-bottom: 1px solid #d3d3d3;"-->
+      <!--          >-->
+      <!--            <ion-text class="H6-14-700SpaceGrotesk my-text-dark"-->
+      <!--              >{{'about_me.label.lang'|translate}}</ion-text-->
+      <!--            >-->
+      <!--            <button class="bg-transparent H6-14-400SpaceGrotesk my-text-red" (click)="editProfile('change-language')">-->
+      <!--              {{patient?.locale === 'ES' ? 'Español' : 'Catalan'}}-->
+      <!--            </button>-->
+      <!--          </div>-->
+      <!--          <button class="flex ms-2 justify-between p-2" style="display: none;">-->
+      <!--            <ion-text class="H6-14-700SpaceGrotesk my-text-dark"-->
+      <!--              >{{'about_me.label.notification'|translate}}</ion-text-->
+      <!--            >-->
+      <!--            <ion-icon size="medium" name="chevron-forward-outline"></ion-icon>-->
+      <!--          </button> &ndash;&gt;-->
+      <!--        </div>-->
+      <!--      </section>-->
+      <section [hidden]="true" class="mb-4">
+        <div class="flex justify-start w-full items-center">
+          <ion-text class="H3-18-700 my-text-header"
+            >{{'about_me.label.others'|translate}}</ion-text
+          >
+        </div>
+        <div
+          class="flex flex-col"
+          style="
+            background: #f3f6f5;
+            border: 1px solid #f3f6f5;
+            border-radius: 8px;
+          "
+        >
+          <button
+            class="flex ms-2 justify-between p-2"
+            style="border-bottom: 1px solid #d3d3d3"
+          >
+            <ion-text class="H6-14-700SpaceGrotesk my-text-dark"
+              >{{'about_me.label.report_error'|translate}}</ion-text
+            >
+            <ion-icon size="medium" name="chevron-forward-outline"></ion-icon>
+          </button>
+
+          <button
+            class="flex ms-2 justify-between p-2"
+            style="border-bottom: 1px solid #d3d3d3"
+          >
+            <ion-text class="H6-14-700SpaceGrotesk my-text-dark"
+              >{{'about_me.label.privacy'|translate}}</ion-text
+            >
+            <ion-icon size="medium" name="chevron-forward-outline"></ion-icon>
+          </button>
+          <div class="flex ms-2 justify-between p-2">
+            <ion-text class="H6-14-700SpaceGrotesk my-text-dark"
+              >{{'about_me.label.version'|translate}}</ion-text
+            >
+            <ion-text class="bg-transparent H6-14-400SpaceGrotesk my-text-dark"
+              >0.1</ion-text
+            >
+          </div>
+        </div>
+      </section>
+      <button
+        *ngIf="isUserAuth"
+        class="my-btn-login mt-8 mx-auto"
+        (click)="logout()"
+      >
+        {{'profile.label.close_session'|translate}}
+      </button>
+      <div class="ion-padding ion-text-center">v{{appVersion}}</div>
+      <br />
+      <br />
+      <br />
+      <br />
+    </div>
+  </div>
+</ion-content>

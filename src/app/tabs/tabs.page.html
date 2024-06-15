@@ -1,20 +1,25 @@
-<ion-tabs style="position: relative;overflow: visible">
-  <ion-tab-bar slot="bottom" >
-    <ion-tab-button tab="tab1" >
-      <ion-icon aria-hidden="true" src="../../../assets/images/SoundCollect/Iconos/home.svg"></ion-icon>
-      <ion-label class="H6-14-400-SpaceGrotesk">Home</ion-label>
-    </ion-tab-button>
-     <ion-tab-button class="" tab="tab2">
-        <ion-icon aria-hidden="true" src="../../../assets/images/SoundCollect/Iconos/sound.svg" style="width: 29px;height: 26px"></ion-icon>
-        <ion-label class="H6-14-400-SpaceGrotesk">Mis sonidos</ion-label>
-    </ion-tab-button>
-    <ion-tab-button tab="tab3">
-      <ion-icon aria-hidden="true" src="../../../assets/images/SoundCollect/Iconos/profile.svg"></ion-icon>
-      <ion-label class="H6-14-400-SpaceGrotesk">Perfil</ion-label>
-    </ion-tab-button>
-    <ion-tab-button (click)="goto()">
-      <ion-label class="H6-14-400-SpaceGrotesk " style="margin-top: 34px;">Añadir</ion-label>
-    </ion-tab-button>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+   <div class="tabBarClass" style="position: relative; overflow: visible">
+     <ion-tab-button tab="home">
+       <ion-icon aria-hidden="true" src="../../../assets/images/SoundCollect/Iconos/home.svg"></ion-icon>
+       <ion-label class="H6-14-400-SpaceGrotesk">{{'profile.label.home'|translate}}</ion-label>
+     </ion-tab-button>
+     <ion-tab-button class="" tab="sounds">
+       <ion-icon aria-hidden="true" src="../../../assets/images/SoundCollect/Iconos/sound.svg" style="width: 29px; height: 26px"></ion-icon>
+       <ion-label class="H6-14-400-SpaceGrotesk">{{'profile.label.my_sounds'|translate}}</ion-label>
+     </ion-tab-button>
+     <ion-tab-button tab="profile">
+       <ion-icon aria-hidden="true" src="../../../assets/images/SoundCollect/Iconos/profile.svg"></ion-icon>
+       <ion-label class="H6-14-400-SpaceGrotesk">{{'profile.label.shortTitle'|translate}}</ion-label>
+     </ion-tab-button>
+     <ion-tab-button (click)="goto()">
+       <ion-label class="H6-14-400-SpaceGrotesk" style="margin-top: 34px">{{'profile.label.add'|translate}}</ion-label>
+     </ion-tab-button>
+     <div style="position: absolute; z-index: 10; top: -20px!important; right: 15px;!important;">
+       <img tappable="true" (click)="goto()" ngSrc="assets/images/SoundCollect/Iconos/add.svg"
+            alt="" height="60" width="61"/>
+     </div>
+   </div>
   </ion-tab-bar>
-  <img tappable="true" (click)="goto()" class="absolute" src="assets/images/SoundCollect/Iconos/add.svg" style="bottom: 49px;z-index: 10; right: 23px;}">
 </ion-tabs>

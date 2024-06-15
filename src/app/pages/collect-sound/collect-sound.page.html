@@ -1,140 +1,329 @@
 <ion-header class="ion-no-border">
   <ion-toolbar color="ligth" class="ion-no-margin ion-no-padding ion-no-border bg-white">
     <div class="flex items-center justify-start px-3">
-      <img tappable="true" class="mt-1" (click)="goBack()" src="assets/images/SoundCollect/Iconos/back.svg" alt="back" width="24">
+      <img tappable="true" class="mt-1" (click)="goBack()" src="assets/images/SoundCollect/Iconos/back.svg" alt="back"
+        width="24" />
       <ion-text class="H2-22-700 self-start ms-16 my-text-header">
-        Añadir nuevo sonido
+        {{'sounds.collect.add'|translate}}
       </ion-text>
     </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
   <div class="flex items-center px-3 py-2 w-full justify-between">
-      <div [ngClass]="myStep>=1?'orange-bg':''" class="text-center flex items-center justify-center" style="border-radius: 50%;min-width: 32px;height: 32px;border: 2px solid #FDA568">1</div>
-      <div class="w-full" style="height: 2px;background-color: #FDA568"></div>
-      <div [ngClass]="myStep>=2?'orange-bg':''" class="text-center flex items-center justify-center" style="border-radius: 50%;min-width: 32px;height: 32px;border: 2px solid #FDA568">2</div>
-      <div class="w-full" style="height: 2px;background-color: #FDA568"></div>
-      <div [ngClass]="myStep>=3?'orange-bg':''" class="text-center flex items-center justify-center" style="border-radius: 50%;min-width: 32px;height: 32px;border: 2px solid #FDA568">3</div>
- </div>
-  <div class="flex-col flex w-full justify-between items-center p-3" style="height: 77vh;">
-   <div class="w-full flex flex-col" *ngIf="myStep===1">
-     <label class="H-20-700 mt-4 my-text-header w-full flex justify-between items-center">Audio registrado <img src="assets/images/SoundCollect/Iconos/edit-dark.svg"></label>
-     <div class="flex gap-5 mt-2 justify-between items-center p-2" style="border-radius: 100px;background: #DEEEEF;">
-       <img src="assets/images/SoundCollect/Iconos/play.svg">
-       <ion-range></ion-range>
-       <ion-label class="H-10-400 my-text-header">00:05:00</ion-label>
-     </div>
-     <label class="H-20-700 mt-8 my-text-header">Audio registrado</label>
-     <label class="H-16-400 my-text-header">Lorem ipsum dolor sit amet consectetur. Urna cras at elit lectus consectetur convallis aliquet.</label>
-     <div class="flex w-full mt-5 justify-between items-center">
-       <div class="flex flex-col">
-         <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Parameters</label>
-         <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg"> Parameters</label>
-       </div>
-       <div class="flex flex-col">
-         <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg">Parameters</label>
-         <label class="H-16-400 my-text-header flex items-center gap-3"><img src="assets/images/SoundCollect/Iconos/ellipse.svg">Parameters</label>
-       </div>
-     </div>
-   </div>
-   <div class="w-full flex flex-col" *ngIf="myStep===2">
-      <label class="H-20-700  px-2 my-text-header w-full flex justify-start items-center">Imágenes</label>
-      <div class="flex flex-wrap gap-2  justify-start items-center p-2">
-        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/plus.svg)">
-          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
-        </div>
-        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
-          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
-        </div>
-        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
-          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
-        </div>
-        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
-          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
-        </div>
-        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
-          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
-        </div>
-        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
-          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
-        </div>
-        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
-          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
-        </div>
-        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
-          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
-        </div>
-        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
-          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
-        </div>
-        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
-          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
-        </div>
-        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
-          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
-        </div>
-        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
-          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
-        </div>
-        <div class="img-box" style="background-image: url(assets/images/SoundCollect/Iconos/img-s.svg)">
-          <img *ngIf="!boxContent" src="assets/images/SoundCollect/Iconos/delete-white.svg" width="24">
-        </div>
-      </div>
-     <br><br><br><br><br><br><br><br>
+    <div [ngClass]="myStep>=1?'orange-bg':''" class="text-center flex items-center justify-center" style="
+        border-radius: 50%;
+        min-width: 32px;
+        height: 32px;
+        border: 2px solid #fda568;
+      ">
+      1
     </div>
-   <div class="w-full flex flex-col" *ngIf="myStep===3">
-      <label class="H-20-700  px-2 my-text-header w-full flex justify-start items-start">Detalles del sonido</label>
-      <div class="flex flex-col gap-2 mt-2  justify-start items-start p-2" style="height: 67vh;overflow: scroll">
-        <label class="H3-18-400-SpaceGrotesk mb-3 my-text-header">Tipo de sonido:</label>
-        <input class="input" placeholder="Escoge una opción" list="type" type="text">
-        <datalist id="type">
-          <option value="Opción 1"></option>
-          <option value="Opción 2"></option>
-          <option value="Opción 3"></option>
-        </datalist>
-        <div class="mt-2">
-          <label class="H3-18-700 my-text-header">Tipo de fuente:</label>
-          <ion-radio-group>
-            <div>
-              <ion-radio class="source ion-padding-top ion-padding-bottom" value="1" labelPlacement="end" justify="start">Opción 1</ion-radio>
-            </div>
-            <div>
-              <ion-radio class="source ion-padding-top ion-padding-bottom" value="2"  labelPlacement="end" justify="start">Opción 2</ion-radio>
-            </div>
-          </ion-radio-group>
-        </div>
-        <div class="mt-2">
-          <label class="H3-18-700 my-text-header">Tipo de percepción del entorno:</label>
-          <ion-radio-group>
-            <div>
-              <ion-radio class="around ion-padding-top ion-padding-bottom" value="1" labelPlacement="end" justify="start">Opción 1</ion-radio>
-            </div>
-            <div>
-              <ion-radio class="around ion-padding-top ion-padding-bottom" value="2"  labelPlacement="end" justify="start">Opción 2</ion-radio>
-            </div>
-          </ion-radio-group>
-        </div>
-        <div class="mt-2">
-          <label class="H3-18-700 my-text-header">Comentarios:</label>
-          <textarea class="input" placeholder="Añade un comentar" ></textarea>
-        </div>
-      </div>
+    <div class="w-full" style="height: 2px; background-color: #fda568"></div>
+    <div [ngClass]="myStep>=2?'orange-bg':''" class="text-center flex items-center justify-center" style="
+        border-radius: 50%;
+        min-width: 32px;
+        height: 32px;
+        border: 2px solid #fda568;
+      ">
+      2
+    </div>
+    <div class="w-full" style="height: 2px; background-color: #fda568"></div>
+    <div [ngClass]="myStep>=3?'orange-bg':''" class="text-center flex items-center justify-center" style="
+        border-radius: 50%;
+        min-width: 32px;
+        height: 32px;
+        border: 2px solid #fda568;
+      ">
+      3
+    </div>
+    <div class="w-full" style="height: 2px; background-color: #fda568"></div>
+    <div [ngClass]="myStep>=4?'orange-bg':''" class="text-center flex items-center justify-center" style="
+        border-radius: 50%;
+        min-width: 32px;
+        height: 32px;
+        border: 2px solid #fda568;
+      ">
+      4
     </div>
   </div>
+
+  <div *ngIf="authService.isAuthenticated.getValue()" class="flex-col flex w-full justify-between items-center p-3" style="height: 77vh">
+    <div class="w-full flex flex-col" *ngIf="myStep===1">
+      <label class="H-20-700 mt-4 my-text-header w-full flex justify-between items-center">
+        {{'sounds.collect.title'|translate}}</label>
+      <label class="H-16-400 my-text-header mt-2">{{'sounds.collect.30Seg'|translate}}</label>
+      <div class="w-full flex justify-center p-3">
+        <div class="circle-container" tappable (click)="initRecord()">
+          <div class="circle back-circle"></div>
+          <div class="circle w-100" [ngClass]="recording ? 'animated-circle-full' : ''"></div>
+          <div class="circle center-circle">
+            <ion-icon name="mic" class="icon-mic-style"></ion-icon>
+          </div>
+        </div>
+      </div>
+      <div class="w-full flex flex-col justify-center align-middle text-center" *ngIf="flagViewControls">
+        <div class="w-full flex flex-col justify-center ion-align-items-center mb-3" [ngClass]="!recording ? 'opacity-50' : ''" tappable (click)="stopRecording()">
+          <img ngSrc="assets/images/SoundCollect/stop.svg" height="40" width="40" alt=""/>
+          {{'sounds.collect.stop'|translate}}
+        </div>
+        <div class="flex justify-center text-center my-5">
+          <label class="H-20-700 mt-4 my-text-header flex items-center"><p>{{ timer }}</p></label>
+        </div>
+        <div class="w-full flex flex-col justify-center ion-align-items-center mt-3" [ngClass]="recording ? 'opacity-50' : ''" tappable (click)="resetRecording()">
+          <img ngSrc="assets/images/SoundCollect/restart.svg" height="40" width="40" alt=""/>
+          {{'sounds.collect.reset'|translate}}
+        </div>
+      </div>
+      <br><br><br><br><br>
+    </div>
+    <div class="w-full flex flex-col" *ngIf="myStep===2">
+      <label class="H-20-700 mt-4 my-text-header w-full flex justify-between items-center">{{'sounds.collect.registered'|translate}}</label>
+      <div class="flex gap-5 mt-2 justify-between items-center px-2 pe-4" style="border-radius: 100px; background: #deeeef">
+        <ion-button fill="clear" (click)="start(false)" *ngIf="!isPlaying">
+          <img ngSrc="assets/images/SoundCollect/Iconos/play.svg" alt="" height="32" width="32"/>
+        </ion-button>
+        <ion-button fill="clear" (click)="start(true)" *ngIf="isPlaying">
+          <img ngSrc="assets/images/SoundCollect/Iconos/play.svg" alt="" height="32" width="32"/>
+        </ion-button>
+        <ion-range #range [(ngModel)]="progress" max="100" (touchend)="seek()" (mouseup)="seek()"></ion-range>
+        <label class="H8-12-400-SpaceGrotesk my-text-header flex items-center"><p>{{ timer }}</p></label>
+      </div>
+<!--      <ion-label class="H-16-400 my-text-header">{{ temporizador?.obtenerTiempoRestante() }}</ion-label>-->
+      <label class="H-20-700 mt-8 my-text-header">{{'sounds.collect.parameters'|translate}}</label>
+      <div class="flex w-full my-2 justify-between items-center">
+        <div class="flex flex-col">
+          <div class="H-16-400 my-text-header flex items-center" *ngFor="let item of soundRecordResponse | keyvalue">
+            <div class="w-full flex m-2" *ngIf="item.key !== 'LAeqT'">
+            <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
+            <strong>{{'sounds.collect.process.' + item.key|translate}}</strong>: {{item.value | number:'1.0-0'}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-100 flex justify-center flex-col" *ngIf="showGraph">
+        <div class="H-16-400 my-text-header flex items-center">
+          <div class="w-full flex m-2">
+            <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" height="16" width="16" alt="" class="me-1"/>
+            <strong>{{'sounds.collect.process.LAeqT'|translate}}</strong>:
+          </div>
+        </div>
+        <div class="w-80">
+          <app-graph [dataset]="observation?.LAeqT"></app-graph>
+          <br><br><br><br><br>
+        </div>
+      </div>
+      <br><br><br><br><br>
+    </div>
+    <div class="w-full flex flex-col" *ngIf="myStep === 3">
+      <input type="file" class="invisible" multiple id="fileUpload" #fileUpload accept="image/*" (click)="$event.target.value=null">
+      <label class="H-20-700 px-2 my-text-header w-full flex justify-start items-center">{{'sounds.collect.images'|translate}}</label>
+      <div class="flex flex-wrap gap-2 justify-start items-center p-2">
+        <div *ngFor="let file of fileList" class="img-box flex justify-end items-start" [style]="'background: url(' + getImgUrl(file) + ') center/cover'">
+          <img *ngIf="!boxContent" (click)="deleteImage(file)" ngSrc="assets/images/SoundCollect/Iconos/delete-white.svg" width="24" height="24" alt=""/>
+        </div>
+        <div (click)="addImages()" class="img-box" style=" background-image: url(assets/images/SoundCollect/Iconos/plus.svg);"></div>
+      </div>
+      <br><br><br><br><br>
+    </div>
+    <div class="w-full flex flex-col" *ngIf="myStep===4">
+      <label class="H-20-700 my-text-header w-full flex justify-start items-start mb-2">{{'sounds.collect.details'|translate}}</label>
+      <div class="w-full mt-3">
+        <label class="H3-18-700 my-text-header">{{'observations.questions.question1'|translate}}</label>
+        <ion-radio-group>
+          <div class="w-full flex flex-col">
+            <ion-checkbox class="around flex " value="1" (ionChange)="toggleCheckbox(1)" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q1A1'|translate}}
+              </div>
+            </ion-checkbox>
+            <ion-checkbox class="around my-1" value="2" (ionChange)="toggleCheckbox(2)" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q1A2'|translate}}
+              </div>
+              </ion-checkbox>
+            <ion-checkbox class="around my-1" value="3" (ionChange)="toggleCheckbox(3)" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q1A3'|translate}}
+              </div>
+              </ion-checkbox>
+            <ion-checkbox class="around my-1" value="4" (ionChange)="toggleCheckbox(4)" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q1A4'|translate}}
+              </div>
+              </ion-checkbox>
+          </div>
+        </ion-radio-group>
+      </div>
+      <div class="mt-3 d-flex flex-wrap justify-content-between">
+        <label class="H3-18-700 my-text-header">{{'observations.questions.question2'|translate}}</label>
+        <ion-radio-group [(ngModel)]="observation.quiet" required>
+          <div class="w-full flex flex-col">
+            <ion-radio class="around my-1" value="{{'observations.answers.Q2A1'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q2A1'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio class="around my-1" value="{{'observations.answers.Q2A2'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q2A2'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio class="around my-1" value="{{'observations.answers.Q2A3'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q2A3'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio class="around my-1" value="{{'observations.answers.Q2A4'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q2A4'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio class="around my-1" value="{{'observations.answers.Q2A5'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q2A5'|translate}}
+              </div>
+            </ion-radio>
+          </div>
+        </ion-radio-group>
+      </div>
+      <div class="mt-4">
+        <label class="H3-18-700 my-text-header">{{'observations.questions.question3'|translate}}</label>
+        <ion-radio-group [(ngModel)]="observation.cleanliness">
+          <div class="w-full flex flex-col">
+            <ion-radio class="around my-1" value="{{'observations.answers.Q3A1'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+              {{'observations.answers.Q3A1'|translate}}
+              </div>
+              </ion-radio>
+            <ion-radio class="around my-1" value="{{'observations.answers.Q3A2'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+              {{'observations.answers.Q3A2'|translate}}
+              </div>
+              </ion-radio>
+            <ion-radio class="around my-1" value="{{'observations.answers.Q3A3'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+              {{'observations.answers.Q3A3'|translate}}
+              </div>
+              </ion-radio>
+            <ion-radio class="around my-1" value="{{'observations.answers.Q3A4'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+              {{'observations.answers.Q3A4'|translate}}
+              </div>
+              </ion-radio>
+            <ion-radio class="around my-1" value="{{'observations.answers.Q3A5'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+              {{'observations.answers.Q3A5'|translate}}
+              </div>
+              </ion-radio>
+          </div>
+        </ion-radio-group>
+      </div>
+      <div class="mt-4">
+        <label class="H3-18-700 my-text-header">{{'observations.questions.question4'|translate}}</label>
+        <ion-radio-group [(ngModel)]="observation.accessibility">
+          <div class="w-full flex flex-col">
+            <ion-radio class="around my-1" value="{{'observations.answers.Q4A1'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+              {{'observations.answers.Q4A1'|translate}}
+              </div>
+              </ion-radio>
+            <ion-radio class="around my-1" value="{{'observations.answers.Q4A2'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+              {{'observations.answers.Q4A2'|translate}}
+              </div>
+              </ion-radio>
+            <ion-radio class="around my-1" value="{{'observations.answers.Q4A3'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+              {{'observations.answers.Q4A3'|translate}}
+              </div>
+              </ion-radio>
+            <ion-radio class="around my-1" value="{{'observations.answers.Q4A4'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+              {{'observations.answers.Q4A4'|translate}}
+              </div>
+              </ion-radio>
+            <ion-radio class="around my-1" value="{{'observations.answers.Q4A5'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+              {{'observations.answers.Q4A5'|translate}}
+              </div>
+              </ion-radio>
+          </div>
+        </ion-radio-group>
+      </div>
+      <div class="mt-4">
+        <label class="H3-18-700 my-text-header">{{'observations.questions.question5'|translate}}</label>
+        <ion-radio-group [(ngModel)]="observation.safety">
+          <div class="w-full flex flex-col">
+            <ion-radio class="around my-1" value="{{'observations.answers.Q5A1'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+              {{'observations.answers.Q5A1'|translate}}
+              </div>
+              </ion-radio>
+            <ion-radio class="around my-1" value="{{'observations.answers.Q5A2'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+              {{'observations.answers.Q5A2'|translate}}
+              </div>
+              </ion-radio>
+            <ion-radio class="around my-1" value="{{'observations.answers.Q5A3'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+              {{'observations.answers.Q5A3'|translate}}
+              </div>
+              </ion-radio>
+            <ion-radio class="around my-1" value="{{'observations.answers.Q5A4'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+              {{'observations.answers.Q5A4'|translate}}
+              </div>
+              </ion-radio>
+            <ion-radio class="around my-1" value="{{'observations.answers.Q5A5'|translate}}" labelPlacement="end" justify="start">
+              <div class="ion-text-wrap">
+              {{'observations.answers.Q5A5'|translate}}
+              </div>
+              </ion-radio>
+          </div>
+        </ion-radio-group>
+      </div>
+      <div class="mt-4">
+        <label class="H3-18-700 my-text-header">{{'observations.questions.question6'|translate}}</label>
+        <textarea class="input" [(ngModel)]="observation.influence"></textarea>
+      </div>
+      <div class="mt-4">
+        <label class="H3-18-700 my-text-header">{{'observations.questions.question7'|translate}}</label>
+        <textarea class="input" [(ngModel)]="observation.landmark"></textarea>
+      </div>
+      <div class="mt-4">
+        <label class="H3-18-700 my-text-header">{{'observations.questions.question8'|translate}}</label>
+        <textarea class="input" [(ngModel)]="observation.protection"></textarea>
+      </div>
+      <br><br><br><br><br><br><br>
+    </div>
+  </div>
+
+
+  <div *ngIf="!authService.isAuthenticated.getValue()" class="my-5">
+    <app-no-user-auth></app-no-user-auth>
+  </div>
+
 </ion-content>
 
-<ion-footer style="background-color: #E7FFFF!important;">
-  <div class="ion-no-border px-3 pt-2">
+<ion-footer style="background-color: #e7ffff !important">
+  <div class="ion-no-border px-3 pt-2" *ngIf="authService.isAuthenticated.getValue()">
     <div class="flex w-full flex-col justify-evenly gap-3">
-      <button *ngIf="myStep===1" (click)="next()" class="my-btn-login mx-auto">Siguiente</button>
-      <div class="flex gap-6 justify-evenly"  *ngIf="myStep>=2">
-        <button  (click)="back()" class="my-btn-login" style="background: #B2EAEE;color: black">Atrás</button>
-        <button *ngIf="myStep<=2" (click)="next()" class="my-btn-login">Siguiente</button>
-        <button *ngIf="myStep===3" [routerLink]="['/results']" class="my-btn-login">Resumen</button>
+      <button *ngIf="myStep===1" (click)="next(myStep)" [disabled]="seconds === 0 || recording" class="my-btn-login mx-auto" [ngClass]="(seconds === 0 || recording) ? 'opacity-50' : ''">
+        {{'sounds.btn.next'|translate}}
+      </button>
+      <div class="flex gap-6 justify-evenly" *ngIf="myStep>=2">
+        <button (click)="back()" class="my-btn-login" style="background: #b2eaee; color: black">
+          {{'sounds.btn.back'|translate}}
+        </button>
+        <button *ngIf="myStep<=3" (click)="next()" class="my-btn-login" [disabled]="!validNext()" [ngClass]="!validNext() ? 'opacity-50' : ''">
+          {{'sounds.btn.next'|translate}}
+        </button>
+        <button *ngIf="myStep===4" (click)="resume()" [disabled]="!isValid()" class="my-btn-login" [ngClass]="!isValid() ? 'opacity-50' : ''">
+          {{'sounds.btn.resume'|translate}}
+        </button>
       </div>
     </div>
   </div>
-
 </ion-footer>
