@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { IonicModule, NavController } from '@ionic/angular';
+import { AlertController, IonicModule, NavController } from '@ionic/angular';
 import { NgIf, NgOptimizedImage } from "@angular/common";
 import { RouterLink } from "@angular/router";
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ToastController } from '@ionic/angular/standalone';
-import { CommonService } from "../services";
+import { CommonService, ToastPosition } from "../services";
 import { LocationService } from "../services/location.service";
 
 @Component({
@@ -19,6 +19,7 @@ export class TabsPage {
   translate = inject(TranslateService);
   commonService = inject(CommonService);
   locationService = inject(LocationService);
+  private alertController = inject(AlertController);
   displayCuppertino = false;
 
   constructor(private toastController: ToastController) {
@@ -48,11 +49,26 @@ export class TabsPage {
   }
 
   async goToNewSound() {
-    if (await this.locationService.checkAppPermissions()) {
+    try {
+      if (await this.locationService.checkAppPermissions()) {
+        this.closeCuppertinoCalibration();
+        await this.navController.navigateRoot('collect-sound');
+      } else {
+        //await this.presentWarningToast(this.translate.instant('sounds.collect.location_permission'));
+        const message = await this.translate.instant('sounds.collect.location_permission');
+        await this.commonService.presentToast("", message, "warning", 3000, ToastPosition.top);
+      }
+    } catch (error) {
+      console.log(error);
       this.closeCuppertinoCalibration();
-      await this.navController.navigateRoot('collect-sound');
-    } else {
-      await this.presentWarningToast(this.translate.instant('sounds.collect.location_permission'));
+      const header = await this.translate.instant('global_error.label.location_disabled_header');
+      const message = await this.translate.instant('global_error.label.location_disabled_message');
+      const alert = await this.alertController.create({
+        header: header,
+        message: message,
+        buttons: ['OK']
+      });
+      await alert.present();
     }
   }
 

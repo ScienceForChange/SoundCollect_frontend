@@ -29,6 +29,7 @@ export class EditProfilePage implements OnInit {
 
   gender_: string = '';
   birth_year_: number = 1900;
+  email = ""
 
   @Input() data: any;
 
@@ -44,8 +45,11 @@ export class EditProfilePage implements OnInit {
   }
 
   async ngOnInit() {
-        this.gender?.setValue(this.data.gender);
-         this.birth_year?.setValue(this.data.birth_year);
+    console.log(this.data);
+
+    this.gender?.setValue(this.data.gender);
+    this.birth_year?.setValue(this.data.birth_year);
+    this.email = this.data.email;
   }
 
   get gender() {
@@ -58,11 +62,11 @@ export class EditProfilePage implements OnInit {
 
   async sendProfileForm() {
     const data = { gender: this.gender?.value, birthYear: this.birth_year?.value };
-    this.modalController.dismiss(data);  
+    this.modalController.dismiss(data);
 
   }
 
   goBack() {
-    this.modalController.dismiss();  
+    this.modalController.dismiss();
   }
 }

@@ -21,7 +21,7 @@ import { ObservationsRepoHttp } from 'src/app/repos/observations-repo-http';
 export class AchievementsPage implements OnInit {
   private userService = inject(UserService);
   private commonService = inject(CommonService);
-  level = 1;
+  level = 0;
   progressBar = 0;
   points = 0;
 
@@ -30,7 +30,7 @@ export class AchievementsPage implements OnInit {
   async ngOnInit() {
     await this.getPoints();
     this.level = await this.userService.gamificationLevel(this.points);
-    this.progressBar = this.userService.gamificationCalcProgressBar(this.points);
+    //this.progressBar = this.userService.gamificationCalcProgressBar(this.points);
   }
   async getPoints() {
     try {

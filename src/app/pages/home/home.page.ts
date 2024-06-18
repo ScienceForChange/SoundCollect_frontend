@@ -20,6 +20,7 @@ import { ObservationDetailsPage } from "../observation-details/observation-detai
 import { UserService } from 'src/app/services/user-service';
 import { UserHTTP } from 'src/app/repos/user-repo-http';
 import { FormsModule } from "@angular/forms";
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-home',
@@ -60,7 +61,7 @@ export class HomePage implements OnInit, OnDestroy {
     observations: any[];
 
     isOpenBadgeModal = false;
-    level = 1;
+    level = 0;
     canOpenModal = true;
 
 
@@ -73,10 +74,8 @@ export class HomePage implements OnInit, OnDestroy {
         private commonService: CommonService,
         private modalCtl: ModalController,
         private observationsService: ObservationsService,
-        public zone: NgZone,
-    ) {
-
-    }
+        public zone: NgZone
+    ) { }
 
     async ngOnInit() {
         await this.locationService.requestAppPermissions();
@@ -85,7 +84,8 @@ export class HomePage implements OnInit, OnDestroy {
     }
 
     async ionViewWillEnter() {
-        await this.checkIsNewBadge();
+        this.userService.notificationGaming && await this.checkIsNewBadge();
+        this.userService.notificationGaming = false;
     }
 
     async ngOnDestroy() {
@@ -146,7 +146,6 @@ export class HomePage implements OnInit, OnDestroy {
             await this.showDetails(result.id);
         });
         await this.map.setOnPolylineClickListener(async (polyline) => {
-            console.log(polyline);
             await this.showDetails(polyline.tag ?? '');
         })
     }
@@ -156,21 +155,16 @@ export class HomePage implements OnInit, OnDestroy {
             let result = await this.observationsService.getMapObservations();
             if (result?.data) {
                 this.observations = result?.data;
-                console.log(this.observations);
                 let polylines: Polyline[] = [];
                 let markers: Marker[] = [];
                 result.data.forEach((observacion: any) => {
                     if (observacion.path && !observacion.path.includes('lon') && observacion.path.includes('lng')) {
                         let path = JSON.parse(observacion.path);
-                        console.log(observacion);
                         //if (path.length > 1) {
-                        console.log(path);
                         const polyline = this.createPolyline(path, observacion.id, observacion.Leq);
                         polylines.push(polyline);
                         //} else {
                         const marker = this.createMarker(observacion.latitude, observacion.longitude, observacion.Leq);
-                        console.log(marker);
-
                         markers.push(marker);
                         //}
                     } else {
@@ -191,68 +185,46 @@ export class HomePage implements OnInit, OnDestroy {
                 lat: parseFloat(lat),
                 lng: parseFloat(lng)
             },
+            iconUrl: this.getMarkerSVGColorByDBA(leq),
+            iconOrigin: { x: 0, y: 0 },
+            iconAnchor: { x: 11, y: 35 },
             iconSize: {
-                width: 30,
-                height: 30
+                width: 22,
+                height: 35
             },
-            tintColor: this.getMarkerColorByDBA(leq)
+            //tintColor: this.getMarkerColorByDBA(leq)
         };
     }
     createPolyline(path: any, tag: string, leq: string): Polyline {
         return {
             path: path,
-            strokeColor: this.getPolylineColorByDBA(leq),
-            strokeWeight: 13, clickable: true, geodesic: true, tag: tag
+            strokeColor: this.observationsService.getPolylineColorByDBA(leq),
+            strokeWeight: 9, clickable: true, geodesic: true, tag: tag
         }
     }
-    getPolylineColorByDBA(leq: string) {
+    getMarkerSVGColorByDBA(leq: string) {
         if (+leq < 40) {
-            return '#d9f2d0';
+            return 'assets/images/SoundCollect/markers/35.png';
         } else if (+leq < 45) {
-            return '#92d050';
+            return 'assets/images/SoundCollect/markers/40.png';
         } else if (+leq < 50) {
-            return '#4ea72e';
+            return 'assets/images/SoundCollect/markers/45.png';
         } else if (+leq < 55) {
-            return '#ffff00';
+            return 'assets/images/SoundCollect/markers/50.png';
         } else if (+leq < 60) {
-            return '#ffc000';
+            return 'assets/images/SoundCollect/markers/55.png';
         } else if (+leq < 65) {
-            return '#f2aa84';
+            return 'assets/images/SoundCollect/markers/60.png';
         } else if (+leq < 70) {
-            return '#ff0000';
+            return 'assets/images/SoundCollect/markers/65.png';
         } else if (+leq < 75) {
-            return '#c00000';
+            return 'assets/images/SoundCollect/markers/70.png';
         } else if (+leq < 80) {
-            return '#7030a0';
+            return 'assets/images/SoundCollect/markers/75.png';
         } else if (+leq < 85) {
-            return '#0f9ed5';
+            return 'assets/images/SoundCollect/markers/80.png';
         } else {
-            return '#215f9a';
-        }
-    }
-    getMarkerColorByDBA(leq: string) {
-        if (+leq < 40) {
-            return { r: 217, g: 242, b: 208, a: 255 };
-        } else if (+leq < 45) {
-            return { r: 146, g: 208, b: 80, a: 255 };
-        } else if (+leq < 50) {
-            return { r: 78, g: 167, b: 46, a: 255 };
-        } else if (+leq < 55) {
-            return { r: 255, g: 255, b: 0, a: 255 };
-        } else if (+leq < 60) {
-            return { r: 255, g: 192, b: 0, a: 255 };
-        } else if (+leq < 65) {
-            return { r: 242, g: 170, b: 132, a: 255 };
-        } else if (+leq < 70) {
-            return { r: 255, g: 0, b: 0, a: 255 };
-        } else if (+leq < 75) {
-            return { r: 192, g: 0, b: 0, a: 255 };
-        } else if (+leq < 80) {
-            return { r: 112, g: 48, b: 160, a: 255 };
-        } else if (+leq < 85) {
-            return { r: 15, g: 158, b: 213, a: 255 };
-        } else {
-            return { r: 33, g: 95, b: 154, a: 255 };
+            return 'assets/images/SoundCollect/markers/85.png';
         }
     }
 
@@ -286,7 +258,6 @@ export class HomePage implements OnInit, OnDestroy {
     }
 
     async selectPlace(place: any) {
-        console.log('selected itemmmmm', place);
         this.searchText = place.description;
         this.predictions = [];
         // @ts-ignore
@@ -298,7 +269,7 @@ export class HomePage implements OnInit, OnDestroy {
                         lng: result.geometry.location.lng()
                     },
                     animate: true,
-                    zoom: 13
+                    zoom: 16
                 });
             }
         });
@@ -315,19 +286,22 @@ export class HomePage implements OnInit, OnDestroy {
     }
 
     async checkIsNewBadge() {
-        this.level = await this.userService.gamificationLevel();
-        console.log(this.level);
-        const badgesString = await this.commonService.getItem('badges');
-        if (badgesString) {
-            let badges = JSON.parse(badgesString);
-            if (!badges.includes(this.level)) {
+        try {
+            this.level = await this.userService.gamificationLevel();
+            const badgesString = await this.commonService.getItem('badges');
+            if (badgesString) {
+                let badges = JSON.parse(badgesString);
+                if (!badges.includes(this.level)) {
+                    this.isOpenBadgeModal = true;
+                    badges.push(this.level);
+                    await this.commonService.setItem('badges', JSON.stringify(badges));
+                }
+            } else {
                 this.isOpenBadgeModal = true;
-                badges.push(this.level);
-                await this.commonService.setItem('badges', JSON.stringify(badges));
+                await this.commonService.setItem('badges', JSON.stringify([this.level]));
             }
-        } else {
-            this.isOpenBadgeModal = true;
-            await this.commonService.setItem('badges', JSON.stringify([this.level]));
+        } catch (error) {
+            console.log(error);
         }
     }
 }

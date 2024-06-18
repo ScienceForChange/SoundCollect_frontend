@@ -1,6 +1,9 @@
-<ion-content [fullscreen]="true">
-  <div class="p-3">
-    <div class="flex items-center justify-between">
+<ion-header class="ion-no-border">
+  <ion-toolbar
+    color="ligth"
+    class="ion-no-margin ion-no-padding ion-no-border bg-white"
+  >
+    <div class="flex items-center justify-between p-3">
       <ion-text class="H2-22-700 self-start my-text-header">
         {{'profile.label.edit_profile_title'|translate}}
       </ion-text>
@@ -13,7 +16,9 @@
         width="24"
       />
     </div>
-  </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
   <div class="flex flex-col px-3">
     <section class="flex gap-3 flex-col">
       <form
@@ -76,6 +81,15 @@
               {{number}}
             </option>
           </select>
+        </div>
+        <div class="relative mb-5 block">
+          <label class="H6-14-400-SpaceGrotesk my-text-header w-full"
+            >{{'recovery_pass.label.email'|translate}}</label
+          >
+
+          <div class="input pe-5 ps-3 w-full" style="width: 100% !important">
+            {{email}}
+          </div>
         </div>
       </form>
     </section>

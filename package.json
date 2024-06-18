@@ -1,6 +1,6 @@
 {
   "name": "sound-collect-app",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "author": "Qualud S.L",
   "homepage": "https://qualud.com/",
   "scripts": {
@@ -29,6 +29,7 @@
     "@capacitor/app": "^6.0.0",
     "@capacitor/camera": "^6.0.0",
     "@capacitor/core": "^6.0.0",
+    "@capacitor/device": "^6.0.0",
     "@capacitor/filesystem": "^6.0.0",
     "@capacitor/geolocation": "^6.0.0",
     "@capacitor/google-maps": "^5.0.0",
@@ -117,5 +118,3 @@
   },
   "description": "SoundCollect App"
 }
-
-

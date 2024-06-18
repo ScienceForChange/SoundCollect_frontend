@@ -1,9 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, inject } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule, ModalController, NavController } from '@ionic/angular';
+import { IonicModule, ModalController} from '@ionic/angular';
 import { NavParams } from '@ionic/angular';
-import { ActivatedRoute, Router } from '@angular/router';
 import { ObservationsService } from 'src/app/services/observations.service';
 import { ObservationsRepoHttp } from 'src/app/repos/observations-repo-http';
 import { CommonService } from 'src/app/services';
@@ -11,15 +10,15 @@ import { TranslateModule } from '@ngx-translate/core';
 import { Swiper } from "swiper";
 import { Navigation, Pagination } from 'swiper/modules';
 import { GraphComponent } from "../../components/graph/graph.component";
-import { ParseFloatPipe } from 'src/app/pipes/format-str2float.pipe';
 import { ComponentsModule } from 'src/app/pipes/components.module';
+import { ParametersExplanationComponent } from 'src/app/components/parameters-explanation/parameters-explanation.component';
 
 @Component({
   selector: 'app-observation-details',
   templateUrl: './observation-details.page.html',
   styleUrls: ['./observation-details.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, NgOptimizedImage, GraphComponent, ComponentsModule],
+  imports: [IonicModule, CommonModule, FormsModule, TranslateModule, NgOptimizedImage, GraphComponent, ComponentsModule, ParametersExplanationComponent],
   providers: [ObservationsRepoHttp, ObservationsService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

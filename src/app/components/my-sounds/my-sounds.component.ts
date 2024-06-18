@@ -1,9 +1,10 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, Input, OnInit, ViewChild } from '@angular/core';
-import {DatePipe, NgClass, NgForOf, NgOptimizedImage} from "@angular/common";
-import {IonicModule, ModalController, NavController} from "@ionic/angular";
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, Input, OnInit, ViewChild } from '@angular/core';
+import { DatePipe, NgClass, NgForOf, NgOptimizedImage } from "@angular/common";
+import { IonicModule, ModalController, NavController } from "@ionic/angular";
 import { TranslateModule } from "@ngx-translate/core";
 import { IonModal } from '@ionic/angular/common';
-import {ObservationDetailsPage} from "../../pages/observation-details/observation-details.page";
+import { ObservationDetailsPage } from "../../pages/observation-details/observation-details.page";
+import { ObservationsService } from 'src/app/services/observations.service';
 @Component({
   selector: 'app-my-sounds',
   templateUrl: './my-sounds.component.html',
@@ -24,6 +25,7 @@ export class MySoundsComponent implements OnInit {
   types: [];
   @Input() itemSound: any;
   @ViewChild(IonModal) modal: IonModal;
+  private observationService = inject(ObservationsService);
 
   constructor(private modalCtl: ModalController) {
   }
@@ -37,9 +39,13 @@ export class MySoundsComponent implements OnInit {
       component: ObservationDetailsPage,
       cssClass: 'full-size-modal',
       componentProps: {
-        state: {id: item.id}
+        state: { id: item.id }
       },
     });
     await modal.present();
+  }
+
+  getColorByLeq(leq: number) {
+    return this.observationService.getPolylineColorByDBA(leq + "");
   }
 }

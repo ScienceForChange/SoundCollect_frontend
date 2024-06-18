@@ -7,18 +7,19 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { IObservation } from 'src/app/models/iobservation';
 import { ObservationsService } from 'src/app/services/observations.service';
 import { ObservationsRepoHttp } from 'src/app/repos/observations-repo-http';
-import { CommonService } from "../../services";
+import { CommonService, ToastPosition } from "../../services";
 import { image } from 'ionicons/icons';
 import { GraphComponent } from "../../components/graph/graph.component";
 import { UserService } from 'src/app/services/user-service';
 import { UserHTTP } from 'src/app/repos/user-repo-http';
+import { ParametersExplanationComponent } from 'src/app/components/parameters-explanation/parameters-explanation.component';
 
 @Component({
   selector: 'app-results',
   templateUrl: './results.page.html',
   styleUrls: ['./results.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, RouterLink, TranslateModule, NgOptimizedImage, GraphComponent],
+  imports: [IonicModule, CommonModule, FormsModule, RouterLink, TranslateModule, NgOptimizedImage, GraphComponent, ParametersExplanationComponent],
   providers: [ObservationsService, ObservationsRepoHttp, UserService, UserHTTP]
 })
 export class ResultsPage implements OnInit {
@@ -91,10 +92,13 @@ export class ResultsPage implements OnInit {
     try {
       await this.commonService.showLoader();
       await this.observationsService.postObservation(this.observationToFormData(this.observation));
+      this.userService.notificationGaming=true;
       await this.commonService.hideLoader();
+      const message = await this.translate.instant('sounds.results.sended_ok');
+      await this.commonService.presentToast("", message, "success", 2000, ToastPosition.top);
       await this.navController.navigateRoot("tabs/home", { animated: false });
     } catch (error) {
-      const description = await this.translate.instant('global_error.label.message');
+      const description = await this.translate.instant('sounds.results.sended_error');
       this.commonService.alertModal("", description);
       await this.commonService.hideLoader();
       console.error("Error al enviar la observación: ", error);

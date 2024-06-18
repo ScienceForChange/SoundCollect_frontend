@@ -181,9 +181,12 @@
         >
       </div>
       <!--      <ion-label class="H-16-400 my-text-header">{{ temporizador?.obtenerTiempoRestante() }}</ion-label>-->
-      <label class="H-20-700 mt-8 my-text-header"
-        >{{'sounds.collect.parameters'|translate}}</label
-      >
+      <div class="flex flex-row justify-between items-center mt-8">
+        <label class="H-20-700 my-text-header">
+          {{ "sounds.collect.parameters" | translate }}
+        </label>
+        <app-parameters-explanation></app-parameters-explanation>
+      </div>
       <div class="flex w-full my-2 justify-between items-center">
         <div class="flex flex-col">
           <div
@@ -287,6 +290,7 @@
               (ionChange)="toggleCheckbox(1)"
               labelPlacement="end"
               justify="start"
+              mode="md"
             >
               <div class="ion-text-wrap">
                 {{'observations.answers.Q1A1'|translate}}
@@ -298,6 +302,7 @@
               (ionChange)="toggleCheckbox(2)"
               labelPlacement="end"
               justify="start"
+              mode="md"
             >
               <div class="ion-text-wrap">
                 {{'observations.answers.Q1A2'|translate}}
@@ -309,6 +314,7 @@
               (ionChange)="toggleCheckbox(3)"
               labelPlacement="end"
               justify="start"
+              mode="md"
             >
               <div class="ion-text-wrap">
                 {{'observations.answers.Q1A3'|translate}}
@@ -320,6 +326,7 @@
               (ionChange)="toggleCheckbox(4)"
               labelPlacement="end"
               justify="start"
+              mode="md"
             >
               <div class="ion-text-wrap">
                 {{'observations.answers.Q1A4'|translate}}

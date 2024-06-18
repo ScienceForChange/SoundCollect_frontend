@@ -9,7 +9,7 @@ import { LocationService } from 'src/app/services/location.service';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { AuthService, CommonService } from 'src/app/services';
+import { AuthService, CommonService, ToastPosition } from 'src/app/services';
 import { Subscription, interval } from 'rxjs';
 import { ObservationsService } from 'src/app/services/observations.service';
 import { ObservationsRepoHttp } from 'src/app/repos/observations-repo-http';
@@ -18,7 +18,7 @@ import audioBufferToWav from 'audiobuffer-to-wav';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NoUserAuthComponent } from "../../components/no-user-auth/no-user-auth.component";
 import { GraphComponent } from "../../components/graph/graph.component";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-calibrate-sound',
@@ -92,9 +92,11 @@ export class CalibrateSoundPage implements OnInit {
   }
 
   async startRecording() {
-    if (await VoiceRecorder.hasAudioRecordingPermission()) {
+    if ((await VoiceRecorder.hasAudioRecordingPermission()).value) {
       await this.startRecordingPart2();
     } else {
+      const message = await this.translate.instant('sounds.collect.micro_permission');
+      await this.commonService.presentToast("", message, "warning", 3000, ToastPosition.top);
       await VoiceRecorder.requestAudioRecordingPermission();
       await this.startRecordingPart2();
     }
@@ -213,7 +215,7 @@ export class CalibrateSoundPage implements OnInit {
       const seconds = this.seconds % 60;
       this.timer = `${this.formatTime(hours)}:${this.formatTime(minutes)}:${this.formatTime(seconds)}`;
       this.seconds++;
-      if (this.seconds === this.maxSeconds){
+      if (this.seconds === this.maxSeconds) {
         this.seconds = 0;
         this.stopRecording();
       }

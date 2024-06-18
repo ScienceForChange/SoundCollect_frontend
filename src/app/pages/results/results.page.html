@@ -177,7 +177,6 @@
             <br /><strong>{{observation.monotonous}}</strong></label
           >
         </div>
-
       </div>
       <div class="w-100 flex flex-col" *ngIf="isExpert">
         <div class="H-16-400 my-text-header flex">
@@ -208,9 +207,12 @@
         </div>
       </div>
     </div>
-    <label class="H-20-700 text-white text-start w-full ms-8 mt-5"
-      >{{'sounds.collect.details'|translate}}</label
-    >
+    <div class="flex flex-row justify-between items-center w-full ms-8 mt-5 pe-4">
+      <label class="H-20-700 text-white text-start"
+        >{{'sounds.collect.details'|translate}}</label
+      >
+      <app-parameters-explanation buttonTextColor="light"></app-parameters-explanation>
+    </div>
     <div class="blue-box">
       <div class="flex flex-col">
         <div class="H-16-400 my-text-header flex flex-col">

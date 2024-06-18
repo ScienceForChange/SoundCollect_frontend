@@ -41,7 +41,7 @@ export class ProfilePage implements OnInit, OnDestroy {
   readonly INTRO_KEY = 'has_seen_onboarding';
   readonly jwtTokenName = 'jwt_token';
   isUserAuth: boolean;
-  level: number = 1;
+  level: number = 0;
 
   constructor(
     private alertController: AlertController,
@@ -130,7 +130,8 @@ export class ProfilePage implements OnInit, OnDestroy {
   async goToEditProfile() {
     let data = {
       gender: this.gender,
-      birth_year: this.birthYear
+      birth_year: this.birthYear,
+      email: this.email
     };
 
     await this.openModal(data);

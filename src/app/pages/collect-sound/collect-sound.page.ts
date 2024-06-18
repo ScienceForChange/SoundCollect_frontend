@@ -10,7 +10,7 @@ import { IMarker } from 'src/app/models/imarker';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { AuthService, CommonService } from 'src/app/services';
+import { AuthService, CommonService, ToastPosition } from 'src/app/services';
 import { Subscription, interval } from 'rxjs';
 import { ObservationsService } from 'src/app/services/observations.service';
 import { ObservationsRepoHttp } from 'src/app/repos/observations-repo-http';
@@ -27,6 +27,7 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Timer } from "../../utils/timer";
 import { UserService } from 'src/app/services/user-service';
 import { UserHTTP } from 'src/app/repos/user-repo-http';
+import { ParametersExplanationComponent } from 'src/app/components/parameters-explanation/parameters-explanation.component';
 
 
 @Component({
@@ -34,7 +35,7 @@ import { UserHTTP } from 'src/app/repos/user-repo-http';
   templateUrl: './collect-sound.page.html',
   styleUrls: ['./collect-sound.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule, RouterLink, TranslateModule, NgOptimizedImage, NoUserAuthComponent, GraphComponent],
+  imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule, RouterLink, TranslateModule, NgOptimizedImage, NoUserAuthComponent, GraphComponent, ParametersExplanationComponent],
   providers: [
     AndroidPermissions,
     LocationService,
@@ -162,9 +163,12 @@ export class CollectSoundPage implements OnInit {
   }
 
   async startRecording() {
-    if (await VoiceRecorder.hasAudioRecordingPermission()) {
+    const hasPermimission = await VoiceRecorder.hasAudioRecordingPermission();
+    if (hasPermimission.value) {
       await this.startRecordingPart2();
     } else {
+      const message = await this.translate.instant('sounds.collect.micro_permission');
+      await this.commonService.presentToast("", message, "warning", 3000, ToastPosition.top);
       await VoiceRecorder.requestAudioRecordingPermission();
       await this.startRecordingPart2();
     }

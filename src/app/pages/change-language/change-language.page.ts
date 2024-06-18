@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule, NavController } from '@ionic/angular';
@@ -7,7 +7,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { UserService } from 'src/app/services/user-service';
 import { UserHTTP } from 'src/app/repos/user-repo-http';
 import { HttpClient } from '@angular/common/http';
-import { CommonService } from 'src/app/services';
+import { CommonService, ToastPosition } from 'src/app/services';
+import { ToastController } from '@ionic/angular/standalone';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-change-language',
@@ -19,6 +21,7 @@ import { CommonService } from 'src/app/services';
 })
 export class ChangeLanguagePage {
   selectedLanguage: string;
+  sub!: Subscription;
   constructor(
     private translate: TranslateService,
     private common: CommonService,
@@ -32,11 +35,20 @@ export class ChangeLanguagePage {
         this.selectedLanguage = 'ca';
       }
     });
+    this.sub = this.translate.onLangChange.subscribe(async (event: any) => {
+      console.log("Cambió el idioma");
+      const message = await this.translate.instant('language.label.changed');
+      await this.common.presentToast("", message, "success", 2000, ToastPosition.top);
+    });
+  }
+  ngOnDestroy() {
+    this.sub && this.sub.unsubscribe();
   }
 
-  guardarCambioIdioma() {
-    this.common.setItem('locale', this.selectedLanguage);
+  async guardarCambioIdioma() {
+    await this.common.setItem('locale', this.selectedLanguage);
     this.translate.use(this.selectedLanguage);
     this.navCtrl.back();
+
   }
 }

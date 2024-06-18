@@ -102,7 +102,7 @@
           />
         </div>
         <label class="H6-14-700-SpaceGrotesk my-text-header text-center">
-          {{ observation?.attributes?.wind_speed }}km/h
+          {{ observation?.attributes?.wind_speed }}m/s
         </label>
       </div>
       <div
@@ -163,9 +163,13 @@
         >
       </div>
     </div>
-    <label class="H-20-700 mt-5 my-text-header">
-      {{ "sounds.label.registered_audio" | translate }}
-    </label>
+    <div class="flex flex-row justify-between items-center mt-5">
+      <label class="H-20-700 my-text-header">
+        {{ "sounds.label.registered_audio" | translate }}
+      </label>
+      <app-parameters-explanation></app-parameters-explanation>
+    </div>
+
     <!-- <label class="H-16-400 my-text-header"
       >Lorem ipsum dolor sit amet consectetur. Urna cras at elit lectus
       consectetur convallis aliquet.</label > -->
@@ -227,54 +231,54 @@
           <strong>{{'sounds.collect.process.LAmin' |translate}}</strong>:
           {{observation?.attributes?.LAmin | parseFloat | number:'1.0-0'}}
         </div>
-<!--        <div class="w-full flex m-2">-->
-<!--          <img-->
-<!--            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"-->
-<!--            height="16"-->
-<!--            width="16"-->
-<!--            alt=""-->
-<!--            class="me-1"-->
-<!--          />-->
-<!--          <strong>{{'sounds.collect.process.sharpness_S' |translate}}</strong>:-->
-<!--          {{observation?.attributes?.sharpness_S | parseFloat | number:'1.0-0'}}-->
-<!--        </div>-->
-<!--        <div class="w-full flex m-2">-->
-<!--          <img-->
-<!--            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"-->
-<!--            height="16"-->
-<!--            width="16"-->
-<!--            alt=""-->
-<!--            class="me-1"-->
-<!--          />-->
-<!--          <strong>{{'sounds.collect.process.loudness_N' |translate}}</strong>:-->
-<!--          {{observation?.attributes?.loudness_N | parseFloat | number:'1.0-0'}}-->
-<!--        </div>-->
-<!--        <div class="w-full flex m-2">-->
-<!--          <img-->
-<!--            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"-->
-<!--            height="16"-->
-<!--            width="16"-->
-<!--            alt=""-->
-<!--            class="me-1"-->
-<!--          />-->
-<!--          <strong>{{'sounds.collect.process.roughtness_R' |translate}}</strong>:-->
-<!--          {{observation?.attributes?.roughtness_R | parseFloat |-->
-<!--          number:'1.0-0'}}-->
-<!--        </div>-->
-<!--        <div class="w-full flex m-2">-->
-<!--          <img-->
-<!--            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"-->
-<!--            height="16"-->
-<!--            width="16"-->
-<!--            alt=""-->
-<!--            class="me-1"-->
-<!--          />-->
-<!--          <strong-->
-<!--            >{{'sounds.collect.process.fluctuation_strength_F'-->
-<!--            |translate}}</strong-->
-<!--          >: {{observation?.attributes?.fluctuation_strength_F | parseFloat |-->
-<!--          number:'1.0-0'}}-->
-<!--        </div>-->
+        <!--        <div class="w-full flex m-2">-->
+        <!--          <img-->
+        <!--            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"-->
+        <!--            height="16"-->
+        <!--            width="16"-->
+        <!--            alt=""-->
+        <!--            class="me-1"-->
+        <!--          />-->
+        <!--          <strong>{{'sounds.collect.process.sharpness_S' |translate}}</strong>:-->
+        <!--          {{observation?.attributes?.sharpness_S | parseFloat | number:'1.0-0'}}-->
+        <!--        </div>-->
+        <!--        <div class="w-full flex m-2">-->
+        <!--          <img-->
+        <!--            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"-->
+        <!--            height="16"-->
+        <!--            width="16"-->
+        <!--            alt=""-->
+        <!--            class="me-1"-->
+        <!--          />-->
+        <!--          <strong>{{'sounds.collect.process.loudness_N' |translate}}</strong>:-->
+        <!--          {{observation?.attributes?.loudness_N | parseFloat | number:'1.0-0'}}-->
+        <!--        </div>-->
+        <!--        <div class="w-full flex m-2">-->
+        <!--          <img-->
+        <!--            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"-->
+        <!--            height="16"-->
+        <!--            width="16"-->
+        <!--            alt=""-->
+        <!--            class="me-1"-->
+        <!--          />-->
+        <!--          <strong>{{'sounds.collect.process.roughtness_R' |translate}}</strong>:-->
+        <!--          {{observation?.attributes?.roughtness_R | parseFloat |-->
+        <!--          number:'1.0-0'}}-->
+        <!--        </div>-->
+        <!--        <div class="w-full flex m-2">-->
+        <!--          <img-->
+        <!--            ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"-->
+        <!--            height="16"-->
+        <!--            width="16"-->
+        <!--            alt=""-->
+        <!--            class="me-1"-->
+        <!--          />-->
+        <!--          <strong-->
+        <!--            >{{'sounds.collect.process.fluctuation_strength_F'-->
+        <!--            |translate}}</strong-->
+        <!--          >: {{observation?.attributes?.fluctuation_strength_F | parseFloat |-->
+        <!--          number:'1.0-0'}}-->
+        <!--        </div>-->
         <div class="w-full flex justify-center flex-col" *ngIf="showGraph">
           <div class="H-16-400 my-text-header flex items-center">
             <div class="w-full flex m-2">

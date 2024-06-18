@@ -2,43 +2,124 @@
   <div style="height: 105%; position: relative">
     <capacitor-google-map #map></capacitor-google-map>
   </div>
- <div class="w-full" style="position: absolute; top: 20px">
-          <div class="flex flex-col px-3 w-full items-center justify-center">
-            <div class="relative w-full margin-top-safe-area">
-              <input [(ngModel)]="searchText" (ngModelChange)="searchLocations()"
-                     class="w-full"
-                     [ngClass]="predictions.length === 0 ? 'inputSearchWithoutList' : 'inputSearchWithList'"
-                     placeholder="{{ 'home.search' | translate }}"
-                     type="search"
-                     style="background: #fff; padding: 8px 16px"
-                     [ngStyle]="predictions.length === 0 ? {'border-radius': '100px'} : {'border-radius': '0px'}"
-              />
-              <ion-icon class="absolute" *ngIf="searchText.length === 0" name="search-outline" style="top: 0; bottom: 0; margin: auto; right: 13px"></ion-icon>
-              <ion-icon (click)="clearSearch()" class="absolute" *ngIf="searchText.length > 0" name="close-outline" style="top: 0; bottom: 0; margin: auto; right: 13px"></ion-icon>
-            </div>
-            <ion-list [hidden]="predictions.length === 0" class="w-full listSearch">
-              <ion-item *ngFor="let item of predictions" tappable (click)="selectPlace(item)">
-                {{ item.description }}
-              </ion-item>
-            </ion-list>
-          </div>
-          <div class="p-3 flex flex-col w-full h-full"></div>
-    </div>
-  <ion-modal id="modal-badge" #modal [isOpen]="isOpenBadgeModal" (didDismiss)="isOpenBadgeModal = false">
-  <ng-template>
-    <ion-content>
-      <ion-toolbar>
-        <ion-title class="H2-22-700" slot="start">{{'achievements_modal.new_achievements'|translate}}</ion-title>
-        <ion-buttons slot="end">
-          <ion-button color="light" (click)="modal.dismiss()"><img src="assets/images/SoundCollect/close.svg"></ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-      <div class="flex flex-col justify-center gap-4 items-center" style="padding:38px ">
-        <img src="assets/images/SoundCollect/lvl{{level}}.svg" width="146" />
-        <label class="H6-16-700-SpaceGrotesk" >{{'achievements_modal.lvl'+level|translate}}</label>
-        <label class="H6-16-400-SpaceGrotesk" >{{'achievements_modal.arg'|translate}}</label>
+  <div
+    class="w-full"
+    style="position: absolute; top: calc(20px - env(safe-area-inset-top))"
+  >
+    <div class="flex flex-col px-3 w-full items-center justify-center">
+      <div class="relative w-full margin-top-safe-area">
+        <input
+          [(ngModel)]="searchText"
+          (ngModelChange)="searchLocations()"
+          class="w-full"
+          [ngClass]="predictions.length === 0 ? 'inputSearchWithoutList' : 'inputSearchWithList'"
+          placeholder="{{ 'home.search' | translate }}"
+          type="search"
+          style="background: #fff; padding: 9px 28px 9px 16px"
+          [ngStyle]="predictions.length === 0 ? {'border-radius': '24px'} : {'border-radius': '24px 24px 0 0'}"
+        />
+        <ion-icon
+          class="absolute"
+          *ngIf="searchText.length === 0"
+          name="search-outline"
+          style="top: 0; bottom: 0; margin: auto; right: 13px"
+        ></ion-icon>
+        <ion-icon
+          (click)="clearSearch()"
+          class="absolute"
+          *ngIf="searchText.length > 0"
+          name="close-outline"
+          style="top: 0; bottom: 0; margin: auto; right: 13px"
+        ></ion-icon>
       </div>
-    </ion-content>
-  </ng-template>
-</ion-modal>
+      <ion-list
+        [hidden]="predictions.length === 0"
+        class="w-full listSearch"
+        style="border-radius: 0 0 24px 24px"
+      >
+        <ion-item
+          *ngFor="let item of predictions"
+          tappable
+          (click)="selectPlace(item)"
+        >
+          {{ item.description }}
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="p-2 flex flex-col w-full h-full"></div>
+    <div
+      class="mx-3"
+      style="
+        padding: 0px 10px;
+        border-radius: 24px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 24px;
+        background: -webkit-linear-gradient(
+          90deg,
+          #d9f2d0,
+          #92d050,
+          #4ea72e,
+          #ffff00,
+          #ffc000,
+          #f2aa84,
+          #ff0000,
+          #c00000,
+          #7030a0,
+          #0f9ed5,
+          #215f9a
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          90deg,
+          #d9f2d0,
+          #92d050,
+          #4ea72e,
+          #ffff00,
+          #ffc000,
+          #f2aa84,
+          #ff0000,
+          #c00000,
+          #7030a0,
+          #0f9ed5,
+          #215f9a
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      "
+    >
+      <ion-text class="H6-14-700-SpaceGrotesk">35</ion-text>
+      <ion-text class="H6-14-700-SpaceGrotesk">85</ion-text>
+    </div>
+  </div>
+  <ion-modal
+    id="modal-badge"
+    #modal
+    [isOpen]="isOpenBadgeModal && level>0"
+    (didDismiss)="isOpenBadgeModal = false"
+  >
+    <ng-template>
+      <ion-content>
+        <ion-toolbar>
+          <ion-title class="H2-22-700" slot="start"
+            >{{'achievements_modal.new_achievements'|translate}}</ion-title
+          >
+          <ion-buttons slot="end">
+            <ion-button color="light" (click)="modal.dismiss()"
+              ><img src="assets/images/SoundCollect/close.svg"
+            /></ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <div
+          class="flex flex-col justify-center gap-4 items-center"
+          style="padding: 38px"
+        >
+          <img src="assets/images/SoundCollect/lvl{{level}}.svg" width="146" />
+          <label class="H6-16-700-SpaceGrotesk"
+            >{{'achievements_modal.lvl'+level|translate}}</label
+          >
+          <label class="H6-16-400-SpaceGrotesk"
+            >{{'achievements_modal.arg'|translate}}</label
+          >
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

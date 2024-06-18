@@ -7,6 +7,7 @@ import moment from 'moment/moment';
   providedIn: 'root'
 })
 export class UserService {
+  private showGamificationNotification = false;
   constructor(private userHTTP: UserHTTP, private observationService: ObservationsService) {
   }
 
@@ -108,11 +109,21 @@ export class UserService {
       return 3;
     } else if (points > 2) {
       return 2;
+    } else if (points > 0) {
+      return 1;
     } else {
-      return 1
+      return 0;
     }
   }
   gamificationCalcProgressBar(totalPoints: number) {
     return +(totalPoints / 21).toFixed(2);
+  }
+  
+  public set notificationGaming(show: boolean) {
+    this.showGamificationNotification = show;
+  }
+
+  public get notificationGaming() {
+    return this.showGamificationNotification;
   }
 }

@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Geolocation } from '@capacitor/geolocation';
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
+import { HttpClient } from "@angular/common/http";
+import { Device } from '@capacitor/device';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class LocationService {
   httpClient: HttpClient
-    constructor(
-    ) { }
+  constructor(
+  ) { }
 
   async getCoordinates() {
-    return await Geolocation.getCurrentPosition({ enableHighAccuracy: true });
+    const deviceInfo=await Device.getInfo();
+    const options = (deviceInfo.platform==='android' && +deviceInfo.osVersion < 13) ? {} : { enableHighAccuracy: true };
+    return await Geolocation.getCurrentPosition(options);
   }
 
   checkAppPermissions = async () => {
@@ -30,14 +32,14 @@ export class LocationService {
     }
   }
 
-  async requestAppPermissions(){
+  async requestAppPermissions() {
     try {
       const permissions = await Geolocation.requestPermissions();
       console.log('requestAppPermissions', permissions)
       if (permissions.location !== 'granted') {
         await Geolocation.requestPermissions();
       }
-    }catch (error){
+    } catch (error) {
       console.error('Error requesting permissions', error)
     }
   }
