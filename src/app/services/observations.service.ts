@@ -22,7 +22,9 @@ export class ObservationsService {
   async valueCalibration(val: number) {
     return await this.observationsRepoHttp.valueCalibration(val);
   }
-
+  async calSoundParameters(formData: any,autocalibration:number) {
+    return await this.observationsRepoHttp.calSoundParameters(formData,autocalibration);
+  }
   async deleteObservation(uuid: string): Promise<any> {
     return await this.deleteObservation(uuid);
   }

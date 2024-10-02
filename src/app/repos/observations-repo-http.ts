@@ -21,7 +21,10 @@ export class ObservationsRepoHttp {
   async valueCalibration(val: number) {
     return lastValueFrom(this.http.post<any>(`${environment.serverURL}/api/user/autocalibration`, { autocalibration: val }));
   }
-
+  async calSoundParameters(formData: any,autocalibration:number) {
+    console.log('cal parameters: ', formData)
+    return lastValueFrom(this.http.post<any>(`${environment.serverCalibrationURL}/convert_audio_into_parameters/${autocalibration}`, formData));
+  }
   /**
    * Deletes an observation
    * @param uuid

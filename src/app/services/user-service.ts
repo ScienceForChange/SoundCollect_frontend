@@ -2,13 +2,14 @@ import { UserHTTP } from '../repos/user-repo-http';
 import { Injectable } from '@angular/core';
 import { ObservationsService } from './observations.service';
 import moment from 'moment/moment';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   private showGamificationNotification = false;
-  constructor(private userHTTP: UserHTTP, private observationService: ObservationsService) {
+  constructor(private userHTTP: UserHTTP, private observationService: ObservationsService, private authService:AuthService) {
   }
 
   /**
@@ -95,7 +96,8 @@ export class UserService {
   }
   async isExpert() {
     const points = await this.userGamificationPoints();
-    if (points >= 21) return true;
+    const user= await this.authService.getUser();
+    if (points >= 21 || user.data.attributes.is_expert) return true;
     return false;
   }
   async gamificationLevel(totalPoints?: number) {

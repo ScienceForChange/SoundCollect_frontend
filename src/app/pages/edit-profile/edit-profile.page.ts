@@ -9,8 +9,7 @@ import { AuthHTTP } from 'src/app/repos';
 import { HttpClient } from '@angular/common/http';
 import { UserHTTP } from 'src/app/repos/user-repo-http';
 import { AuthService } from 'src/app/services/auth.service';
-import { ActivatedRoute, Router, RouterLink } from "@angular/router";
-import { CommonService } from 'src/app/services/common.service';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-edit-profile',
@@ -22,7 +21,8 @@ import { CommonService } from 'src/app/services/common.service';
 })
 export class EditProfilePage implements OnInit {
   translate = inject(TranslateService);
-  private modalController = inject(ModalController);
+  modalController = inject(ModalController);
+  navController = inject(NavController);
   profileForm!: FormGroup;
   userData!: IUserData;
   myNumbers: [number] = [1900];
@@ -62,11 +62,15 @@ export class EditProfilePage implements OnInit {
 
   async sendProfileForm() {
     const data = { gender: this.gender?.value, birthYear: this.birth_year?.value };
-    this.modalController.dismiss(data);
-
+    await this.modalController.dismiss(data);
   }
 
   goBack() {
     this.modalController.dismiss();
+  }
+
+  goToDeleteAccount() {
+    this.modalController.dismiss();
+    this.navController.navigateForward('/delete-account');
   }
 }

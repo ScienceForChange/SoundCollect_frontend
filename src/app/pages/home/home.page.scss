@@ -45,3 +45,8 @@ ion-list {
     --border-color: #6b7280;
   }
 }
+#options-popover{
+  --width: 96vw !important;
+  --offset-x: 4px; 
+  --offset-y: 3px;
+}

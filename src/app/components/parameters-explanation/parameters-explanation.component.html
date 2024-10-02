@@ -27,6 +27,32 @@
         class="H6-14-400-SpaceGrotesk ion-text-justify"
         [innerHTML]="'observations.parameters.info' | translate"
       ></label>
+
+      <div class="ion-text-justify" *ngIf="isExpert">
+
+        <div class="my-2">
+          <label class="H6-14-400-SpaceGrotesk ion-text-justify font-bold underline">{{'sounds.collect.process.sharpness_S'|translate}}</label>
+          <label class="H6-14-400-SpaceGrotesk ion-text-justify"> {{'sounds.collect.process.sharpness_S_descrip'|translate}} </label>
+        </div>
+
+        <div class="my-2">
+          <label class="H6-14-400-SpaceGrotesk ion-text-justify font-bold underline">{{'sounds.collect.process.loudness_N'|translate}}</label>
+          <label class="H6-14-400-SpaceGrotesk ion-text-justify"> {{'sounds.collect.process.loudness_N_descrip'|translate}} </label>
+        </div>
+
+        <div class="my-2">
+          <label class="H6-14-400-SpaceGrotesk ion-text-justify font-bold underline">{{'sounds.collect.process.roughtness_R'|translate}}</label>
+          <label class="H6-14-400-SpaceGrotesk ion-text-justify"> {{'sounds.collect.process.roughtness_R_descrip'|translate}} </label>
+        </div>
+
+        <div class="my-2">
+          <label class="H6-14-400-SpaceGrotesk ion-text-justify font-bold underline">{{'sounds.collect.process.fluctuation_strength_F'|translate}}</label>
+          <label class="H6-14-400-SpaceGrotesk ion-text-justify"> {{'sounds.collect.process.fluctuation_strength_F_descrip'|translate}} </label>
+        </div>
+
+        <br><br><br><br><br>
+
+      </div>
     </ion-content>
   </ng-template>
 </ion-modal>

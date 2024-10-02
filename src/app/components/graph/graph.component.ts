@@ -16,7 +16,6 @@ import Chart from 'chart.js/auto';
 })
 export class GraphComponent implements OnInit {
 private translateService=inject(TranslateService);
-  // @ts-ignore
   @ViewChild('lineCanvas') private lineCanvas: ElementRef;
   lineChart: Chart;
   @Input() dataset: any[] = [];
@@ -37,10 +36,15 @@ private translateService=inject(TranslateService);
     let labelsValues: number[] = [];
     let contador = 0;
     let arrayDataSet = this.dataset.toString().split(","); // Divide la cadena en caracteres individuales
+    let max=-100000;
+    let min=100000;
+
     if (arrayDataSet && arrayDataSet.length > 0) {
       arrayDataSet.forEach((data: any) => {
         labelsDates.push(String(contador++));
         labelsValues.push(Number(data));
+        if(max<+data) max=+data;
+        if(min>+data) min=+data;
       });
     }
 
@@ -64,8 +68,8 @@ private translateService=inject(TranslateService);
               text: this.translateService.instant('sounds.graphic.title_y')
             },
             beginAtZero: false,
-            suggestedMax: 100,
-            suggestedMin: 20
+            suggestedMax: Math.floor(max+10),
+            suggestedMin: Math.floor(min-10)
           },
           x: {
             title: {

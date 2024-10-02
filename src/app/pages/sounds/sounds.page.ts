@@ -60,6 +60,10 @@ export class SoundsPage implements OnInit {
       this.observations = this.sortByDateAsc();
     } else if (order === 'desc') {
       this.observations = this.sortByDateDesc();
+    }else if (order === 'lessLeq') {
+      this.observations = this.sortByLeqAsc();
+    }else if (order === 'moreLeq') {
+      this.observations = this.sortByLeqDesc();
     }
   }
   // Ordenar de forma ascendente (los más antiguos primero)
@@ -72,4 +76,10 @@ export class SoundsPage implements OnInit {
     return this.observations.sort((a, b) => new Date(b?.attributes?.created_at).getTime() - new Date(a?.attributes?.created_at).getTime());
   }
 
+  sortByLeqAsc() {
+    return this.observations.sort((a, b) => +a?.attributes?.Leq - +b?.attributes?.Leq);
+  }
+  sortByLeqDesc() {
+    return this.observations.sort((a, b) => +b?.attributes?.Leq - +a?.attributes?.Leq);
+  }
 }

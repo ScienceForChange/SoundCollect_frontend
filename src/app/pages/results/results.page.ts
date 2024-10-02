@@ -13,13 +13,14 @@ import { GraphComponent } from "../../components/graph/graph.component";
 import { UserService } from 'src/app/services/user-service';
 import { UserHTTP } from 'src/app/repos/user-repo-http';
 import { ParametersExplanationComponent } from 'src/app/components/parameters-explanation/parameters-explanation.component';
+import { SpectralGraphComponent } from 'src/app/components/spectral-graph/spectral-graph.component';
 
 @Component({
   selector: 'app-results',
   templateUrl: './results.page.html',
   styleUrls: ['./results.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, RouterLink, TranslateModule, NgOptimizedImage, GraphComponent, ParametersExplanationComponent],
+  imports: [IonicModule, CommonModule, FormsModule, RouterLink, TranslateModule, NgOptimizedImage, GraphComponent, ParametersExplanationComponent, SpectralGraphComponent],
   providers: [ObservationsService, ObservationsRepoHttp, UserService, UserHTTP]
 })
 export class ResultsPage implements OnInit {
@@ -91,8 +92,8 @@ export class ResultsPage implements OnInit {
   async sendObservation() {
     try {
       await this.commonService.showLoader();
-      await this.observationsService.postObservation(this.observationToFormData(this.observation));
-      this.userService.notificationGaming=true;
+      await this.observationsService.postObservation(this.observation);
+      this.userService.notificationGaming = true;
       await this.commonService.hideLoader();
       const message = await this.translate.instant('sounds.results.sended_ok');
       await this.commonService.presentToast("", message, "success", 2000, ToastPosition.top);
@@ -106,23 +107,22 @@ export class ResultsPage implements OnInit {
   }
 
   observationToFormData(object: any) {
-    const formData = new FormData();
-
+    let formData = new FormData();
     for (const clave in object) {
-      if (clave !== 'images' && clave !== 'sound_types' && object.hasOwnProperty(clave)) {
+      if (clave !== 'images' && clave !== 'sound_types' && clave !== 'segments' && object.hasOwnProperty(clave)) {
         formData.append(clave, object[clave]);
       }
     }
-
     for (let i = 0; i < this.observation.sound_types.length; i++) {
       formData.append(`sound_types[${i}]`, this.observation.sound_types[i].toString());
     }
-
+    for (let i = 0; i < this.observation.sound_types.length; i++) {
+      formData.append(`segments[${i}]`, this.observation.segments[i]);
+    }
     for (let i = 0; i < this.fileList.length; i++) {
       const file = this.fileList[i];
       formData.append(`images[${i}]`, file);
     }
-
     return formData;
   }
   noOrder() {

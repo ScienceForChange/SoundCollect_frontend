@@ -10,6 +10,7 @@ import { SplashScreen } from "@capacitor/splash-screen";
 import { TextZoom } from "@capacitor/text-zoom";
 import { App } from '@capacitor/app';
 register();
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',

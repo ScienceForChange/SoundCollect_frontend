@@ -8,7 +8,7 @@ export interface IRecordResponse {
     L10: number;
     sharpness_S: number;
     loudness_N: number;
-    roughtness_R: number;
+    roughtness_R?: number;
     fluctuation_strength_F: number;
   }
   

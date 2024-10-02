@@ -46,17 +46,8 @@
               *ngFor="let sound of observation.sound_types; let first = first;"
             >
               <span *ngIf="!first">, </span>
-              <span *ngIf="sound === 1"
-                >{{'observations.answers.Q1A1'|translate}}</span
-              >
-              <span *ngIf="sound === 2"
-                >{{'observations.answers.Q1A2'|translate}}</span
-              >
-              <span *ngIf="sound === 3"
-                >{{'observations.answers.Q1A3'|translate}}</span
-              >
-              <span *ngIf="sound === 4"
-                >{{'observations.answers.Q1A4'|translate}}</span
+              <span
+                >{{'observations.answers.Q1A'+sound |translate}}</span
               >
             </strong></label
           >
@@ -66,7 +57,7 @@
         <div class="H-16-400 my-text-header flex">
           <label>
             {{'observations.questions.question2'|translate}}: <br /><strong
-              >{{observation.quiet}}</strong
+              >{{'observations.answers.Q2A'+observation.quiet|translate}}</strong
             ></label
           >
         </div>
@@ -75,7 +66,7 @@
         <div class="H-16-400 my-text-header flex">
           <label>
             {{'observations.questions.question3'|translate}}: <br /><strong
-              >{{observation.cleanliness}}</strong
+              >{{'observations.answers.Q3A'+observation.cleanliness|translate}}</strong
             ></label
           >
         </div>
@@ -84,7 +75,7 @@
         <div class="H-16-400 my-text-header flex">
           <label>
             {{'observations.questions.question4'|translate}}: <br /><strong
-              >{{observation.accessibility}}</strong
+              >{{'observations.answers.Q4A'+observation.accessibility|translate}}</strong
             ></label
           >
         </div>
@@ -93,7 +84,7 @@
         <div class="H-16-400 my-text-header flex">
           <label>
             {{'observations.questions.question5'|translate}}: <br /><strong
-              >{{observation.safety}}</strong
+              >{{'observations.answers.Q5A'+observation.safety|translate}}</strong
             ></label
           >
         </div>
@@ -102,7 +93,7 @@
         <div class="H-16-400 my-text-header flex">
           <label>
             {{'observations.questions.question6'|translate}}: <br /><strong
-              >{{observation.influence}}</strong
+              >{{'observations.answers.Q6A'+observation.influence|translate}}</strong
             ></label
           >
         </div>
@@ -132,49 +123,49 @@
         <div>
           <label>
             {{'observations.answers.questionExp1A1'|translate}}:
-            <br /><strong>{{observation.pleasant}}</strong></label
+            <br /><strong>{{'observations.answers.QE1A'+observation.pleasant|translate}}</strong></label
           >
         </div>
         <div>
           <label>
             {{'observations.answers.questionExp1A2'|translate}}:
-            <br /><strong>{{observation.chaotic}}</strong></label
+            <br /><strong>{{'observations.answers.QE1A'+observation.chaotic|translate}}</strong></label
           >
         </div>
         <div>
           <label>
             {{'observations.answers.questionExp1A3'|translate}}:
-            <br /><strong>{{observation.vibrant}}</strong></label
+            <br /><strong>{{'observations.answers.QE1A'+observation.vibrant|translate}}</strong></label
           >
         </div>
         <div>
           <label>
             {{'observations.answers.questionExp1A4'|translate}}:
-            <br /><strong>{{observation.uneventful}}</strong></label
+            <br /><strong>{{'observations.answers.QE1A'+observation.uneventful|translate}}</strong></label
           >
         </div>
         <div>
           <label>
             {{'observations.answers.questionExp1A5'|translate}}:
-            <br /><strong>{{observation.calm}}</strong></label
+            <br /><strong>{{'observations.answers.QE1A'+observation.calm|translate}}</strong></label
           >
         </div>
         <div>
           <label>
             {{'observations.answers.questionExp1A6'|translate}}:
-            <br /><strong>{{observation.annoying}}</strong></label
+            <br /><strong>{{'observations.answers.QE1A'+observation.annoying|translate}}</strong></label
           >
         </div>
         <div>
           <label>
             {{'observations.answers.questionExp1A7'|translate}}:
-            <br /><strong>{{observation.eventful}}</strong></label
+            <br /><strong>{{'observations.answers.QE1A'+observation.eventful|translate}}</strong></label
           >
         </div>
         <div>
           <label>
             {{'observations.answers.questionExp1A8'|translate}}:
-            <br /><strong>{{observation.monotonous}}</strong></label
+            <br /><strong>{{'observations.answers.QE1A'+observation.monotonous|translate}}</strong></label
           >
         </div>
       </div>
@@ -182,7 +173,7 @@
         <div class="H-16-400 my-text-header flex">
           <label>
             {{'observations.questions.questionExp3'|translate}}: <br /><strong
-              >{{observation.environment}}</strong
+              >{{'observations.answers.questionExp3A'+observation.environment|translate}}</strong
             ></label
           >
         </div>
@@ -211,7 +202,7 @@
       <label class="H-20-700 text-white text-start"
         >{{'sounds.collect.details'|translate}}</label
       >
-      <app-parameters-explanation buttonTextColor="light"></app-parameters-explanation>
+      <app-parameters-explanation buttonTextColor="light" [isExpert]="isExpert"></app-parameters-explanation>
     </div>
     <div class="blue-box">
       <div class="flex flex-col">
@@ -271,52 +262,7 @@
             <strong>{{'sounds.collect.process.LAmin' |translate}}</strong>:
             {{observation.LAmin| number:'1.0-0'}}
           </div>
-          <!--          <div class="w-full flex m-2">-->
-          <!--            <img-->
-          <!--              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"-->
-          <!--              height="16"-->
-          <!--              width="16"-->
-          <!--              alt=""-->
-          <!--              class="me-1"-->
-          <!--            />-->
-          <!--            <strong>{{'sounds.collect.process.sharpness_S' |translate}}</strong-->
-          <!--            >: {{observation.sharpness_S| number:'1.0-0'}}-->
-          <!--          </div>-->
-          <!--          <div class="w-full flex m-2">-->
-          <!--            <img-->
-          <!--              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"-->
-          <!--              height="16"-->
-          <!--              width="16"-->
-          <!--              alt=""-->
-          <!--              class="me-1"-->
-          <!--            />-->
-          <!--            <strong>{{'sounds.collect.process.loudness_N' |translate}}</strong>:-->
-          <!--            {{observation.loudness_N| number:'1.0-0'}}-->
-          <!--          </div>-->
-          <!--          <div class="w-full flex m-2">-->
-          <!--            <img-->
-          <!--              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"-->
-          <!--              height="16"-->
-          <!--              width="16"-->
-          <!--              alt=""-->
-          <!--              class="me-1"-->
-          <!--            />-->
-          <!--            <strong>{{'sounds.collect.process.roughtness_R' |translate}}</strong-->
-          <!--            >: {{observation.roughtness_R| number:'1.0-0'}}-->
-          <!--          </div>-->
-          <!--          <div class="w-full flex m-2">-->
-          <!--            <img-->
-          <!--              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"-->
-          <!--              height="16"-->
-          <!--              width="16"-->
-          <!--              alt=""-->
-          <!--              class="me-1"-->
-          <!--            />-->
-          <!--            <strong-->
-          <!--              >{{'sounds.collect.process.fluctuation_strength_F'-->
-          <!--              |translate}}</strong-->
-          <!--            >: {{observation.fluctuation_strength_F| number:'1.0-0'}}-->
-          <!--          </div>-->
+
           <div class="w-100 flex justify-center flex-col">
             <div class="H-16-400 my-text-header flex items-center">
               <div class="w-full flex m-2">
@@ -332,6 +278,59 @@
             </div>
             <div class="w-80">
               <app-graph [dataset]="observation.LAeqT"></app-graph>
+            </div>
+          </div>
+
+          <div *ngIf="isExpert" class="mt-3">
+            <div *ngIf="observation.sharpness_S!=='N/A'" class="w-full flex m-2">
+              <img
+                ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+                height="16"
+                width="16"
+                alt=""
+                class="me-1"
+              />
+              <strong>{{'sounds.collect.process.sharpness_S' |translate}}</strong>:
+              {{observation.sharpness_S}}
+            </div>
+            <div *ngIf="observation.loudness_N!=='N/A'" class="w-full flex m-2">
+              <img
+                ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+                height="16"
+                width="16"
+                alt=""
+                class="me-1"
+              />
+              <strong>{{'sounds.collect.process.loudness_N' |translate}}</strong>:
+              {{observation.loudness_N}}
+            </div>
+            <div *ngIf="observation.fluctuation_strength_F!=='N/A'" class="w-full flex m-2">
+              <img
+                ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+                height="16"
+                width="16"
+                alt=""
+                class="me-1"
+              />
+              <strong
+                >{{'sounds.collect.process.fluctuation_strength_F'
+                |translate}}</strong
+              >: {{observation.fluctuation_strength_F}}
+            </div>
+            <div *ngIf="observation.segments.length>0 && observation.segments[0].freq_3?.length>0" class="H-16-400 my-text-header flex items-center">
+              <div class="w-full flex m-2">
+                <img
+                  ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+                  height="16"
+                  width="16"
+                  alt=""
+                  class="me-1"
+                />
+                <strong>{{'sounds.collect.process.spectral'|translate}}</strong>
+              </div>
+            </div>
+            <div class="w-80">
+              <app-spectral-graph [segments]="observation.segments"></app-spectral-graph>
             </div>
           </div>
         </div>

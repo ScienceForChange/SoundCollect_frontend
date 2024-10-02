@@ -99,15 +99,10 @@
   <div class="flex w-full flex-col justify-evenly gap-3 mt-32 p-4">
     <button class="my-btn-login mx-auto" (click)="sendProfileForm()">
       <ion-text class="ion-text-nowrap"
-        >{{'profile.label.button_save'|translate}}</ion-text
-      >
+        >{{'profile.label.button_save'|translate}}</ion-text>
     </button>
-    <!--    <button-->
-    <!--      [routerLink]="['/delete-account']"-->
-    <!--      class="my-btn-login mx-auto"-->
-    <!--      style="background-color: #d02424"-->
-    <!--    >-->
-    <!--      <ion-text class="ion-text-nowrap">Borrar la cuenta</ion-text>-->
-    <!--    </button>-->
+        <button (click)="goToDeleteAccount()" class="my-btn-login mx-auto mt-5" style="background-color: #d02424">
+          <ion-text class="ion-text-nowrap">{{'profile.label.delete_account'|translate}}</ion-text>
+        </button>
   </div>
 </ion-footer>

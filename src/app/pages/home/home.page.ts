@@ -52,13 +52,16 @@ import { Subscription } from 'rxjs';
 export class HomePage implements OnInit, OnDestroy {
 
     private userService = inject(UserService);
+    private authService = inject(AuthService);
     @ViewChild('map') public mapElement: ElementRef;
     public map: GoogleMap;
     public description: string = '';
     defaultLocation: google.maps.LatLngLiteral = { lat: 41.3870154, lng: 2.1700471 };
     initialPosition: any;
     modal: HTMLIonModalElement;
-    observations: any[];
+    observations: any[] = [];
+    polylines: string[] = [];
+    markers: string[] = [];
 
     isOpenBadgeModal = false;
     level = 0;
@@ -69,6 +72,11 @@ export class HomePage implements OnInit, OnDestroy {
     predictions: any[] = [];
     autocompleteService: any;
     placesService: any;
+
+    mapType: MapType = MapType.Satellite;
+    observationType: 'all' | 'mine' = 'all';
+    observationTypeShowed: 'all' | 'mine' = 'all';
+    userId = ""
     constructor(
         private locationService: LocationService,
         private commonService: CommonService,
@@ -78,6 +86,7 @@ export class HomePage implements OnInit, OnDestroy {
     ) { }
 
     async ngOnInit() {
+        this.userId = await this.authService.getUserId() || '';
         await this.locationService.requestAppPermissions();
         await this.getUserLocationAndCreateMap();
         this.initAutocomplete();
@@ -152,29 +161,38 @@ export class HomePage implements OnInit, OnDestroy {
 
     async getObservationsAndCreateMarkets() {
         try {
-            let result = await this.observationsService.getMapObservations();
-            if (result?.data) {
-                this.observations = result?.data;
-                let polylines: Polyline[] = [];
-                let markers: Marker[] = [];
-                result.data.forEach((observacion: any) => {
-                    if (observacion.path && !observacion.path.includes('lon') && observacion.path.includes('lng')) {
-                        let path = JSON.parse(observacion.path);
-                        //if (path.length > 1) {
-                        const polyline = this.createPolyline(path, observacion.id, observacion.Leq);
-                        polylines.push(polyline);
-                        //} else {
+            this.observationTypeShowed = this.observationType;
+            this.map.removeMarkers(this.markers);
+            this.map.removePolylines(this.polylines);
+
+            if (this.observations.length === 0) {
+                let result = await this.observationsService.getMapObservations();
+                if (result?.data) {
+                    this.observations = result?.data;
+                    console.log(result);
+                }
+            }
+            let polylines: Polyline[] = [];
+            let markers: Marker[] = [];
+            this.observations.forEach((observacion: any) => {
+                if ((this.observationType === 'mine' && this.userId === observacion.user_id) || this.observationType === 'all') {
+                    if (observacion.segments.length > 0/*observacion.path && !observacion.path.includes('lon') && observacion.path.includes('lng')*/) {
+                        observacion.segments.forEach((segment: any) => {
+                            const path = [{ lat: +segment.start_latitude, lng: +segment.start_longitude }, { lat: +segment.end_latitude, lng: +segment.end_longitude }]
+                            const polyline = this.createPolyline(path, observacion.id, segment.LAeq);
+                            polylines.push(polyline);
+                        });
                         const marker = this.createMarker(observacion.latitude, observacion.longitude, observacion.Leq);
                         markers.push(marker);
-                        //}
-                    } else {
+                    } else if (!observacion.path) {
                         const marker = this.createMarker(observacion.latitude, observacion.longitude, observacion.Leq);
                         markers.push(marker);
                     }
-                })
-                await this.map.addMarkers(markers);
-                await this.map.addPolylines(polylines);
-            }
+                }
+            })
+            this.markers = await this.map.addMarkers(markers);
+            this.polylines = await this.map.addPolylines(polylines);
+
         } catch (error) {
             console.log(error);
         }
@@ -196,10 +214,26 @@ export class HomePage implements OnInit, OnDestroy {
         };
     }
     createPolyline(path: any, tag: string, leq: string): Polyline {
+        const color = this.observationsService.getPolylineColorByDBA(leq)
+        /*const lineSymbol = {
+            path: "M 0,-1 0,1",
+            strokeOpacity: 1,
+            fillColor: color,
+            scale: 5,
+            fillOpacity: 1,
+            strokeWeight: 4, // Ancho del borde
+            strokeColor: color // Color del borde
+        };*/
         return {
             path: path,
-            strokeColor: this.observationsService.getPolylineColorByDBA(leq),
-            strokeWeight: 9, clickable: true, geodesic: true, tag: tag
+            strokeColor: color, strokeWeight: 9, clickable: true, geodesic: true,
+            strokeOpacity: 9, tag: tag/*, icons: [
+                {
+                    icon: lineSymbol,
+                    offset: "0",
+                    repeat: "20px",
+                },
+            ]*/
         }
     }
     getMarkerSVGColorByDBA(leq: string) {
@@ -303,5 +337,14 @@ export class HomePage implements OnInit, OnDestroy {
         } catch (error) {
             console.log(error);
         }
+    }
+    async applyFilter() {
+        await this.map.setMapType(this.mapType);
+        this.observationType != this.observationTypeShowed && await this.getObservationsAndCreateMarkets();
+    }
+    async optionsPopoverDismiss() {
+        const selectedMapType = await this.map.getMapType();
+        if (selectedMapType != this.mapType) this.mapType = selectedMapType;
+        if (this.observationType != this.observationTypeShowed) this.observationType = this.observationTypeShowed;
     }
 }

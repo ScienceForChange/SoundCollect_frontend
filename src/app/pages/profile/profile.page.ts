@@ -81,7 +81,7 @@ export class ProfilePage implements OnInit, OnDestroy {
     //   }
     // });
   };
-  
+
   calcAge() {
     const fechaActual = new Date();
     const anoActual = fechaActual.getFullYear();
@@ -114,14 +114,8 @@ export class ProfilePage implements OnInit, OnDestroy {
   }
 
   async closeSession() {
-    //localStorage.clear();
-    await this.common.setItem(this.INTRO_KEY, 'TRUE');
-    this.authService.isAuthenticated.next(false);
     await this.authService.logout();
-    await this.navController.navigateRoot('/login', { replaceUrl: true });
   }
-
-
 
   async goToChangePassword() {
     await this.navController.navigateForward("password-new");
@@ -160,15 +154,8 @@ export class ProfilePage implements OnInit, OnDestroy {
     await this.navController.navigateForward('privacy-policy');
   }
 
-  async goToLogin() {
-    await this.navController.navigateForward('login');
-  }
-
   async goToTerminos() {
     await this.navController.navigateForward('terms');
   }
 
-  async goToMySounds() {
-    await this.navController.navigateForward('sounds');
-  }
 }

@@ -96,7 +96,7 @@ ion-radio.radio-checked::part(mark) {
   background-color: rgba(32, 106, 113, 0.39);
   opacity: 0.5;
   animation: decreaseScale 2.5s ease-out infinite,
-  increaseScale 2.5s ease-in infinite;
+    increaseScale 2.5s ease-in infinite;
 }
 
 .icon-btn-mic {
@@ -153,3 +153,29 @@ ion-popover {
   --width: 98vw;
 }
 
+.qualud-coupertino {
+  width: 100vw;
+  max-height: 100vh;
+  min-height: 100vh;
+  background: rgba(73, 79, 80, 0.71);
+  box-sizing: border-box;
+  backdrop-filter: blur(4px);
+  z-index: 100000;
+  transition: 0.5ms;
+  align-content: center;
+  position: absolute;
+  .content {
+    border-radius: 20px;
+    width: 90vw;
+    min-height: 20vh;
+    max-height: 90vh;
+    background-color: #fff8f3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-x: visible;
+    position: absolute;
+    top: 30vh;
+    left: 5vw;
+  }
+}

@@ -49,21 +49,14 @@ export class AuthHTTP {
   }
   // Users crud
   async register(info: UserCreate) {
-    return await this.http.post(`${environment.serverURL}/api/register`, info, {}).toPromise();
-  }
-
-  async generateOtp(email: string, type: string) {
-    return this.http.post<any>(`${environment.serverURL}/api/otp/generate`, {
-      email,
-      type
-    }, {}).pipe(first());
+    return lastValueFrom(this.http.post(`${environment.serverURL}/api/register`, info, {}));
   }
 
   async removeProfile() {
-    return await this.http.delete(`${environment.serverURL}/api/user/profile/delete`, {}).toPromise();
+    return lastValueFrom(this.http.delete(`${environment.serverURL}/api/user/profile/delete`));
   }
 
   async updateProfile(gender: string, birth_year: number) {
-    return await this.http.patch(`${environment.serverURL}/api/user/profile/edit`, { gender, birth_year }).toPromise();
+    return lastValueFrom(this.http.patch(`${environment.serverURL}/api/user/profile/edit`, {gender, birth_year}));
   }
 }

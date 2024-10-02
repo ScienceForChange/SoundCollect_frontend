@@ -131,7 +131,8 @@
     "buttons": {
       "btn_1": "Veure",
       "btn_accept": "Acceptar",
-      "btn_cancel": "Cancel·lar"
+      "btn_cancel": "Cancel·lar",
+      "btn_apply": "Aplicar"
     }
   },
   "profile": {
@@ -164,7 +165,10 @@
       "prefer-not-to-say": "Prefereixo no dir-ho",
       "select_gender": "Seleccioneu el vostre gènere",
       "calibrate_sound": "Calibrar dispositiu",
-      "calibrate_access": "Accedir al calibratge"
+      "calibrate_access": "Accedir al calibratge",
+      "aumentar": "Augmentar",
+      "disminuir": "Disminuir",
+      "delete_account": "Eliminar compte"
 
     },
     "error": {
@@ -188,36 +192,45 @@
       "registered_audio": "Àudio registrat",
       "comments": "Comentaris",
       "remove_sound": "Eliminar so registrat",
-      "fecha": "Data"
+      "fecha": "Data",
+      "more_leq": "Major LAeq",
+      "less_leq": "Menor LAeq"
     },
     "collect": {
       "add": "Afegir un nou so",
       "title": "Registra el so",
-      "30Seg": "Podeu registrar fins a 30 segons d'àudio.",
+      "30Seg": "El registre ha de tenir una durada mínima de 30 segons d'àudio. En cas que estiguis realitzant un recorregut, podrà tenir una durada màxima de 30 minuts.",
       "registered": "Àudio registrat",
       "parameters": "Paràmetres de l'àudio",
       "images": "Imatges",
       "details": "Detalls del so",
       "stop": "Aturar",
       "reset": "Reinicia",
+      "pause": "Pausa",
+      "continue": "Continuar",
       "take_photo": "Fer foto",
       "file_picker": "Selecciona imatge",
       "camera_permission": "L'aplicació no té permís per accedir a la càmera",
       "location_permission": "No s'han donat permisos d'ubicació.",
       "micro_permission": "No s'han atorgat permisos per a l'ús del micròfon",
       "process": {
-        "sharpness_S": "Nitidesa",
-        "loudness_N": "Volum",
-        "roughtness_R": "Rugositat",
-        "fluctuation_strength_F": "Força de fluctuació",
+        "sharpness_S": "Agudesa (acum)",
+        "sharpness_S_descrip": "es un paràmetre psicoacústic que compara la quantitat\nd’energia d’alta freqüència amb l’energia total en una senyal acústica.\nL’agudesa és caracteritza per ser causada per un so d’alta freqüència (o\nagut), que pot causar dolor a l’oïda humana.",
+        "loudness_N": "Sonoritat (sone)",
+        "loudness_N_descrip": "és una mesura subjectiva de la intensitat amb la qual un\nsoroll és percebut per l’oïda humana. Aquest paràmetre depèn de la\nfreqüència i, per tant, dos events sonors amb el mateix nivell sonor, però\ndiferent freqüència no sempre resulta en la mateixa sensació de volum en\nl’oïda humana.",
+        "roughtness_R": "Rugositat (asper)",
+        "roughtness_R_descrip": "és un paràmetre que quantifica la percepció subjectiva de la\nmodulació d’amplitud ràpida (30-300 Hz) d’un so. La sensació auditiva\nrepresentada per la rugositat, que sovint produeix sensació de molèstia\nper a l’orella humana, està relacionada amb les modulacions de sonoritat a\nfreqüències massa elevades per a poder discernir-les per separat\n(freqüències de modulació superiors a 30 Hz).",
+        "fluctuation_strength_F": "Força de fluctuació (vacil)",
+        "fluctuation_strength_F_descrip": "és un paràmetre que quantifica la percepció subjectiva\nde la modulació d’amplitud més lenta (fins a 20 Hz). Per tant, és un\nconcepte similar a la rugositat però per a freqüències baixes. La força de\nfluctuació persisteix fins als 20 Hz aproximadament, a partir d’on inicia una\nzona complexa d’avaluar en termes de força de fluctuació i rugositat.\nAquesta zona que s’estén fins a freqüències de 30 Hz aproximadament, on\nla rugositat domina la percepció subjectiva.",
         "Leq": "Nivell SPL equivalent LAeq",
         "LAeqT": "Nivell SPL continu equivalent LAeq,t",
         "LAmax": "Nivell màxim Lmax",
         "LAmin": "Nivell mínim Lmin",
         "L90": "Nivell percentil L90",
-        "L10": "Nivell percentil L10"
+        "L10": "Nivell percentil L10",
+        "spectral": "Gràfic de nivells espectrals en ⅓ d'octava."
       },
-      "required":"* Requerit"
+      "required": "* Requerit"
     },
     "btn": {
       "back": "Enrere",
@@ -234,11 +247,13 @@
       "yes": "Sí, sortir",
       "no": "No, continuar",
       "sended_ok": "Es va registrar el so correctament.",
-      "sended_error":"Hi ha hagut un error. No s'ha pogut registrar el so."
+      "sended_error": "Hi ha hagut un error. No s'ha pogut registrar el so."
     },
-    "graphic":{
-      "title_x":"Temps (segons)",
-      "title_y":"Nivell de pressió sonora (dBA)"
+    "graphic": {
+      "title_x": "Temps (segons)",
+      "title_y": "Nivell de pressió sonora (dBA)",
+      "title_x_spectral": "Freqüència (Hertz)",
+      "title_y_spectral": "Pressió acústica (dBA)"
     }
   },
   "global": {
@@ -257,8 +272,8 @@
       "message": "No s'ha pogut completar l'acció, contacteu amb l'equip de desenvolupament.",
       "credencial_invalid": "El correu electrònic o la contrasenya introduïts no són correctes.",
       "error_ocurred": "Ha passat un error, si us plau, torna-ho a provar més tard.",
-      "location_disabled_header":"Ubicació desactivada",
-      "location_disabled_message":"Si us plau, activeu els serveis d'ubicació per registrar un so nou."
+      "location_disabled_header": "Ubicació desactivada",
+      "location_disabled_message": "Si us plau, activeu els serveis d'ubicació per registrar un so nou."
     }
   },
   "observations": {
@@ -278,7 +293,7 @@
       "question3": "Si us plau, valora la neteja i el manteniment d’aquesta ubicació.",
       "question4": "Si us plau, valora l’accessibilitat d’aquesta ubicació.",
       "question5": "Si us plau, valora la seguretat d’aquesta ubicació.",
-      "question6": "Com influeix el so d’aquesta ubicació en el teu estat d’ànims/ les teves emocions?",
+      "question6": "Els sons d'aquesta ubicació influeixen positivament en els vostres estats d'ànim/emocions?",
       "question7": "És aquest so un punt de referència?",
       "question8": "Vols que aquest lloc estigui protegit? Com?",
       "questionExp1": "L'entorn acústic actual és…? Marqui una alternativa de resposta per escala",
@@ -310,6 +325,11 @@
       "Q5A3": "Regular",
       "Q5A4": "Bona",
       "Q5A5": "Molt bona",
+      "Q6A1": "Molt d'acord",
+      "Q6A2": "D’acord",
+      "Q6A3": "Nid'acord / no en des acord",
+      "Q6A4": "Desacord",
+      "Q6A5": "Molt en desacord",
       "QE1A1": "Molt d'acord",
       "QE1A2": "D’acord",
       "QE1A3": "Nid'acord / no en des acord",
@@ -335,7 +355,7 @@
       "questionExp3A5": "Perfectament"
     },
     "parameters": {
-      "title":"Paràmetres acústics",
+      "title": "Paràmetres acústics",
       "info": "<p> <b>Leq (o LAeq)</b> significa Nivell de Pressió Sonora Continu Equivalent. Aquest terme fa referència a un nivell de soroll constant que, durant un període específic, generaria la mateixa energia sonora total que els nivells de soroll reals variables. </p><br> <p> La terminologia “LA” es refereix al nivell de pressió acústica ponderat A. En acústica, la ponderació A ajusta els mesuraments sonors a la sensibilitat auditiva humana, donant més ponderació a les freqüències mitjanes i menys a les baixes i altes. Aquests nivells ajustats, anomenats dB(A) o dBA, s'utilitzen per representar millor l'impacte del so a les persones. </p><br> <p> El paràmetre <b>LAeq,t</b> és un tipus de mitjana del “nivell sonor continu equivalent” al llarg del període de mostreig (t). Representa el nivell sonor registrat en un interval de temps específic. En cas de SoundCollect, l'interval és d'1 segon. Per tant, LAeq,t mostra l'evolució del so registrat cada segon i com l'aplicació registra el so durant 30 segons, s'obtenen un total de valors LAeq,t=30s. </p><br> <p> A partir del valor LAeq es calculen els altres paràmetres acústics que apareixen a la pantalla: </p><br> <ul> <li> <strong>LAmax</strong>: És el valor màxim de nivell de pressió sonora registrat durant els 30 segons. </li> <li> <strong>LAmin</strong>: És el valor mínim del nivell de pressió sonora registrat durant els 30 segons. </li> <li> <strong>L10</strong>: És el nivell de pressió sonora superat el 10% del temps. </li> <li> <strong>L90</strong>: És el nivell de pressió sonora superat el 90% del temps. </li> </ul><br> <p> Per exemple, si L90=60dB significa que durant 27 segons (90%) d'un enregistrament de 30 segons, el nivell de pressió sonora va ser superior a 60dB. D'altra banda, si L10=70dB indica que durant 3 segons (10%) del mateix enregistrament de 30 segons, el nivell de pressió sonora va superar els 70dB. </p><br> "
     }
   },
@@ -353,19 +373,41 @@
   },
   "calibration": {
     "popupTitle": "Calibrar dispositiu",
-    "popupTxt": "Per millorar la qualitat del registre d'àudio, cal que feu calibrar el dispositiu.",
+    "popupTxt": "Una correcta calibració dels dispositius mòbils garanteix que les dades enregistrades són confiables i precises. Amb el temps, factors com el desgast, l’ús freqüent o canvis ambientals es poden produir desviacions respecte els valors correctes. Per tant, calibrar els dispositius mòbils garanteix una reducció dels errors de mesurament mitjançant la correcció d’aquestes desviacions.",
     "popupBtn1": "Realitzar el calibratge",
     "popupBtn2": "Continuar sense calibrar",
     "beginCalibrationTitle": "Comença el calibratge",
-    "beginCalibrationTxt": "Per calibrar el dispositiu, necessites un espai tranquil i silenciós. Registra el so durant 10 segons. Fes clic al botó per començar.",
+    "beginCalibrationTxt1": "Enregistrar 10 segons de forma simultània amb el teu dispositiu i el sonòmetre en una habitació silenciosa.",
+    "beginCalibrationTxt2": "Connectar el micròfon exterior al dispositiu i, a continuació, acoblar el pistòfon al micròfon exterior. Gravar 10 segons en una habitació silenciosa.",
+    "beginCalibrationTxt3": "Enregistrar 10 segons de forma simultània amb ambdós dispositius (dispositiu a calibrar i dispositiu de referència ja calibrat) en una habitació silenciosa.",
+    "beginCalibrationTxt4": "Enregistrar 10 segons en una habitació silenciosa.",
     "doneValidationTitle": "S'ha calibrat correctament!",
     "doneValidationTxt": "El calibratge s'ha realitzat correctament. Ara ja pots començar a gravar els sons.",
     "doneValidationBtn": "Registrar un nou so",
     "calibration_value": "Valor del calibratge",
-    "calibration_value_desc": "Aquest és el valor obtingut de calibratge:",
+    "calibration_value_desc": "Aquest és el valor del nivell de pressió sonor (dBA) obtingunt del callibratge:",
     "calibration_value_desc2": "Coneixes el valor real?",
     "calibration_value_desc3": "El rang ha d'estar entre 20 i 140 dBA.",
-    "calibration_value_desc4": "Sí, ho puc mesurar manualment"
+    "calibration_value_desc4": "Sí, ho puc mesurar manualment",
+    "select_reference_text": "Seleccioneu si posseïu o no, un dispositiu per utilitzar de referència:",
+    "sound_level_meter": "Tinc sonòmetre",
+    "sound_level_meter_txt": "Un sonòmetre és un equip de mesura que s'utilitza per medir el nivell sonor amb un micròfon preciso.",
+    "external_microphone": "Micròfon exterior",
+    "external_microphone_txt": "Un micròfon exterior és un micròfon que es connecta al dispositiu mòbil i pot proporcionar mesuraments més precisos que el micròfon intern.",
+    "another_device": "Un altre dispositiu calibrat",
+    "another_device_txt": "Un dispositiu mòbil calibrat és un dispositiu mòbil, diferent al del propi usuari, que ha estat calibrat prèviament i proporciona resultats fiables.",
+    "no_reference": "Sense referència",
+    "no_reference_txt": "Els usuaris poden seleccionar aquesta opció si no tenen accés a un sonòmetre, micròfon exterior o dispositiu calibrat. En aquesta opció es realitza una comprovació dels valors que està mesurant l'aplicació.",
+    "btn_save":"Desa",
+    "btn_next":"Següent",
+    "calibration_device_1":"Indiqueu el valor del nivell de pressió sonor (dBA) obtingut amb el sonòmetre:",
+    "calibration_device_2":"Introduir el valor del nivell de pressió sonor esperat de 94dB.",
+    "calibration_device_3":"Indiqueu el valor del nivell de pressió sonor (dBA) obtingut amb el dispositiu ja calibrat a l'aplicació i guardar el valor.",
+    "calibration_device_4":"En cas que el valor mitjà estigui comprès en el rang entre 20-35 dBA, el dispositiu es pot considerar calibrat. Si aquesta fora del rang indicat, el valor de referència considerat automàticament per l'aplicació és de 30 dBA.",
+    "notification_title": "Calibratge incorrecte",
+    "notification_description": "El calibratge està fora del rang correcte. Adreceu-vos a una habitació silenciosa i premeu Recalibrar. El rang és 25-35, però el valor rebut és ",
+    "notification_btn1": "Recalibrar",
+    "notification_btn2": "Enrere"
   },
   "achievements": {
     "my_achievements": "Les meves insígnies",
@@ -389,6 +431,26 @@
     "arg": "Has desbloquejat una nova fitxa!\nHas pujat de nivell per convertir-te encara més expert."
   },
   "home": {
-    "search": "Ubicació"
+    "search": "Ubicació",
+    "map": "Mapa",
+    "normal": "Normal",
+    "hybrid": "Híbrid",
+    "satellite": "Satèl·lit",
+    "terrain": "Terreny",
+    "sounds": "Sons",
+    "all": "Tots",
+    "mine": "Meus"
+  },
+  "delete_popup": {
+    "message": "Estàs segur que vols eliminar el compte i totes les teves dades?",
+    "yes": "Sí",
+    "no": "No"
+  },
+  "delete_page": {
+    "title": "Ens sap greu que vulguis marxar de SoundCollect",
+    "message": "Recorda que en esborrar el teu compte s'esborraran totes les dades i les teves aportacions.",
+    "message2": "Si volguessis tornar en el futur, hauràs de tornar a registrar-te i començar a col·laborar de nou.",
+    "btn_ok": "Esborrar el meu compte i dades",
+    "btn_cancel": "Seguir col·laborant"
   }
 }

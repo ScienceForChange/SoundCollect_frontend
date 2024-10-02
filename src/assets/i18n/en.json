@@ -131,7 +131,8 @@
     "buttons": {
       "btn_1": "View all",
       "btn_accept": "Accept",
-      "btn_cancel": "Cancel"
+      "btn_cancel": "Cancel",
+      "btn_apply": "Apply"
     }
   },
   "profile": {
@@ -162,7 +163,10 @@
       "non-binary": "Non-binary",
       "others": "Others",
       "prefer-not-to-say": "Prefer Not to Say",
-      "select_gender": "Select your gender"
+      "select_gender": "Select your gender",
+      "aumentar": "Increase",
+      "disminuir": "Decrease",
+      "delete_account": "Delete Account"
     },
     "error": {
       "required": "Required"
@@ -185,34 +189,43 @@
       "registered_audio": "Registered Audio",
       "comments": "Comments",
       "remove_sound": "Remove Registered Sound",
-      "fecha": "Date"
+      "fecha": "Date",
+      "more_leq": "Largest LAeq",
+      "less_leq": "Lowest LAeq"
     },
     "collect": {
       "add": "Add a New Sound",
       "title": "Record the Sound",
-      "30Seg": "You can record up to 30 seconds of audio.",
+      "30Seg": "The record must have a minimum duration of 30 seconds of audio. if you are making a soundwalk, it may have a maximum duration of 30 minutes.",
       "registered": "Registered Audio",
       "parameters": "Audio Parameters",
       "images": "Images",
       "details": "Sound Details",
       "stop": "Stop",
       "reset": "Reset",
+      "pause": "Pause",
+      "continue": "Continue",
       "take_photo": "Take photo",
       "file_picker": "File picker",
       "camera_permission": "The App does not have permission to access the camera",
       "location_permission": "No location permissions granted.",
       "micro_permission": "No permissions have been granted for microphone use",
       "process": {
-        "sharpness_S": "Sharpness",
-        "loudness_N": "Loudness",
-        "roughtness_R": "Roughness",
-        "fluctuation_strength_F": "Fluctuation Strength",
+        "sharpness_S": "Sharpness (acum)",
+        "sharpness_S_descrip": "is a psychoacoustic parameter that compares the high\nfrequency energy content of an acoustic signal with its total energy.\nSharpness is caused by high frequency noises (high pitched), and it may\ncause pain sensation to humans.",
+        "loudness_N": "Loudness (sone)",
+        "loudness_N_descrip": "is a subjective measurament of the intensity at which a\nnoise is perceived by human audition. This parameter is frequency\ndependent and, as a consequence, two acoustic events with the same\nsound level but different frequency not necessarily will result in the same\nsensation of volume in human ear.",
+        "roughtness_R": "Roughness (asper)",
+        "roughtness_R_descrip": "is a parameter that quantifies the subjective\nperception of the fast modulation (15-300Hz) of a sound’s amplitude. The\nauditive sensation represented by roughness, which often produces\nannoyance for the human ear, is related to sound modulation at\nfrequencies too high to be discerned separately (modulation frequencies\nlarger than 30 Hz).",
+        "fluctuation_strength_F": "Fluctuation strength (vacil)",
+        "fluctuation_strength_F_descrip": "is a parameter that quantifies the subjective\nperception to slow amplitude modulations (up to 20Hz). Therefore, it is a\nsimilar concept to roughness, but at lower modulation frequencies.\nFluctuation strength persists up to 20 Hz approximately, point at which a\ncomplex region for fluctuation strength and roughness evaluation starts.\nThis region extends up to 30 Hz approximately, where the subjective\nperception starts to be dominated by roughness alone.",
         "Leq": "Equivalent SPL level LAeq",
         "LAeqT": "Continuous SPL level equivalent LAeq,t",
         "LAmax": "Maximum level Lmax",
         "LAmin": "Minimum level Lmin",
         "L90": "L90 percentile level",
-        "L10": "L10 percentile level"
+        "L10": "L10 percentile level",
+        "spectral": "Graphic of spectral levels in ⅓ octave."
       },
       "required": "* Required"
     },
@@ -228,11 +241,13 @@
       "info_multimedia": "Multimedia Information",
       "more_info": "More Information about the Sound",
       "sended_ok": "The sound was recorded correctly.",
-      "sended_error":"An error has occurred. The sound could not be recorded."
+      "sended_error": "An error has occurred. The sound could not be recorded."
     },
     "graphic": {
       "title_x": "Time (seconds)",
-      "title_y": "Sound pressure level (dBA)"
+      "title_y": "Sound pressure level (dBA)",
+      "title_x_spectral":"Frequency (Hertz)",
+      "title_y_spectral":"Acoustic pressure (dBA)"
     }
   },
   "global": {
@@ -250,8 +265,8 @@
       "message": "The action could not be completed, please contact the development team.",
       "credencial_invalid": "The email or password entered is incorrect.",
       "error_ocurred": "An error occurred",
-      "location_disabled_header":"Location disabled",
-      "location_disabled_message":"Please, enable location services to register a new sound."
+      "location_disabled_header": "Location disabled",
+      "location_disabled_message": "Please, enable location services to register a new sound."
     }
   },
   "observations": {
@@ -271,7 +286,7 @@
       "question3": "Please rate the overall cleanliness and maintenance of this location.",
       "question4": "Please rate the overall accessibility to this location",
       "question5": "Please rate the overall safety to this location",
-      "question6": "How do the sounds in this location influence your mood/emotions?",
+      "question6": "Do the sounds in this location positively influence your moods/emotions?",
       "question7": "¿Es este sonido un punto de referencia?",
       "question8": "Do you think this space should be acoustically protected? If so, what methods would you suggest for achieving acoustic protection?",
       "questionExp1": "The present surrounding acoustic environment is …? Please tick off one response alternative per scale",
@@ -303,6 +318,11 @@
       "Q5A3": "Neither good, nor bad",
       "Q5A4": "Good",
       "Q5A5": "Very good",
+      "Q6A1": "Strongly agree",
+      "Q6A2": "Agree",
+      "Q6A3": "Neither agree / disagree",
+      "Q6A4": "Disagree",
+      "Q6A5": "Strongly disagree",
       "QE1A1": "Strongly agree",
       "QE1A2": "Agree",
       "QE1A3": "Neither agree / disagree",
@@ -328,7 +348,7 @@
       "questionExp3A5": "Perfectly"
     },
     "parameters": {
-      "title":"Acoustic parameters",
+      "title": "Acoustic parameters",
       "info": "<p> <b>Leq (o LAeq)</b> stands for the equivalent continuous sound pressure level. This term refers to a constant noise level that, over a specific period, would generate the same total sound energy as the actual varying noise levels. </p><br> <p> The terminology “LA” refers to the A-weighted sound pressure level. A-weighting in acoustics adjusts sound measurements to match human hearing sensitivity, giving more weight to mid-range frequencies and less to low and high frequencies. These adjusted levels noted as dB(A) or dBA, are used to better represent sound impact on people. </p><br> <p> The parameter <b>LAeq,t</b> is a type of average of the “Equivalent continuous sound level” over the sample period (t). It represents the sound level measured in a specific time interval. In the case of SoundCollect, the interval is 1 second. Therefore, LAeq,t shows the evolution of the recorded sound every second and the application records the sound for 30 seconds, a total of LAeq,t=30s values are obtained. </p><br> <p> From the LAeq value, the other acoustic parameters shown on the screen are calculated: </p><br> <ul> <li> <strong>LAmax</strong>: This is the maximum sound pressure level value recorded over 30 seconds. </li> <li> <strong>LAmin</strong>: This is the minimum sound pressure level value recorded over 30 seconds. </li> <li> <strong>L10</strong>: This is the sound pressure level exceeded 10% of the time. </li> <li> <strong>L90</strong>: This is the sound pressure level exceeded 90% of the time.</li> </ul><br> <p> For instance, if L90=60dB, it means that during 27 seconds (90%) of a 30-second recording, the sound pressure level was above 60dB. On the other hand, if L10=70dB, it indicates that during 3 seconds (10%) of the same 30-second recording, the sound pressure level exceeded 70dB.</p><br> "
     }
   },
@@ -346,11 +366,14 @@
   },
   "calibration": {
     "popupTitle": "Sound Calibration",
-    "popupTxt": "To improve audio recording quality, sound calibration is necessary.",
+    "popupTxt": "A proper calibration of the mobile devices ensures that the data obtained is reliable and precise. Over time, factors such as weather, frequent use or environmental changes may cause deviations with respect to the correct values.For this reason, calibrating the mobile devices ensures a reduction of measurement errors by correcting these deviations.",
     "popupBtn1": "Perform Calibration",
     "popupBtn2": "Continue Without Calibrating",
     "beginCalibrationTitle": "Start Calibration",
-    "beginCalibrationTxt": "To calibrate the sound, you need a quiet and silent space. Record the sound for 10 seconds. Press the button to start.",
+    "beginCalibrationTxt1": "Record 10 seconds with the device and the sonometer simultaneously in a quiet room.",
+    "beginCalibrationTxt2": "Install the external microphone to the device, then attach the pistonphone calibrator to the external microphone. Record 10 seconds.",
+    "beginCalibrationTxt3": "Record 10 seconds simultaneously with your devices and with the calibrated device in a quiet room.",
+    "beginCalibrationTxt4": "Record 10 seconds with your device in a quiet room.",
     "doneValidationTitle": "Calibration Successful!",
     "doneValidationTxt": "You can now continue recording audio as usual.",
     "doneValidationBtn": "Record a New Sound",
@@ -358,7 +381,26 @@
     "calibration_value_desc": "This is the obtained calibration value:",
     "calibration_value_desc2": "Do you know the real value?",
     "calibration_value_desc3": "The range should be between 20 and 140 dB.",
-    "calibration_value_desc4": "Yes, I can measure it manually"
+    "calibration_value_desc4": "Yes, I can measure it manually",
+    "select_reference_text": "Select whether or not you have a device to use as a reference:",
+    "sound_level_meter": "I have a sound level meter",
+    "sound_level_meter_txt": "A sonometer is a measurement device that is used to measure the sound level with an accurate microphone.",
+    "external_microphone": "External microphone",
+    "external_microphone_txt": "An external microphone is a microphone that is connected to the mobile device and can provide more accurate measurements than the internal microphone.",
+    "another_device": "Other calibrated device",
+    "another_device_txt": "A calibrated mobile device is another mobile device, different from the user's own, that has been previously calibrated and provides reliable results.",
+    "no_reference": "No reference",
+    "no_reference_txt": "The users can select this option if they do not have access to a sonometer, an exterior microphone or a calibrated device. This option performs a check of the values being measured by the application.",
+    "btn_save":"Save",
+    "btn_next":"Next",
+    "calibration_device_1":"Enter the sound pressure level (dBA) value obtained with the sound level meter.",
+    "calibration_device_2":"Introduce the value of 94 dB to the device.",
+    "calibration_device_3":"Enter the sound pressure level (dBA) value obtained from the calibrated device.",
+    "calibration_device_4":"If the measured value is in the range of 25-35 dBA, the device is considered as calibrated. If it is outside the indicated range, the reference value automatically considered by the application is 30 dBA.",
+    "notification_title": "Incorrect calibration",
+    "notification_description": "Calibration is out of correct range. Go to a quiet room and press Recalibrate. The range is 25-35 but the value received is ",
+    "notification_btn1": "Recalibrate",
+    "notification_btn2": "Back"
   },
   "achievements": {
     "my_achievements": "My achievements",
@@ -382,6 +424,26 @@
     "arg": "You've unlocked a new achievement!\nYou've leveled up to become even more of an expert."
   },
   "home": {
-    "search": "Location"
+    "search": "Location",
+    "map": "Map",
+    "normal": "Normal",
+    "hybrid": "Hybrid",
+    "satellite": "Satellite",
+    "terrain": "Terrain",
+    "sounds": "Sounds",
+    "all": "All",
+    "mine": "Mine"
+  },
+  "delete_popup": {
+    "message": "Are you sure you want to delete your account and all your data?",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "delete_page": {
+    "title": "We are sorry you want to leave SoundCollect",
+    "message": "Remember that by deleting your account, all your data and contributions will be deleted.",
+    "message2": "If you want to return in the future, you will need to register again and start collaborating anew.",
+    "btn_ok": "Delete my account and data",
+    "btn_cancel": "Continue collaborating"
   }
 }

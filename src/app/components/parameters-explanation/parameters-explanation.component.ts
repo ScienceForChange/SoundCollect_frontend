@@ -21,6 +21,8 @@ export class ParametersExplanationComponent implements OnInit {
 
   open = false;
   @Input() buttonTextColor="primary"
+  @Input() isExpert = false;
+
   ngOnInit(): void {
 
   }

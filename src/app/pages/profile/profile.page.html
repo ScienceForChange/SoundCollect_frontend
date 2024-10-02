@@ -54,7 +54,7 @@
           </ion-text>
           <div
             class="w-full py-3"
-            style="padding: 24px 0; border-top: 1.5px solid #f2f4f3"
+            style="padding: 24px 0; border-top: 2px solid #f2f4f3"
             *ngIf="((calcAge() > 0 && calcAge() < 99) || gender)"
           >
             <button
@@ -101,11 +101,11 @@
       <!--          </ion-text>-->
       <!--          <div-->
       <!--            class="w-full flex justify-between"-->
-      <!--            style="border-top: 1.5px solid #f2f4f3"-->
+      <!--            style="border-top: 2px solid #f2f4f3"-->
       <!--          >-->
       <!--            <div-->
       <!--              class="flex flex-col items-center gap-2 w-full py-6"-->
-      <!--              style="border-right: 1.5px solid #f2f4f3"-->
+      <!--              style="border-right: 2px solid #f2f4f3"-->
       <!--            >-->
       <!--              <label class="H-24-700 my-text-header">25</label>-->
       <!--              <label class="H6-14-400-SpaceGrotesk my-text-header"-->
@@ -119,7 +119,7 @@
       <!--              >-->
       <!--            </div>-->
       <!--          </div>-->
-      <!--          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">-->
+      <!--          <div class="w-full pt-2" style="border-top: 2px solid #f2f4f3">-->
       <!--            <button-->
       <!--              (click)="goToMySounds()"-->
       <!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
@@ -134,7 +134,7 @@
       <!--              />-->
       <!--            </button>-->
       <!--          </div>-->
-      <!--          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">-->
+      <!--          <div class="w-full pt-2" style="border-top: 2px solid #f2f4f3">-->
       <!--            <button-->
       <!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
       <!--            >-->
@@ -148,7 +148,7 @@
       <!--              />-->
       <!--            </button>-->
       <!--          </div>-->
-      <!--          <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">-->
+      <!--          <div class="w-full pt-2" style="border-top: 2px solid #f2f4f3">-->
       <!--            <button-->
       <!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
       <!--            >-->
@@ -162,7 +162,7 @@
       <!--              />-->
       <!--            </button>-->
       <!--          </div>-->
-      <!--          <div class="w-full py-2" style="border-top: 1.5px solid #f2f4f3">-->
+      <!--          <div class="w-full py-2" style="border-top: 2px solid #f2f4f3">-->
       <!--            <button-->
       <!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
       <!--            >-->
@@ -220,21 +220,7 @@
           >
         </div>
         <div class="box-style">
-<!--          <div class="w-full pt-2">-->
-<!--            <button-->
-<!--            [routerLink]="['/user-guide']"-->
-<!--              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"-->
-<!--            >-->
-<!--              <label class="flex justify-between w-full me-5"-->
-<!--                ><span>{{'profile.label.user_guide'|translate}}</span>-->
-<!--                <span></span-->
-<!--              ></label>-->
-<!--              <img-->
-<!--                class="me-8"-->
-<!--                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"-->
-<!--              />-->
-<!--            </button>-->
-<!--          </div>-->
+
           <div class="w-full pt-2">
             <button [routerLink]="['/change-language']" class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400">
               <label class="flex justify-between w-full me-5">
@@ -243,7 +229,22 @@
               <img class="me-8" src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"/>
             </button>
           </div>
-          <div class="w-full pt-4 pb-1" style="border-top: 1.5px solid #f2f4f3">
+          <div class="w-full pt-4 pb-1" style="border-top: 2px solid #f2f4f3">
+            <button
+              [routerLink]="['/user-guide']"
+              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
+            >
+              <label class="flex justify-between w-full me-5"
+              ><span>{{'profile.label.user_guide'|translate}}</span>
+                <span></span
+                ></label>
+              <img
+                class="me-8"
+                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
+              />
+            </button>
+          </div>
+          <div class="w-full pt-4 pb-1" style="border-top: 2px solid #f2f4f3">
             <button class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400" (click)="goToTerminos()">
               <label class="flex justify-between w-full me-5">
                 <span>{{'about_me.label.terms'|translate}}</span>
@@ -253,7 +254,7 @@
             </button>
           </div>
 
-          <!-- <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">
+          <!-- <div class="w-full pt-2" style="border-top: 2px solid #f2f4f3">
             <button
               class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
             >
@@ -266,7 +267,7 @@
               />
             </button>
           </div> -->
-          <div class="w-full py-3" style="border-top: 1.5px solid #f2f4f3">
+          <div class="w-full py-3" style="border-top: 2px solid #f2f4f3">
             <button
               class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
               (click)="goToLegalNotice()"
@@ -281,7 +282,7 @@
               />
             </button>
           </div>
-          <!-- <div class="w-full pt-2" style="border-top: 1.5px solid #f2f4f3">
+          <!-- <div class="w-full pt-2" style="border-top: 2px solid #f2f4f3">
             <button
               class="mx-5 w-full mb-2 flex items-center bg-transparent my-text-header H-16-400"
             >

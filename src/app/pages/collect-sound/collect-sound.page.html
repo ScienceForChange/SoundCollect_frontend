@@ -89,7 +89,11 @@
         >{{'sounds.collect.30Seg'|translate}}</label
       >
       <div class="w-full flex justify-center p-3">
-        <div class="circle-container" tappable (click)="initRecord()">
+        <div
+          class="circle-container"
+          tappable
+          (click)="!recording && (stoped?initRecord():resumeRecording())"
+        >
           <div class="circle back-circle"></div>
           <div
             class="circle w-100"
@@ -104,38 +108,54 @@
         class="w-full flex flex-col justify-center align-middle text-center"
         *ngIf="flagViewControls"
       >
-        <div
-          class="w-full flex flex-col justify-center ion-align-items-center mb-3"
-          [ngClass]="!recording ? 'opacity-50' : ''"
-          tappable
-          (click)="stopRecording()"
-        >
-          <img
-            ngSrc="assets/images/SoundCollect/stop.svg"
-            height="40"
-            width="40"
-            alt=""
-          />
-          {{'sounds.collect.stop'|translate}}
-        </div>
         <div class="flex justify-center text-center my-5">
           <label class="H-20-700 mt-4 my-text-header flex items-center"
             ><p>{{ timer }}</p></label
           >
         </div>
-        <div
-          class="w-full flex flex-col justify-center ion-align-items-center mt-3"
-          [ngClass]="recording ? 'opacity-50' : ''"
-          tappable
-          (click)="resetRecording()"
-        >
-          <img
-            ngSrc="assets/images/SoundCollect/restart.svg"
-            height="40"
-            width="40"
-            alt=""
-          />
-          {{'sounds.collect.reset'|translate}}
+        <div class="flex flex-row justify-center mt-3">
+          <div
+            class="w-full flex flex-col justify-center ion-align-items-center mb-3"
+            [ngClass]="stoped ? 'opacity-50' : ''"
+            tappable
+            (click)="recording?pauseRecording():!stoped && resumeRecording()"
+          >
+            <img
+              ngSrc="assets/images/SoundCollect/{{recording?'pause':'continue'}}.svg"
+              height="40"
+              width="40"
+              alt=""
+            />
+            {{(recording?'sounds.collect.pause':'sounds.collect.continue')|translate}}
+          </div>
+          <div
+            class="w-full flex flex-col justify-center ion-align-items-center mb-3"
+            [ngClass]="!recording || seconds<minSeconds+1 ? 'opacity-50' : ''"
+            tappable
+            (click)="recording && seconds>=minSeconds && stopRecording()"
+          >
+            <img
+              ngSrc="assets/images/SoundCollect/stop.svg"
+              height="40"
+              width="40"
+              alt=""
+            />
+            {{'sounds.collect.stop'|translate}}
+          </div>
+          <div
+            class="w-full flex flex-col justify-center ion-align-items-center mb-3"
+            [ngClass]="recording ? 'opacity-50' : ''"
+            tappable
+            (click)="resetRecording()"
+          >
+            <img
+              ngSrc="assets/images/SoundCollect/restart_s.svg"
+              height="40"
+              width="40"
+              alt=""
+            />
+            {{'sounds.collect.reset'|translate}}
+          </div>
         </div>
       </div>
       <br /><br /><br /><br /><br />
@@ -185,17 +205,30 @@
         <label class="H-20-700 my-text-header">
           {{ "sounds.collect.parameters" | translate }}
         </label>
-        <app-parameters-explanation></app-parameters-explanation>
+        <app-parameters-explanation [isExpert]="isExpert"></app-parameters-explanation>
       </div>
-      <div class="flex w-full my-2 justify-between items-center">
-        <div class="flex flex-col">
+      <div class="flex w-full mt-2 justify-between items-center">
+        <div class="flex flex-col" *ngIf="soundRecordResponse">
+          <div class="H-16-400 my-text-header flex items-center">
+            <div class="w-full flex m-2">
+              <img
+                ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+                height="16"
+                width="16"
+                alt=""
+                class="me-1"
+              />
+              <strong>{{'sounds.collect.process.Leq'|translate}}</strong>:
+              {{soundRecordResponse.Leq | number:'1.0-0'}}
+            </div>
+          </div>
           <div
             class="H-16-400 my-text-header flex items-center"
             *ngFor="let item of soundRecordResponse | keyvalue"
           >
             <div
               class="w-full flex m-2"
-              *ngIf="item.key !== 'LAeqT' && item.key !== 'sharpness_S' && item.key !== 'loudness_N' && item.key !== 'roughtness_R' && item.key !== 'fluctuation_strength_F'"
+              *ngIf="item.key !== 'Leq' && item.key !== 'LAeqT' && item.key !== 'sharpness_S' && item.key !== 'loudness_N' && item.key !== 'roughtness_R' && item.key !== 'fluctuation_strength_F'"
             >
               <img
                 ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
@@ -225,9 +258,66 @@
         </div>
         <div class="w-80">
           <app-graph [dataset]="observation?.LAeqT"></app-graph>
-          <br /><br /><br /><br /><br />
         </div>
       </div>
+      <div *ngIf="isExpert">
+        <div class="H-16-400 my-text-header flex items-center mt-2">
+          <div class="w-full flex m-2">
+            <img
+              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+              height="16"
+              width="16"
+              alt=""
+              class="me-1"
+            />
+            <strong>{{'sounds.collect.process.sharpness_S'|translate}}</strong>:
+            {{soundRecordResponse.sharpness_S}}
+          </div>
+        </div>
+        <div class="H-16-400 my-text-header flex items-center">
+          <div class="w-full flex m-2">
+            <img
+              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+              height="16"
+              width="16"
+              alt=""
+              class="me-1"
+            />
+            <strong>{{'sounds.collect.process.loudness_N'|translate}}</strong>:
+            {{soundRecordResponse.loudness_N}}
+          </div>
+        </div>
+        <div class="H-16-400 my-text-header flex items-center">
+          <div class="w-full flex m-2">
+            <img
+              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+              height="16"
+              width="16"
+              alt=""
+              class="me-1"
+            />
+            <strong
+              >{{'sounds.collect.process.fluctuation_strength_F'|translate}}</strong
+            >: {{soundRecordResponse.fluctuation_strength_F}}
+          </div>
+        </div>
+        <div class="H-16-400 my-text-header flex items-center">
+          <div class="w-full flex m-2">
+            <img
+              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+              height="16"
+              width="16"
+              alt=""
+              class="me-1"
+            />
+            <strong>{{'sounds.collect.process.spectral'|translate}}</strong>
+          </div>
+        </div>
+        <div class="w-80">
+          <app-spectral-graph [segments]="observation.segments"></app-spectral-graph>
+        </div>
+      </div>
+      <br /><br /><br /><br /><br />
       <br /><br /><br /><br /><br />
     </div>
     <div class="w-full flex flex-col" *ngIf="myStep === 3">
@@ -343,7 +433,7 @@
           <div class="w-full flex flex-col">
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q2A1'|translate}}"
+              value="1"
               labelPlacement="end"
               justify="start"
             >
@@ -353,7 +443,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q2A2'|translate}}"
+              value="2"
               labelPlacement="end"
               justify="start"
             >
@@ -363,7 +453,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q2A3'|translate}}"
+              value="3"
               labelPlacement="end"
               justify="start"
             >
@@ -373,7 +463,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q2A4'|translate}}"
+              value="4"
               labelPlacement="end"
               justify="start"
             >
@@ -383,7 +473,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q2A5'|translate}}"
+              value="5"
               labelPlacement="end"
               justify="start"
             >
@@ -402,7 +492,7 @@
           <div class="w-full flex flex-col">
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q3A1'|translate}}"
+              value="1"
               labelPlacement="end"
               justify="start"
             >
@@ -412,7 +502,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q3A2'|translate}}"
+              value="2"
               labelPlacement="end"
               justify="start"
             >
@@ -422,7 +512,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q3A3'|translate}}"
+              value="3"
               labelPlacement="end"
               justify="start"
             >
@@ -432,7 +522,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q3A4'|translate}}"
+              value="4"
               labelPlacement="end"
               justify="start"
             >
@@ -442,7 +532,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q3A5'|translate}}"
+              value="5"
               labelPlacement="end"
               justify="start"
             >
@@ -461,7 +551,7 @@
           <div class="w-full flex flex-col">
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q4A1'|translate}}"
+              value="1"
               labelPlacement="end"
               justify="start"
             >
@@ -471,7 +561,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q4A2'|translate}}"
+              value="2"
               labelPlacement="end"
               justify="start"
             >
@@ -481,7 +571,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q4A3'|translate}}"
+              value="3"
               labelPlacement="end"
               justify="start"
             >
@@ -491,7 +581,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q4A4'|translate}}"
+              value="4"
               labelPlacement="end"
               justify="start"
             >
@@ -501,7 +591,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q4A5'|translate}}"
+              value="5"
               labelPlacement="end"
               justify="start"
             >
@@ -520,7 +610,7 @@
           <div class="w-full flex flex-col">
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q5A1'|translate}}"
+              value="1"
               labelPlacement="end"
               justify="start"
             >
@@ -530,7 +620,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q5A2'|translate}}"
+              value="2"
               labelPlacement="end"
               justify="start"
             >
@@ -540,7 +630,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q5A3'|translate}}"
+              value="3"
               labelPlacement="end"
               justify="start"
             >
@@ -550,7 +640,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q5A4'|translate}}"
+              value="4"
               labelPlacement="end"
               justify="start"
             >
@@ -560,7 +650,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.Q5A5'|translate}}"
+              value="5"
               labelPlacement="end"
               justify="start"
             >
@@ -575,8 +665,60 @@
         <label class="H3-18-700 my-text-header"
           >{{'observations.questions.question6'|translate}}</label
         >
-        <textarea class="input" [(ngModel)]="observation.influence"></textarea>
-        <span class="require">{{ 'sounds.collect.required' | translate }}</span>
+        <ion-radio-group [(ngModel)]="observation.influence" required>
+          <div class="w-full flex flex-col">
+            <ion-radio
+              class="around my-1"
+              value="1"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q6A1'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="2"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q6A2'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="3"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q6A3'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="4"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q6A4'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="5"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q6A5'|translate}}
+              </div>
+            </ion-radio>
+          </div>
+        </ion-radio-group>
       </div>
       <!-- <div class="mt-4">
         <label class="H3-18-700 my-text-header"
@@ -596,7 +738,8 @@
         <label class="H3-18-700 my-text-header"
           >{{'observations.questions.questionExp1'|translate}} (*)</label
         >
-          <div><ion-item style="background: none">
+        <div>
+          <ion-item style="background: none">
             <ion-select
               label="{{('observations.answers.questionExp1A1')|translate}}"
               [(ngModel)]="observation.pleasant"
@@ -606,263 +749,223 @@
               label-placement="floating"
               required="true"
             >
-              <ion-select-option
-                value="{{'observations.answers.QE1A1'|translate}}"
+              <ion-select-option value="1"
                 >{{'observations.answers.QE1A1'|translate}}</ion-select-option
               >
-              <ion-select-option
-                value="{{'observations.answers.QE1A2'|translate}}"
+              <ion-select-option value="2"
                 >{{'observations.answers.QE1A2'|translate}}</ion-select-option
               >
-              <ion-select-option
-                value="{{'observations.answers.QE1A3'|translate}}"
+              <ion-select-option value="3"
                 >{{'observations.answers.QE1A3'|translate}}</ion-select-option
               >
-              <ion-select-option
-                value="{{'observations.answers.QE1A4'|translate}}"
+              <ion-select-option value="4"
                 >{{'observations.answers.QE1A4'|translate}}</ion-select-option
               >
-              <ion-select-option
-                value="{{'observations.answers.QE1A5'|translate}}"
+              <ion-select-option value="5"
                 >{{'observations.answers.QE1A5'|translate}}</ion-select-option
               >
             </ion-select>
           </ion-item>
         </div>
-          <ion-item style="background: none">
-            <ion-select
-              label="{{('observations.answers.questionExp1A2')|translate}}"
-              [(ngModel)]="observation.chaotic"
-              aria-label="chaotic"
-              interface="popover"
-              placeholder=""
-              label-placement="floating"
-              required="true"
+        <ion-item style="background: none">
+          <ion-select
+            label="{{('observations.answers.questionExp1A2')|translate}}"
+            [(ngModel)]="observation.chaotic"
+            aria-label="chaotic"
+            interface="popover"
+            placeholder=""
+            label-placement="floating"
+            required="true"
+          >
+            <ion-select-option value="1"
+              >{{'observations.answers.QE1A1'|translate}}</ion-select-option
             >
-              <ion-select-option
-                value="{{'observations.answers.QE1A1'|translate}}"
-                >{{'observations.answers.QE1A1'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A2'|translate}}"
-                >{{'observations.answers.QE1A2'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A3'|translate}}"
-                >{{'observations.answers.QE1A3'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A4'|translate}}"
-                >{{'observations.answers.QE1A4'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A5'|translate}}"
-                >{{'observations.answers.QE1A5'|translate}}</ion-select-option
-              >
-            </ion-select>
-          </ion-item>
-          <ion-item style="background: none">
-            <ion-select
-              label="{{('observations.answers.questionExp1A3')|translate}}"
-              [(ngModel)]="observation.vibrant"
-              aria-label="vibrant"
-              interface="popover"
-              placeholder=""
-              label-placement="floating"
-              required="true"
+            <ion-select-option value="2"
+              >{{'observations.answers.QE1A2'|translate}}</ion-select-option
             >
-              <ion-select-option
-                value="{{'observations.answers.QE1A1'|translate}}"
-                >{{'observations.answers.QE1A1'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A2'|translate}}"
-                >{{'observations.answers.QE1A2'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A3'|translate}}"
-                >{{'observations.answers.QE1A3'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A4'|translate}}"
-                >{{'observations.answers.QE1A4'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A5'|translate}}"
-                >{{'observations.answers.QE1A5'|translate}}</ion-select-option
-              >
-            </ion-select>
-          </ion-item>
-          <ion-item style="background: none">
-            <ion-select
-              label="{{('observations.answers.questionExp1A4')|translate}}"
-              [(ngModel)]="observation.uneventful"
-              aria-label="uneventful"
-              interface="popover"
-              placeholder=""
-              label-placement="floating"
-              required="true"
+            <ion-select-option value="3"
+              >{{'observations.answers.QE1A3'|translate}}</ion-select-option
             >
-              <ion-select-option
-                value="{{'observations.answers.QE1A1'|translate}}"
-                >{{'observations.answers.QE1A1'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A2'|translate}}"
-                >{{'observations.answers.QE1A2'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A3'|translate}}"
-                >{{'observations.answers.QE1A3'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A4'|translate}}"
-                >{{'observations.answers.QE1A4'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A5'|translate}}"
-                >{{'observations.answers.QE1A5'|translate}}</ion-select-option
-              >
-            </ion-select>
-          </ion-item>
-          <ion-item style="background: none">
-            <ion-select
-              label="{{('observations.answers.questionExp1A5')|translate}}"
-              [(ngModel)]="observation.calm"
-              aria-label="calm"
-              interface="popover"
-              placeholder=""
-              label-placement="floating"
-              required="true"
+            <ion-select-option value="4"
+              >{{'observations.answers.QE1A4'|translate}}</ion-select-option
             >
-              <ion-select-option
-                value="{{'observations.answers.QE1A1'|translate}}"
-                >{{'observations.answers.QE1A1'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A2'|translate}}"
-                >{{'observations.answers.QE1A2'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A3'|translate}}"
-                >{{'observations.answers.QE1A3'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A4'|translate}}"
-                >{{'observations.answers.QE1A4'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A5'|translate}}"
-                >{{'observations.answers.QE1A5'|translate}}</ion-select-option
-              >
-            </ion-select>
-          </ion-item>
-          <ion-item style="background: none">
-            <ion-select
-              label="{{('observations.answers.questionExp1A6')|translate}}"
-              [(ngModel)]="observation.annoying"
-              aria-label="annoying"
-              interface="popover"
-              placeholder=""
-              label-placement="floating"
-              required="true"
+            <ion-select-option value="5"
+              >{{'observations.answers.QE1A5'|translate}}</ion-select-option
             >
-              <ion-select-option
-                value="{{'observations.answers.QE1A1'|translate}}"
-                >{{'observations.answers.QE1A1'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A2'|translate}}"
-                >{{'observations.answers.QE1A2'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A3'|translate}}"
-                >{{'observations.answers.QE1A3'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A4'|translate}}"
-                >{{'observations.answers.QE1A4'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A5'|translate}}"
-                >{{'observations.answers.QE1A5'|translate}}</ion-select-option
-              >
-            </ion-select>
-          </ion-item>
-          <ion-item style="background: none">
-            <ion-select
-              label="{{('observations.answers.questionExp1A7')|translate}}"
-              [(ngModel)]="observation.eventful"
-              aria-label="eventful"
-              interface="popover"
-              placeholder=""
-              label-placement="floating"
-              required="true"
+          </ion-select>
+        </ion-item>
+        <ion-item style="background: none">
+          <ion-select
+            label="{{('observations.answers.questionExp1A3')|translate}}"
+            [(ngModel)]="observation.vibrant"
+            aria-label="vibrant"
+            interface="popover"
+            placeholder=""
+            label-placement="floating"
+            required="true"
+          >
+            <ion-select-option value="1"
+              >{{'observations.answers.QE1A1'|translate}}</ion-select-option
             >
-              <ion-select-option
-                value="{{'observations.answers.QE1A1'|translate}}"
-                >{{'observations.answers.QE1A1'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A2'|translate}}"
-                >{{'observations.answers.QE1A2'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A3'|translate}}"
-                >{{'observations.answers.QE1A3'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A4'|translate}}"
-                >{{'observations.answers.QE1A4'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A5'|translate}}"
-                >{{'observations.answers.QE1A5'|translate}}</ion-select-option
-              >
-            </ion-select>
-          </ion-item>
-          <ion-item style="background: none">
-            <ion-select
-              label="{{('observations.answers.questionExp1A8')|translate}}"
-              [(ngModel)]="observation.monotonous"
-              aria-label="monotonous"
-              interface="popover"
-              placeholder=""
-              label-placement="floating"
-              required="true"
+            <ion-select-option value="2"
+              >{{'observations.answers.QE1A2'|translate}}</ion-select-option
             >
-              <ion-select-option
-                value="{{'observations.answers.QE1A1'|translate}}"
-                >{{'observations.answers.QE1A1'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A2'|translate}}"
-                >{{'observations.answers.QE1A2'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A3'|translate}}"
-                >{{'observations.answers.QE1A3'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A4'|translate}}"
-                >{{'observations.answers.QE1A4'|translate}}</ion-select-option
-              >
-              <ion-select-option
-                value="{{'observations.answers.QE1A5'|translate}}"
-                >{{'observations.answers.QE1A5'|translate}}</ion-select-option
-              >
-            </ion-select>
-          </ion-item>
+            <ion-select-option value="3"
+              >{{'observations.answers.QE1A3'|translate}}</ion-select-option
+            >
+            <ion-select-option value="4"
+              >{{'observations.answers.QE1A4'|translate}}</ion-select-option
+            >
+            <ion-select-option value="5"
+              >{{'observations.answers.QE1A5'|translate}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <ion-item style="background: none">
+          <ion-select
+            label="{{('observations.answers.questionExp1A4')|translate}}"
+            [(ngModel)]="observation.uneventful"
+            aria-label="uneventful"
+            interface="popover"
+            placeholder=""
+            label-placement="floating"
+            required="true"
+          >
+            <ion-select-option value="1"
+              >{{'observations.answers.QE1A1'|translate}}</ion-select-option
+            >
+            <ion-select-option value="2"
+              >{{'observations.answers.QE1A2'|translate}}</ion-select-option
+            >
+            <ion-select-option value="3"
+              >{{'observations.answers.QE1A3'|translate}}</ion-select-option
+            >
+            <ion-select-option value="4"
+              >{{'observations.answers.QE1A4'|translate}}</ion-select-option
+            >
+            <ion-select-option value="5"
+              >{{'observations.answers.QE1A5'|translate}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <ion-item style="background: none">
+          <ion-select
+            label="{{('observations.answers.questionExp1A5')|translate}}"
+            [(ngModel)]="observation.calm"
+            aria-label="calm"
+            interface="popover"
+            placeholder=""
+            label-placement="floating"
+            required="true"
+          >
+            <ion-select-option value="1"
+              >{{'observations.answers.QE1A1'|translate}}</ion-select-option
+            >
+            <ion-select-option value="2"
+              >{{'observations.answers.QE1A2'|translate}}</ion-select-option
+            >
+            <ion-select-option value="3"
+              >{{'observations.answers.QE1A3'|translate}}</ion-select-option
+            >
+            <ion-select-option value="4"
+              >{{'observations.answers.QE1A4'|translate}}</ion-select-option
+            >
+            <ion-select-option value="5"
+              >{{'observations.answers.QE1A5'|translate}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <ion-item style="background: none">
+          <ion-select
+            label="{{('observations.answers.questionExp1A6')|translate}}"
+            [(ngModel)]="observation.annoying"
+            aria-label="annoying"
+            interface="popover"
+            placeholder=""
+            label-placement="floating"
+            required="true"
+          >
+            <ion-select-option value="1"
+              >{{'observations.answers.QE1A1'|translate}}</ion-select-option
+            >
+            <ion-select-option value="2"
+              >{{'observations.answers.QE1A2'|translate}}</ion-select-option
+            >
+            <ion-select-option value="3"
+              >{{'observations.answers.QE1A3'|translate}}</ion-select-option
+            >
+            <ion-select-option value="4"
+              >{{'observations.answers.QE1A4'|translate}}</ion-select-option
+            >
+            <ion-select-option value="5"
+              >{{'observations.answers.QE1A5'|translate}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <ion-item style="background: none">
+          <ion-select
+            label="{{('observations.answers.questionExp1A7')|translate}}"
+            [(ngModel)]="observation.eventful"
+            aria-label="eventful"
+            interface="popover"
+            placeholder=""
+            label-placement="floating"
+            required="true"
+          >
+            <ion-select-option value="1"
+              >{{'observations.answers.QE1A1'|translate}}</ion-select-option
+            >
+            <ion-select-option value="2"
+              >{{'observations.answers.QE1A2'|translate}}</ion-select-option
+            >
+            <ion-select-option value="3"
+              >{{'observations.answers.QE1A3'|translate}}</ion-select-option
+            >
+            <ion-select-option value="4"
+              >{{'observations.answers.QE1A4'|translate}}</ion-select-option
+            >
+            <ion-select-option value="5"
+              >{{'observations.answers.QE1A5'|translate}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <ion-item style="background: none">
+          <ion-select
+            label="{{('observations.answers.questionExp1A8')|translate}}"
+            [(ngModel)]="observation.monotonous"
+            aria-label="monotonous"
+            interface="popover"
+            placeholder=""
+            label-placement="floating"
+            required="true"
+          >
+            <ion-select-option value="1"
+              >{{'observations.answers.QE1A1'|translate}}</ion-select-option
+            >
+            <ion-select-option value="2"
+              >{{'observations.answers.QE1A2'|translate}}</ion-select-option
+            >
+            <ion-select-option value="3"
+              >{{'observations.answers.QE1A3'|translate}}</ion-select-option
+            >
+            <ion-select-option value="4"
+              >{{'observations.answers.QE1A4'|translate}}</ion-select-option
+            >
+            <ion-select-option value="5"
+              >{{'observations.answers.QE1A5'|translate}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
       </div>
       <div class="mt-4" *ngIf="isExpert">
         <label class="H3-18-700 my-text-header"
           >{{'observations.questions.questionExp3'|translate}} (*)</label
         >
-        <ion-radio-group [(ngModel)]="observation.environment">
+        <ion-radio-group [(ngModel)]="observation.overall">
           <div class="w-full flex flex-col">
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.questionExp3A1'|translate}}"
+              value="1"
               labelPlacement="end"
               justify="start"
             >
@@ -872,7 +975,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.questionExp3A2'|translate}}"
+              value="2"
               labelPlacement="end"
               justify="start"
             >
@@ -882,7 +985,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.questionExp3A3'|translate}}"
+              value="3"
               labelPlacement="end"
               justify="start"
             >
@@ -892,7 +995,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.questionExp3A4'|translate}}"
+              value="4"
               labelPlacement="end"
               justify="start"
             >
@@ -902,7 +1005,7 @@
             </ion-radio>
             <ion-radio
               class="around my-1"
-              value="{{'observations.answers.questionExp3A5'|translate}}"
+              value="5"
               labelPlacement="end"
               justify="start"
             >
@@ -958,9 +1061,9 @@
       <button
         *ngIf="myStep===1"
         (click)="next(myStep)"
-        [disabled]="seconds === 0 || recording"
+        [disabled]="seconds < minSeconds || recording || sendingSounds>0"
         class="my-btn-login mx-auto"
-        [ngClass]="(seconds === 0 || recording) ? 'opacity-50' : ''"
+        [ngClass]="(seconds < minSeconds || recording || sendingSounds>0) ? 'opacity-50' : ''"
       >
         {{'sounds.btn.analyze-sound'|translate}}
       </button>

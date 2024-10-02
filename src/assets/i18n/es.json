@@ -131,7 +131,8 @@
     "buttons": {
       "btn_1": "Ver",
       "btn_accept": "Aceptar",
-      "btn_cancel": "Cancelar"
+      "btn_cancel": "Cancelar",
+      "btn_apply": "Aplicar"
     }
   },
   "profile": {
@@ -164,7 +165,10 @@
       "prefer-not-to-say": "Prefiero no decirlo",
       "select_gender": "Seleccione su género",
       "calibrate_sound": "Calibración de dispositivo",
-      "calibrate_access": "Acceder a la calibración"
+      "calibrate_access": "Acceder a la calibración",
+      "aumentar": "Aumentar",
+      "disminuir": "Disminuir",
+      "delete_account": "Eliminar cuenta"
     }
   },
   "language": {
@@ -184,34 +188,43 @@
       "registered_audio": "Audio registrado",
       "comments": "Comentarios",
       "remove_sound": "Borrar sonido registrado",
-      "fecha": "Fecha"
+      "fecha": "Fecha",
+      "more_leq": "Mayor LAeq",
+      "less_leq": "Menor LAeq"
     },
     "collect": {
       "add": "Añadir un nuevo sonido",
       "title": "Registra el sonido",
-      "30Seg": "Puedes registrar hasta 30 segundos de audio.",
+      "30Seg": "El registro debe tener una duración mínima de 30 segundos de audio. En caso de que estés realizando un recorrido, podrá tener una duración máxima de 30 minutos.",
       "registered": "Audio registrado",
       "parameters": "Parámetros del audio",
       "images": "Imágenes",
       "details": "Detalles del sonido",
       "stop": "Parar",
       "reset": "Reiniciar",
+      "pause": "Pausa",
+      "continue": "Continuar",
       "take_photo": "Tomar foto",
       "file_picker": "Seleccionar imagen",
       "camera_permission": "La App no tiene permiso para acceder a la cámara",
       "location_permission": "No se han otorgado permisos de ubicación.",
       "micro_permission": "No se han otorgado permisos para el uso del micrófono",
       "process": {
-        "sharpness_S": "Nitidez",
-        "loudness_N": "Volumen",
-        "roughtness_R": "Aspereza",
-        "fluctuation_strength_F": "Intensidad de fluctuación",
+        "sharpness_S": "Sonoridad (sone)",
+        "sharpness_S_descrip": "es un parámetro psicoacústico que compara la cantidad\nde energía de alta frecuencia con la energía total en una señal acústica. La\nagudeza de caracteriza por ser causada por un sonido de alta frecuencia (o\nagudo), que puede causar dolor en el oído humano.",
+        "loudness_N": "Agudeza (acum)",
+        "loudness_N_descrip": "es una medida subjetiva dela intensidad con la que un\nruido es percibido por el oído humano. Este parámetro depende de la\nfrecuencia y, como consecuencia, dos eventos sonoros con el mismo nivel\nsonoro pero diferente frecuencia no siempre resulta en la misma sensación\nde volumen en el oído humano.",
+        "roughtness_R": "Rugosidad (asper)",
+        "roughtness_R_descrip": "es un parámetro que cuantifica la percepción subjetiva\nde la modulación rápida (15-300 Hz) de la amplitud de un sonido. La\nsensación auditiva representada por la rugosidad, que a menudo produce\nsensación de molestia para el oído humano, está relacionada con las modulaciones de sonoridad a frecuencias demasiado elevadas para poder\ndiscernirlas por separado (frecuencias de modulación superiores a 30 Hz).",
+        "fluctuation_strength_F": "Fuerza de fluctuación (vacil)",
+        "fluctuation_strength_F_descrip": "es un parámetro que cuantifica la percepción\nsubjetiva de la modulación de amplitud más lenta (hasta 20 Hz). Por ende,\nes un concepto similar a la rugosidad peor para frecuencias más bajas. La\nfuerza de fluctuación persiste hasta los 20 Hz aproximadamente, punto a\npartir del cual inicia una zona de compleja evaluación en términos de\nfuerza de fluctuación y rugosidad. Esta zona se extiende hasta\nfrecuencias de 30 Hz aproximadamente, donde la rugosidad domina la\npercepción subjetiva.",
         "Leq": "Nivel SPL equivalente LAeq",
         "LAeqT": "Nivel SPL continuo equivalente LAeq,t",
         "LAmax": "Nivel máximo Lmax",
         "LAmin": "Nivel mínimo Lmin",
         "L90": "Nivell percentil L90",
-        "L10": "Nivel percentil L10"
+        "L10": "Nivel percentil L10",
+        "spectral": "Gráfico de niveles espectrales en ⅓ de octava."
       },
       "required": "* Requerido"
     },
@@ -230,11 +243,13 @@
       "yes": "Sí, salir",
       "no": "No, continuar",
       "sended_ok": "Se registró el sonido correctamente.",
-      "sended_error":"Ha ocurrido un error. No se pudo registrar el sonido."
+      "sended_error": "Ha ocurrido un error. No se pudo registrar el sonido."
     },
     "graphic": {
       "title_x": "Tiempo (segundos)",
-      "title_y": "Nivel de presión sonora (dBA)"
+      "title_y": "Nivel de presión sonora (dBA)",
+      "title_x_spectral": "Frecuencia (Hertz)",
+      "title_y_spectral": "Presión acústica (dBA)"
     }
   },
   "global": {
@@ -253,8 +268,8 @@
       "message": "No se ha podido completar la acción, contacte con el equipo de desarrollo.",
       "credencial_invalid": "El email o la contraseña introducidos no son correctos.",
       "error_ocurred": "Ha ocurrido un error, por favor, intente más tarde",
-      "location_disabled_header":"Ubicación deshabilitada",
-      "location_disabled_message":"Por favor, habilite los servicios de localización para registrar un nuevo sonido."
+      "location_disabled_header": "Ubicación deshabilitada",
+      "location_disabled_message": "Por favor, habilite los servicios de localización para registrar un nuevo sonido."
     }
   },
   "observations": {
@@ -274,7 +289,7 @@
       "question3": "Por favor, valora la limpieza y el mantenimiento de esta ubicación.",
       "question4": "Por favor, valora la accesibilidad de esta ubicación.",
       "question5": "Por favor, valora la seguridad de esta ubicación.",
-      "question6": "¿Cómo influye el sonido de esta ubicación en tu estado de ánimo / tus emociones?",
+      "question6": "¿Los sonidos en este lugar influyen positivamente en tu estado de ánimo/emociones?",
       "question7": "¿Es este sonido un punto de referencia?",
       "question8": "¿Quieres que este sitio esté protegido? ¿Cómo?",
       "questionExp1": "El entorno acústico actual es…? Por favor, marque una alternativa de respuesta por escala",
@@ -306,6 +321,11 @@
       "Q5A3": "Regular",
       "Q5A4": "Buena",
       "Q5A5": "Muy buena",
+      "Q6A1": "Totalmente de acuerdo",
+      "Q6A2": "De acuerdo",
+      "Q6A3": "Ni de acuerdo ni en desacuerdo",
+      "Q6A4": "En desacuerdo",
+      "Q6A5": "Totalmente en desacuerdo",
       "QE1A1": "Totalmente de acuerdo",
       "QE1A2": "De acuerdo",
       "QE1A3": "Ni de acuerdo ni en desacuerdo",
@@ -331,7 +351,7 @@
       "questionExp3A5": "Perfectamente"
     },
     "parameters": {
-      "title":"Parámetros acústicos",
+      "title": "Parámetros acústicos",
       "info": "<p> <b>Leq (o LAeq)</b> significa nivel de presión sonora continuo equivalente. Este término se refiere a un nivel de ruido constante que, durante un periodo específico, generaría la misma energía sonora total que los niveles de ruido reales variables. </p><br> <p> La terminología “LA” se refiere al nivel de presión acústica ponderado A. En acústica, la ponderación A ajusta las mediciones sonoras a la sensibilidad auditiva humana, dando más ponderación a las frecuencias medias y menos a las bajas y altas. Estos niveles ajustados, denominados dB(A) o dBA, se utilizan para representar mejor el impacto del sonido en las personas. </p><br> <p> El parámetro <b>LAeq,t</b> es un tipo de promedio del «Nivel sonoro continuo equivalente» a lo largo del periodo de muestreo (t). Representa el nivel sonoro registrado en un intervalo de tiempo específico. En el caso de SoundCollect, el intervalo es de 1 segundo. Por lo tanto, LAeq,t muestra la evolución del sonido registrado cada segundo y como la aplicación registra el sonido durante 30 segundos, se obtiene un total de valores LAeq,t=30s. </p><br> <p> A partir del valor LAeq, se calculan los demás parámetros acústicos que se muestran en la pantalla: </p><br> <ul> <li> <strong>LAmax</strong>: Es el valor máximo de nivel de presión sonora registrado durante los 30 segundos. </li> <li> <strong>LAmin</strong>: Es el valor mínimo del nivel de presión sonora registrado durante los 30 segundos. </li> <li> <strong>L10</strong>: Es el nivel de presión sonora superado el 10% del tiempo. </li> <li> <strong>L90</strong>: Es el nivel de presión sonora superado el 90% del tiempo. </li> </ul><br> <p> Por ejemplo, si L90=60dB, significa que durante 27 segundos (90%) de una grabación de 30 segundos, el nivel de presión sonora fue superior a 60dB. Por otro lado, si L10=70dB, indica que durante 3 segundos (10%) de la misma grabación de 30 segundos, el nivel de presión sonora superó los 70dB. </p><br>"
     }
   },
@@ -348,20 +368,42 @@
     "btn": "Iniciar sesión o crear cuenta"
   },
   "calibration": {
-    "popupTitle": "Calibración del dispositivo",
-    "popupTxt": "Para mejorar la calidad del registro de audio, es necesario que hagas una calibración del dispositivo.",
+    "popupTitle": "Calibrar dispositivo móvil",
+    "popupTxt": "Una correcta calibración de los dispositivos móviles garantiza que los datos registrados son confiables y precisos. Con el tiempo, factores como el desgaste, el uso\nfrecuente o cambios ambientales pueden producir\ndesviaciones respecto a los valores correctos. Por este motivo, calibrar los dispositivos móviles garantiza una reducción de los errores de medición mediante la corrección de estas desviaciones.",
     "popupBtn1": "Realizar la calibración",
     "popupBtn2": "Continuar sin calibrar",
     "beginCalibrationTitle": "Empieza la calibración",
-    "beginCalibrationTxt": "Para calibrar el dispositivo, necesitas un espacio tranquilo y silencioso. Registra el sonido durante 10 segundos. Pulsa en el botón para empezar.",
+    "beginCalibrationTxt1": "Grabar 10 segundos de forma simultánea con tu dispositivo y con el sonómetro en una habitación silenciosa.",
+    "beginCalibrationTxt2": "Conectar el micrófono exterior al dispositivo y, a continuación, acoplar el pistófono al micrófono exterior. Grabar 10 segundos en una habitación silenciosa.",
+    "beginCalibrationTxt3": "Grabar 10 segundos de forma simultánea con ambos dispositivos (dispositivo a calibrar y dispositivo de referencia ya calibrado) en una habitación silenciosa.",
+    "beginCalibrationTxt4": "Grabar 10 segundos en una habitación silenciosa.",
     "doneValidationTitle": "¡Se ha calibrado correctamente!",
     "doneValidationTxt": "Ahora ya puedes seguir registrando audios de la manera habitual.",
     "doneValidationBtn": "Registrar un nuevo sonido",
     "calibration_value": "Valor de la calibración",
-    "calibration_value_desc": "Este es el valor obtenido de calibración:",
+    "calibration_value_desc": "Este es el valor de nivel de presión sonora (dBA) obtenido con calibración:",
     "calibration_value_desc2": "¿Conoces el valor real?",
     "calibration_value_desc3": "El rango debe estar entre 20 y 140 dBA.",
-    "calibration_value_desc4": "Sí, lo puedo medir manualmente"
+    "calibration_value_desc4": "Sí, lo puedo medir manualmente",
+    "select_reference_text": "Seleccione si posee o no, un dispositivo para utilizar de referencia:",
+    "sound_level_meter": "Tengo sonómetro",
+    "sound_level_meter_txt": "Un sonómetro es un equipo de medición que se utiliza para medir el nivel sonoro con un micrófono preciso.",
+    "external_microphone": "Micrófono exterior",
+    "external_microphone_txt": "Un micrófono exterior es un micrófono que se conecta al dispositivo móvil y puede proporcionar mediciones más precisas que el micrófono interno.",
+    "another_device": "Otro dispositivo calibrado",
+    "another_device_txt": "Un dispositivo móvil calibrado es un dispositivo móvil, distinto al del propio usuario, que ha sido calibrado previamente y proporciona resultados fiables.",
+    "no_reference": "Sin referencia",
+    "no_reference_txt": "Los usuarios pueden seleccionar esta opción si no tienen acceso a un sonómetro, un micrófono exterior o un dispositivo calibrado. En esta opción se realiza una comprobación de los valores que está mesurando la aplicación.",
+    "btn_save": "Guardar",
+    "btn_next": "Siguiente",
+    "calibration_device_1": "Introduce el valor del nivel de presión sonora (dBA) obtenido con el sonómetro.",
+    "calibration_device_2": "Introduce el valor esperado de 94 dB.",
+    "calibration_device_3": "Introduce el valor del nivel de presión sonora (dBA) obtenido con el dispositivo ya calibrado en la aplicación.",
+    "calibration_device_4": "Si el valor medido está comprendido en el rango entre 20-35 dBA, el dispositivo se puede considerar calibrado. Si está fuera del rango indicado, el valor de referencia considerado automáticamente por la aplicación es de 30 dBA.",
+    "notification_title": "Calibración incorrecta",
+    "notification_description": "La calibración está fuera del rango correcto. Diríjase a una habitación silenciosa y pulse Recalibrar. El rango es 25-35 pero el valor recibido es ",
+    "notification_btn1": "Recalibrar",
+    "notification_btn2": "Atrás"
   },
   "achievements": {
     "my_achievements": "Mis insignias",
@@ -385,6 +427,28 @@
     "arg": "¡Has desbloqueado un nuevo logro!\nHas conseguido pasar de nivel para convertirte aún en más experto."
   },
   "home": {
-    "search": "Ubicación"
+    "search": "Ubicación",
+    "map": "Mapa",
+    "normal": "Normal",
+    "hybrid": "Híbrido",
+    "satellite": "Satélite",
+    "terrain": "Terreno",
+    "sounds": "Sonidos",
+    "all": "Todos",
+    "mine": "Míos"
+  },
+  "delete_popup": {
+    "message": "¿Estás seguro que quieres eliminar la cuenta y todos tus datos?",
+    "yes": "Sí",
+    "no": "No"
+  },
+  "delete_page": {
+    "title": "Sentimos que quieras irte de SoundCollect",
+    "message": "Recuerda que al borrar tu cuenta se borrarán todos los datos y tus aportaciones.",
+    "message2": "Si quisieras volver en el futuro, deberías volver a registrarte y empezar a colaborar de nuevo.",
+    "btn_ok": "Borrar mi cuenta y datos",
+    "btn_cancel": "Seguir colaborando",
+    "success": "Tu cuenta ha sido eliminada correctamente.",
+    "error": "Ha ocurrido un error al intentar borrar tu cuenta."
   }
 }

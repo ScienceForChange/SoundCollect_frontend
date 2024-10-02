@@ -49,7 +49,7 @@ export class CalibrateSoundPage implements OnInit {
   maxSeconds: number = 12 //Máximo de segundos a grabar
   soundRecorded: any;
   soundRecordedBlob: any;
-  myStep = 1;
+  myStep = 0;
   canSendAudio = true;
   private path_: string = '';
   progress: number = 0;
@@ -62,6 +62,8 @@ export class CalibrateSoundPage implements OnInit {
   checkManual = false;
   calibrateValueApi = 0;
   manualValueCalibration = 40;
+  referenceDevice: 0 | 1 | 2 | 3 | 4 = 0;//0:No seleccionado 1:sonómetro 2:micrófono exterior 3:otro dispositivo 4:sin referencia
+  displayCuppertino = false;
   constructor() {
   }
 
@@ -70,7 +72,7 @@ export class CalibrateSoundPage implements OnInit {
     if (token) {
       this.isUserAuth = true;
     }
-    this.myStep = 1;
+    this.myStep = 0;
     await this.clearFilesSystem();
     await VoiceRecorder.requestAudioRecordingPermission();
   }
@@ -90,7 +92,11 @@ export class CalibrateSoundPage implements OnInit {
     });
     this.storedFileNames = [];
   }
-
+  goToStep1() {
+    if (this.referenceDevice > 0) {
+      this.myStep = 1;
+    }
+  }
   async startRecording() {
     if ((await VoiceRecorder.hasAudioRecordingPermission()).value) {
       await this.startRecordingPart2();
@@ -171,7 +177,11 @@ export class CalibrateSoundPage implements OnInit {
     this.observationsService.calibrateSound(formData).then(async (response: any) => {
       if (await response?.calibrated_value) {
         this.calibrateValueApi = this.commonService.obtenerParteEntera(response.calibrated_value);
-        this.myStep = 2;
+        console.log(this.referenceDevice + " - " + this.calibrateValueApi);
+        if (this.referenceDevice == 4 && (this.calibrateValueApi < 25 || this.calibrateValueApi > 35)) {
+          this.displayCuppertino = true;
+        } else
+          this.myStep = 2;
       } else {
         const description = this.translate.instant('global_error.label.error_ocurred');
         this.commonService.alertModal("", description);
@@ -189,7 +199,7 @@ export class CalibrateSoundPage implements OnInit {
   async sendValueCalibration() {
     const message = "saving_data";
     await this.commonService.showLoaderWithMsg(message);
-    const diffNumber = this.calibrateValueApi - this.manualValueCalibration;
+    const diffNumber = this.calibrateValueApi - (this.referenceDevice == 4 ? 30 : this.manualValueCalibration);
     console.log('diffNumber:', diffNumber);
     this.observationsService.valueCalibration(diffNumber).then(async (response: any) => {
       console.log('responseeeeeee save dataaaa:', response);
@@ -245,6 +255,7 @@ export class CalibrateSoundPage implements OnInit {
   }
 
   async initRecord() {
+    this.displayCuppertino = false;
     if (!this.recording) {
       await this.startRecording();
     }
@@ -257,5 +268,8 @@ export class CalibrateSoundPage implements OnInit {
   async goToCalibrationOk() {
     await this.navController.navigateRoot('/calibrate-done');
   }
-
+  backStep() {
+    this.displayCuppertino = false;
+    this.myStep--;
+  }
 }

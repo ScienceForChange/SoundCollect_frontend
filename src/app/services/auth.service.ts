@@ -14,6 +14,7 @@ export class AuthService {
   private navController = inject(NavController);
   private commonService = inject(CommonService);
 
+  readonly INTRO_KEY = 'has_seen_onboarding';
   readonly jwtTokenName = 'jwt_token';
   readonly locale = 'locale';
   isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -67,6 +68,7 @@ export class AuthService {
       if (email_val) this.email.next(email_val);
       await this.commonService.setItem('gender', data?.user?.attributes?.profile?.gender);
       await this.commonService.setItem('birthYear', data?.user?.attributes?.profile?.birthYear);
+      await this.commonService.setItem('id', data?.user?.id);
       // await this.commonService.setItem('email', data?.user?.attributes?.profile?.email);
     } catch (e) {
       console.error(e);
@@ -107,13 +109,11 @@ export class AuthService {
 
   async logout() {
     try {
-      localStorage.removeItem("email");
-      localStorage.removeItem("birthYear");
-      localStorage.removeItem("jwt_token");
-      localStorage.removeItem("gender");
-      localStorage.removeItem("email");
-      localStorage.removeItem("badges");
+      localStorage.clear();
+      await this.commonService.setItem(this.INTRO_KEY, 'TRUE');
+      this.isAuthenticated.next(false);
       await this.authHTTP.logout();
+      await this.navController.navigateRoot('/login', { replaceUrl: true });
     }
     catch (e) {
       console.log(e);
@@ -125,7 +125,9 @@ export class AuthService {
     const data$ = await this.authHTTP.user();
     return await lastValueFrom(data$);
   }
-
+  async getUserId() {
+    return await this.commonService.getItem('id');
+  }
   async verifyVersion() {
     return await this.authHTTP.verifyVersion();
   }

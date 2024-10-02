@@ -4,7 +4,7 @@
     class="ion-no-margin ion-no-padding ion-no-border bg-white"
   >
     <div class="flex justify-between items-center px-3">
-      <ion-text class="ms-20 H2-22-700 self-start my-text-header">
+      <ion-text class="H2-22-700 self-start my-text-header">
         {{'profile.label.user_guide'|translate}}
       </ion-text>
       <img
@@ -20,11 +20,24 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-  <div class="flex flex-col px-3 justify-between" style="height: 100vh">
-    <section class="flex gap-3 flex-col">
-      <div class="p-4">
-        <p class="H-16-400 my-text-header"></p>
+  <div class="flex flex-col px-3 justify-between w-[100vw] h-[100vh] relative">
+    <pdf-viewer
+      [src]="pdfSrc"
+      [render-text]="true"
+      [original-size]="false"
+      [zoom]="zoom"
+      (after-load-complete)="complete($event)"
+      style="width: 100%; height: 100vh;"
+    ></pdf-viewer>
+    <div class="absolute flex" style="bottom: 10vh; right: 20px; background: rgba(255, 255, 255, 0.96); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12); border-radius: 10px; padding: 15px 10px; height: max-content; width: 242px">
+      <div [ngClass]="isValidReducir() ? 'text-14-700' : 'text-14-700-gray'" class="text-dark flex align-middle pe-6" style="border-right: 2px solid rgba(14, 30, 70, 0.28);" tappable (click)="zoomOut()">
+        <img [src]="isValidReducir() ? '/assets/images/informe/zoom-out.svg' : '/assets/images/informe/zoom-out-grey.svg'" class="me-1" width="18">
+         {{'profile.label.disminuir'|translate}}
       </div>
-    </section>
+      <div [ngClass]="isValidAmpliar() ? 'text-14-700' : 'text-14-700-gray'" class="text-dark flex align-middle" style="padding: 0 12px" tappable (click)="zoomIn()">
+        <img [src]="isValidAmpliar() ? '/assets/images/informe/zoom-in.svg' : '/assets/images/informe/zoom-in-grey.svg'" style="font-size: 30px;" class="me-1" width="18">
+        {{'profile.label.aumentar'|translate}}
+      </div>
+    </div>
   </div>
 </ion-content>
