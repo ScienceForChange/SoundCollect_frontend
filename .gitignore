@@ -33,9 +33,6 @@ npm-debug.log*
 /plugins
 /www
 /.angular/
-/resources/android/
-/resources/ios/
-/android
 
 # Node
 /node_modules

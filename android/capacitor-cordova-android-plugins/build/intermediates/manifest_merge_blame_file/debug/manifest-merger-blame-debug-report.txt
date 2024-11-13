@@ -1,0 +1,39 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:amazon="http://schemas.amazon.com/apk/res/android"
+3    xmlns:android="http://schemas.android.com/apk/res/android"
+4    package="capacitor.cordova.android.plugins" >
+5
+6    <uses-sdk android:minSdkVersion="22" />
+7
+8    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+8-->/Users/albertoalmenara/Proyectos/Programación/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml:7:1-76
+8-->/Users/albertoalmenara/Proyectos/Programación/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml:7:18-74
+9    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+9-->/Users/albertoalmenara/Proyectos/Programación/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml:8:1-74
+9-->/Users/albertoalmenara/Proyectos/Programación/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml:8:18-72
+10
+11    <uses-feature
+11-->/Users/albertoalmenara/Proyectos/Programación/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml:9:1-85
+12        android:name="android.hardware.location.gps"
+12-->/Users/albertoalmenara/Proyectos/Programación/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml:9:15-59
+13        android:required="true" />
+13-->/Users/albertoalmenara/Proyectos/Programación/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml:9:60-83
+14
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->/Users/albertoalmenara/Proyectos/Programación/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml:10:1-62
+15-->/Users/albertoalmenara/Proyectos/Programación/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml:10:18-60
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->/Users/albertoalmenara/Proyectos/Programación/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml:11:1-74
+16-->/Users/albertoalmenara/Proyectos/Programación/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml:11:18-72
+17    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+17-->/Users/albertoalmenara/Proyectos/Programación/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml:12:1-70
+17-->/Users/albertoalmenara/Proyectos/Programación/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml:12:18-68
+18    <uses-permission android:name="android.permission.BLUETOOTH" />
+18-->/Users/albertoalmenara/Proyectos/Programación/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml:13:1-63
+18-->/Users/albertoalmenara/Proyectos/Programación/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml:13:18-61
+19
+20    <application>
+20-->/Users/albertoalmenara/Proyectos/Programación/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml:4:1-6:15
+21    </application>
+22
+23</manifest>
