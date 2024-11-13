@@ -1,0 +1,73 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar
+    color="ligth"
+    class="ion-no-margin ion-no-padding ion-no-border bg-white"
+  >
+    <div class="flex justify-start items-center px-3">
+      <img
+        tappable="true"
+        class=""
+        [routerLink]="['/tabs/profile']"
+        src="assets/images/SoundCollect/Iconos/back.svg"
+        alt="back"
+        width="24"
+      />
+      <ion-text class="ms-28 H2-22-700 self-start my-text-header">
+        {{'profile.label.language'|translate}}
+      </ion-text>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="flex flex-col px-3 justify-between">
+    <section class="flex gap-3 flex-col">
+      <div class="mb-4">
+        <label class="H3-18-700 my-text-header"
+          >{{'language.label.change_language_subtitle'|translate}}:</label
+        >
+        <ion-radio-group name="locale" [(ngModel)]="selectedLanguage">
+          <div>
+            <ion-radio
+              class="lang ion-padding-top ion-padding-bottom"
+              value="ca"
+              labelPlacement="end"
+              justify="start"
+              >{{'about_me.label.Catalan'|translate}}</ion-radio
+            >
+          </div>
+          <div>
+            <ion-radio
+              class="lang ion-padding-top ion-padding-bottom"
+              value="es"
+              labelPlacement="end"
+              justify="start"
+              >{{'about_me.label.spanish'|translate}}</ion-radio
+            >
+          </div>
+          <div>
+            <ion-radio
+              class="lang ion-padding-top ion-padding-bottom"
+              value="en"
+              labelPlacement="end"
+              justify="start"
+              >{{'about_me.label.ingles'|translate}}</ion-radio
+            >
+          </div>
+        </ion-radio-group>
+      </div>
+    </section>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="ion-no-border px-3 pt-2">
+    <div class="flex w-full flex-col justify-evenly gap-3">
+      <button class="my-btn-login mx-auto">
+        <ion-text class="ion-text-nowrap" (click)="guardarCambioIdioma()"
+          >{{'recovery_pass.btn.btn-verify'|translate}}</ion-text
+        >
+      </button>
+    </div>
+  </div>
+</ion-footer>

@@ -1,0 +1,23 @@
+<div class="video-block" style="display: flex; width: 100%; height: 100%; justify-content: center;">
+  <video
+    playsinline
+    #video
+    [hidden]="true"
+    class="mp-video"
+    height="480"
+    id="pd-video"
+    width="360"
+    style="height: 480px; width: 360px"
+  ></video>
+  <canvas
+    #canvas
+    class="mp-canvas"
+    height="480"
+    id="pd-canvas"
+    width="360"
+  ></canvas>
+  <div #loading height="480" id="pd-loading" width="360">
+    <ion-spinner color="primary"></ion-spinner>
+    <ion-label>&nbsp;{{'training.label.pd_loading'|translate}}</ion-label>
+  </div>
+</div>

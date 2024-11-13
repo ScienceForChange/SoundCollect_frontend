@@ -1,0 +1,51 @@
+ion-tabs{
+  height: 112vh;
+}
+
+ion-tab-bar {
+  top: calc(-12vh + env(safe-area-inset-bottom));
+  --background: transparent;
+  width: 97vw;
+  height: 120px;
+  bottom: 20px;
+  position: relative;
+  margin: 0 auto !important;
+  border-top: none;
+}
+
+.tabBarClass{
+  display: flex;
+  justify-content: space-evenly;
+  width: 97vw;
+  height: 70px;
+  max-height: 70px;
+  min-height: 70px;
+  background-color: var(--ion-color-primary);
+  border-radius: 100px;
+}
+
+.qualud-coupertino {
+  width: 100vw;
+  max-height: 100vh;
+  min-height: 100vh;
+  background: rgba(73, 79, 80, 0.71);
+  box-sizing: border-box;
+  backdrop-filter: blur(4px);
+  z-index: 100000;
+  transition: 0.5ms;
+  align-content: center;
+  .content {
+    border-radius: 20px;
+    width: 90vw;
+    min-height: 20vh;
+    max-height: 90vh;
+    background-color: #fff8f3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-x: visible;
+    position: absolute;
+    top: 30vh;
+    left: 5vw;
+  }
+}

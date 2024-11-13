@@ -1,0 +1,18 @@
+ion-progress-bar{
+  --background: #FFF9F0;
+  --progress-background:var(--ion-color-tertiary);
+  height: 6px;
+  border-radius: 16%;
+}
+.element{
+  padding: 12px 16px;
+  margin: 8px 0;
+  min-height: 90px;
+  width: 100%;
+  border-radius: 20px;
+  border: 1.5px solid var(--Grey-Grey_2, #F2F4F3);
+  background: var(--General-White, #FFF);
+}
+.myDisabled{
+  filter: grayscale(100%);
+}

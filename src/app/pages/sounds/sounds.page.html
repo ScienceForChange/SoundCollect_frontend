@@ -1,0 +1,45 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="ligth" class="ion-no-margin ion-no-padding ion-no-border bg-white">
+    <div class="flex items-center justify-center">
+      <ion-text class="H2-22-700 self-start my-text-header">
+        {{'profile.label.my_sounds'|translate}} ({{soundsCant}})
+      </ion-text>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="flex-col flex my-bg-profile">
+    <div class="p-3 flex flex-col w-full h-full" *ngIf="isUserAuth">
+      <div class="flex justify-end w-full" *ngIf="content">
+        <select #sortBy (change)="sortObjects(sortBy.value)">
+          <option selected disabled>
+            {{'profile.label.my_sounds'|translate}}
+          </option>
+          <option value="asc">{{'profile.label.older'|translate}}</option>
+          <option value="desc">
+            {{'profile.label.most_recent'|translate}}
+          </option>
+          <option value="moreLeq">{{'sounds.label.more_leq'|translate}}</option>
+          <option value="lessLeq">
+            {{'sounds.label.less_leq'|translate}}
+          </option>
+        </select>
+      </div>
+      <div class="flex flex-col justify-start">
+        <div *ngIf="content">
+          <app-my-sounds *ngFor="let sound of observations" [itemSound]="sound"></app-my-sounds>
+        </div>
+        <div *ngIf="!content" class="flex flex-col gap-8 items-center" style="margin-top: 20vh">
+          <img ngSrc="../../../assets/images/SoundCollect/Ilustraciones/Sound_off.svg" alt="noSOUNDS" width="210" height="210"/>
+          <label class="H-16-400 my-text-header text-start px-6 self-start">{{'sounds.label.message1'|translate}}</label>
+          <label class="H-16-400 my-text-header text-start px-6 self-start">{{'sounds.label.message2'|translate}}</label>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!isUserAuth" class="my-5">
+      <app-no-user-auth></app-no-user-auth>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+  </div>
+</ion-content>

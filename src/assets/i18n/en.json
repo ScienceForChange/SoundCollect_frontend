@@ -1,0 +1,449 @@
+{
+  "onboarding": {
+    "slider": {
+      "title": "Welcome to SoundCollect, we have heard you get here!",
+      "desc": "Connect to your environment through your ear and make citizen science to discover tranquility!"
+    },
+    "slider2": {
+      "title": "Let’s start this sound journey around Catalonia!",
+      "desc": "Identify, evaluate and share quiet acoustic areas"
+    },
+    "slider3": {
+      "title": "",
+      "desc": "Describe quantitatively and qualitatively the sound elements around you, intuitively, easily and quickly."
+    },
+    "slider4": {
+      "title": "",
+      "desc": "Get around the interactive map to discover quiet areas and explore the acoustic identity of every corner."
+    },
+    "slider5": {
+      "title": "",
+      "desc": "Share your sound experiences from the spaces you visit. Join the SoundCollect community. Your participation is key to understanding and preserving quiet areas."
+    },
+    "btn": {
+      "btn_1": "Next",
+      "btn_2": "Access"
+    }
+  },
+  "login": {
+    "btn": {
+      "sign_in": "Sign in",
+      "register": "Create Account"
+    },
+    "link": {
+      "recovery_pass": "I forgot my password",
+      "login_as_guest": "Enter as a guest"
+    },
+    "label": {
+      "title": "Access to SoundCollect",
+      "password": "Password",
+      "email_required": "Email required",
+      "pass_required": "Password required",
+      "email_invalid": "The email is not correct"
+    }
+  },
+  "recovery_pass": {
+    "label": {
+      "title": "Recover Password",
+      "hint": "Have you forgotten your access password? Enter your email to recover the password and access the app again.",
+      "email": "Email",
+      "sub_title2": "We have sent you a code to the email",
+      "sub_title3": "Enter the received code, if you can't find it, maybe it's in spam. It's the last step!",
+      "email_sended": "An email has been sent with a code to reset your password.",
+      "expires_msg": "This code expires in",
+      "hours_msg": "3 hours.",
+      "footer_msg": "If you don't receive the email, try checking your spam folder or",
+      "try_again": "try again",
+      "password_changed": "Password changed successfully",
+      "RESET_PASSWORD_EMAIL_CODE_SENDED": "A code has been sent to the email",
+      "verify_email": "Verify email",
+      "label_new_password": "Enter a new password",
+      "label_new_password_verify": "Verify the password"
+    },
+    "btn": {
+      "btn-recovery": "Send",
+      "btn-verify": "Save changes"
+    },
+    "errors": {
+      "USER_NOT_FOUND": "We couldn't find this user"
+    }
+  },
+  "register": {
+    "label": {
+      "required_data": "Required data*",
+      "repeat_password": "Repeat password",
+      "optional_data": "Optional data",
+      "birth_year": "Birth year"
+    },
+    "error": {
+      "email_required": "Email required",
+      "email_invalid": "The email is not correct",
+      "email_taken": "The email is already in use",
+      "password_min_length": "Password must be at least 8 characters long",
+      "password_strong": "Password must contain at least one uppercase letter, one lowercase letter, and one number",
+      "password_required": "Password required",
+      "password_no_match": "Passwords entered do not match",
+      "terms_required": "Terms and conditions are required",
+      "error_form_register": "Terms and conditions are required"
+    },
+    "terms": {
+      "terms-start": "By registering you accept the ",
+      "terms-strong": "Terms and conditions ",
+      "terms-end": "and the ",
+      "terms-strong-end": "privacy policy"
+    }
+  },
+  "greets": {
+    "label": {
+      "subtitle": "You have registered successfully!"
+    },
+    "btn": {
+      "in-to-app": "Go to the App"
+    }
+  },
+  "change_pass": {
+    "label": {
+      "change_success": "Password changed successfully"
+    },
+    "error": {
+      "password_required": "Password required",
+      "password_no_match": "The email or password entered is incorrect."
+    }
+  },
+  "about_me": {
+    "label": {
+      "close_session": "Are you sure you want to log out",
+      "personal_inf": "Personal information",
+      "gender": "Gender",
+      "setting": "Settings",
+      "lang": "Language",
+      "ingles": "English",
+      "spanish": "Spanish",
+      "Catalan": "Catalan",
+      "notification": "Notifications",
+      "others": "Others",
+      "report_error": "Report an error",
+      "terms": "Terms and conditions",
+      "privacy": "Privacy",
+      "privacy_policy": "Privacy Policy",
+      "version": "Version n"
+    },
+    "buttons": {
+      "btn_1": "View all",
+      "btn_accept": "Accept",
+      "btn_cancel": "Cancel",
+      "btn_apply": "Apply"
+    }
+  },
+  "profile": {
+    "label": {
+      "title": "My Profile",
+      "shortTitle": "Profile",
+      "home": "Home",
+      "add": "Add",
+      "age": "Age:",
+      "years": "years",
+      "my_contribution": "My Contribution",
+      "study_areas": "Study Areas",
+      "recorded_sounds": "Recorded Sounds",
+      "my_sounds": "My Sounds",
+      "older": "Older",
+      "most_recent": "Most Recent",
+      "badges_earned": "Badges Earned",
+      "download_information": "Download Information",
+      "about_the_app": "About the App",
+      "user_guide": "User Guide",
+      "close_session": "Close Session",
+      "language": "Language",
+      "legal_info": "Legal Information",
+      "edit_profile_title": "Edit Personal Information",
+      "button_save": "Save Changes",
+      "male": "Male",
+      "female": "Female",
+      "non-binary": "Non-binary",
+      "others": "Others",
+      "prefer-not-to-say": "Prefer Not to Say",
+      "select_gender": "Select your gender",
+      "aumentar": "Increase",
+      "disminuir": "Decrease",
+      "delete_account": "Delete Account"
+    },
+    "error": {
+      "required": "Required"
+    }
+  },
+  "language": {
+    "label": {
+      "change_language_subtitle": "Choose the language of the App",
+      "changed": "The language has been changed successfully"
+    }
+  },
+  "sounds": {
+    "label": {
+      "message1": "It seems you haven't recorded any sound yet.",
+      "message2": "Tap on the 'Add' button to record your first sound.",
+      "info_general": "General Information",
+      "sound_type": "Sound Type",
+      "source_type": "Source Type",
+      "perception_type": "Perception Type",
+      "registered_audio": "Registered Audio",
+      "comments": "Comments",
+      "remove_sound": "Remove Registered Sound",
+      "fecha": "Date",
+      "more_leq": "Largest LAeq",
+      "less_leq": "Lowest LAeq"
+    },
+    "collect": {
+      "add": "Add a New Sound",
+      "title": "Record the Sound",
+      "30Seg": "The record must have a minimum duration of 30 seconds of audio. if you are making a soundwalk, it may have a maximum duration of 30 minutes.",
+      "registered": "Registered Audio",
+      "parameters": "Audio Parameters",
+      "images": "Images",
+      "details": "Sound Details",
+      "stop": "Stop",
+      "reset": "Reset",
+      "pause": "Pause",
+      "continue": "Continue",
+      "take_photo": "Take photo",
+      "file_picker": "File picker",
+      "camera_permission": "The App does not have permission to access the camera",
+      "location_permission": "No location permissions granted.",
+      "micro_permission": "No permissions have been granted for microphone use",
+      "process": {
+        "sharpness_S": "Sharpness (acum)",
+        "sharpness_S_descrip": "is a psychoacoustic parameter that compares the high\nfrequency energy content of an acoustic signal with its total energy.\nSharpness is caused by high frequency noises (high pitched), and it may\ncause pain sensation to humans.",
+        "loudness_N": "Loudness (sone)",
+        "loudness_N_descrip": "is a subjective measurament of the intensity at which a\nnoise is perceived by human audition. This parameter is frequency\ndependent and, as a consequence, two acoustic events with the same\nsound level but different frequency not necessarily will result in the same\nsensation of volume in human ear.",
+        "roughtness_R": "Roughness (asper)",
+        "roughtness_R_descrip": "is a parameter that quantifies the subjective\nperception of the fast modulation (15-300Hz) of a sound’s amplitude. The\nauditive sensation represented by roughness, which often produces\nannoyance for the human ear, is related to sound modulation at\nfrequencies too high to be discerned separately (modulation frequencies\nlarger than 30 Hz).",
+        "fluctuation_strength_F": "Fluctuation strength (vacil)",
+        "fluctuation_strength_F_descrip": "is a parameter that quantifies the subjective\nperception to slow amplitude modulations (up to 20Hz). Therefore, it is a\nsimilar concept to roughness, but at lower modulation frequencies.\nFluctuation strength persists up to 20 Hz approximately, point at which a\ncomplex region for fluctuation strength and roughness evaluation starts.\nThis region extends up to 30 Hz approximately, where the subjective\nperception starts to be dominated by roughness alone.",
+        "Leq": "Equivalent SPL level LAeq",
+        "LAeqT": "Continuous SPL level equivalent LAeq,t",
+        "LAmax": "Maximum level Lmax",
+        "LAmin": "Minimum level Lmin",
+        "L90": "L90 percentile level",
+        "L10": "L10 percentile level",
+        "spectral": "Graphic of spectral levels in ⅓ octave."
+      },
+      "required": "* Required"
+    },
+    "btn": {
+      "back": "Back",
+      "next": "Next",
+      "analyze-sound": "Analyze sound",
+      "resume": "Resume",
+      "send": "Send"
+    },
+    "results": {
+      "title": "Sound Summary",
+      "info_multimedia": "Multimedia Information",
+      "more_info": "More Information about the Sound",
+      "sended_ok": "The sound was recorded correctly.",
+      "sended_error": "An error has occurred. The sound could not be recorded."
+    },
+    "graphic": {
+      "title_x": "Time (seconds)",
+      "title_y": "Sound pressure level (dBA)",
+      "title_x_spectral":"Frequency (Hertz)",
+      "title_y_spectral":"Acoustic pressure (dBA)"
+    }
+  },
+  "global": {
+    "label": {
+      "loading": "Loading...",
+      "header_update_app": "Download the Latest Version",
+      "message_update_app": "You need to download the latest version of the app.",
+      "btn_update_app": "Download New Version",
+      "loading_processing_sound": "Processing the audio... please wait"
+    }
+  },
+  "global_error": {
+    "label": {
+      "header": "Information",
+      "message": "The action could not be completed, please contact the development team.",
+      "credencial_invalid": "The email or password entered is incorrect.",
+      "error_ocurred": "An error occurred",
+      "location_disabled_header": "Location disabled",
+      "location_disabled_message": "Please, enable location services to register a new sound."
+    }
+  },
+  "observations": {
+    "label": {
+      "detail": "Observation Detail"
+    },
+    "weather": {
+      "title": "Weather information",
+      "wind": "Wind",
+      "humidity": "Humidity",
+      "temperature": "Temp",
+      "pressure": "Pressure"
+    },
+    "questions": {
+      "question1": "Which types of sound do you identify hear in this location?",
+      "question2": "How quiet is the acoustic environment in this location?",
+      "question3": "Please rate the overall cleanliness and maintenance of this location.",
+      "question4": "Please rate the overall accessibility to this location",
+      "question5": "Please rate the overall safety to this location",
+      "question6": "Do the sounds in this location positively influence your moods/emotions?",
+      "question7": "¿Es este sonido un punto de referencia?",
+      "question8": "Do you think this space should be acoustically protected? If so, what methods would you suggest for achieving acoustic protection?",
+      "questionExp1": "The present surrounding acoustic environment is …? Please tick off one response alternative per scale",
+      "questionExp2": "En general, ¿cómo describiría el entorno sonoro actual?",
+      "questionExp3": "Overall, to what extent does the current sound environment correspond to where you are? Please tick off one response"
+    },
+    "answers": {
+      "Q1A1": "Natural sounds: singing birds, following water, wind in vegetation.",
+      "Q1A2": "Human beings: Conversation, laughter, children at play, footsteps.",
+      "Q1A3": "Traffic noise: car, buses, trains, air planes.",
+      "Q1A4": "Other sounds: sirens, construction, industry, loading of goods.",
+      "Q2A1": "Not at all",
+      "Q2A2": "Slightly",
+      "Q2A3": "Moderately",
+      "Q2A4": "Very",
+      "Q2A5": "Extremely",
+      "Q3A1": "Very bad",
+      "Q3A2": "Bad",
+      "Q3A3": "Neither good, nor bad",
+      "Q3A4": "Good",
+      "Q3A5": "Very good",
+      "Q4A1": "Very bad",
+      "Q4A2": "Bad",
+      "Q4A3": "Neither good, nor bad",
+      "Q4A4": "Good",
+      "Q4A5": "Very good",
+      "Q5A1": "Very bad",
+      "Q5A2": "Bad",
+      "Q5A3": "Neither good, nor bad",
+      "Q5A4": "Good",
+      "Q5A5": "Very good",
+      "Q6A1": "Strongly agree",
+      "Q6A2": "Agree",
+      "Q6A3": "Neither agree / disagree",
+      "Q6A4": "Disagree",
+      "Q6A5": "Strongly disagree",
+      "QE1A1": "Strongly agree",
+      "QE1A2": "Agree",
+      "QE1A3": "Neither agree / disagree",
+      "QE1A4": "Disagree",
+      "QE1A5": "Strongly disagree",
+      "questionExp1A1": "Pleasant",
+      "questionExp1A2": "Chaotic",
+      "questionExp1A3": "Vibrant",
+      "questionExp1A4": "Uneventful",
+      "questionExp1A5": "Calm",
+      "questionExp1A6": "Annoying",
+      "questionExp1A7": "Eventful",
+      "questionExp1A8": "Monotonous",
+      "questionExp2A1": "Muy malo",
+      "questionExp2A2": "Malo",
+      "questionExp2A3": "Ni bueno, ni malo",
+      "questionExp2A4": "Bueno",
+      "questionExp2A5": "Very good",
+      "questionExp3A1": "Not at all.",
+      "questionExp3A2": "Slightly",
+      "questionExp3A3": "Moderately.",
+      "questionExp3A4": "Very.",
+      "questionExp3A5": "Perfectly"
+    },
+    "parameters": {
+      "title": "Acoustic parameters",
+      "info": "<p> <b>Leq (o LAeq)</b> stands for the equivalent continuous sound pressure level. This term refers to a constant noise level that, over a specific period, would generate the same total sound energy as the actual varying noise levels. </p><br> <p> The terminology “LA” refers to the A-weighted sound pressure level. A-weighting in acoustics adjusts sound measurements to match human hearing sensitivity, giving more weight to mid-range frequencies and less to low and high frequencies. These adjusted levels noted as dB(A) or dBA, are used to better represent sound impact on people. </p><br> <p> The parameter <b>LAeq,t</b> is a type of average of the “Equivalent continuous sound level” over the sample period (t). It represents the sound level measured in a specific time interval. In the case of SoundCollect, the interval is 1 second. Therefore, LAeq,t shows the evolution of the recorded sound every second and the application records the sound for 30 seconds, a total of LAeq,t=30s values are obtained. </p><br> <p> From the LAeq value, the other acoustic parameters shown on the screen are calculated: </p><br> <ul> <li> <strong>LAmax</strong>: This is the maximum sound pressure level value recorded over 30 seconds. </li> <li> <strong>LAmin</strong>: This is the minimum sound pressure level value recorded over 30 seconds. </li> <li> <strong>L10</strong>: This is the sound pressure level exceeded 10% of the time. </li> <li> <strong>L90</strong>: This is the sound pressure level exceeded 90% of the time.</li> </ul><br> <p> For instance, if L90=60dB, it means that during 27 seconds (90%) of a 30-second recording, the sound pressure level was above 60dB. On the other hand, if L10=70dB, it indicates that during 3 seconds (10%) of the same 30-second recording, the sound pressure level exceeded 70dB.</p><br> "
+    }
+  },
+  "terms_and_conditions": {
+    "title": "Terms and Conditions",
+    "description": "<br /> <p> Welcome to the terms and conditions that regulate your use of SoundCollect and its software, applications, services and technologies. Please read the terms and conditions carefully. </p> <br /> <p><strong>Purpose</strong></p> <p> SoundCollect offers users an application for smartphones, so that users can report information on community spaces of high acoustic and socio-environmental value, in order to create a collaborative map of quiet areas at a local level that allows to improve the management, protection and conservation of these spaces. </p> <br /> <p><strong>The service</strong></p> <p> The service includes all the functions and software we provide to create an application driven by users in order to generate an interactive map that will allow you to discover places and inform about their status through the tools offered by SoundCollect, including the possibility of attaching images and sounds. </p> <p>You can only use the service:</p> <ul> <li>If you accept the terms and conditions and the privacy policy</li> <li> If you have the legal age to give consent for your data to be processed, or if you provide a sworn statement that your parents or legal guardians have consented to the use of the service. </li> </ul> <br /> <p>Use the service responsibly.</p> <p> Please always take care of your environment and never endanger yourself while using SoundCollect. Never register data under insecure conditions. Always take into account your safety first and foremost. The use of SoundCollect is carried out under your own responsibility.</p> <br /> <p><strong>Your user account</strong></p> <p> With our service aims to help identify public spaces of high acoustic and socio-environmental value, to promote their democratisation, knowledge, maintenance and preservation, in a collective, responsible and ecological way. In other words, this service allows to generate knowledge about the environmental value of surrounding spaces and, ultimately, influence policy makers to take measures to recover them, and preserve them in a sustainable and inclusive way. </p> <p> A user account is necessary for the use of the platform. A minimum amount of personal data is required for registration, in particular, a pseudonym and an active email are required. The rest of the data requested are optional. All personal data are processed in a lawful manner and respecting European data protection regulations, all as detailed in our privacy policy. </p> <p> By registering and accepting the terms of use, you are granting us permission to process your personal data. It is also accepting the treatment by external services, such as servers, cloud hosting providers, integrated services and other components necessary for the use of SoundCollect. </p> <br /> <p><strong>Unregistered SoundCollect Usage</strong></p> <p> You can always view SoundCollect content without registering or logging in to navigate. However, if you want to actively participate and register, you must create your own user account or log in to be part of our community. </p> <br /> <p><strong>Geo-spatial constraints</strong></p> <p> You declare that you will not share information that conflicts with the ownership or privacy of others or that is obtained in restricted areas. By providing and locating data on a public space, you assume full and complete legal responsibility for your contribution. You confirm that it is legal, according to local laws, to create and share data on this site, and that no third party will be limited or damaged, or that the value of any third party property will be diminished by your contribution. </p> <br /> <p><strong>Violation of terms of use</strong></p> <p> We respect copyright and intellectual property rights, third-party privacy, trademarks and license rights. </p> <p> We reserve the unrestricted right to remove any content that has been contributed in violation of these terms, the terms of the license or any applicable regulation. </p> <br /> <p><strong>GDPR and our team</strong></p> <p> Some personal data is required to use the SoundCollect application. All personal data are regulated by the General Data Protection Regulation (EU) 2016/679 (GRPD). You can erase all your personal data from the entire project platform at any time. You can also download all the data you have provided to the project. Participation in this project is completely voluntary. </p> <p> Our team is informed about the General Data Protection Regulation (GDPR) and its obligations. We continually train our team in terms of data protection, personal rights, copyright, trademark and license rights and aspects of digital privacy, in particular also on a data protection ethics experienced in a modern and connected world. </p> <br /> <p><strong>Ethical considerations</strong></p> <p> It is not allowed to use the application in an unethical way, that is, you cannot load false data in bad faith, nor upload images or audios that allow to identify third parties, that is, they can be considered as personal data of third parties (in any case, false data, or personal data of third parties are identified during the process of data validation and are not loaded on the public map if they are detected). </p> <p>What will be the benefits or risks of participating in SoundCollect?</p> <p> Anyone of legal age can participate in this citizen science initiative. There are no economic incentives associated with their participation in the project. Our objective is to generate data on public spaces of acoustic and socio-environmental value, which can be used by different actors to create solutions to the problems of their use and conservation. However, this is a collaborative research project that has no direct relationship with any type of actors involved in the decisions that may affect the administration and management of such spaces. </p> <p> Is there any direct connection between this collaborative research project and the government action? </p> <p> There is no direct connection between this research project and government action, or any other action that may be undertaken by activities that cause noise pollution. </p> <p>How can I leave the project?</p> <p> You are free to leave the project at any time. All personal data are regulated by the GRPD, so you can exercise your rights in accordance with this law. The SoundCollect application provides an interface to erase all your personal data, although by default, observation data and other non-personal data you have uploaded to the platform will be maintained. However, you can request its complete deletion by email at hello·soundcollect.eu </p>"
+  },
+  "privacy_policy": {
+    "title": "Privacy Policy",
+    "description": "<p> Are you willing to participate in SoundCollect, a citizen science project based on the direct involvement of citizens, policymakers, scientists, industries and SMEs that aims to identify and protect community spaces? With your help we seek to recognize and make visible places of acoustic and socio-environmental value in order to promote their knowledge, care and preservation. </p> \n</br> <p> For us, it is essential that you understand what personal data we are collecting and how we will process this information. We care about your personal data and your rights over them. Your data will be processed in a lawful manner, subject at all times to the principles and rights enshrined in the General Data Protection Regulation (EU Directive 2016/679), the LOPDGDD 3/2018 and all other relevant regulations on the protection of personal data. </p> \n</br> <p> Please read this information carefully. If you have any questions or something is not clear to you, write to us at <a href='mailto:hello@soundcollect.eu'>hello@soundcollect.eu</a>. </p> \n</br> <p><strong>Responsible for processing</strong></p> \n</br> <p> Identity: SCIENCE FOR CHANGE <br />C.I.F: B67362392<br />Home: C/ Vilamarí, no. 50, 7o, 08015, Barcelona, Spain<br />Email address: <a href='mailto:hello@soundcollect.eu'>hello@soundcollect.eu</a>.<br />Web: <a href='https://www.scienceforchange.eu/'>www.scienceforchange.eu</a ><br />Telephone: 932 43 33 10 </p> \n</br> <p><strong>Personal data processed</strong></p> \n</br> <p> We collect different types of data. For the use of SoundCollect we will request the following Personal Data: <br />- Email<br />- Pseudonym / name<br />- Geolocation<br />- Date and time of your registration.<br />- Optional: Year of birth and gender. </p> \n</br> <p><strong>Purpose of the processing of personal data</strong></p> \n</br> <p> We process your personal data in order to allow the operation of SoundCollect. The purpose of the platform is to identify public spaces with a high socio-environmental value to generate an interactive map from them. This map seeks to democratize public spaces, allowing citizens to know them, value them, take care of them and preserve them. On the other hand, the processing of your data aims to keep you informed about the new developments of the project, its benefits and advances. </p> \n</br> <p> The processing of your personal data is necessary for the creation of your user account and so that you can use all the functionalities of SoundCollect. That is, so you can record the location of a site, load images that allow other users to view it, and load sounds to help the community understand the sound atmosphere of the site. We will also use your email, if you authorize us for this purpose, to send you information about specific events or about results related to the project. </p> \n</br> <p> Information about your year of birth and gender will be used exclusively for statistical, scientific purposes and for the general interest. </p> \n</br> <p> On the other hand, we process your geolocation data with the aim that you can report the location of a public place of socio-environmental value for the elaboration of a collective and interactive map. </p> \n</br> <p><strong>Legitimation of treatment</strong></p> \n</br> <p> The basis for legitimizing the processing of data is the consent granted by the user by selecting the acceptance box of our privacy policy and the SoundCollect information and communications box. The user has the right to revoke their consent at any time without affecting the legality of the treatment based on the consent prior to its withdrawal. </p> \n</br> <p> <strong >Transfer or communication of personal data and international transfers</strong > </p> \n</br> <p> Your data will not be communicated or transferred to third parties, unless there is a legal obligation or those providers linked to the Responsible who act as data processors. No international transfers are made, in the event that at any time they may be made, they will be communicated to you in order to obtain your consent. </p> \n</br> <p><strong>Retention period</strong></p> \n</br> <p> These data will be kept for the time strictly necessary to fulfill the purpose for which they were collected and, only as long as the user does not revoke his consent to the processing of them. </p> \n</br> <p><strong>Your rights and how to exercise them</strong></p> \n</br> <> The user can exercise all the rights recognized by the RGPD 2016/679 and other current regulations regarding data protection. In particular, you have the following rights: <br />- Request information about the personal data we have about you and, if so, what information we have, why we have it and how we are using it. <br />- Request access to your personal data. This allows you to receive a copy of your personal data and correct any incomplete or incorrect information we have about them.<br />- Request the limitation of the processing of your data<br />- Oppose the processing of the same by withdrawing your consent.<br />- Solicitar la rectificación o eliminación de tus datos personales. Esto te permite borrar o pedirnos que borremos sus datos personales.<br />- Request the rectification or erasure of your personal data. This allows you to delete or ask us to delete your personal data.<br />- Request the transfer of your personal data to you or to a third party in an electronic and structured format - commonly known as the right to data portability. </p> \n</br> <p> You can exercise your rights by contacting the following email box: <a href='mailto:hello@scienceforchange.eu'>hello@scienceforchange.eu</a>. If you consider that your rights have not been duly respected, you have the right to file a claim with the Spanish Data Protection Agency. </p> \n</br> <p><strong>Processing of data of minors</strong></p> \n</br> <p> Whoever provides the data through the forms of this website and accepts its treatment declares to be over 14 years old, being prohibited the access and use of the portal to minors of this age. If, at any time, the Responsible detects that a person under 14 years of age has provided personal data, we will proceed to cancel them. Likewise, parents or guardians may in any case contact SCIENCE FOR CHANGE to block the access account of minors under their care who have registered by falsifying their identity. </p> \n</br> <p><strong>Security measures</strong></p> \n</br> <p> In SCIENCE FOR CHANGE we treat your data in a lawful way and in compliance with current regulations on data protection. To this end, we have implemented technical and organizational security measures to guarantee the security of the user’s personal data and to prevent its alteration, loss, treatment and unauthorized access, as well as to avoid any other unauthorized risk to which they may be exposed. </p> \n</br> <p> The measures include, among others, the safeguarding of the confidentiality, integrity and availability of the data through the control of physical and electronic access to them, as well as the access, introduction, transmission, insurance and separation of the data. In addition, we have established procedures to ensure that the rights of data subjects are respected, that data is erased and that we are prepared to respond quickly to data threats. In addition, we take into account the protection of personal data from the development or selection of hardware, software and service providers, in accordance with the privacy principle from the design and privacy by default. </p> \n</br> <p> To protect your data transmitted through our online services in the best possible way, we use encryption, anonymization and pseudonymitication techniques, among others </p>"
+  },
+  "no_user_auth": {
+    "text": "To view the content, you need to log in or create an account.",
+    "btn": "Log in or create account"
+  },
+  "calibration": {
+    "popupTitle": "Sound Calibration",
+    "popupTxt": "A proper calibration of the mobile devices ensures that the data obtained is reliable and precise. Over time, factors such as weather, frequent use or environmental changes may cause deviations with respect to the correct values.For this reason, calibrating the mobile devices ensures a reduction of measurement errors by correcting these deviations.",
+    "popupBtn1": "Perform Calibration",
+    "popupBtn2": "Continue Without Calibrating",
+    "beginCalibrationTitle": "Start Calibration",
+    "beginCalibrationTxt1": "Record 10 seconds with the device and the sonometer simultaneously in a quiet room.",
+    "beginCalibrationTxt2": "Install the external microphone to the device, then attach the pistonphone calibrator to the external microphone. Record 10 seconds.",
+    "beginCalibrationTxt3": "Record 10 seconds simultaneously with your devices and with the calibrated device in a quiet room.",
+    "beginCalibrationTxt4": "Record 10 seconds with your device in a quiet room.",
+    "doneValidationTitle": "Calibration Successful!",
+    "doneValidationTxt": "You can now continue recording audio as usual.",
+    "doneValidationBtn": "Record a New Sound",
+    "calibration_value": "Calibration Value",
+    "calibration_value_desc": "This is the obtained calibration value:",
+    "calibration_value_desc2": "Do you know the real value?",
+    "calibration_value_desc3": "The range should be between 20 and 140 dB.",
+    "calibration_value_desc4": "Yes, I can measure it manually",
+    "select_reference_text": "Select whether or not you have a device to use as a reference:",
+    "sound_level_meter": "I have a sound level meter",
+    "sound_level_meter_txt": "A sonometer is a measurement device that is used to measure the sound level with an accurate microphone.",
+    "external_microphone": "External microphone",
+    "external_microphone_txt": "An external microphone is a microphone that is connected to the mobile device and can provide more accurate measurements than the internal microphone.",
+    "another_device": "Other calibrated device",
+    "another_device_txt": "A calibrated mobile device is another mobile device, different from the user's own, that has been previously calibrated and provides reliable results.",
+    "no_reference": "No reference",
+    "no_reference_txt": "The users can select this option if they do not have access to a sonometer, an exterior microphone or a calibrated device. This option performs a check of the values being measured by the application.",
+    "btn_save":"Save",
+    "btn_next":"Next",
+    "calibration_device_1":"Enter the sound pressure level (dBA) value obtained with the sound level meter.",
+    "calibration_device_2":"Introduce the value of 94 dB to the device.",
+    "calibration_device_3":"Enter the sound pressure level (dBA) value obtained from the calibrated device.",
+    "calibration_device_4":"If the measured value is in the range of 25-35 dBA, the device is considered as calibrated. If it is outside the indicated range, the reference value automatically considered by the application is 30 dBA.",
+    "notification_title": "Incorrect calibration",
+    "notification_description": "Calibration is out of correct range. Go to a quiet room and press Recalibrate. The range is 25-35 but the value received is ",
+    "notification_btn1": "Recalibrate",
+    "notification_btn2": "Back"
+  },
+  "achievements": {
+    "my_achievements": "My achievements",
+    "point": " point",
+    "points": " points",
+    "level": "Level ",
+    "achievements": "Achievements",
+    "lvl1": "Contributor",
+    "lvl2": "Acoustic Citizen",
+    "lvl3": "Acoustic Explorer",
+    "lvl4": "Sound Traveler",
+    "lvl5": "Expert Informer"
+  },
+  "achievements_modal": {
+    "new_achievements": "New Achievement",
+    "lvl1": "Contributor",
+    "lvl2": "Acoustic Citizen",
+    "lvl3": "Acoustic Explorer",
+    "lvl4": "Sound Traveler",
+    "lvl5": "Expert Informer",
+    "arg": "You've unlocked a new achievement!\nYou've leveled up to become even more of an expert."
+  },
+  "home": {
+    "search": "Location",
+    "map": "Map",
+    "normal": "Normal",
+    "hybrid": "Hybrid",
+    "satellite": "Satellite",
+    "terrain": "Terrain",
+    "sounds": "Sounds",
+    "all": "All",
+    "mine": "Mine"
+  },
+  "delete_popup": {
+    "message": "Are you sure you want to delete your account and all your data?",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "delete_page": {
+    "title": "We are sorry you want to leave SoundCollect",
+    "message": "Remember that by deleting your account, all your data and contributions will be deleted.",
+    "message2": "If you want to return in the future, you will need to register again and start collaborating anew.",
+    "btn_ok": "Delete my account and data",
+    "btn_cancel": "Continue collaborating"
+  }
+}

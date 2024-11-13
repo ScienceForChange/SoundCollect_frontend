@@ -1,0 +1,39 @@
+.my-bg-profile{
+    background-image: url("../../../assets/images/SoundCollect/Ilustraciones/mis-registros.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.box-style{
+    display: flex;
+    padding-top: 12px;
+    width: 96vw;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 20px;
+    border: 1.5px solid #F2F4F3;
+    background:  #FFF;
+}
+.my-btn-close-session{
+    background: var(--ion-color-tertiary);
+    color: var(--ion-text-dark);
+}
+ion-modal {
+  --width: 90%;
+  --height: 406px;
+  --border-radius: 29px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  background:  #FFF;
+}
+
+ion-modal::part(backdrop) {
+  background: rgba(21, 76, 81, 0.40);
+  opacity: 1;
+}
+
+ion-modal ion-toolbar {
+  --background: white;
+  --color: black;
+}

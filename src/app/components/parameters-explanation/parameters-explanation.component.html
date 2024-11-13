@@ -1,0 +1,58 @@
+<ion-button fill="clear" (click)="openSecondModal()"><ion-icon slot="icon-only" [color]="buttonTextColor" name="information-circle-outline"></ion-icon></ion-button>
+<ion-modal
+  class="parameter-modal"
+  [isOpen]="open"
+  (willDismiss)="onWillDismiss($event)"
+  style="--width: 100vw; --height: 100vh;--min-width: 100vw; --min-height: 100vh; --border-radius: none"
+>
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>{{ "observations.parameters.title" | translate }}</ion-title>
+        <ion-buttons slot="end">
+          <img
+            tappable="true"
+            class="mt-1 mr-1"
+            (click)="close()"
+            ngSrc="assets/images/SoundCollect/Iconos/close.svg"
+            alt="back"
+            width="24"
+            height="24"
+          />
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <label
+        class="H6-14-400-SpaceGrotesk ion-text-justify"
+        [innerHTML]="'observations.parameters.info' | translate"
+      ></label>
+
+      <div class="ion-text-justify" *ngIf="isExpert">
+
+        <div class="my-2">
+          <label class="H6-14-400-SpaceGrotesk ion-text-justify font-bold underline">{{'sounds.collect.process.sharpness_S'|translate}}</label>
+          <label class="H6-14-400-SpaceGrotesk ion-text-justify"> {{'sounds.collect.process.sharpness_S_descrip'|translate}} </label>
+        </div>
+
+        <div class="my-2">
+          <label class="H6-14-400-SpaceGrotesk ion-text-justify font-bold underline">{{'sounds.collect.process.loudness_N'|translate}}</label>
+          <label class="H6-14-400-SpaceGrotesk ion-text-justify"> {{'sounds.collect.process.loudness_N_descrip'|translate}} </label>
+        </div>
+
+        <div class="my-2">
+          <label class="H6-14-400-SpaceGrotesk ion-text-justify font-bold underline">{{'sounds.collect.process.roughtness_R'|translate}}</label>
+          <label class="H6-14-400-SpaceGrotesk ion-text-justify"> {{'sounds.collect.process.roughtness_R_descrip'|translate}} </label>
+        </div>
+
+        <div class="my-2">
+          <label class="H6-14-400-SpaceGrotesk ion-text-justify font-bold underline">{{'sounds.collect.process.fluctuation_strength_F'|translate}}</label>
+          <label class="H6-14-400-SpaceGrotesk ion-text-justify"> {{'sounds.collect.process.fluctuation_strength_F_descrip'|translate}} </label>
+        </div>
+
+        <br><br><br><br><br>
+
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>

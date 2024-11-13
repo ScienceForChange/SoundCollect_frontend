@@ -1,0 +1,1093 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar
+    color="ligth"
+    class="ion-no-margin ion-no-padding ion-no-border bg-white"
+  >
+    <div class="flex items-center justify-start px-3">
+      <img
+        tappable="true"
+        class="mt-1"
+        (click)="goBack()"
+        src="assets/images/SoundCollect/Iconos/back.svg"
+        alt="back"
+        width="24"
+      />
+      <ion-text class="H2-22-700 self-start ms-16 my-text-header">
+        {{'sounds.collect.add'|translate}}
+      </ion-text>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="flex items-center px-3 py-2 w-full justify-between">
+    <div
+      [ngClass]="myStep>=1?'orange-bg':''"
+      class="text-center flex items-center justify-center"
+      style="
+        border-radius: 50%;
+        min-width: 32px;
+        height: 32px;
+        border: 2px solid #fda568;
+      "
+    >
+      1
+    </div>
+    <div class="w-full" style="height: 2px; background-color: #fda568"></div>
+    <div
+      [ngClass]="myStep>=2?'orange-bg':''"
+      class="text-center flex items-center justify-center"
+      style="
+        border-radius: 50%;
+        min-width: 32px;
+        height: 32px;
+        border: 2px solid #fda568;
+      "
+    >
+      2
+    </div>
+    <div class="w-full" style="height: 2px; background-color: #fda568"></div>
+    <div
+      [ngClass]="myStep>=3?'orange-bg':''"
+      class="text-center flex items-center justify-center"
+      style="
+        border-radius: 50%;
+        min-width: 32px;
+        height: 32px;
+        border: 2px solid #fda568;
+      "
+    >
+      3
+    </div>
+    <div class="w-full" style="height: 2px; background-color: #fda568"></div>
+    <div
+      [ngClass]="myStep>=4?'orange-bg':''"
+      class="text-center flex items-center justify-center"
+      style="
+        border-radius: 50%;
+        min-width: 32px;
+        height: 32px;
+        border: 2px solid #fda568;
+      "
+    >
+      4
+    </div>
+  </div>
+
+  <div
+    *ngIf="isUserAuth"
+    class="flex-col flex w-full justify-between items-center p-3"
+    style="height: 77vh"
+  >
+    <div class="w-full flex flex-col" *ngIf="myStep===1">
+      <label
+        class="H-20-700 mt-4 my-text-header w-full flex justify-between items-center"
+      >
+        {{'sounds.collect.title'|translate}}</label
+      >
+      <label class="H-16-400 my-text-header mt-2"
+        >{{'sounds.collect.30Seg'|translate}}</label
+      >
+      <div class="w-full flex justify-center p-3">
+        <div
+          class="circle-container"
+          tappable
+          (click)="!recording && (stoped?initRecord():resumeRecording())"
+        >
+          <div class="circle back-circle"></div>
+          <div
+            class="circle w-100"
+            [ngClass]="recording ? 'animated-circle-full' : ''"
+          ></div>
+          <div class="circle center-circle">
+            <ion-icon name="mic" class="icon-mic-style"></ion-icon>
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-full flex flex-col justify-center align-middle text-center"
+        *ngIf="flagViewControls"
+      >
+        <div class="flex justify-center text-center my-5">
+          <label class="H-20-700 mt-4 my-text-header flex items-center"
+            ><p>{{ timer }}</p></label
+          >
+        </div>
+        <div class="flex flex-row justify-center mt-3">
+          <div
+            class="w-full flex flex-col justify-center ion-align-items-center mb-3"
+            [ngClass]="stoped ? 'opacity-50' : ''"
+            tappable
+            (click)="recording?pauseRecording():!stoped && resumeRecording()"
+          >
+            <img
+              ngSrc="assets/images/SoundCollect/{{recording?'pause':'continue'}}.svg"
+              height="40"
+              width="40"
+              alt=""
+            />
+            {{(recording?'sounds.collect.pause':'sounds.collect.continue')|translate}}
+          </div>
+          <div
+            class="w-full flex flex-col justify-center ion-align-items-center mb-3"
+            [ngClass]="!recording || seconds<minSeconds+1 ? 'opacity-50' : ''"
+            tappable
+            (click)="recording && seconds>=minSeconds && stopRecording()"
+          >
+            <img
+              ngSrc="assets/images/SoundCollect/stop.svg"
+              height="40"
+              width="40"
+              alt=""
+            />
+            {{'sounds.collect.stop'|translate}}
+          </div>
+          <div
+            class="w-full flex flex-col justify-center ion-align-items-center mb-3"
+            [ngClass]="recording ? 'opacity-50' : ''"
+            tappable
+            (click)="resetRecording()"
+          >
+            <img
+              ngSrc="assets/images/SoundCollect/restart_s.svg"
+              height="40"
+              width="40"
+              alt=""
+            />
+            {{'sounds.collect.reset'|translate}}
+          </div>
+        </div>
+      </div>
+      <br /><br /><br /><br /><br />
+    </div>
+    <div
+      class="w-full flex flex-col"
+      *ngIf="myStep===2"
+      style="overflow-y: scroll"
+    >
+      <label
+        class="H-20-700 mt-4 my-text-header w-full flex justify-between items-center"
+        >{{'sounds.collect.registered'|translate}}</label
+      >
+      <div
+        class="flex gap-5 mt-2 justify-between items-center px-2 pe-4"
+        style="border-radius: 100px; background: #deeeef"
+      >
+        <ion-button fill="clear" (click)="start(false)" *ngIf="!isPlaying">
+          <img
+            ngSrc="assets/images/SoundCollect/Iconos/play.svg"
+            alt=""
+            height="32"
+            width="32"
+          />
+        </ion-button>
+        <ion-button fill="clear" (click)="start(true)" *ngIf="isPlaying">
+          <img
+            ngSrc="assets/images/SoundCollect/Iconos/play.svg"
+            alt=""
+            height="32"
+            width="32"
+          />
+        </ion-button>
+        <ion-range
+          #range
+          [(ngModel)]="progress"
+          max="100"
+          (touchend)="seek()"
+          (mouseup)="seek()"
+        ></ion-range>
+        <label class="H8-12-400-SpaceGrotesk my-text-header flex items-center"
+          ><p>{{ timer }}</p></label
+        >
+      </div>
+      <!--      <ion-label class="H-16-400 my-text-header">{{ temporizador?.obtenerTiempoRestante() }}</ion-label>-->
+      <div class="flex flex-row justify-between items-center mt-8">
+        <label class="H-20-700 my-text-header">
+          {{ "sounds.collect.parameters" | translate }}
+        </label>
+        <app-parameters-explanation [isExpert]="isExpert"></app-parameters-explanation>
+      </div>
+      <div class="flex w-full mt-2 justify-between items-center">
+        <div class="flex flex-col" *ngIf="soundRecordResponse">
+          <div class="H-16-400 my-text-header flex items-center">
+            <div class="w-full flex m-2">
+              <img
+                ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+                height="16"
+                width="16"
+                alt=""
+                class="me-1"
+              />
+              <strong>{{'sounds.collect.process.Leq'|translate}}</strong>:
+              {{soundRecordResponse.Leq | number:'1.0-0'}}
+            </div>
+          </div>
+          <div
+            class="H-16-400 my-text-header flex items-center"
+            *ngFor="let item of soundRecordResponse | keyvalue"
+          >
+            <div
+              class="w-full flex m-2"
+              *ngIf="item.key !== 'Leq' && item.key !== 'LAeqT' && item.key !== 'sharpness_S' && item.key !== 'loudness_N' && item.key !== 'roughtness_R' && item.key !== 'fluctuation_strength_F'"
+            >
+              <img
+                ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+                height="16"
+                width="16"
+                alt=""
+                class="me-1"
+              />
+              <strong>{{'sounds.collect.process.' + item.key|translate}}</strong
+              >: {{item.value | number:'1.0-0'}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-100 flex justify-center flex-col" *ngIf="showGraph">
+        <div class="H-16-400 my-text-header flex items-center">
+          <div class="w-full flex m-2">
+            <img
+              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+              height="16"
+              width="16"
+              alt=""
+              class="me-1"
+            />
+            <strong>{{'sounds.collect.process.LAeqT'|translate}}</strong>:
+          </div>
+        </div>
+        <div class="w-80">
+          <app-graph [dataset]="observation?.LAeqT"></app-graph>
+        </div>
+      </div>
+      <div *ngIf="isExpert">
+        <div class="H-16-400 my-text-header flex items-center mt-2">
+          <div class="w-full flex m-2">
+            <img
+              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+              height="16"
+              width="16"
+              alt=""
+              class="me-1"
+            />
+            <strong>{{'sounds.collect.process.sharpness_S'|translate}}</strong>:
+            {{soundRecordResponse.sharpness_S}}
+          </div>
+        </div>
+        <div class="H-16-400 my-text-header flex items-center">
+          <div class="w-full flex m-2">
+            <img
+              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+              height="16"
+              width="16"
+              alt=""
+              class="me-1"
+            />
+            <strong>{{'sounds.collect.process.loudness_N'|translate}}</strong>:
+            {{soundRecordResponse.loudness_N}}
+          </div>
+        </div>
+        <div class="H-16-400 my-text-header flex items-center">
+          <div class="w-full flex m-2">
+            <img
+              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+              height="16"
+              width="16"
+              alt=""
+              class="me-1"
+            />
+            <strong
+              >{{'sounds.collect.process.fluctuation_strength_F'|translate}}</strong
+            >: {{soundRecordResponse.fluctuation_strength_F}}
+          </div>
+        </div>
+        <div class="H-16-400 my-text-header flex items-center">
+          <div class="w-full flex m-2">
+            <img
+              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+              height="16"
+              width="16"
+              alt=""
+              class="me-1"
+            />
+            <strong>{{'sounds.collect.process.spectral'|translate}}</strong>
+          </div>
+        </div>
+        <div class="w-80">
+          <app-spectral-graph [segments]="observation.segments"></app-spectral-graph>
+        </div>
+      </div>
+      <br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br />
+    </div>
+    <div class="w-full flex flex-col" *ngIf="myStep === 3">
+      <input
+        type="file"
+        class="invisible"
+        multiple
+        id="fileUpload"
+        #fileUpload
+        accept="image/*"
+        (click)="$event.target.value=null"
+      />
+      <label
+        class="H-20-700 px-2 my-text-header w-full flex justify-start items-center"
+        >{{'sounds.collect.images'|translate}}</label
+      >
+      <div class="flex flex-wrap gap-2 justify-start items-center p-2">
+        <div
+          *ngFor="let file of fileList;let i = index"
+          class="img-box flex justify-end items-start"
+        >
+          <ion-img
+            style="aspect-ratio: 109/128; object-fit: cover"
+            [src]="getImgUrl(i)"
+          ></ion-img>
+          <img
+            *ngIf="!boxContent"
+            (click)="deleteImage(i)"
+            ngSrc="assets/images/SoundCollect/Iconos/delete-white.svg"
+            width="24"
+            height="24"
+            alt=""
+            class="delete-image"
+          />
+        </div>
+        <div
+          (click)="takePicture()"
+          class="img-box"
+          style="
+            background-image: url(assets/images/SoundCollect/Iconos/plus.svg);
+          "
+        ></div>
+      </div>
+      <br /><br /><br /><br /><br />
+    </div>
+    <div class="w-full flex flex-col" *ngIf="myStep===4">
+      <label
+        class="H-20-700 my-text-header w-full flex justify-start items-start mb-2"
+        >{{'sounds.results.more_info'|translate}}</label
+      >
+      <div class="w-full mt-3">
+        <label class="H3-18-700 my-text-header"
+          >{{'observations.questions.question1'|translate}} (*)</label
+        >
+        <ion-radio-group>
+          <div class="w-full flex flex-col">
+            <ion-checkbox
+              class="around flex"
+              value="1"
+              (ionChange)="toggleCheckbox(1)"
+              labelPlacement="end"
+              justify="start"
+              mode="md"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q1A1'|translate}}
+              </div>
+            </ion-checkbox>
+            <ion-checkbox
+              class="around my-1"
+              value="2"
+              (ionChange)="toggleCheckbox(2)"
+              labelPlacement="end"
+              justify="start"
+              mode="md"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q1A2'|translate}}
+              </div>
+            </ion-checkbox>
+            <ion-checkbox
+              class="around my-1"
+              value="3"
+              (ionChange)="toggleCheckbox(3)"
+              labelPlacement="end"
+              justify="start"
+              mode="md"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q1A3'|translate}}
+              </div>
+            </ion-checkbox>
+            <ion-checkbox
+              class="around my-1"
+              value="4"
+              (ionChange)="toggleCheckbox(4)"
+              labelPlacement="end"
+              justify="start"
+              mode="md"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q1A4'|translate}}
+              </div>
+            </ion-checkbox>
+          </div>
+        </ion-radio-group>
+      </div>
+      <div class="mt-3 d-flex flex-wrap justify-content-between">
+        <label class="H3-18-700 my-text-header"
+          >{{'observations.questions.question2'|translate}} (*)</label
+        >
+        <ion-radio-group [(ngModel)]="observation.quiet" required>
+          <div class="w-full flex flex-col">
+            <ion-radio
+              class="around my-1"
+              value="1"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q2A1'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="2"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q2A2'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="3"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q2A3'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="4"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q2A4'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="5"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q2A5'|translate}}
+              </div>
+            </ion-radio>
+          </div>
+        </ion-radio-group>
+      </div>
+      <div class="mt-4">
+        <label class="H3-18-700 my-text-header"
+          >{{'observations.questions.question3'|translate}} (*)</label
+        >
+        <ion-radio-group [(ngModel)]="observation.cleanliness">
+          <div class="w-full flex flex-col">
+            <ion-radio
+              class="around my-1"
+              value="1"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q3A1'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="2"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q3A2'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="3"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q3A3'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="4"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q3A4'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="5"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q3A5'|translate}}
+              </div>
+            </ion-radio>
+          </div>
+        </ion-radio-group>
+      </div>
+      <div class="mt-4">
+        <label class="H3-18-700 my-text-header"
+          >{{'observations.questions.question4'|translate}} (*)</label
+        >
+        <ion-radio-group [(ngModel)]="observation.accessibility">
+          <div class="w-full flex flex-col">
+            <ion-radio
+              class="around my-1"
+              value="1"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q4A1'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="2"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q4A2'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="3"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q4A3'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="4"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q4A4'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="5"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q4A5'|translate}}
+              </div>
+            </ion-radio>
+          </div>
+        </ion-radio-group>
+      </div>
+      <div class="mt-4">
+        <label class="H3-18-700 my-text-header"
+          >{{'observations.questions.question5'|translate}} (*)</label
+        >
+        <ion-radio-group [(ngModel)]="observation.safety">
+          <div class="w-full flex flex-col">
+            <ion-radio
+              class="around my-1"
+              value="1"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q5A1'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="2"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q5A2'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="3"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q5A3'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="4"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q5A4'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="5"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q5A5'|translate}}
+              </div>
+            </ion-radio>
+          </div>
+        </ion-radio-group>
+      </div>
+      <div class="mt-4">
+        <label class="H3-18-700 my-text-header"
+          >{{'observations.questions.question6'|translate}}</label
+        >
+        <ion-radio-group [(ngModel)]="observation.influence" required>
+          <div class="w-full flex flex-col">
+            <ion-radio
+              class="around my-1"
+              value="1"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q6A1'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="2"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q6A2'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="3"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q6A3'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="4"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q6A4'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="5"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.Q6A5'|translate}}
+              </div>
+            </ion-radio>
+          </div>
+        </ion-radio-group>
+      </div>
+      <!-- <div class="mt-4">
+        <label class="H3-18-700 my-text-header"
+          >{{'observations.questions.question7'|translate}}</label
+        >
+        <textarea class="input" [(ngModel)]="observation.landmark"></textarea>
+        <span class="require">{{ 'sounds.collect.required' | translate }}</span>
+      </div> -->
+      <div class="mt-4">
+        <label class="H3-18-700 my-text-header"
+          >{{'observations.questions.question8'|translate}}</label
+        >
+        <textarea class="input" [(ngModel)]="observation.protection"></textarea>
+        <span class="require">{{ 'sounds.collect.required' | translate }}</span>
+      </div>
+      <div class="mt-4" *ngIf="isExpert">
+        <label class="H3-18-700 my-text-header"
+          >{{'observations.questions.questionExp1'|translate}} (*)</label
+        >
+        <div>
+          <ion-item style="background: none">
+            <ion-select
+              label="{{('observations.answers.questionExp1A1')|translate}}"
+              [(ngModel)]="observation.pleasant"
+              aria-label="pleasent"
+              interface="popover"
+              placeholder=""
+              label-placement="floating"
+              required="true"
+            >
+              <ion-select-option value="1"
+                >{{'observations.answers.QE1A1'|translate}}</ion-select-option
+              >
+              <ion-select-option value="2"
+                >{{'observations.answers.QE1A2'|translate}}</ion-select-option
+              >
+              <ion-select-option value="3"
+                >{{'observations.answers.QE1A3'|translate}}</ion-select-option
+              >
+              <ion-select-option value="4"
+                >{{'observations.answers.QE1A4'|translate}}</ion-select-option
+              >
+              <ion-select-option value="5"
+                >{{'observations.answers.QE1A5'|translate}}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
+        </div>
+        <ion-item style="background: none">
+          <ion-select
+            label="{{('observations.answers.questionExp1A2')|translate}}"
+            [(ngModel)]="observation.chaotic"
+            aria-label="chaotic"
+            interface="popover"
+            placeholder=""
+            label-placement="floating"
+            required="true"
+          >
+            <ion-select-option value="1"
+              >{{'observations.answers.QE1A1'|translate}}</ion-select-option
+            >
+            <ion-select-option value="2"
+              >{{'observations.answers.QE1A2'|translate}}</ion-select-option
+            >
+            <ion-select-option value="3"
+              >{{'observations.answers.QE1A3'|translate}}</ion-select-option
+            >
+            <ion-select-option value="4"
+              >{{'observations.answers.QE1A4'|translate}}</ion-select-option
+            >
+            <ion-select-option value="5"
+              >{{'observations.answers.QE1A5'|translate}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <ion-item style="background: none">
+          <ion-select
+            label="{{('observations.answers.questionExp1A3')|translate}}"
+            [(ngModel)]="observation.vibrant"
+            aria-label="vibrant"
+            interface="popover"
+            placeholder=""
+            label-placement="floating"
+            required="true"
+          >
+            <ion-select-option value="1"
+              >{{'observations.answers.QE1A1'|translate}}</ion-select-option
+            >
+            <ion-select-option value="2"
+              >{{'observations.answers.QE1A2'|translate}}</ion-select-option
+            >
+            <ion-select-option value="3"
+              >{{'observations.answers.QE1A3'|translate}}</ion-select-option
+            >
+            <ion-select-option value="4"
+              >{{'observations.answers.QE1A4'|translate}}</ion-select-option
+            >
+            <ion-select-option value="5"
+              >{{'observations.answers.QE1A5'|translate}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <ion-item style="background: none">
+          <ion-select
+            label="{{('observations.answers.questionExp1A4')|translate}}"
+            [(ngModel)]="observation.uneventful"
+            aria-label="uneventful"
+            interface="popover"
+            placeholder=""
+            label-placement="floating"
+            required="true"
+          >
+            <ion-select-option value="1"
+              >{{'observations.answers.QE1A1'|translate}}</ion-select-option
+            >
+            <ion-select-option value="2"
+              >{{'observations.answers.QE1A2'|translate}}</ion-select-option
+            >
+            <ion-select-option value="3"
+              >{{'observations.answers.QE1A3'|translate}}</ion-select-option
+            >
+            <ion-select-option value="4"
+              >{{'observations.answers.QE1A4'|translate}}</ion-select-option
+            >
+            <ion-select-option value="5"
+              >{{'observations.answers.QE1A5'|translate}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <ion-item style="background: none">
+          <ion-select
+            label="{{('observations.answers.questionExp1A5')|translate}}"
+            [(ngModel)]="observation.calm"
+            aria-label="calm"
+            interface="popover"
+            placeholder=""
+            label-placement="floating"
+            required="true"
+          >
+            <ion-select-option value="1"
+              >{{'observations.answers.QE1A1'|translate}}</ion-select-option
+            >
+            <ion-select-option value="2"
+              >{{'observations.answers.QE1A2'|translate}}</ion-select-option
+            >
+            <ion-select-option value="3"
+              >{{'observations.answers.QE1A3'|translate}}</ion-select-option
+            >
+            <ion-select-option value="4"
+              >{{'observations.answers.QE1A4'|translate}}</ion-select-option
+            >
+            <ion-select-option value="5"
+              >{{'observations.answers.QE1A5'|translate}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <ion-item style="background: none">
+          <ion-select
+            label="{{('observations.answers.questionExp1A6')|translate}}"
+            [(ngModel)]="observation.annoying"
+            aria-label="annoying"
+            interface="popover"
+            placeholder=""
+            label-placement="floating"
+            required="true"
+          >
+            <ion-select-option value="1"
+              >{{'observations.answers.QE1A1'|translate}}</ion-select-option
+            >
+            <ion-select-option value="2"
+              >{{'observations.answers.QE1A2'|translate}}</ion-select-option
+            >
+            <ion-select-option value="3"
+              >{{'observations.answers.QE1A3'|translate}}</ion-select-option
+            >
+            <ion-select-option value="4"
+              >{{'observations.answers.QE1A4'|translate}}</ion-select-option
+            >
+            <ion-select-option value="5"
+              >{{'observations.answers.QE1A5'|translate}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <ion-item style="background: none">
+          <ion-select
+            label="{{('observations.answers.questionExp1A7')|translate}}"
+            [(ngModel)]="observation.eventful"
+            aria-label="eventful"
+            interface="popover"
+            placeholder=""
+            label-placement="floating"
+            required="true"
+          >
+            <ion-select-option value="1"
+              >{{'observations.answers.QE1A1'|translate}}</ion-select-option
+            >
+            <ion-select-option value="2"
+              >{{'observations.answers.QE1A2'|translate}}</ion-select-option
+            >
+            <ion-select-option value="3"
+              >{{'observations.answers.QE1A3'|translate}}</ion-select-option
+            >
+            <ion-select-option value="4"
+              >{{'observations.answers.QE1A4'|translate}}</ion-select-option
+            >
+            <ion-select-option value="5"
+              >{{'observations.answers.QE1A5'|translate}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <ion-item style="background: none">
+          <ion-select
+            label="{{('observations.answers.questionExp1A8')|translate}}"
+            [(ngModel)]="observation.monotonous"
+            aria-label="monotonous"
+            interface="popover"
+            placeholder=""
+            label-placement="floating"
+            required="true"
+          >
+            <ion-select-option value="1"
+              >{{'observations.answers.QE1A1'|translate}}</ion-select-option
+            >
+            <ion-select-option value="2"
+              >{{'observations.answers.QE1A2'|translate}}</ion-select-option
+            >
+            <ion-select-option value="3"
+              >{{'observations.answers.QE1A3'|translate}}</ion-select-option
+            >
+            <ion-select-option value="4"
+              >{{'observations.answers.QE1A4'|translate}}</ion-select-option
+            >
+            <ion-select-option value="5"
+              >{{'observations.answers.QE1A5'|translate}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+      </div>
+      <div class="mt-4" *ngIf="isExpert">
+        <label class="H3-18-700 my-text-header"
+          >{{'observations.questions.questionExp3'|translate}} (*)</label
+        >
+        <ion-radio-group [(ngModel)]="observation.overall">
+          <div class="w-full flex flex-col">
+            <ion-radio
+              class="around my-1"
+              value="1"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.questionExp3A1'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="2"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.questionExp3A2'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="3"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.questionExp3A3'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="4"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.questionExp3A4'|translate}}
+              </div>
+            </ion-radio>
+            <ion-radio
+              class="around my-1"
+              value="5"
+              labelPlacement="end"
+              justify="start"
+            >
+              <div class="ion-text-wrap">
+                {{'observations.answers.questionExp3A5'|translate}}
+              </div>
+            </ion-radio>
+          </div>
+        </ion-radio-group>
+      </div>
+      <br /><br /><br /><br /><br /><br /><br />
+    </div>
+  </div>
+
+  <div *ngIf="!isUserAuth" class="my-5">
+    <app-no-user-auth></app-no-user-auth>
+  </div>
+</ion-content>
+
+<ion-footer style="background-color: #e7ffff !important">
+  <!--take Picture or select Image -->
+  <div
+    *ngIf="imagePanelVar"
+    class="w-100 qualud-coupertino fixed-bottom d-flex justify-content-center align-items-end"
+  >
+    <div class="w-100 bg-white content d-flex flex-column gap-3 pt-1">
+      <div class="wrapper w-100">
+        <div class="wrapper">
+          <div class="container" (click)="takePicture()">
+            <ion-icon name="camera-outline" size="large"></ion-icon>
+            <!-- <img src="/assets/images/tab1/camara.svg" class="ion-margin-start ion-margin-end" alt="img"/> -->
+            <ion-text class="card-title-14-500">Take Picture</ion-text>
+          </div>
+          <div class="container" (click)="addImages()">
+            <ion-icon name="image-outline" size="large"></ion-icon>
+            <!-- <img src="/assets/image/cupertinopanel/upload.svg" class="ion-margin-start ion-margin-end" alt="img"/> -->
+            <ion-text class="card-title-14-500">File Picker</ion-text>
+          </div>
+          <div class="container" (click)="closeImagePane()">
+            <div class="ion-text-center card-title-14-500-sans w-100">
+              <!-- <img src="/assets/images/SoundCollect/Iconos/close.svg" class="ion-margin-start ion-margin-end" alt="img"/> -->
+              <ion-icon name="close-outline" size="large"></ion-icon>
+              <ion-text class="card-title-14-500">close</ion-text>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ion-no-border px-3 pt-2" *ngIf="isUserAuth">
+    <div class="flex w-full flex-col justify-evenly gap-3">
+      <button
+        *ngIf="myStep===1"
+        (click)="next(myStep)"
+        [disabled]="seconds < minSeconds || recording || sendingSounds>0"
+        class="my-btn-login mx-auto"
+        [ngClass]="(seconds < minSeconds || recording || sendingSounds>0) ? 'opacity-50' : ''"
+      >
+        {{'sounds.btn.analyze-sound'|translate}}
+      </button>
+      <div class="flex gap-6 justify-evenly" *ngIf="myStep>=2">
+        <button
+          (click)="back()"
+          class="my-btn-login"
+          style="background: #b2eaee; color: black"
+        >
+          {{'sounds.btn.back'|translate}}
+        </button>
+        <button *ngIf="myStep<=3" (click)="next()" class="my-btn-login">
+          {{'sounds.btn.next'|translate}}
+        </button>
+        <button
+          *ngIf="myStep===4"
+          (click)="resume()"
+          [disabled]="!isValid()"
+          class="my-btn-login"
+          [ngClass]="!isValid() ? 'opacity-50' : ''"
+        >
+          {{'sounds.btn.resume'|translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-footer>

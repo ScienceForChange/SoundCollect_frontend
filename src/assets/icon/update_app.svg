@@ -1,0 +1,22 @@
+<svg width="244" height="240" viewBox="0 0 244 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 19447">
+<ellipse id="Ellipse 334" cx="122" cy="120" rx="122" ry="120" fill="#0D423E" fill-opacity="0.56"/>
+<ellipse id="Ellipse 335" cx="120" cy="121" rx="91" ry="92" fill="#0D423E"/>
+<g id="system_update">
+<mask id="mask0_1491_3828" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="62" y="62" width="114" height="114">
+<rect id="Bounding box" x="62.439" y="62.439" width="113.171" height="113.171" fill="white"/>
+</mask>
+<g mask="url(#mask0_1491_3828)">
+<path id="system_update_2" d="M95.447 170.894C92.8535 170.894 90.6333 169.971 88.7864 168.124C86.9396 166.277 86.0161 164.057 86.0161 161.463V76.5853C86.0161 73.9918 86.9396 71.7716 88.7864 69.9247C90.6333 68.0778 92.8535 67.1544 95.447 67.1544H142.601C145.195 67.1544 147.415 68.0778 149.262 69.9247C151.109 71.7716 152.032 73.9918 152.032 76.5853V161.463C152.032 164.057 151.109 166.277 149.262 168.124C147.415 169.971 145.195 170.894 142.601 170.894H95.447ZM95.447 156.748V161.463H142.601V156.748H95.447ZM95.447 147.317H142.601V90.7316H95.447V147.317ZM95.447 81.3007H142.601V76.5853H95.447V81.3007Z" fill="white"/>
+</g>
+</g>
+<g id="arrow_downward_alt">
+<mask id="mask1_1491_3828" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="91" y="93" width="56" height="58">
+<rect id="Bounding box_2" x="91.7073" y="93.6585" width="54.6341" height="56.5854" fill="white"/>
+</mask>
+<g mask="url(#mask1_1491_3828)">
+<path id="arrow_downward_alt_2" d="M119.024 136.098L105.366 121.951L108.553 118.65L116.748 127.138V105.447H121.301V127.138L129.496 118.65L132.683 121.951L119.024 136.098Z" fill="white"/>
+</g>
+</g>
+</g>
+</svg>

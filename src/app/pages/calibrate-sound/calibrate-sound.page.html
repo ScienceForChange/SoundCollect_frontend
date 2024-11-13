@@ -1,0 +1,238 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar
+    color="ligth"
+    class="ion-no-margin ion-no-padding ion-no-border bg-white"
+  >
+    <div class="flex items-center justify-between px-3">
+      <ion-text class="H2-22-700 self-start my-text-header">
+        {{'calibration.popupTitle' | translate}}
+      </ion-text>
+      <img
+        tappable="true"
+        class="mt-1"
+        (click)="goToHome()"
+        src="assets/images/SoundCollect/Iconos/close.svg"
+        alt="back"
+        width="24"
+      />
+    </div>
+  </ion-toolbar>
+  <!-- Cuppertino Qualud Add/Edit Sons-->
+  <div
+    *ngIf="displayCuppertino"
+    class="qualud-coupertino fixed-bottom d-flex justify-content-center align-items-end"
+  >
+    <div class="content d-flex flex-col p-5">
+      <div class="w-full flex flex-col">
+        <div class="w-full flex justify-between mb-5">
+          <ion-text class="H2-22-700"
+            >{{'calibration.notification_title' | translate}}</ion-text
+          >
+          <button (click)="backStep()">
+            <img
+              src="/assets/images/SoundCollect/Iconos/close.svg"
+              alt="img"
+              width="32px"
+              height="32px"
+            />
+          </button>
+        </div>
+        <div class="w-full flex flex-col">
+          <ion-text class="H3-400-26-Calistoga ion-text-start"
+            >{{'calibration.notification_description' | translate}}{{calibrateValueApi}}</ion-text
+          >
+        </div>
+      </div>
+      <div class="w-full flex flex-col">
+        <button
+          class="my-btn-login my-btn-close-session mt-8 mx-auto"
+          (click)="initRecord()"
+        >
+          {{'calibration.notification_btn1' | translate}}
+        </button>
+        <button
+          class="H6-14-700-SpaceGrotesk mt-6 mx-auto"
+          (click)="backStep()"
+        >
+          {{'calibration.notification_btn2' | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div
+    *ngIf="isUserAuth"
+    class="flex-col flex w-full justify-between items-center p-3"
+    style="height: 77vh"
+  >
+    <div class="w-full flex flex-col" *ngIf="myStep===0">
+      <label class="H6-14-400-SpaceGrotesk my-text-header mt-6 mb-2"
+        >{{'calibration.popupTxt'|translate}}</label
+      >
+
+      <label class="H6-14-400-SpaceGrotesk my-text-header mt-6 mb-2"
+        >{{'calibration.select_reference_text'|translate}} (*)</label
+      >
+      <ion-radio-group [(ngModel)]="referenceDevice" required>
+        <div class="w-full flex flex-col">
+          <ion-radio
+            class="around my-1"
+            value="1"
+            labelPlacement="end"
+            justify="start"
+          >
+            <lavel class="ion-text-wrap H-16-700">
+              {{'calibration.sound_level_meter'|translate}}:
+            </lavel>
+            <label class="ion-text-wrap H-16-400">
+              {{'calibration.sound_level_meter_txt'|translate}}
+            </label>
+          </ion-radio>
+          <ion-radio
+            class="around my-1"
+            value="2"
+            labelPlacement="end"
+            justify="start"
+          >
+            <label class="ion-text-wrap H-16-700">
+              {{'calibration.external_microphone'|translate}}:
+            </label>
+            <label class="ion-text-wrap H-16-400">
+              {{'calibration.external_microphone_txt'|translate}}
+            </label>
+          </ion-radio>
+          <ion-radio
+            class="around my-1"
+            value="3"
+            labelPlacement="end"
+            justify="start"
+          >
+            <label class="ion-text-wrap H-16-700">
+              {{'calibration.another_device'|translate}}:
+            </label>
+            <label class="ion-text-wrap H-16-400">
+              {{'calibration.another_device_txt'|translate}}
+            </label>
+          </ion-radio>
+          <ion-radio
+            class="around my-1"
+            value="4"
+            labelPlacement="end"
+            justify="start"
+          >
+            <label class="ion-text-wrap H-16-700">
+              {{'calibration.no_reference'|translate}}:
+            </label>
+            <label class="ion-text-wrap H-16-400">
+              {{'calibration.no_reference_txt'|translate}}
+            </label>
+          </ion-radio>
+        </div>
+      </ion-radio-group>
+    </div>
+    <div class="w-full flex flex-col" *ngIf="myStep === 1">
+      <label
+        class="H-20-700 mt-4 my-text-header w-full flex justify-between items-center"
+      >
+        {{'calibration.beginCalibrationTitle' | translate}}
+      </label>
+      <label class="H-16-400 my-text-header mt-2">
+        {{'calibration.beginCalibrationTxt'+referenceDevice | translate}}</label
+      >
+      <div class="w-full flex justify-center p-3">
+        <div class="circle-container" tappable (click)="initRecord()">
+          <div class="circle back-circle"></div>
+          <div
+            class="circle w-100"
+            [ngClass]="recording ? 'animated-circle-full' : ''"
+          ></div>
+          <div class="circle center-circle">
+            <ion-icon name="mic" class="icon-mic-style"></ion-icon>
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-full flex flex-col justify-center text-center"
+        *ngIf="flagViewControls"
+      >
+        <div class="flex justify-center text-center mb-5">
+          <label class="H-20-700 mt-4 my-text-header flex items-center"
+            ><p>{{ timer }}</p></label
+          >
+        </div>
+      </div>
+    </div>
+    <div *ngIf="myStep > 1">
+      <div class="w-full flex flex-col">
+        <label class="H-20-700 mt-4">
+          {{'calibration.calibration_value' | translate}}
+        </label>
+        <label class="H-16-400 my-3">
+          {{'calibration.calibration_value_desc' | translate}}
+        </label>
+        <div class="w-full flex justify-center my-5">
+          <label class="H1-34-600"> {{calibrateValueApi}} </label>
+        </div>
+
+        <div class="w-100 flex flex-col">
+          <label class="H-16-400 my-3">
+            {{'calibration.calibration_device_'+referenceDevice | translate}}
+          </label>
+
+          <ion-input
+            *ngIf="referenceDevice > 0 && referenceDevice < 4"
+            class="text-start input px-3 mt-3"
+            #newValueCalibration
+            autofocus="true"
+            type="number"
+            placeholder=""
+            min="20"
+            max="140"
+            style="background: #f3f6f5"
+            [(ngModel)]="manualValueCalibration"
+          ></ion-input>
+          <!--          <label class="H8-12-400-SpaceGrotesk mb-7">-->
+          <!--            {{'calibration.calibration_value_desc3' | translate}}-->
+          <!--          </label>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <br /><br /><br /><br /><br /><br /><br /><br />
+  <div *ngIf="!isUserAuth" class="my-5">
+    <app-no-user-auth></app-no-user-auth>
+  </div>
+</ion-content>
+
+<ion-footer *ngIf="myStep !== 1" style="background-color: #e7ffff !important">
+  <div class="ion-no-border px-3 pt-2" *ngIf="isUserAuth && myStep > 1">
+    <div class="flex w-full flex-col justify-evenly gap-3">
+      <div class="flex gap-6 justify-evenly">
+        <button
+          (click)="sendValueCalibration()"
+          [disabled]="!canSendAudio || manualValueCalibration<20 || manualValueCalibration>140"
+          class="my-btn-login"
+          [ngClass]="!canSendAudio ? 'opacity-50' : ''"
+        >
+          {{'calibration.btn_save' | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="ion-no-border px-3 pt-2" *ngIf="isUserAuth && myStep ===0">
+    <div class="flex w-full flex-col justify-evenly gap-3">
+      <div class="flex gap-6 justify-evenly">
+        <button
+          (click)="goToStep1()"
+          [disabled]="referenceDevice<1"
+          class="my-btn-login"
+          [ngClass]="referenceDevice<1 ? 'opacity-50' : ''"
+        >
+          {{'calibration.btn_next' | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-footer>

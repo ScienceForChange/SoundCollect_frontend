@@ -1,0 +1,49 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+   <div class="tabBarClass" style="position: relative; overflow: visible">
+     <ion-tab-button tab="home">
+       <ion-icon aria-hidden="true" src="../../../assets/images/SoundCollect/Iconos/home.svg"></ion-icon>
+       <ion-label class="H6-14-400-SpaceGrotesk">{{'profile.label.home'|translate}}</ion-label>
+     </ion-tab-button>
+     <ion-tab-button class="" tab="sounds">
+       <ion-icon aria-hidden="true" src="../../../assets/images/SoundCollect/Iconos/sound.svg" style="width: 29px; height: 26px"></ion-icon>
+       <ion-label class="H6-14-400-SpaceGrotesk">{{'profile.label.my_sounds'|translate}}</ion-label>
+     </ion-tab-button>
+     <ion-tab-button tab="profile">
+       <ion-icon aria-hidden="true" src="../../../assets/images/SoundCollect/Iconos/profile.svg"></ion-icon>
+       <ion-label class="H6-14-400-SpaceGrotesk">{{'profile.label.shortTitle'|translate}}</ion-label>
+     </ion-tab-button>
+     <ion-tab-button (click)="openCupertinoOrNewSound()">
+       <ion-label class="H6-14-400-SpaceGrotesk" style="margin-top: 34px">{{'profile.label.add'|translate}}</ion-label>
+     </ion-tab-button>
+     <div style="position: absolute; z-index: 10; top: -20px !important; right: 15px !important;">
+       <img tappable="true" (click)="openCupertinoOrNewSound()" ngSrc="assets/images/SoundCollect/Iconos/add.svg" alt="" height="60" width="61"/>
+     </div>
+   </div>
+  </ion-tab-bar>
+</ion-tabs>
+
+
+
+<!-- Cuppertino Qualud Add/Edit Sons-->
+<div *ngIf="displayCuppertino" class="qualud-coupertino fixed-bottom d-flex justify-content-center align-items-end">
+  <div class="content d-flex flex-col p-5">
+      <div class="w-full flex flex-col">
+        <div class="w-full flex justify-between mb-5">
+          <ion-text class="H2-22-700">{{'calibration.popupTitle' | translate}}</ion-text>
+          <button (click)="closeCuppertinoCalibration()">
+            <img src="/assets/images/SoundCollect/Iconos/close.svg" alt="img" width="32px" height="32px">
+          </button>
+        </div>
+        <div class="w-full flex flex-col">
+          <ion-text class="H3-400-26-Calistoga ion-text-start">{{'calibration.popupTxt' | translate}}</ion-text>
+        </div>
+      </div>
+    <div class="w-full flex flex-col">
+      <button class="my-btn-login my-btn-close-session mt-8 mx-auto" (click)="goToCalibration()">{{'calibration.popupBtn1' | translate}}</button>
+      <button class="H6-14-700-SpaceGrotesk mt-6 mx-auto" (click)="goToNewSound()">{{'calibration.popupBtn2' | translate}}</button>
+    </div>
+  </div>
+</div>
+
+

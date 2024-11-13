@@ -1,0 +1,153 @@
+.orange-bg {
+  background-color: #fda568;
+}
+ion-range {
+  --bar-height: 6px;
+  --bar-border-radius: 100px;
+  --knob-background: var(--ion-color-primary);
+  --knob-size: 22px;
+  --pin-background: rgba(255, 175, 204, 0);
+  --pin-color: #fff;
+}
+.img-box {
+  width: 109px;
+  height: 127px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  border: 2px solid #206a71;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  .delete-image {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+  }
+}
+ion-radio.source::part(container) {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px !important;
+  border: 2px solid #ddd;
+}
+ion-radio.around::part(container) {
+  width: 20px;
+  height: 20px;
+  border-radius: 50% !important;
+  border: 2px solid #ddd;
+}
+
+ion-radio::part(mark) {
+  background: none;
+  transition: none;
+  transform: none;
+  border-radius: 0;
+}
+ion-radio.source::part(mark) {
+  background: none;
+  transition: none;
+  transform: none;
+}
+
+ion-radio.radio-checked::part(container) {
+  background: var(--ion-color-primary);
+  border-color: transparent;
+}
+
+ion-radio.radio-checked::part(mark) {
+  width: 6px;
+  height: 10px;
+  border-width: 0 2px 2px 0;
+  border-style: solid;
+  border-color: #fff;
+  transform: rotate(45deg);
+}
+
+.icon-mic-style {
+  font-size: 300%;
+  display: block;
+  color: white;
+}
+
+.circle-container {
+  position: relative;
+  width: 60vw;
+  height: 60vw;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: blue;
+}
+
+.animated-circle-full {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(32, 106, 113, 0.39);
+  opacity: 0.5;
+  animation: decreaseScale 2.5s ease-out infinite,
+    increaseScale 2.5s ease-in infinite;
+}
+
+.icon-btn-mic {
+  font-size: 200%;
+  display: block;
+  color: white;
+}
+
+.center-circle {
+  width: 50%;
+  height: 50%;
+  background-color: var(--ion-color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes increaseScale {
+  from {
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes decreaseScale {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+}
+.circle-small {
+  width: 32px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(203, 210, 247, 0.15);
+}
+.done {
+  background: #cfd3c4;
+}
+.require {
+  font-size: small;
+  color: red;
+  position: relative;
+  display: block;
+  margin-top: -4px;
+}
+button:disabled {
+  opacity: 0.5 !important;
+}
+ion-popover {
+  --width: 98vw;
+}
+ion-item::part(native) {
+  background: none;
+}

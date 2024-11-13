@@ -1,0 +1,231 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar
+    color="ligth"
+    class="ion-no-margin ion-no-padding ion-no-border bg-white"
+  >
+    <div class="flex items-center justify-between px-3">
+      <ion-text class="H2-22-700 self-start my-text-header">
+        {{'login.btn.register'|translate}}
+      </ion-text>
+      <img
+        tappable="true"
+        class="mt-1"
+        (click)="goBack()"
+        ngSrc="assets/images/SoundCollect/Iconos/close.svg"
+        alt="back"
+        width="24"
+        height="24"
+      />
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="regFormGroup" id="regFormGroup">
+    <div class="flex items-center flex-col justify-between w-full h-full">
+      <div class="d-flex w-100 flex-column justify-content-between h-100">
+        <div style="width: 96vw">
+          <div class="ion-padding-horizontal mt-10">
+            <ion-text class="H-20-700 my-text-dark"
+              >{{'register.label.required_data'|translate}}</ion-text
+            >
+            <div class="relative mb-5 mt-3">
+              <label class="H6-14-400-SpaceGrotesk my-text-header"
+                >{{'recovery_pass.label.email'|translate}}</label
+              >
+              <input
+                class="input pe-5 ps-3"
+                placeholder="Email*"
+                formControlName="email"
+                type="email"
+                required="required"
+              />
+              <div
+                class="validation-msg-error"
+                *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+              >
+                <div *ngIf="email?.errors.required">
+                  {{'register.error.email_required'|translate}}
+                </div>
+                <div *ngIf="email?.errors.email">
+                  {{'register.error.email_invalid'|translate}}
+                </div>
+              </div>
+            </div>
+            <div class="mb-5">
+              <div class="relative">
+                <label class="H6-14-400-SpaceGrotesk my-text-header"
+                  >{{'login.label.password'|translate}}</label
+                >
+                <input
+                  class="input pe-5 ps-3"
+                  placeholder="{{'login.label.password'|translate}}"
+                  [type]="myType[0]"
+                  formControlName="password"
+                  type="password"
+                  required="required"
+                />
+                <img
+                  (click)="changeImage(0)"
+                  class="absolute"
+                  src="assets/images/SoundCollect/Iconos/{{myEye[0]}}.svg"
+                  alt="eye"
+                  style="right: 13px; top: 25px; bottom: 0; margin: auto"
+                />
+              </div>
+              <div
+                class="validation-msg-error"
+                *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+              >
+                <div *ngIf="password?.errors.required">
+                  {{'register.error.password_required'|translate}}
+                </div>
+                <div *ngIf="password?.errors.minlength">
+                  {{'register.error.password_min_length'|translate}}
+                </div>
+                <div *ngIf="password?.errors.strong">
+                  {{'register.error.password_strong'|translate}}
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <div class="relative">
+                <label class="H6-14-400-SpaceGrotesk my-text-header"
+                  >{{'register.label.repeat_password'|translate}}</label
+                >
+                <input
+                  class="input pe-5 ps-3"
+                  placeholder="{{ 'register.label.repeat_password' | translate }}"
+                  [type]="myType[1]"
+                  formControlName="cpassword"
+                  type="password"
+                  required="required"
+                />
+                <img
+                  (click)="changeImage(1)"
+                  class="absolute"
+                  src="assets/images/SoundCollect/Iconos/{{myEye[1]}}.svg"
+                  alt="eye"
+                  style="right: 13px; top: 25px; bottom: 0; margin: auto"
+                />
+              </div>
+              <div
+                class="validation-msg-error"
+                *ngIf="cpassword?.invalid && (cpassword?.dirty || cpassword?.touched)"
+              >
+                <div *ngIf="cpassword?.errors.required">
+                  {{'register.error.password_required'|translate}}
+                </div>
+                <div *ngIf="cpassword?.errors.confirmPassword">
+                  {{'register.error.password_no_match'|translate}}
+                </div>
+              </div>
+            </div>
+
+            <ion-text class="H-20-700 my-text-dark"
+              >{{'register.label.optional_data'|translate}}</ion-text
+            >
+            <div class="relative mb-5">
+              <label class="H6-14-400-SpaceGrotesk my-text-header"
+                >{{'register.label.birth_year'|translate}}</label
+              >
+              <select
+                class="input pe-5 ps-3"
+                name="birth_year"
+                formControlName="birth_year"
+              >
+                <option disabled selected>
+                  {{'register.label.birth_year'|translate}}
+                </option>
+                <option *ngFor="let number of myNumbers" [value]="number">
+                  {{number}}
+                </option>
+              </select>
+            </div>
+
+            <div class="relative mb-5">
+              <label class="H6-14-400-SpaceGrotesk my-text-header"
+                >{{'about_me.label.gender'|translate}}</label
+              >
+              <ion-select
+                placeholder="{{'about_me.label.gender'|translate}}"
+                name="gender"
+                class="input pe-5 ps-3"
+                style="padding: 0px 16px !important"
+                formControlName="gender"
+                cancelText="{{'about_me.buttons.btn_cancel'|translate}}"
+              >
+                <ion-select-option value="male"
+                  >{{'profile.label.male'|translate}}</ion-select-option
+                >
+                <ion-select-option value="female"
+                  >{{'profile.label.female'|translate}}</ion-select-option
+                >
+                <ion-select-option value="non-binary"
+                  >{{'profile.label.non-binary'|translate}}</ion-select-option
+                >
+                <ion-select-option value="others"
+                  >{{'profile.label.others'|translate}}</ion-select-option
+                >
+                <ion-select-option value="prefer-not-to-say"
+                  >{{'profile.label.prefer-not-to-say'|translate}}</ion-select-option
+                >
+              </ion-select>
+            </div>
+            <div class="flex justify-center">
+              <ion-checkbox
+                labelPlacement="end"
+                class="H6-14-400-SpaceGrotesk my-text-header mt-4"
+                formControlName="terms"
+                required
+                [checked]="true"
+              >
+              </ion-checkbox>
+              <ion-text class="H8-700-14 text-start ms-2">
+                {{ "register.terms.terms-start"|translate }}
+                <a
+                  class="H8-700-green-14 text-decoration-none"
+                  (click)="goToTerminos()"
+                >
+                  {{ "register.terms.terms-strong"|translate }}
+                </a>
+                {{ "register.terms.terms-end"|translate }}
+                <a
+                  class="H8-700-green-14 text-decoration-none"
+                  (click)="goToLegalNotice()"
+                >
+                  {{ "register.terms.terms-strong-end"|translate }}
+                </a>
+              </ion-text>
+            </div>
+            <div
+              class="validation-msg-error"
+              *ngIf="terms?.invalid && (terms?.dirty || terms?.touched)"
+            >
+              <div *ngIf="terms?.errors.required">
+                {{'register.error.terms_required'|translate}}
+              </div>
+            </div>
+            <div class="mb-5">
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <div class="p-3 flex flex-col w-100">
+    <button
+      class="my-btn-login"
+      type="button"
+      (click)="createUser()"
+      form="regFormGroup"
+      [disabled]="regFormGroup.invalid"
+    >
+      <ion-text>{{'login.btn.register'|translate}}</ion-text>
+    </button>
+  </div>
+</ion-footer>

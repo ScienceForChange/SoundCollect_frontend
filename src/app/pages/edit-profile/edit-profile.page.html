@@ -1,0 +1,108 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar
+    color="ligth"
+    class="ion-no-margin ion-no-padding ion-no-border bg-white"
+  >
+    <div class="flex items-center justify-between p-3">
+      <ion-text class="H2-22-700 self-start my-text-header">
+        {{'profile.label.edit_profile_title'|translate}}
+      </ion-text>
+      <img
+        tappable="true"
+        class="mt-1"
+        (click)="goBack()"
+        src="assets/images/SoundCollect/Iconos/close.svg"
+        alt="back"
+        width="24"
+      />
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="flex flex-col px-3">
+    <section class="flex gap-3 flex-col">
+      <form
+        [formGroup]="profileForm"
+        class="mt-5 flex flex-col justify-content-between p-3"
+      >
+        <label class="H-20-700 my-text-header"
+          >{{'register.label.optional_data'|translate}}</label
+        >
+        <div class="gender-input my-4">
+          <ion-text color="primary" class="H6-14-400-SpaceGrotesk font-bold"
+            >{{'about_me.label.gender'|translate}}:</ion-text
+          >
+          <ion-list class="p-0">
+            <ion-item class="p-0" lines="full">
+              <ion-select
+                class="p-0 input"
+                toggleIcon="chevron-down"
+                formControlName="gender"
+                name="gender"
+                aria-label="Gender"
+                interface="popover"
+                placeholder="{{'about_me.label.gender'
+                |translate}}"
+                style="padding: 0 0 0 18px"
+              >
+                <ion-select-option value="male"
+                  >{{'profile.label.male'|translate}}</ion-select-option
+                >
+                <ion-select-option value="female"
+                  >{{'profile.label.female'|translate}}</ion-select-option
+                >
+                <ion-select-option value="non-binary"
+                  >{{'profile.label.non-binary'|translate}}</ion-select-option
+                >
+                <ion-select-option value="others"
+                  >{{'profile.label.others'|translate}}</ion-select-option
+                >
+                <ion-select-option value="prefer-not-to-say"
+                  >{{'profile.label.prefer-not-to-say'|translate}}</ion-select-option
+                >
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </div>
+
+        <div class="relative mb-5">
+          <label class="H6-14-400-SpaceGrotesk my-text-header"
+            >{{'register.label.birth_year'|translate}}</label
+          >
+          <select
+            class="input pe-5 ps-3"
+            name="birth_year"
+            formControlName="birth_year"
+          >
+            <option disabled selected>
+              {{'register.label.birth_year'|translate}}
+            </option>
+            <option *ngFor="let number of myNumbers" [value]="number">
+              {{number}}
+            </option>
+          </select>
+        </div>
+        <div class="relative mb-5 block">
+          <label class="H6-14-400-SpaceGrotesk my-text-header w-full"
+            >{{'recovery_pass.label.email'|translate}}</label
+          >
+
+          <div class="input pe-5 ps-3 w-full" style="width: 100% !important">
+            {{email}}
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <div class="flex w-full flex-col justify-evenly gap-3 mt-32 p-4">
+    <button class="my-btn-login mx-auto" (click)="sendProfileForm()">
+      <ion-text class="ion-text-nowrap"
+        >{{'profile.label.button_save'|translate}}</ion-text>
+    </button>
+        <button (click)="goToDeleteAccount()" class="my-btn-login mx-auto mt-5" style="background-color: #d02424">
+          <ion-text class="ion-text-nowrap">{{'profile.label.delete_account'|translate}}</ion-text>
+        </button>
+  </div>
+</ion-footer>
