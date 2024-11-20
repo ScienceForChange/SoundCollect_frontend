@@ -126,7 +126,8 @@
       "terms": "Termes i condicions",
       "privacy": "Privadesa",
       "privacy_policy": "Política de privacitat",
-      "version": "Versió n"
+      "version": "Versió n",
+      "accessibility": "Accessibilitat"
     },
     "buttons": {
       "btn_1": "Veure",
@@ -169,7 +170,6 @@
       "aumentar": "Augmentar",
       "disminuir": "Disminuir",
       "delete_account": "Eliminar compte"
-
     },
     "error": {
       "required": "Obligatori"
@@ -398,12 +398,12 @@
     "another_device_txt": "Un dispositiu mòbil calibrat és un dispositiu mòbil, diferent al del propi usuari, que ha estat calibrat prèviament i proporciona resultats fiables.",
     "no_reference": "Sense referència",
     "no_reference_txt": "Els usuaris poden seleccionar aquesta opció si no tenen accés a un sonòmetre, micròfon exterior o dispositiu calibrat. En aquesta opció es realitza una comprovació dels valors que està mesurant l'aplicació.",
-    "btn_save":"Desa",
-    "btn_next":"Següent",
-    "calibration_device_1":"Indiqueu el valor del nivell de pressió sonor (dBA) obtingut amb el sonòmetre:",
-    "calibration_device_2":"Introduir el valor del nivell de pressió sonor esperat de 94dB.",
-    "calibration_device_3":"Indiqueu el valor del nivell de pressió sonor (dBA) obtingut amb el dispositiu ja calibrat a l'aplicació i guardar el valor.",
-    "calibration_device_4":"En cas que el valor mitjà estigui comprès en el rang entre 20-35 dBA, el dispositiu es pot considerar calibrat. Si aquesta fora del rang indicat, el valor de referència considerat automàticament per l'aplicació és de 30 dBA.",
+    "btn_save": "Desa",
+    "btn_next": "Següent",
+    "calibration_device_1": "Indiqueu el valor del nivell de pressió sonor (dBA) obtingut amb el sonòmetre:",
+    "calibration_device_2": "Introduir el valor del nivell de pressió sonor esperat de 94dB.",
+    "calibration_device_3": "Indiqueu el valor del nivell de pressió sonor (dBA) obtingut amb el dispositiu ja calibrat a l'aplicació i guardar el valor.",
+    "calibration_device_4": "En cas que el valor mitjà estigui comprès en el rang entre 20-35 dBA, el dispositiu es pot considerar calibrat. Si aquesta fora del rang indicat, el valor de referència considerat automàticament per l'aplicació és de 30 dBA.",
     "notification_title": "Calibratge incorrecte",
     "notification_description": "El calibratge està fora del rang correcte. Adreceu-vos a una habitació silenciosa i premeu Recalibrar. El rang és 25-35, però el valor rebut és ",
     "notification_btn1": "Recalibrar",
@@ -452,5 +452,8 @@
     "message2": "Si volguessis tornar en el futur, hauràs de tornar a registrar-te i començar a col·laborar de nou.",
     "btn_ok": "Esborrar el meu compte i dades",
     "btn_cancel": "Seguir col·laborant"
+  },
+  "accessibility": {
+    "title": "Accessibilitat"
   }
 }

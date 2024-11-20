@@ -126,7 +126,8 @@
       "terms": "Terms and conditions",
       "privacy": "Privacy",
       "privacy_policy": "Privacy Policy",
-      "version": "Version n"
+      "version": "Version n",
+      "accessibility": "Accessibility"
     },
     "buttons": {
       "btn_1": "View all",
@@ -246,8 +247,8 @@
     "graphic": {
       "title_x": "Time (seconds)",
       "title_y": "Sound pressure level (dBA)",
-      "title_x_spectral":"Frequency (Hertz)",
-      "title_y_spectral":"Acoustic pressure (dBA)"
+      "title_x_spectral": "Frequency (Hertz)",
+      "title_y_spectral": "Acoustic pressure (dBA)"
     }
   },
   "global": {
@@ -391,12 +392,12 @@
     "another_device_txt": "A calibrated mobile device is another mobile device, different from the user's own, that has been previously calibrated and provides reliable results.",
     "no_reference": "No reference",
     "no_reference_txt": "The users can select this option if they do not have access to a sonometer, an exterior microphone or a calibrated device. This option performs a check of the values being measured by the application.",
-    "btn_save":"Save",
-    "btn_next":"Next",
-    "calibration_device_1":"Enter the sound pressure level (dBA) value obtained with the sound level meter.",
-    "calibration_device_2":"Introduce the value of 94 dB to the device.",
-    "calibration_device_3":"Enter the sound pressure level (dBA) value obtained from the calibrated device.",
-    "calibration_device_4":"If the measured value is in the range of 25-35 dBA, the device is considered as calibrated. If it is outside the indicated range, the reference value automatically considered by the application is 30 dBA.",
+    "btn_save": "Save",
+    "btn_next": "Next",
+    "calibration_device_1": "Enter the sound pressure level (dBA) value obtained with the sound level meter.",
+    "calibration_device_2": "Introduce the value of 94 dB to the device.",
+    "calibration_device_3": "Enter the sound pressure level (dBA) value obtained from the calibrated device.",
+    "calibration_device_4": "If the measured value is in the range of 25-35 dBA, the device is considered as calibrated. If it is outside the indicated range, the reference value automatically considered by the application is 30 dBA.",
     "notification_title": "Incorrect calibration",
     "notification_description": "Calibration is out of correct range. Go to a quiet room and press Recalibrate. The range is 25-35 but the value received is ",
     "notification_btn1": "Recalibrate",

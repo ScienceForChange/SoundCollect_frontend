@@ -1,5 +1,5 @@
 import { Component, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { AlertController, IonicModule, IonModal, ModalController, NavController, ViewWillEnter } from '@ionic/angular';
+import { AlertController, IonicModule, IonModal, ModalController, NavController, Platform, ViewWillEnter } from '@ionic/angular';
 import { AuthService, CommonService } from '../../services';
 import { HttpClient } from '@angular/common/http';
 import { AuthHTTP } from '../../repos';
@@ -16,14 +16,17 @@ import { NoUserAuthComponent } from "../../components/no-user-auth/no-user-auth.
 import { EditProfilePage } from '../edit-profile/edit-profile.page';
 import { ObservationsService } from 'src/app/services/observations.service';
 import { ObservationsRepoHttp } from 'src/app/repos/observations-repo-http';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { BrowserModule } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-profile',
   templateUrl: 'profile.page.html',
   styleUrls: ['profile.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, TranslateModule, RouterLink, SlicePipe, ComponentsModule, NoUserAuthComponent,],
-  providers: [HttpClient, AuthService, AuthHTTP, UserService, UserHTTP, ObservationsService, ObservationsRepoHttp],
+  imports: [IonicModule, CommonModule, TranslateModule, RouterLink, SlicePipe, ComponentsModule, NoUserAuthComponent],
+  providers: [HttpClient, AuthService, AuthHTTP, UserService, UserHTTP, ObservationsService, ObservationsRepoHttp, InAppBrowser],
 })
 export class ProfilePage implements OnInit, OnDestroy {
   navController = inject(NavController);
@@ -45,11 +48,14 @@ export class ProfilePage implements OnInit, OnDestroy {
 
   constructor(
     private alertController: AlertController,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private iab: InAppBrowser,
+    public platform: Platform,
   ) { }
 
   ngOnDestroy(): void {
     if (this.sub) this.sub.unsubscribe();
+
   }
 
   async ngOnInit() {
@@ -156,6 +162,17 @@ export class ProfilePage implements OnInit, OnDestroy {
 
   async goToTerminos() {
     await this.navController.navigateForward('terms');
+  }
+
+  goToWeb(url: string) {
+    const browser = this.iab.create(url, '_blank', {
+      location: 'no',
+      toolbar: 'yes',
+      hideurlbar: 'yes',
+      toolbarposition: 'top',
+      toolbarcolor: '#ffffff',
+      closebuttoncolor: '#206A71',
+    });
   }
 
 }
