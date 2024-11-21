@@ -1,10 +1,11 @@
 <ion-content [fullscreen]="true">
-  <div style="height: 105%; position: relative">
+  <div style="height: 100dvh; position: relative">
     <capacitor-google-map #map></capacitor-google-map>
   </div>
   <div
     class="w-full"
-    style="position: absolute; top: calc(20px - env(safe-area-inset-top))"
+    style="position: absolute;"
+    [ngStyle]="platform.is('ios') ? {'top': 'calc(30px - env(safe-area-inset-top))'} : {'top': 'env(safe-area-inset-top)'}"
   >
     <div
       class="flex flex-col px-2 w-full items-center justify-center"
@@ -55,7 +56,7 @@
       style="
         width: 44px;
         right: 0.5rem;
-        top: calc(env(safe-area-inset-top) + 20px) !important;
+        top: calc(env(safe-area-inset-top) + 30px) !important;
         height: 44px;
         background: white;
         border-radius: 24px;

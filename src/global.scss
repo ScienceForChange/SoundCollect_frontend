@@ -54,11 +54,11 @@ ion-content {
 }
 
 ion-footer {
-  padding-bottom: calc(env(safe-area-inset-bottom) + 20px) !important;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 30px) !important;
 }
 
 .margin-top-safe-area {
-  margin-top: calc(env(safe-area-inset-top) + 20px) !important;
+  margin-top: calc(env(safe-area-inset-top) + 30px) !important;
 }
 
 .my-text-dark {

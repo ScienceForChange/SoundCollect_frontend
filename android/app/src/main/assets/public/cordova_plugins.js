@@ -2,6 +2,14 @@
   cordova.define('cordova/plugin_list', function(require, exports, module) {
     module.exports = [
       {
+          "id": "cordova-plugin-inappbrowser.inappbrowser",
+          "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+          "pluginId": "cordova-plugin-inappbrowser",
+        "clobbers": [
+          "cordova.InAppBrowser.open"
+        ]
+        },
+      {
           "id": "cordova-plugin-request-location-accuracy.RequestLocationAccuracy",
           "file": "plugins/cordova-plugin-request-location-accuracy/www/android/RequestLocationAccuracy.js",
           "pluginId": "cordova-plugin-request-location-accuracy",
@@ -149,11 +157,12 @@
     {
       "cordova-plugin-android-permissions": "1.1.5",
       "cordova-plugin-geolocation": "5.0.0",
+      "cordova-plugin-inappbrowser": "6.0.0",
       "cordova-plugin-insomnia": "4.3.0",
       "cordova-plugin-nativegeocoder": "3.5.1",
       "cordova-plugin-request-location-accuracy": "2.3.0",
       "cordova-plugin-uniquedeviceid": "1.3.2",
-      "cordova.plugins.diagnostic": "7.1.4"
+      "cordova.plugins.diagnostic": "7.2.1"
     };
     // BOTTOM OF METADATA
     });
