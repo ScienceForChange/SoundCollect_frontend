@@ -83,12 +83,12 @@
       "password_strong": "Password must contain at least one uppercase letter, one lowercase letter, and one number",
       "password_required": "Password required",
       "password_no_match": "Passwords entered do not match",
-      "terms_required": "Terms and conditions are required",
-      "error_form_register": "Terms and conditions are required"
+      "terms_required": "Legal notice are required",
+      "error_form_register": "Legal notice are required"
     },
     "terms": {
       "terms-start": "By registering you accept the ",
-      "terms-strong": "Terms and conditions ",
+      "terms-strong": "Legal notice ",
       "terms-end": "and the ",
       "terms-strong-end": "privacy policy"
     }
@@ -123,7 +123,7 @@
       "notification": "Notifications",
       "others": "Others",
       "report_error": "Report an error",
-      "terms": "Terms and conditions",
+      "terms": "Legal notice",
       "privacy": "Privacy",
       "privacy_policy": "Privacy Policy",
       "version": "Version n",
