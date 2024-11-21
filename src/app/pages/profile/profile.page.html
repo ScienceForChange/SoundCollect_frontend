@@ -245,7 +245,7 @@
             </button>
           </div>
           <div class="w-full pt-4 pb-1" style="border-top: 2px solid #f2f4f3">
-            <button class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400" (click)="goToTerminos()">
+            <button class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400" (click)="goToWeb('https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/contaminacio_acustica/sensibilitzacio-educacio-ambiental/sonscat/avis-legal-sonscat/')">
               <label class="flex justify-between w-full me-5">
                 <span>{{'about_me.label.terms'|translate}}</span>
                 <span></span>
@@ -267,10 +267,10 @@
               />
             </button>
           </div> -->
-          <div class="w-full py-3" style="border-top: 2px solid #f2f4f3">
+          <div class="w-full pt-4 pb-1" style="border-top: 2px solid #f2f4f3">
             <button
               class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
-              (click)="goToLegalNotice()"
+              (click)="goToWeb('https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/contaminacio_acustica/sensibilitzacio-educacio-ambiental/sonscat/politica-privacitat/')"
             >
               <label class="flex justify-between w-full me-5"
                 ><span>{{'about_me.label.privacy_policy'|translate}}</span>
@@ -281,6 +281,37 @@
                 src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
               />
             </button>
+          </div>
+          <div class="w-full py-3" style="border-top: 2px solid #f2f4f3">
+            <button
+              *ngIf="platform.is('ios')"
+              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
+              (click)="goToWeb('https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/contaminacio_acustica/sensibilitzacio-educacio-ambiental/sonscat/declaracio-accessibilitat-ios')"
+            >
+              <label class="flex justify-between w-full me-5"
+                ><span>{{'about_me.label.accessibility'|translate}}</span>
+                <span></span
+              ></label>
+              <img
+                class="me-8"
+                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
+              />
+            </button>
+            <button
+              *ngIf="platform.is('android')"
+              class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
+              (click)="goToWeb('https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/contaminacio_acustica/sensibilitzacio-educacio-ambiental/sonscat/declaracio-accessibilitat-android')"
+              >
+              <label class="flex justify-between w-full me-5"
+                ><span>{{'about_me.label.accessibility'|translate}}</span>
+                <span></span>
+              </label>
+              <img
+                class="me-8"
+                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
+              />
+            </button>
+
           </div>
           <!-- <div class="w-full pt-2" style="border-top: 2px solid #f2f4f3">
             <button

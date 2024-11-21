@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.qualud.soundcollect.app-mergeDebugResources-36:/values-v23/values-v23.xml",
+            "outputFile": "com.qualud.soundcollect.app-mergeDebugResources-37:/values-v23/values-v23.xml",
             "map": [
                 {
                     "source": "/Users/albertoalmenara/.gradle/caches/transforms-3/1ef749150016b292adc1e05584b45871/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",

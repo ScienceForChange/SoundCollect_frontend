@@ -1,7 +1,7 @@
 /// <reference types="google.maps" />
 import { CommonService } from 'src/app/services/common.service';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, ViewChild, NgZone, ElementRef, OnDestroy, inject } from '@angular/core';
-import { IonicModule, ModalController } from '@ionic/angular';
+import { IonicModule, ModalController, Platform } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { CronometroComponent } from '../../components/cronometro/cronometro.component';
 import { RouterLink } from "@angular/router";
@@ -64,6 +64,7 @@ export class HomePage implements OnInit, OnDestroy {
     observations: any[] = [];
     polylines: string[] = [];
     markers: string[] = [];
+    platform = inject(Platform);
 
     isOpenBadgeModal = false;
     level = 0;
@@ -141,7 +142,16 @@ export class HomePage implements OnInit, OnDestroy {
             config: {
                 center: userLocation,
                 zoom: 14,
-                mapTypeId: 'satellite'
+                mapTypeId: 'satellite',
+                zoomControl:false,
+                streetViewControl:false,
+                fullscreenControl:false,
+                mapTypeControl:false,
+                rotateControl:false,
+                scaleControl:false,
+                clickableIcons:false,
+                disableDefaultUI: true,
+                controlSize: 1,
             },
         });
         await this.map.setMapType(MapType.Satellite);

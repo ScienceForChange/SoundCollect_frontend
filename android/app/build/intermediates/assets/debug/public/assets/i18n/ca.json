@@ -88,7 +88,7 @@
     },
     "terms": {
       "terms-start": "Amb el teu registre acceptes els ",
-      "terms-strong": "Termes i condicions ",
+      "terms-strong": "Avís legal ",
       "terms-end": "i la ",
       "terms-strong-end": "política de privacitat"
     }
@@ -123,16 +123,18 @@
       "notification": "Notificacions",
       "others": "Altres",
       "report_error": "Informar d'un error",
-      "terms": "Termes i condicions",
+      "terms": "Avís legal",
       "privacy": "Privadesa",
       "privacy_policy": "Política de privacitat",
-      "version": "Versió n"
+      "version": "Versió n",
+      "accessibility": "Accessibilitat"
     },
     "buttons": {
       "btn_1": "Veure",
       "btn_accept": "Acceptar",
       "btn_cancel": "Cancel·lar",
-      "btn_apply": "Aplicar"
+      "btn_apply": "Aplicar",
+      "btn_close": "Tancar"
     }
   },
   "profile": {
@@ -169,7 +171,6 @@
       "aumentar": "Augmentar",
       "disminuir": "Disminuir",
       "delete_account": "Eliminar compte"
-
     },
     "error": {
       "required": "Obligatori"
@@ -360,7 +361,7 @@
     }
   },
   "terms_and_conditions": {
-    "title": "Termes i condicions",
+    "title": "Avís legal",
     "description": "<p>Et donem la benvinguda als termes i condicions que regulen el teu &uacute;s de SoundCollect i el seu programari, aplicacions, serveis i tecnologies. Si us plau, llegeix atentament els termes i condicions.</p>\n</br><p><strong>Prop&ograve;sit</strong></p>\n<p>SoundCollect ofereix a les persones usu&agrave;ries una aplicaci&oacute; per a tel&egrave;fons m&ograve;bils intel&middot;ligents, perqu&egrave; les persones usu&agrave;ries puguin informar sobre espais comunitaris d'alt valor ac&uacute;stic i socioambiental, amb la finalitat de crear un mapa col&middot;laboratiu de zones tranquil&middot;les a escala local que permeti millorar la gesti&oacute;, protecci&oacute; i conservaci&oacute; d'aquests espais.</p>\n</br><p><strong>El servei</strong></p>\n<p>El servei inclou totes les funcions i programari que proporcionem per crear una aplicaci&oacute; impulsada per les persones usu&agrave;ries amb la finalitat de generar un mapa interactiu que et permetr&agrave; descobrir llocs i informar sobre el seu estat a trav&eacute;s de les eines que t'ofereix SoundCollect, entre elles, la possibilitat d'adjuntar imatges i sons.</p>\n</br><p><strong>Nom&eacute;s pots utilitzar el servei:</strong></p>\n<p>Si acceptes els termes i condicions i la pol&iacute;tica de privacitat i si tens l'edat legal per prestar el consentiment perqu&egrave; les teves dades siguin tractades, o si prove&iuml;s una declaraci&oacute; jurada que els teus pares o tutors legals han consentit en l'&uacute;s del servei.</p>\n<p>Utilitza el servei de manera responsable.</p>\n<p>Si us plau, cuida sempre del teu entorn i mai et posis en perill mentre utilitzes SoundCollect. Mai registris dades en condicions insegures. Tingues sempre en compte sobretot la teva seguretat. L'&uacute;s de SoundCollect, es realitza sota la teva pr&ograve;pia responsabilitat.</p>\n</br><p><strong>El teu compte d'usuari/a</strong></p>\n<p>Amb el nostre servei volem contribuir a identificar espais p&uacute;blics d'alt valor ac&uacute;stic i socioambiental, per promoure la seva democratitzaci&oacute;, coneixement, manteniment i preservaci&oacute;, de manera col&middot;lectiva, responsable i ecol&ograve;gica. &Eacute;s a dir, aquest servei permet generar coneixement sobre el valor ambiental dels espais circumdants i, en &uacute;ltima inst&agrave;ncia, influir en els responsables pol&iacute;tics perqu&egrave; adoptin mesures per recuperar-los, i preservar-los d'una manera sostenible i inclusiva.</p>\n<p>Un compte d'usuari/a &eacute;s necessari per l'&uacute;s de la plataforma. Per al registre es requereix una quantitat m&iacute;nima de dades personals, en concret, es necessita un pseud&ograve;nim i un correu electr&ograve;nic actiu. La resta de dades que es sol&middot;liciten s&oacute;n de car&agrave;cter opcional. Totes les dades personals s&oacute;n tractades de manera l&iacute;cita i respectant la normativa europea sobre protecci&oacute; de dades, tot aix&ograve; segons es detalla en la nostra pol&iacute;tica de privacitat.</p>\n<p>En registrar-te i acceptar els termes d'&uacute;s, ens est&agrave;s concedint perm&iacute;s per al tractament de les teves dades personals. Tamb&eacute; est&agrave;s acceptant el tractament per part de serveis externs, com servidors, prove&iuml;dors d'allotjament al n&uacute;vol, serveis integrats i altres components necessaris per a l'&uacute;s de SoundCollect</p>\n</br><p><strong>&Uacute;s de SoundCollect sense estar registrat</strong></p>\n<p>Sempre podr&agrave;s visualitzar el contingut de SoundCollect sense registrar-te ni iniciar sessi&oacute; per navegar. No obstant, aix&ograve; si vols participar activament i efectuar registres, has de crear el teu propi compte d'usuari o iniciar sessi&oacute; per poder formar part de la nostra comunitat.</p>\n</br><p><strong>Restriccions geo-espacials<br/></strong></p>\n<p>Vostè declara que no compartirà informació que entri en conflicte amb la propietat o privacitat d'uns altres o que sigui obtinguda en àrees restringides. En aportar i localitzar dades sobre un espai públic, vostè assumeix la responsabilitat legal plena i completa de la seva aportació. Vostè confirma que és legal, segons les lleis locals, crear i compartir dades en aquest lloc, i que cap tercer es veurà limitat o perjudicat, o que el valor de qualsevol propietat de tercers es veurà disminuït per la seva contribució.</p>\n</br><p><strong>Violaci&oacute; dels termes d'&uacute;s</strong></p>\n<p>Respectem els drets d'autor i de propietat intel&middot;lectual, la privacitat de tercers, les marques registrades i els drets de llic&egrave;ncia.</p>\n<p>Ens reservem el dret d’eliminar qualsevol contingut que hagi estat aportat en violaci&oacute; d'aquests termes, dels termes de la llic&egrave;ncia o de qualsevol regulaci&oacute; aplicable.</p>\n</br><p><strong>GDPR i el nostre equip</strong></p>\n<p>Per utilitzar l'aplicaci&oacute; SoundCollect es requereixen algunes dades personals. Totes les dades personals estan regulades pel Reglament General de Protecci&oacute; de Dades (UE) 2016/679 (GRPD). Pots esborrar totes les teves dades personals de tota la plataforma del projecte en qualsevol moment. Tamb&eacute; pots descarregar totes les dades que has proporcionat al projecte. La participaci&oacute; en aquest projecte &eacute;s completament volunt&agrave;ria.</p>\n<p>El nostre equip est&agrave; informat sobre el Reglament General de Protecci&oacute; de Dades (RGPD) i les seves obligacions. Formem cont&iacute;nuament al nostre equip en mat&egrave;ria de protecci&oacute; de dades, drets personals, drets d'autor, drets de marques i llic&egrave;ncies i aspectes de la privacitat digital, en particular tamb&eacute; sobre una &egrave;tica de protecci&oacute; de dades viscuda en un m&oacute;n modern i connectat.</p>\n</br><p><strong>Consideracions &egrave;tiques</strong></p>\n<p>No est&agrave; perm&egrave;s utilitzar l'aplicaci&oacute; de manera poc &egrave;tica, &eacute;s a dir, no pots carregar dades falses de mala fe, ni tampoc carregar imatges o &agrave;udios que permetin identificar a terceres persones, &eacute;s a dir que puguin ser considerats com a dades personals de tercers (en qualsevol cas, les dades falses, o dades personals de tercers s'identifiquen durant el proc&eacute;s de validaci&oacute; de dades i no es carreguen en el mapa p&uacute;blic si s&oacute;n detectats).</p>\n</br><p><strong>Quins seran els beneficis o riscos de participar en SoundCollect?</strong></p>\n<p>Qualsevol persona major d'edat pot participar d'aquesta iniciativa de ci&egrave;ncia ciutadana. No hi ha incentius econ&ograve;mics associats a la seva participaci&oacute; en el projecte. El nostre objectiu &eacute;s generar dades sobre espais p&uacute;blics de valor ac&uacute;stic i socioambiental, els quals podran ser utilitzats per diferents actors per crear solucions a la problem&agrave;tica del seu &uacute;s i conservaci&oacute;. No obstant, aix&ograve; aix&ograve; &eacute;s un projecte de recerca col&middot;laborativa que no t&eacute; relaci&oacute; directa amb cap tipus d'actors involucrats en les decisions que puguin afectar l'administraci&oacute; i gesti&oacute; d'aquests espais.</p>\n<p>Existeix alguna connexi&oacute; directa entre aquest projecte de recerca col&middot;laborativa i l'acci&oacute; del govern?</p>\n<p>No existeix una connexi&oacute; directa entre aquest projecte de recerca i l'acci&oacute; del govern, o qualsevol altra acci&oacute; que puguin emprendre les activitats emissores de contaminaci&oacute; ac&uacute;stica.</p>\n</br><p><strong>Com puc abandonar el projecte?</strong></p>\n<p>Ets lliure d'abandonar el projecte en qualsevol moment. Totes les dades personals estan regulades per la GRPD, per la qual cosa pots exercir els teus drets d'acord amb aquesta llei. L'aplicaci&oacute; SoundCollect proporciona una interf&iacute;cie per esborrar totes les teves dades personals, encara que per defecte, es mantindran les dades d'observaci&oacute; i altres dades no personals que hagis pujat a la plataforma. No obstant, aix&ograve; pots sol&middot;licitar la seva completa eliminaci&oacute; per correu electr&ograve;nic a <a>hello@soundcollect.eu</a></p>\n<p></p>"
   },
   "privacy_policy": {
@@ -398,12 +399,12 @@
     "another_device_txt": "Un dispositiu mòbil calibrat és un dispositiu mòbil, diferent al del propi usuari, que ha estat calibrat prèviament i proporciona resultats fiables.",
     "no_reference": "Sense referència",
     "no_reference_txt": "Els usuaris poden seleccionar aquesta opció si no tenen accés a un sonòmetre, micròfon exterior o dispositiu calibrat. En aquesta opció es realitza una comprovació dels valors que està mesurant l'aplicació.",
-    "btn_save":"Desa",
-    "btn_next":"Següent",
-    "calibration_device_1":"Indiqueu el valor del nivell de pressió sonor (dBA) obtingut amb el sonòmetre:",
-    "calibration_device_2":"Introduir el valor del nivell de pressió sonor esperat de 94dB.",
-    "calibration_device_3":"Indiqueu el valor del nivell de pressió sonor (dBA) obtingut amb el dispositiu ja calibrat a l'aplicació i guardar el valor.",
-    "calibration_device_4":"En cas que el valor mitjà estigui comprès en el rang entre 20-35 dBA, el dispositiu es pot considerar calibrat. Si aquesta fora del rang indicat, el valor de referència considerat automàticament per l'aplicació és de 30 dBA.",
+    "btn_save": "Desa",
+    "btn_next": "Següent",
+    "calibration_device_1": "Indiqueu el valor del nivell de pressió sonor (dBA) obtingut amb el sonòmetre:",
+    "calibration_device_2": "Introduir el valor del nivell de pressió sonor esperat de 94dB.",
+    "calibration_device_3": "Indiqueu el valor del nivell de pressió sonor (dBA) obtingut amb el dispositiu ja calibrat a l'aplicació i guardar el valor.",
+    "calibration_device_4": "En cas que el valor mitjà estigui comprès en el rang entre 20-35 dBA, el dispositiu es pot considerar calibrat. Si aquesta fora del rang indicat, el valor de referència considerat automàticament per l'aplicació és de 30 dBA.",
     "notification_title": "Calibratge incorrecte",
     "notification_description": "El calibratge està fora del rang correcte. Adreceu-vos a una habitació silenciosa i premeu Recalibrar. El rang és 25-35, però el valor rebut és ",
     "notification_btn1": "Recalibrar",
@@ -452,5 +453,8 @@
     "message2": "Si volguessis tornar en el futur, hauràs de tornar a registrar-te i començar a col·laborar de nou.",
     "btn_ok": "Esborrar el meu compte i dades",
     "btn_cancel": "Seguir col·laborant"
+  },
+  "accessibility": {
+    "title": "Accessibilitat"
   }
 }
