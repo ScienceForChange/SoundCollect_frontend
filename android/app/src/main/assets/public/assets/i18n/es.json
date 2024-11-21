@@ -133,7 +133,8 @@
       "btn_1": "Ver",
       "btn_accept": "Aceptar",
       "btn_cancel": "Cancelar",
-      "btn_apply": "Aplicar"
+      "btn_apply": "Aplicar",
+      "btn_close": "Cerrar"
     }
   },
   "profile": {

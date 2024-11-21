@@ -11,10 +11,10 @@ INJECTED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app
 	android:name
 		ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:28:13-62
 manifest
-ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:1-41:12
-INJECTED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:1-41:12
-INJECTED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:1-41:12
-INJECTED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:1-41:12
+ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:1-45:12
+INJECTED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:1-45:12
+INJECTED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:1-45:12
+INJECTED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:1-45:12
 MERGED from [:capacitor-app] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-21:12
 MERGED from [:capacitor-camera] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/camera/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-13:12
@@ -101,8 +101,8 @@ MERGED from [org.apache.cordova:framework:10.1.1] /Users/albertoalmenara/.gradle
 	xmlns:android
 		ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:4:5-36:19
-INJECTED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:4:5-36:19
+ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:4:5-40:19
+INJECTED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:4:5-40:19
 MERGED from [:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:5-19:19
 MERGED from [:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:5-19:19
 MERGED from [:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:5-21:19
@@ -175,14 +175,20 @@ category#android.intent.category.LAUNCHER
 ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:22:17-77
 	android:name
 		ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:22:27-74
+meta-data#com.google.android.geo.API_KEY
+ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:37:9-39:71
+	android:value
+		ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:39:13-68
+	android:name
+		ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:38:13-58
 uses-permission#android.permission.INTERNET
-ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:40:5-67
+ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:44:5-67
 MERGED from [:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:5-67
 MERGED from [:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:5-67
 MERGED from [com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:24:5-67
 	android:name
-		ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:40:22-64
+		ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:44:22-64
 meta-data#android.support.FILE_PROVIDER_PATHS
 ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:32:13-34:64
 	android:resource

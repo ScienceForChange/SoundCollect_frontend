@@ -1,3 +1,4 @@
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { Component, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { AlertController, IonicModule, IonModal, ModalController, NavController, Platform, ViewWillEnter } from '@ionic/angular';
 import { AuthService, CommonService } from '../../services';
@@ -164,14 +165,17 @@ export class ProfilePage implements OnInit, OnDestroy {
     await this.navController.navigateForward('terms');
   }
 
-  goToWeb(url: string) {
+  async goToWeb(url: string) {
     const browser = this.iab.create(url, '_blank', {
-      location: 'no',
+      location: this.platform.is('ios') ? 'no' : 'yes',
       toolbar: 'yes',
       hideurlbar: 'yes',
       toolbarposition: 'top',
       toolbarcolor: '#ffffff',
       closebuttoncolor: '#206A71',
+      zoom: 'no',
+      ZoomControlOptions: 'no', 
+      closebuttoncaption: await this.translate.instant('about_me.buttons.btn_close'),
     });
   }
 

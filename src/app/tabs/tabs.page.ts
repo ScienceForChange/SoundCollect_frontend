@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AlertController, IonicModule, NavController } from '@ionic/angular';
+import { AlertController, IonicModule, NavController, Platform } from '@ionic/angular';
 import { NgIf, NgOptimizedImage } from "@angular/common";
 import { RouterLink } from "@angular/router";
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -21,7 +21,6 @@ export class TabsPage {
   locationService = inject(LocationService);
   private alertController = inject(AlertController);
   displayCuppertino = false;
-
   constructor(private toastController: ToastController) {
   }
 
