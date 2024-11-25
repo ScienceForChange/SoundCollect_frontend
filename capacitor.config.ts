@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.qualud.soundcollect',
-  appName: 'SoundCollect',
+  appName: 'sonsCAT',
   webDir: 'www',
   plugins:{
     SplashScreen:{

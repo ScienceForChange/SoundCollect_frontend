@@ -11,7 +11,7 @@
         tappable="true"
         class="mt-1"
         (click)="goBack()"
-        ngSrc="assets/images/SoundCollect/Iconos/close.svg"
+        ngSrc="assets/images/sonsCAT/Iconos/close.svg"
         alt="back"
         width="24"
         height="24"
@@ -68,7 +68,7 @@
                 <img
                   (click)="changeImage(0)"
                   class="absolute"
-                  src="assets/images/SoundCollect/Iconos/{{myEye[0]}}.svg"
+                  src="assets/images/sonsCAT/Iconos/{{myEye[0]}}.svg"
                   alt="eye"
                   style="right: 13px; top: 25px; bottom: 0; margin: auto"
                 />
@@ -105,7 +105,7 @@
                 <img
                   (click)="changeImage(1)"
                   class="absolute"
-                  src="assets/images/SoundCollect/Iconos/{{myEye[1]}}.svg"
+                  src="assets/images/sonsCAT/Iconos/{{myEye[1]}}.svg"
                   alt="eye"
                   style="right: 13px; top: 25px; bottom: 0; margin: auto"
                 />
@@ -176,27 +176,21 @@
             <div class="flex justify-center">
               <ion-checkbox
                 labelPlacement="end"
-                class="H6-14-400-SpaceGrotesk my-text-header mt-4"
+                class="H6-14-400-SpaceGrotesk my-text-header mt-1"
                 formControlName="terms"
                 required
-                [checked]="true"
               >
               </ion-checkbox>
               <ion-text class="H8-700-14 text-start ms-2">
-                {{ "register.terms.terms-start"|translate }}
-                <a
-                  class="H8-700-green-14 text-decoration-none"
-                  (click)="goToTerminos()"
-                >
-                  {{ "register.terms.terms-strong"|translate }}
+                <small>
+                  {{ "register.terms.terms-start"|translate }}
+                  <a
+                    class="H8-700-green-14 text-decoration-none"
+                    (click)="goToWeb('about_me.label.privacy_url')"
+                  >
+                    {{ "register.terms.terms-strong-end"|translate }}
                 </a>
-                {{ "register.terms.terms-end"|translate }}
-                <a
-                  class="H8-700-green-14 text-decoration-none"
-                  (click)="goToLegalNotice()"
-                >
-                  {{ "register.terms.terms-strong-end"|translate }}
-                </a>
+                </small>
               </ion-text>
             </div>
             <div

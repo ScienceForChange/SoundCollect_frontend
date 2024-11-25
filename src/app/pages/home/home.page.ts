@@ -255,27 +255,27 @@ export class HomePage implements OnInit, OnDestroy {
     }
     getMarkerSVGColorByDBA(leq: string) {
         if (+leq < 40) {
-            return 'assets/images/SoundCollect/markers/35.png';
+            return 'assets/images/sonsCAT/markers/35.png';
         } else if (+leq < 45) {
-            return 'assets/images/SoundCollect/markers/40.png';
+            return 'assets/images/sonsCAT/markers/40.png';
         } else if (+leq < 50) {
-            return 'assets/images/SoundCollect/markers/45.png';
+            return 'assets/images/sonsCAT/markers/45.png';
         } else if (+leq < 55) {
-            return 'assets/images/SoundCollect/markers/50.png';
+            return 'assets/images/sonsCAT/markers/50.png';
         } else if (+leq < 60) {
-            return 'assets/images/SoundCollect/markers/55.png';
+            return 'assets/images/sonsCAT/markers/55.png';
         } else if (+leq < 65) {
-            return 'assets/images/SoundCollect/markers/60.png';
+            return 'assets/images/sonsCAT/markers/60.png';
         } else if (+leq < 70) {
-            return 'assets/images/SoundCollect/markers/65.png';
+            return 'assets/images/sonsCAT/markers/65.png';
         } else if (+leq < 75) {
-            return 'assets/images/SoundCollect/markers/70.png';
+            return 'assets/images/sonsCAT/markers/70.png';
         } else if (+leq < 80) {
-            return 'assets/images/SoundCollect/markers/75.png';
+            return 'assets/images/sonsCAT/markers/75.png';
         } else if (+leq < 85) {
-            return 'assets/images/SoundCollect/markers/80.png';
+            return 'assets/images/sonsCAT/markers/80.png';
         } else {
-            return 'assets/images/SoundCollect/markers/85.png';
+            return 'assets/images/sonsCAT/markers/85.png';
         }
     }
 
