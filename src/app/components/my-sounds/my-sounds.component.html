@@ -14,11 +14,11 @@
     <label class="H6-14-400-SpaceGrotesk my-text-header"
     >{{ (itemSound?.attributes?.user_local_time ?? itemSound?.attributes?.created_at) | date : "dd-MM-yyyy HH:mm" }}h
     </label>
-    <label style="background: {{getColorByLeq(myDb)}};" class="meter">{{ myDb }}dBA <img ngSrc="assets/images/SoundCollect/Iconos/dB.svg" alt="" height="16" width="16"/></label>
+    <label style="background: {{getColorByLeq(myDb)}};" class="meter">{{ myDb }}dBA <img ngSrc="assets/images/sonsCAT/Iconos/dB.svg" alt="" height="16" width="16"/></label>
   </div>
   <label class="H-16-400 my-text-header flex items-center gap-3">{{"sounds.label.sound_type" | translate}}</label>
   <label *ngFor="let ob of itemSound?.relationships?.types" class="H-16-400 my-text-header flex items-center gap-3">
-    <img ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg" alt="" height="16" width="16"/>{{ ob?.name }}</label>
+    <img ngSrc="assets/images/sonsCAT/Iconos/ellipse.svg" alt="" height="16" width="16"/>{{ ob?.name }}</label>
   <div class="w-full flex justify-end">
     <div style="width: 100px">
       <button (click)="goToDetails(itemSound)" class="my-btn-login" style="padding: 0 13px; height: 34px">

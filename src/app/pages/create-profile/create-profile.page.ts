@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IonicModule, NavController, ToastController } from '@ionic/angular';
+import { IonicModule, NavController, Platform, ToastController } from '@ionic/angular';
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { RouterLink } from "@angular/router";
 import { ConfirmPasswordValidator } from 'src/app/validator/confirm-password.validator';
@@ -10,13 +10,15 @@ import { AuthService, CommonService } from 'src/app/services';
 import { UserCreate } from 'src/app/models/iuser';
 import { PasswordValidator } from 'src/app/validator/strong-pass.validator';
 import { DataService } from 'src/app/services/share-data.service';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 @Component({
   selector: 'app-create-profile',
   templateUrl: './create-profile.page.html',
   styleUrls: ['./create-profile.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule, TranslateModule, RouterLink, NgOptimizedImage]
+  imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule, TranslateModule, RouterLink, NgOptimizedImage],
+  providers: [AuthService, CommonService, DataService, InAppBrowser]
 })
 export class CreateProfilePage implements OnInit {
   myEye = ['eye', 'eye'];
@@ -41,7 +43,11 @@ export class CreateProfilePage implements OnInit {
     birth_year: '',
     gender: ''
   };
-  constructor(public formBuilder: FormBuilder) {
+  constructor(
+    public formBuilder: FormBuilder,
+    private iab: InAppBrowser,
+    public platform: Platform,
+  ) {
     for (let i = 1901; i <= 2100; i++) {
       this.myNumbers.push(i)
     }
@@ -145,4 +151,20 @@ export class CreateProfilePage implements OnInit {
   async goToTerminos() {
     await this.navController.navigateForward('terms');
   }
+
+  async goToWeb(url: string) {
+    let translate_url:string = await this.translate.instant(url);
+    const browser = this.iab.create(translate_url, '_blank', {
+      location: this.platform.is('ios') ? 'no' : 'yes',
+      toolbar: 'yes',
+      hideurlbar: 'yes',
+      toolbarposition: 'top',
+      toolbarcolor: '#ffffff',
+      closebuttoncolor: '#206A71',
+      zoom: 'no',
+      ZoomControlOptions: 'no', 
+      closebuttoncaption: await this.translate.instant('about_me.buttons.btn_close'),
+    });
+  }
+
 }

@@ -121,5 +121,5 @@
     "ts-node": "~8.3.0",
     "typescript": "~5.4.5"
   },
-  "description": "SoundCollect App"
+  "description": "sonsCAT App"
 }

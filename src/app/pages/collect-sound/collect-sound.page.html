@@ -8,7 +8,7 @@
         tappable="true"
         class="mt-1"
         (click)="goBack()"
-        src="assets/images/SoundCollect/Iconos/back.svg"
+        src="assets/images/sonsCAT/Iconos/back.svg"
         alt="back"
         width="24"
       />
@@ -121,7 +121,7 @@
             (click)="recording?pauseRecording():!stoped && resumeRecording()"
           >
             <img
-              ngSrc="assets/images/SoundCollect/{{recording?'pause':'continue'}}.svg"
+              ngSrc="assets/images/sonsCAT/{{recording?'pause':'continue'}}.svg"
               height="40"
               width="40"
               alt=""
@@ -135,7 +135,7 @@
             (click)="recording && seconds>=minSeconds && stopRecording()"
           >
             <img
-              ngSrc="assets/images/SoundCollect/stop.svg"
+              ngSrc="assets/images/sonsCAT/stop.svg"
               height="40"
               width="40"
               alt=""
@@ -149,7 +149,7 @@
             (click)="resetRecording()"
           >
             <img
-              ngSrc="assets/images/SoundCollect/restart_s.svg"
+              ngSrc="assets/images/sonsCAT/restart_s.svg"
               height="40"
               width="40"
               alt=""
@@ -175,7 +175,7 @@
       >
         <ion-button fill="clear" (click)="start(false)" *ngIf="!isPlaying">
           <img
-            ngSrc="assets/images/SoundCollect/Iconos/play.svg"
+            ngSrc="assets/images/sonsCAT/Iconos/play.svg"
             alt=""
             height="32"
             width="32"
@@ -183,7 +183,7 @@
         </ion-button>
         <ion-button fill="clear" (click)="start(true)" *ngIf="isPlaying">
           <img
-            ngSrc="assets/images/SoundCollect/Iconos/play.svg"
+            ngSrc="assets/images/sonsCAT/Iconos/play.svg"
             alt=""
             height="32"
             width="32"
@@ -212,7 +212,7 @@
           <div class="H-16-400 my-text-header flex items-center">
             <div class="w-full flex m-2">
               <img
-                ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+                ngSrc="assets/images/sonsCAT/Iconos/ellipse.svg"
                 height="16"
                 width="16"
                 alt=""
@@ -231,7 +231,7 @@
               *ngIf="item.key !== 'Leq' && item.key !== 'LAeqT' && item.key !== 'sharpness_S' && item.key !== 'loudness_N' && item.key !== 'roughtness_R' && item.key !== 'fluctuation_strength_F'"
             >
               <img
-                ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+                ngSrc="assets/images/sonsCAT/Iconos/ellipse.svg"
                 height="16"
                 width="16"
                 alt=""
@@ -247,7 +247,7 @@
         <div class="H-16-400 my-text-header flex items-center">
           <div class="w-full flex m-2">
             <img
-              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+              ngSrc="assets/images/sonsCAT/Iconos/ellipse.svg"
               height="16"
               width="16"
               alt=""
@@ -264,7 +264,7 @@
         <div class="H-16-400 my-text-header flex items-center mt-2">
           <div class="w-full flex m-2">
             <img
-              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+              ngSrc="assets/images/sonsCAT/Iconos/ellipse.svg"
               height="16"
               width="16"
               alt=""
@@ -277,7 +277,7 @@
         <div class="H-16-400 my-text-header flex items-center">
           <div class="w-full flex m-2">
             <img
-              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+              ngSrc="assets/images/sonsCAT/Iconos/ellipse.svg"
               height="16"
               width="16"
               alt=""
@@ -290,7 +290,7 @@
         <div class="H-16-400 my-text-header flex items-center">
           <div class="w-full flex m-2">
             <img
-              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+              ngSrc="assets/images/sonsCAT/Iconos/ellipse.svg"
               height="16"
               width="16"
               alt=""
@@ -304,7 +304,7 @@
         <div class="H-16-400 my-text-header flex items-center">
           <div class="w-full flex m-2">
             <img
-              ngSrc="assets/images/SoundCollect/Iconos/ellipse.svg"
+              ngSrc="assets/images/sonsCAT/Iconos/ellipse.svg"
               height="16"
               width="16"
               alt=""
@@ -346,7 +346,7 @@
           <img
             *ngIf="!boxContent"
             (click)="deleteImage(i)"
-            ngSrc="assets/images/SoundCollect/Iconos/delete-white.svg"
+            ngSrc="assets/images/sonsCAT/Iconos/delete-white.svg"
             width="24"
             height="24"
             alt=""
@@ -357,7 +357,7 @@
           (click)="takePicture()"
           class="img-box"
           style="
-            background-image: url(assets/images/SoundCollect/Iconos/plus.svg);
+            background-image: url(assets/images/sonsCAT/Iconos/plus.svg);
           "
         ></div>
       </div>
@@ -1046,7 +1046,7 @@
           </div>
           <div class="container" (click)="closeImagePane()">
             <div class="ion-text-center card-title-14-500-sans w-100">
-              <!-- <img src="/assets/images/SoundCollect/Iconos/close.svg" class="ion-margin-start ion-margin-end" alt="img"/> -->
+              <!-- <img src="/assets/images/sonsCAT/Iconos/close.svg" class="ion-margin-start ion-margin-end" alt="img"/> -->
               <ion-icon name="close-outline" size="large"></ion-icon>
               <ion-text class="card-title-14-500">close</ion-text>
             </div>

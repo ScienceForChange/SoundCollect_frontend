@@ -166,7 +166,9 @@ export class ProfilePage implements OnInit, OnDestroy {
   }
 
   async goToWeb(url: string) {
-    const browser = this.iab.create(url, '_blank', {
+    let translate_url:string = await this.translate.instant(url);
+    console.log(translate_url);
+    const browser = this.iab.create(translate_url, '_blank', {
       location: this.platform.is('ios') ? 'no' : 'yes',
       toolbar: 'yes',
       hideurlbar: 'yes',

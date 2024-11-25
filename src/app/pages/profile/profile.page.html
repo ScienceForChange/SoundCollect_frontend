@@ -62,7 +62,7 @@
               class="ms-3 flex items-center bg-transparent my-text-red H3-18-700"
             >
               <img
-                src="../../../assets/images/SoundCollect/Iconos/edit.svg"
+                src="../../../assets/images/sonsCAT/Iconos/edit.svg"
                 class="me-2"
               />
               {{'profile.label.edit_profile_title'|translate}}
@@ -88,7 +88,7 @@
       <!--            <span class="flex">-->
       <!--              <img-->
       <!--                class="me-3"-->
-      <!--                src="../../../assets/images/SoundCollect/Ilustraciones/solar.svg"-->
+      <!--                src="../../../assets/images/sonsCAT/Ilustraciones/solar.svg"-->
       <!--              />-->
       <!--              Principiante-->
       <!--            </span>-->
@@ -130,7 +130,7 @@
       <!--              >-->
       <!--              <img-->
       <!--                class="me-8"-->
-      <!--                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"-->
+      <!--                src="../../../assets/images/sonsCAT/Ilustraciones/arrow.svg"-->
       <!--              />-->
       <!--            </button>-->
       <!--          </div>-->
@@ -144,7 +144,7 @@
       <!--              >-->
       <!--              <img-->
       <!--                class="me-8"-->
-      <!--                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"-->
+      <!--                src="../../../assets/images/sonsCAT/Ilustraciones/arrow.svg"-->
       <!--              />-->
       <!--            </button>-->
       <!--          </div>-->
@@ -158,7 +158,7 @@
       <!--              >-->
       <!--              <img-->
       <!--                class="me-8"-->
-      <!--                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"-->
+      <!--                src="../../../assets/images/sonsCAT/Ilustraciones/arrow.svg"-->
       <!--              />-->
       <!--            </button>-->
       <!--          </div>-->
@@ -172,7 +172,7 @@
       <!--              ></label>-->
       <!--              <img-->
       <!--                class="me-8"-->
-      <!--                src="../../../assets/images/SoundCollect/Iconos/download.svg"-->
+      <!--                src="../../../assets/images/sonsCAT/Iconos/download.svg"-->
       <!--              />-->
       <!--            </button>-->
       <!--          </div>-->
@@ -191,7 +191,7 @@
               <label class="flex justify-between w-full me-5">
                 <span>{{'profile.label.calibrate_access'|translate}}</span>
                 <span></span></label>
-              <img class="me-8" src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"/>
+              <img class="me-8" src="../../../assets/images/sonsCAT/Ilustraciones/arrow.svg"/>
             </button>
           </div>
         </div>
@@ -208,7 +208,7 @@
               <label class="flex justify-between w-full me-5">
                 <span>{{'profile.label.badges_earned'|translate}}</span>
                 <span>{{level}}</span></label>
-              <img class="me-8" src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"/>
+              <img class="me-8" src="../../../assets/images/sonsCAT/Ilustraciones/arrow.svg"/>
             </button>
           </div>
         </div>
@@ -226,7 +226,7 @@
               <label class="flex justify-between w-full me-5">
                 <span>{{'profile.label.language'|translate}}</span>
                 <span></span></label>
-              <img class="me-8" src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"/>
+              <img class="me-8" src="../../../assets/images/sonsCAT/Ilustraciones/arrow.svg"/>
             </button>
           </div>
           <div class="w-full pt-4 pb-1" style="border-top: 2px solid #f2f4f3">
@@ -240,17 +240,18 @@
                 ></label>
               <img
                 class="me-8"
-                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
+                src="../../../assets/images/sonsCAT/Ilustraciones/arrow.svg"
               />
             </button>
           </div>
           <div class="w-full pt-4 pb-1" style="border-top: 2px solid #f2f4f3">
-            <button class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400" (click)="goToWeb('https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/contaminacio_acustica/sensibilitzacio-educacio-ambiental/sonscat/avis-legal-sonscat/')">
+            <button class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400" 
+            (click)="goToWeb('about_me.label.terms_url')">
               <label class="flex justify-between w-full me-5">
                 <span>{{'about_me.label.terms'|translate}}</span>
                 <span></span>
               </label>
-              <img class="me-8" src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"/>
+              <img class="me-8" src="../../../assets/images/sonsCAT/Ilustraciones/arrow.svg"/>
             </button>
           </div>
 
@@ -263,14 +264,14 @@
               ></label>
               <img
                 class="me-8"
-                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
+                src="../../../assets/images/sonsCAT/Ilustraciones/arrow.svg"
               />
             </button>
           </div> -->
           <div class="w-full pt-4 pb-1" style="border-top: 2px solid #f2f4f3">
             <button
               class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
-              (click)="goToWeb('https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/contaminacio_acustica/sensibilitzacio-educacio-ambiental/sonscat/politica-privacitat/')"
+              (click)="goToWeb('about_me.label.privacy_url')"
             >
               <label class="flex justify-between w-full me-5"
                 ><span>{{'about_me.label.privacy_policy'|translate}}</span>
@@ -278,7 +279,7 @@
               ></label>
               <img
                 class="me-8"
-                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
+                src="../../../assets/images/sonsCAT/Ilustraciones/arrow.svg"
               />
             </button>
           </div>
@@ -286,7 +287,7 @@
             <button
               *ngIf="platform.is('ios')"
               class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
-              (click)="goToWeb('https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/contaminacio_acustica/sensibilitzacio-educacio-ambiental/sonscat/declaracio-accessibilitat-ios')"
+              (click)="goToWeb('about.me.label.accessibility_ios_url')"
             >
               <label class="flex justify-between w-full me-5"
                 ><span>{{'about_me.label.accessibility'|translate}}</span>
@@ -294,13 +295,13 @@
               ></label>
               <img
                 class="me-8"
-                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
+                src="../../../assets/images/sonsCAT/Ilustraciones/arrow.svg"
               />
             </button>
             <button
               *ngIf="platform.is('android')"
               class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
-              (click)="goToWeb('https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/contaminacio_acustica/sensibilitzacio-educacio-ambiental/sonscat/declaracio-accessibilitat-android')"
+              (click)="goToWeb('about.me.label.accessibility_android_url')"
               >
               <label class="flex justify-between w-full me-5"
                 ><span>{{'about_me.label.accessibility'|translate}}</span>
@@ -308,7 +309,7 @@
               </label>
               <img
                 class="me-8"
-                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
+                src="../../../assets/images/sonsCAT/Ilustraciones/arrow.svg"
               />
             </button>
 
@@ -323,7 +324,7 @@
               ></label>
               <img
                 class="me-8"
-                src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"
+                src="../../../assets/images/sonsCAT/Ilustraciones/arrow.svg"
               />
             </button>
           </div> -->
@@ -345,7 +346,7 @@
       <!--            ></label>-->
       <!--            <img-->
       <!--              class="me-8"-->
-      <!--              src="../../../assets/images/SoundCollect/Ilustraciones/arrow.svg"-->
+      <!--              src="../../../assets/images/sonsCAT/Ilustraciones/arrow.svg"-->
       <!--            />-->
       <!--          </button>-->
       <!--          &lt;!&ndash; <div-->
