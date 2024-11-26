@@ -76,7 +76,7 @@ export class HomePage implements OnInit, OnDestroy {
     autocompleteService: any;
     placesService: any;
 
-    mapType: MapType = MapType.Satellite;
+    mapType: MapType = MapType.Normal;
     observationType: 'all' | 'mine' = 'all';
     observationTypeShowed: 'all' | 'mine' = 'all';
     userId = ""
@@ -142,7 +142,7 @@ export class HomePage implements OnInit, OnDestroy {
             config: {
                 center: userLocation,
                 zoom: 14,
-                mapTypeId: 'satellite',
+                mapTypeId: 'Normal',
                 zoomControl:false,
                 streetViewControl:false,
                 fullscreenControl:false,
@@ -154,7 +154,7 @@ export class HomePage implements OnInit, OnDestroy {
                 controlSize: 1,
             },
         });
-        await this.map.setMapType(MapType.Satellite);
+        await this.map.setMapType(MapType.Normal);
         await this.map.setCamera({
             coordinate: userLocation,
             animate: true

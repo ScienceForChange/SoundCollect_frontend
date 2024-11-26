@@ -1,5 +1,5 @@
 PODS:
-  - Capacitor (6.1.2):
+  - Capacitor (6.2.0):
     - CapacitorCordova
   - CapacitorApp (6.0.1):
     - Capacitor
@@ -7,7 +7,7 @@ PODS:
     - Capacitor
   - CapacitorCamera (6.1.0):
     - Capacitor
-  - CapacitorCordova (6.1.2)
+  - CapacitorCordova (6.2.0)
   - CapacitorDevice (6.0.1):
     - Capacitor
   - CapacitorFilesystem (6.0.1):
@@ -107,11 +107,11 @@ EXTERNAL SOURCES:
     :path: "../capacitor-cordova-ios-plugins"
 
 SPEC CHECKSUMS:
-  Capacitor: 679f9673fdf30597493a6362a5d5bf233d46abc2
+  Capacitor: 1f3c7b9802d958cd8c4eb63895fff85dff2e1eea
   CapacitorApp: 0bc633b4eae40a1f32cd2834788fad3bc42da6a1
   CapacitorBrowser: ef0529d16cd8839281050c350e7bbee4f5c6d65f
   CapacitorCamera: 81ce64062cd82b82cc75a79616fda4bd09d7f643
-  CapacitorCordova: f48c89f96c319101cd2f0ce8a2b7449b5fb8b3dd
+  CapacitorCordova: b33e7f4aa4ed105dd43283acdd940964374a87d9
   CapacitorDevice: 7097a1deb4224b77fd13a6e60a355d0062a5d772
   CapacitorFilesystem: 37fb3aa5c945b4539ab11c74a5c57925a302bf24
   CapacitorGeolocation: 39dca51d755f08ed1d43e51be55291a402cdc64f
