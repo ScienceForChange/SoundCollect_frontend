@@ -33,8 +33,6 @@ npm-debug.log*
 /plugins
 /www
 /.angular/
-/ios
-/android
 
 # Node
 /node_modules
@@ -102,8 +100,6 @@ plugins/
 plugins/android.json
 plugins/ios.json
 $RECYCLE.BIN/
-ios/
-android/
 
 .DS_Store
 Thumbs.db

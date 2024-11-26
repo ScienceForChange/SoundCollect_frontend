@@ -124,14 +124,10 @@
       "others": "Others",
       "report_error": "Report an error",
       "terms": "Legal notice",
-      "terms_url": "https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/contaminacio_acustica/sensibilitzacio-educacio-ambiental/sonscat/avis-legal-sonscat/",
       "privacy": "Privacy",
-      "privacy_url": "https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/contaminacio_acustica/sensibilitzacio-educacio-ambiental/sonscat/sonscat-en/legal-notice/",
       "privacy_policy": "Privacy Policy",
       "version": "Version n",
-      "accessibility": "Accessibility",
-      "accessibility_android_url": "https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/contaminacio_acustica/sensibilitzacio-educacio-ambiental/sonscat/sonscat-en/accessibility-statement-android/",
-      "accessibility_ios_url": "https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/contaminacio_acustica/sensibilitzacio-educacio-ambiental/sonscat/sonscat-en/accessibility-statement-ios/"
+      "accessibility": "Accessibility"
     },
     "buttons": {
       "btn_1": "View all",
@@ -139,6 +135,12 @@
       "btn_cancel": "Cancel",
       "btn_apply": "Apply",
       "btn_close": "Close"
+    },
+    "url":{
+      "terms": "https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/contaminacio_acustica/sensibilitzacio-educacio-ambiental/sonscat/avis-legal-sonscat/",
+      "privacy": "https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/contaminacio_acustica/sensibilitzacio-educacio-ambiental/sonscat/sonscat-en/legal-notice/",
+      "accessibility_android": "https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/contaminacio_acustica/sensibilitzacio-educacio-ambiental/sonscat/sonscat-en/accessibility-statement-android/",
+      "accessibility_ios": "https://mediambient.gencat.cat/ca/05_ambits_dactuacio/atmosfera/contaminacio_acustica/sensibilitzacio-educacio-ambiental/sonscat/sonscat-en/accessibility-statement-ios/"
     }
   },
   "profile": {
