@@ -411,19 +411,36 @@
           </div>
         </div>
       </section>
+
+      <div class="flex gap-5 justify-between mt-3 p-2">
+        <div class="w-40">
+          <img [src]="'../../../assets/images/logos/feder.png'" alt="FEDER"/>
+        </div>
+        <div class="w-40">
+          <img [src]="'../../../assets/images/logos/generalitat.png'" alt="Generalitat de Catalunya"/>
+        </div>
+        <div class="w-32">
+          <img [src]="'../../../assets/images/logos/sfc.png'" alt="Science for Change"/>
+        </div>
+      </div>
+
+      <div class="flex justify-between p-2">
+        <small [innerHTML]="'about_me.text.collaborators'|translate"></small>
+      </div>
       <button
         *ngIf="isUserAuth"
-        class="my-btn-login my-btn-close-session mt-8 mx-auto"
+        class="my-btn-login my-btn-close-session mt-8 mb-5 mx-auto"
         (click)="logout()"
       >
         {{'profile.label.close_session'|translate}}
       </button>
+
+
       <div class="ion-padding ion-text-center">v{{appVersion}}</div>
       <br />
       <br />
       <br />
-      <br />
-      
+      <br />      
     </div>
   </div>
 </ion-content>

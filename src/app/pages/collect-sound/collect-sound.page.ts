@@ -66,7 +66,7 @@ export class CollectSoundPage implements OnInit {
   timer: string = '00:00:00';
   timerSubscription: Subscription; // La suscripción al timer
   seconds: number = 0; // Segundos transcurridos
-  maxSeconds: number = 1800 //Máximo de segundos a grabar
+  maxSeconds: number = 3600 //Máximo de segundos a grabar
   minSeconds: number = 30 //Mínimo de segundos a grabar
   soundRecorded: any;
   soundRecordedBlob: any;
