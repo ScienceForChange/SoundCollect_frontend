@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="ic_launcher_background">#FFFFFF</color>
-    <string name="app_name">SoundCollect</string>
+    <string name="app_name">sonsCAT</string>
     <string name="custom_url_scheme">com.qualud.soundcollect</string>
     <string name="package_name">com.qualud.soundcollect</string>
-    <string name="title_activity_main">SoundCollect</string>
+    <string name="title_activity_main">sonsCAT</string>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         
         <item name="colorPrimary">@color/colorPrimary</item>

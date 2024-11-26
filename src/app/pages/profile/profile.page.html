@@ -246,7 +246,7 @@
           </div>
           <div class="w-full pt-4 pb-1" style="border-top: 2px solid #f2f4f3">
             <button class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400" 
-            (click)="goToWeb('about_me.label.terms_url')">
+            (click)="goToWeb('about_me.url.terms')">
               <label class="flex justify-between w-full me-5">
                 <span>{{'about_me.label.terms'|translate}}</span>
                 <span></span>
@@ -271,7 +271,7 @@
           <div class="w-full pt-4 pb-1" style="border-top: 2px solid #f2f4f3">
             <button
               class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
-              (click)="goToWeb('about_me.label.privacy_url')"
+              (click)="goToWeb('about_me.url.privacy')"
             >
               <label class="flex justify-between w-full me-5"
                 ><span>{{'about_me.label.privacy_policy'|translate}}</span>
@@ -287,7 +287,7 @@
             <button
               *ngIf="platform.is('ios')"
               class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
-              (click)="goToWeb('about.me.label.accessibility_ios_url')"
+              (click)="goToWeb('about_me.url.accessibility_ios')"
             >
               <label class="flex justify-between w-full me-5"
                 ><span>{{'about_me.label.accessibility'|translate}}</span>
@@ -301,7 +301,7 @@
             <button
               *ngIf="platform.is('android')"
               class="mx-5 w-full flex items-center bg-transparent my-text-header H-16-400"
-              (click)="goToWeb('about.me.label.accessibility_android_url')"
+              (click)="goToWeb('about_me.url.accessibility_android')"
               >
               <label class="flex justify-between w-full me-5"
                 ><span>{{'about_me.label.accessibility'|translate}}</span>
@@ -423,6 +423,7 @@
       <br />
       <br />
       <br />
+      
     </div>
   </div>
 </ion-content>
