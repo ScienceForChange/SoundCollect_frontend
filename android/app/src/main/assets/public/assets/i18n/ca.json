@@ -200,7 +200,7 @@
     "collect": {
       "add": "Afegir un nou so",
       "title": "Registra el so",
-      "30Seg": "El registre ha de tenir una durada mínima de 30 segons d'àudio. En cas que estiguis realitzant un recorregut, podrà tenir una durada màxima de 30 minuts.",
+      "30Seg": "El registre ha de tenir una durada mínima de 30 segons d'àudio. En cas que estiguis realitzant un recorregut, podrà tenir una durada màxima de 60 minuts.",
       "registered": "Àudio registrat",
       "parameters": "Paràmetres de l'àudio",
       "images": "Imatges",

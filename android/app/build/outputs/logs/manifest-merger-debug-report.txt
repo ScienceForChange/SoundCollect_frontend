@@ -182,13 +182,25 @@ ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/an
 	android:name
 		ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:38:13-58
 uses-permission#android.permission.INTERNET
+<<<<<<< Updated upstream
 ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:44:5-67
+=======
+ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:41:5-67
+>>>>>>> Stashed changes
 MERGED from [:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:5-67
 MERGED from [:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:5-67
 MERGED from [com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:24:5-67
 	android:name
+<<<<<<< Updated upstream
 		ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:44:22-64
+=======
+		ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:41:22-64
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:42:5-71
+	android:name
+		ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:42:22-68
+>>>>>>> Stashed changes
 meta-data#android.support.FILE_PROVIDER_PATHS
 ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:32:13-34:64
 	android:resource

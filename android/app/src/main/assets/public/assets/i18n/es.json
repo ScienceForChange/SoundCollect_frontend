@@ -197,7 +197,7 @@
     "collect": {
       "add": "Añadir un nuevo sonido",
       "title": "Registra el sonido",
-      "30Seg": "El registro debe tener una duración mínima de 30 segundos de audio. En caso de que estés realizando un recorrido, podrá tener una duración máxima de 30 minutos.",
+      "30Seg": "El registro debe tener una duración mínima de 30 segundos de audio. En caso de que estés realizando un recorrido, podrá tener una duración máxima de 60 minutos.",
       "registered": "Audio registrado",
       "parameters": "Parámetros del audio",
       "images": "Imágenes",

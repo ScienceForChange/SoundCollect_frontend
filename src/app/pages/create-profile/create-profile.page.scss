@@ -13,3 +13,19 @@
   line-height: 120.2%;
   letter-spacing: -0.02em;
 }
+.my-btn-login[disabled] {
+  background: #ccc;
+  color: white;
+  width: 100%;
+  padding: 16px 4px;
+  gap: 10px;
+  height: 54px;
+  border-radius: 53px;
+  font-family: SpaceGrotesk, serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 120.2%;
+  letter-spacing: -0.02em;
+  pointer-events: none;
+}

@@ -198,7 +198,7 @@
     "collect": {
       "add": "Add a New Sound",
       "title": "Record the Sound",
-      "30Seg": "The record must have a minimum duration of 30 seconds of audio. if you are making a soundwalk, it may have a maximum duration of 30 minutes.",
+      "30Seg": "The record must have a minimum duration of 30 seconds of audio. if you are making a soundwalk, it may have a maximum duration of 60 minutes.",
       "registered": "Registered Audio",
       "parameters": "Audio Parameters",
       "images": "Images",
