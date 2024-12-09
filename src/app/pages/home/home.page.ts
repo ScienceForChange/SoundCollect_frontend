@@ -21,7 +21,7 @@ import { ObservationDetailsPage } from "../observation-details/observation-detai
 import { UserService } from 'src/app/services/user-service';
 import { UserHTTP } from 'src/app/repos/user-repo-http';
 import { FormsModule } from "@angular/forms";
-import { Subscription } from 'rxjs';
+import { filter, Subscription, take } from 'rxjs';
 
 
 @Component({
@@ -90,8 +90,21 @@ export class HomePage implements OnInit, OnDestroy {
 
     async ngOnInit() {
         this.userId = await this.authService.getUserId() || '';
-        await this.locationService.requestAppPermissions();
+        await this.locationService.requestLocationAndGetPosition();
         await this.getUserLocationAndCreateMap();
+        this.locationService.positionWhenPermissionAccept$
+            .pipe(
+                filter((position) => position !== null), // Ignorar valores null
+                take(1) // Solo escuchar el primer valor válido
+            )
+            .subscribe((position) => {
+                if (position) {
+                    this.map.setCamera({
+                        coordinate: position,
+                        animate: true
+                    });                
+                }
+            });
         this.initAutocomplete();
     }
 

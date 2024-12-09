@@ -179,6 +179,8 @@
                 class="H6-14-400-SpaceGrotesk my-text-header mt-1"
                 formControlName="terms"
                 required
+                [checked]="false"
+                ngClass="{'error': terms?.invalid && (terms?.dirty || terms?.touched)}"
               >
               </ion-checkbox>
               <ion-text class="H8-700-14 text-start ms-2">
@@ -186,7 +188,7 @@
                   {{ "register.terms.terms-start"|translate }}
                   <a
                     class="H8-700-green-14 text-decoration-none"
-                    (click)="goToWeb('about_me.url.privacy')"
+                    (click)="goToWeb('about_me.label.privacy_url')"
                   >
                     {{ "register.terms.terms-strong-end"|translate }}
                 </a>

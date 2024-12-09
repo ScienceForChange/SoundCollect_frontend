@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.qualud.soundcollect"
-4    android:versionCode="11100"
-5    android:versionName="1.1.10" >
+4    android:versionCode="12100"
+5    android:versionName="1.2.1" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="22"
@@ -13,242 +13,245 @@
 13    <uses-permission android:name="android.permission.INTERNET" />
 13-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:42:5-67
 13-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:42:22-64
-14
-15    <queries>
-15-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-11:15
-16        <intent>
-16-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-10:18
-17            <action android:name="android.support.customtabs.action.CustomTabsService" />
-17-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-90
-17-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:21-87
-18        </intent>
-19        <intent>
-19-->[:capacitor-camera] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/camera/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-10:18
-20            <action android:name="android.media.action.IMAGE_CAPTURE" />
-20-->[:capacitor-camera] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/camera/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-73
-20-->[:capacitor-camera] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/camera/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:21-70
-21        </intent> <!-- Needs to be explicitly declared on Android R+ -->
-22        <package android:name="com.google.android.apps.maps" />
-22-->[com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:33:9-64
-22-->[com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:33:18-61
-23    </queries>
-24
-25    <uses-permission android:name="android.permission.VIBRATE" />
-25-->[:capacitor-haptics] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/haptics/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-66
-25-->[:capacitor-haptics] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/haptics/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:22-63
-26    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-26-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-81
-26-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:22-78
-27    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-27-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-79
-27-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-76
-28
-29    <uses-feature
-29-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-13:35
-30        android:name="android.hardware.location.gps"
-30-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-53
-31        android:required="true" />
-31-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-32
-32
-33    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-33-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:5-79
-33-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:22-76
-34    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-34-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:5-75
-34-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:22-72
-35    <uses-permission android:name="android.permission.BLUETOOTH" />
-35-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:5-68
-35-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:22-65
-36
-37    <uses-feature
-37-->[com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:26:5-28:35
-38        android:glEsVersion="0x00020000"
-38-->[com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:27:9-41
-39        android:required="true" />
-39-->[com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:28:9-32
-40
-41    <permission
-41-->[androidx.core:core:1.12.0] /Users/albertoalmenara/.gradle/caches/transforms-3/4f7b0d764f8b5d0d84c4d0344e1adc27/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
-42        android:name="com.qualud.soundcollect.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-42-->[androidx.core:core:1.12.0] /Users/albertoalmenara/.gradle/caches/transforms-3/4f7b0d764f8b5d0d84c4d0344e1adc27/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
-43        android:protectionLevel="signature" />
-43-->[androidx.core:core:1.12.0] /Users/albertoalmenara/.gradle/caches/transforms-3/4f7b0d764f8b5d0d84c4d0344e1adc27/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
-44
-45    <uses-permission android:name="com.qualud.soundcollect.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-45-->[androidx.core:core:1.12.0] /Users/albertoalmenara/.gradle/caches/transforms-3/4f7b0d764f8b5d0d84c4d0344e1adc27/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
-45-->[androidx.core:core:1.12.0] /Users/albertoalmenara/.gradle/caches/transforms-3/4f7b0d764f8b5d0d84c4d0344e1adc27/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
-46
-47    <application
-47-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:3:5-38:19
-48        android:allowBackup="true"
-48-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:4:9-35
-49        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-49-->[androidx.core:core:1.12.0] /Users/albertoalmenara/.gradle/caches/transforms-3/4f7b0d764f8b5d0d84c4d0344e1adc27/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
-50        android:debuggable="true"
-51        android:extractNativeLibs="true"
-52        android:icon="@mipmap/ic_launcher"
-52-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:5:9-43
-53        android:label="@string/app_name"
-53-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:6:9-41
-54        android:roundIcon="@mipmap/ic_launcher_round"
-54-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:7:9-54
-55        android:supportsRtl="true"
-55-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:8:9-35
-56        android:testOnly="true"
-57        android:theme="@style/AppTheme" >
-57-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:9:9-40
-58        <activity
-58-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:10:9-24:20
-59            android:name="com.qualud.soundcollect.MainActivity"
-59-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:12:13-41
-60            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
-60-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:11:13-129
-61            android:exported="true"
-61-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:16:13-36
-62            android:label="@string/title_activity_main"
-62-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:13:13-56
-63            android:launchMode="singleTask"
-63-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:15:13-44
-64            android:navigationBarColor="#206A71"
-64-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:18:13-49
-65            android:statusBarColor="#206A71"
-65-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:17:13-45
-66            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
-66-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:14:13-71
-67            <intent-filter>
-67-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:20:13-23:29
-68                <action android:name="android.intent.action.MAIN" />
-68-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:21:17-69
-68-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:21:25-66
-69
-70                <category android:name="android.intent.category.LAUNCHER" />
-70-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:22:17-77
-70-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:22:27-74
-71            </intent-filter>
-72        </activity>
-73
-74        <provider
-75            android:name="androidx.core.content.FileProvider"
-75-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:27:13-62
-76            android:authorities="com.qualud.soundcollect.fileprovider"
-76-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:28:13-64
-77            android:exported="false"
-77-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:29:13-37
-78            android:grantUriPermissions="true" >
-78-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:30:13-47
-79            <meta-data
-79-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:31:13-112
-80                android:name="android.support.FILE_PROVIDER_PATHS"
-80-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:31:24-74
-81                android:resource="@xml/file_paths" />
-81-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:31:75-109
-82        </provider>
-83
-84        <meta-data
-84-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:34:9-37:11
-85            android:name="com.google.android.geo.API_KEY"
-85-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:35:13-58
-86            android:value="AIzaSyAv9L4QUQYplK9TOdNavuFFmmQgiwVETT0" />
-86-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:36:13-68
-87
-88        <activity
-88-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:9-18:75
-89            android:name="com.capacitorjs.plugins.browser.BrowserControllerActivity"
-89-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-85
-90            android:exported="false"
-90-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-37
-91            android:launchMode="singleTask"
-91-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-44
-92            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-92-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-72
-93
-94        <meta-data
-94-->[com.google.maps.android:android-maps-utils:3.8.2] /Users/albertoalmenara/.gradle/caches/transforms-3/d9c88c5f6e4c7832ad4920b151619f28/transformed/android-maps-utils-3.8.2/AndroidManifest.xml:8:9-10:69
-95            android:name="com.google.android.gms.version"
-95-->[com.google.maps.android:android-maps-utils:3.8.2] /Users/albertoalmenara/.gradle/caches/transforms-3/d9c88c5f6e4c7832ad4920b151619f28/transformed/android-maps-utils-3.8.2/AndroidManifest.xml:9:13-58
-96            android:value="@integer/google_play_services_version" /> <!-- Needs to be explicitly declared on P+ -->
-96-->[com.google.maps.android:android-maps-utils:3.8.2] /Users/albertoalmenara/.gradle/caches/transforms-3/d9c88c5f6e4c7832ad4920b151619f28/transformed/android-maps-utils-3.8.2/AndroidManifest.xml:10:13-66
-97        <uses-library
-97-->[com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:39:9-41:40
-98            android:name="org.apache.http.legacy"
-98-->[com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:40:13-50
-99            android:required="false" />
-99-->[com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:41:13-37
-100
-101        <activity
-101-->[com.google.android.gms:play-services-base:18.5.0] /Users/albertoalmenara/.gradle/caches/transforms-3/219a8b938bac6e7d2e7cfe0e48dadba6/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:9-173
-102            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-102-->[com.google.android.gms:play-services-base:18.5.0] /Users/albertoalmenara/.gradle/caches/transforms-3/219a8b938bac6e7d2e7cfe0e48dadba6/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:19-85
-103            android:exported="false"
-103-->[com.google.android.gms:play-services-base:18.5.0] /Users/albertoalmenara/.gradle/caches/transforms-3/219a8b938bac6e7d2e7cfe0e48dadba6/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:146-170
-104            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-104-->[com.google.android.gms:play-services-base:18.5.0] /Users/albertoalmenara/.gradle/caches/transforms-3/219a8b938bac6e7d2e7cfe0e48dadba6/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:86-145
-105
-106        <provider
-106-->[androidx.emoji2:emoji2:1.2.0] /Users/albertoalmenara/.gradle/caches/transforms-3/61f606930917a64588c199b54d3d711a/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
-107            android:name="androidx.startup.InitializationProvider"
-107-->[androidx.emoji2:emoji2:1.2.0] /Users/albertoalmenara/.gradle/caches/transforms-3/61f606930917a64588c199b54d3d711a/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
-108            android:authorities="com.qualud.soundcollect.androidx-startup"
-108-->[androidx.emoji2:emoji2:1.2.0] /Users/albertoalmenara/.gradle/caches/transforms-3/61f606930917a64588c199b54d3d711a/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
-109            android:exported="false" >
-109-->[androidx.emoji2:emoji2:1.2.0] /Users/albertoalmenara/.gradle/caches/transforms-3/61f606930917a64588c199b54d3d711a/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
-110            <meta-data
-110-->[androidx.emoji2:emoji2:1.2.0] /Users/albertoalmenara/.gradle/caches/transforms-3/61f606930917a64588c199b54d3d711a/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
-111                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-111-->[androidx.emoji2:emoji2:1.2.0] /Users/albertoalmenara/.gradle/caches/transforms-3/61f606930917a64588c199b54d3d711a/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
-112                android:value="androidx.startup" />
-112-->[androidx.emoji2:emoji2:1.2.0] /Users/albertoalmenara/.gradle/caches/transforms-3/61f606930917a64588c199b54d3d711a/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
-113            <meta-data
-113-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/albertoalmenara/.gradle/caches/transforms-3/7d158143758428a9a27e664e481c199e/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
-114                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-114-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/albertoalmenara/.gradle/caches/transforms-3/7d158143758428a9a27e664e481c199e/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
-115                android:value="androidx.startup" />
-115-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/albertoalmenara/.gradle/caches/transforms-3/7d158143758428a9a27e664e481c199e/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
-116            <meta-data
-116-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
-117                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-117-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
-118                android:value="androidx.startup" />
-118-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
-119        </provider>
-120
-121        <receiver
-121-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
-122            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-122-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
-123            android:directBootAware="false"
-123-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
-124            android:enabled="true"
-124-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
-125            android:exported="true"
-125-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
-126            android:permission="android.permission.DUMP" >
-126-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
-127            <intent-filter>
-127-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
-128                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-128-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
-128-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
-129            </intent-filter>
-130            <intent-filter>
-130-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
-131                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-131-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
-131-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
-132            </intent-filter>
-133            <intent-filter>
-133-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
-134                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-134-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
-134-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
-135            </intent-filter>
-136            <intent-filter>
-136-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
-137                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-137-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
-137-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
-138            </intent-filter>
-139        </receiver>
-140    </application>
-141
-142</manifest>
+14    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+14-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:43:5-71
+14-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:43:22-68
+15
+16    <queries>
+16-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-11:15
+17        <intent>
+17-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-10:18
+18            <action android:name="android.support.customtabs.action.CustomTabsService" />
+18-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-90
+18-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:21-87
+19        </intent>
+20        <intent>
+20-->[:capacitor-camera] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/camera/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-10:18
+21            <action android:name="android.media.action.IMAGE_CAPTURE" />
+21-->[:capacitor-camera] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/camera/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-73
+21-->[:capacitor-camera] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/camera/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:21-70
+22        </intent> <!-- Needs to be explicitly declared on Android R+ -->
+23        <package android:name="com.google.android.apps.maps" />
+23-->[com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:33:9-64
+23-->[com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:33:18-61
+24    </queries>
+25
+26    <uses-permission android:name="android.permission.VIBRATE" />
+26-->[:capacitor-haptics] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/haptics/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-66
+26-->[:capacitor-haptics] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/haptics/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:22-63
+27    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+27-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-81
+27-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:22-78
+28    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+28-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-79
+28-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-76
+29
+30    <uses-feature
+30-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-13:35
+31        android:name="android.hardware.location.gps"
+31-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-53
+32        android:required="true" />
+32-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-32
+33
+34    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+34-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:5-79
+34-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:22-76
+35    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+35-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:5-75
+35-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:22-72
+36    <uses-permission android:name="android.permission.BLUETOOTH" />
+36-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:5-68
+36-->[:capacitor-cordova-android-plugins] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/capacitor-cordova-android-plugins/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:22-65
+37
+38    <uses-feature
+38-->[com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:26:5-28:35
+39        android:glEsVersion="0x00020000"
+39-->[com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:27:9-41
+40        android:required="true" />
+40-->[com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:28:9-32
+41
+42    <permission
+42-->[androidx.core:core:1.12.0] /Users/albertoalmenara/.gradle/caches/transforms-3/4f7b0d764f8b5d0d84c4d0344e1adc27/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+43        android:name="com.qualud.soundcollect.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+43-->[androidx.core:core:1.12.0] /Users/albertoalmenara/.gradle/caches/transforms-3/4f7b0d764f8b5d0d84c4d0344e1adc27/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+44        android:protectionLevel="signature" />
+44-->[androidx.core:core:1.12.0] /Users/albertoalmenara/.gradle/caches/transforms-3/4f7b0d764f8b5d0d84c4d0344e1adc27/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+45
+46    <uses-permission android:name="com.qualud.soundcollect.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+46-->[androidx.core:core:1.12.0] /Users/albertoalmenara/.gradle/caches/transforms-3/4f7b0d764f8b5d0d84c4d0344e1adc27/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+46-->[androidx.core:core:1.12.0] /Users/albertoalmenara/.gradle/caches/transforms-3/4f7b0d764f8b5d0d84c4d0344e1adc27/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+47
+48    <application
+48-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:3:5-38:19
+49        android:allowBackup="true"
+49-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:4:9-35
+50        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+50-->[androidx.core:core:1.12.0] /Users/albertoalmenara/.gradle/caches/transforms-3/4f7b0d764f8b5d0d84c4d0344e1adc27/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+51        android:debuggable="true"
+52        android:extractNativeLibs="true"
+53        android:icon="@mipmap/ic_launcher"
+53-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:5:9-43
+54        android:label="@string/app_name"
+54-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:6:9-41
+55        android:roundIcon="@mipmap/ic_launcher_round"
+55-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:7:9-54
+56        android:supportsRtl="true"
+56-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:8:9-35
+57        android:testOnly="true"
+58        android:theme="@style/AppTheme" >
+58-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:9:9-40
+59        <activity
+59-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:10:9-24:20
+60            android:name="com.qualud.soundcollect.MainActivity"
+60-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:12:13-41
+61            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+61-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:11:13-129
+62            android:exported="true"
+62-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:16:13-36
+63            android:label="@string/title_activity_main"
+63-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:13:13-56
+64            android:launchMode="singleTask"
+64-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:15:13-44
+65            android:navigationBarColor="#206A71"
+65-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:18:13-49
+66            android:statusBarColor="#206A71"
+66-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:17:13-45
+67            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+67-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:14:13-71
+68            <intent-filter>
+68-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:20:13-23:29
+69                <action android:name="android.intent.action.MAIN" />
+69-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:21:17-69
+69-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:21:25-66
+70
+71                <category android:name="android.intent.category.LAUNCHER" />
+71-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:22:17-77
+71-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:22:27-74
+72            </intent-filter>
+73        </activity>
+74
+75        <provider
+76            android:name="androidx.core.content.FileProvider"
+76-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:27:13-62
+77            android:authorities="com.qualud.soundcollect.fileprovider"
+77-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:28:13-64
+78            android:exported="false"
+78-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:29:13-37
+79            android:grantUriPermissions="true" >
+79-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:30:13-47
+80            <meta-data
+80-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:31:13-112
+81                android:name="android.support.FILE_PROVIDER_PATHS"
+81-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:31:24-74
+82                android:resource="@xml/file_paths" />
+82-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:31:75-109
+83        </provider>
+84
+85        <meta-data
+85-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:34:9-37:11
+86            android:name="com.google.android.geo.API_KEY"
+86-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:35:13-58
+87            android:value="AIzaSyAv9L4QUQYplK9TOdNavuFFmmQgiwVETT0" />
+87-->/Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:36:13-68
+88
+89        <activity
+89-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:9-18:75
+90            android:name="com.capacitorjs.plugins.browser.BrowserControllerActivity"
+90-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-85
+91            android:exported="false"
+91-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-37
+92            android:launchMode="singleTask"
+92-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-44
+93            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+93-->[:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-72
+94
+95        <meta-data
+95-->[com.google.maps.android:android-maps-utils:3.8.2] /Users/albertoalmenara/.gradle/caches/transforms-3/d9c88c5f6e4c7832ad4920b151619f28/transformed/android-maps-utils-3.8.2/AndroidManifest.xml:8:9-10:69
+96            android:name="com.google.android.gms.version"
+96-->[com.google.maps.android:android-maps-utils:3.8.2] /Users/albertoalmenara/.gradle/caches/transforms-3/d9c88c5f6e4c7832ad4920b151619f28/transformed/android-maps-utils-3.8.2/AndroidManifest.xml:9:13-58
+97            android:value="@integer/google_play_services_version" /> <!-- Needs to be explicitly declared on P+ -->
+97-->[com.google.maps.android:android-maps-utils:3.8.2] /Users/albertoalmenara/.gradle/caches/transforms-3/d9c88c5f6e4c7832ad4920b151619f28/transformed/android-maps-utils-3.8.2/AndroidManifest.xml:10:13-66
+98        <uses-library
+98-->[com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:39:9-41:40
+99            android:name="org.apache.http.legacy"
+99-->[com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:40:13-50
+100            android:required="false" />
+100-->[com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:41:13-37
+101
+102        <activity
+102-->[com.google.android.gms:play-services-base:18.5.0] /Users/albertoalmenara/.gradle/caches/transforms-3/219a8b938bac6e7d2e7cfe0e48dadba6/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:9-173
+103            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+103-->[com.google.android.gms:play-services-base:18.5.0] /Users/albertoalmenara/.gradle/caches/transforms-3/219a8b938bac6e7d2e7cfe0e48dadba6/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:19-85
+104            android:exported="false"
+104-->[com.google.android.gms:play-services-base:18.5.0] /Users/albertoalmenara/.gradle/caches/transforms-3/219a8b938bac6e7d2e7cfe0e48dadba6/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:146-170
+105            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+105-->[com.google.android.gms:play-services-base:18.5.0] /Users/albertoalmenara/.gradle/caches/transforms-3/219a8b938bac6e7d2e7cfe0e48dadba6/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:86-145
+106
+107        <provider
+107-->[androidx.emoji2:emoji2:1.2.0] /Users/albertoalmenara/.gradle/caches/transforms-3/61f606930917a64588c199b54d3d711a/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+108            android:name="androidx.startup.InitializationProvider"
+108-->[androidx.emoji2:emoji2:1.2.0] /Users/albertoalmenara/.gradle/caches/transforms-3/61f606930917a64588c199b54d3d711a/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+109            android:authorities="com.qualud.soundcollect.androidx-startup"
+109-->[androidx.emoji2:emoji2:1.2.0] /Users/albertoalmenara/.gradle/caches/transforms-3/61f606930917a64588c199b54d3d711a/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+110            android:exported="false" >
+110-->[androidx.emoji2:emoji2:1.2.0] /Users/albertoalmenara/.gradle/caches/transforms-3/61f606930917a64588c199b54d3d711a/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+111            <meta-data
+111-->[androidx.emoji2:emoji2:1.2.0] /Users/albertoalmenara/.gradle/caches/transforms-3/61f606930917a64588c199b54d3d711a/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+112                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+112-->[androidx.emoji2:emoji2:1.2.0] /Users/albertoalmenara/.gradle/caches/transforms-3/61f606930917a64588c199b54d3d711a/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+113                android:value="androidx.startup" />
+113-->[androidx.emoji2:emoji2:1.2.0] /Users/albertoalmenara/.gradle/caches/transforms-3/61f606930917a64588c199b54d3d711a/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+114            <meta-data
+114-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/albertoalmenara/.gradle/caches/transforms-3/7d158143758428a9a27e664e481c199e/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+115                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+115-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/albertoalmenara/.gradle/caches/transforms-3/7d158143758428a9a27e664e481c199e/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+116                android:value="androidx.startup" />
+116-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/albertoalmenara/.gradle/caches/transforms-3/7d158143758428a9a27e664e481c199e/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+117            <meta-data
+117-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+118                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+118-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+119                android:value="androidx.startup" />
+119-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+120        </provider>
+121
+122        <receiver
+122-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+123            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+123-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+124            android:directBootAware="false"
+124-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+125            android:enabled="true"
+125-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+126            android:exported="true"
+126-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+127            android:permission="android.permission.DUMP" >
+127-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+128            <intent-filter>
+128-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+129                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+129-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+129-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+130            </intent-filter>
+131            <intent-filter>
+131-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+132                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+132-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+132-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+133            </intent-filter>
+134            <intent-filter>
+134-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+135                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+135-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+135-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+136            </intent-filter>
+137            <intent-filter>
+137-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+138                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+138-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+138-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/albertoalmenara/.gradle/caches/transforms-3/c4b6893a58c24e59df590ee54241c077/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+139            </intent-filter>
+140        </receiver>
+141    </application>
+142
+143</manifest>

@@ -60,7 +60,7 @@ export class CreateProfilePage implements OnInit {
       cpassword: ['', [Validators.required, Validators.minLength(8)]],
       birth_year: ['2003'],
       gender: ['male'],
-      terms: [true, [Validators.requiredTrue]],
+      terms: [false, [Validators.requiredTrue]],
       dataProtection: [true, [Validators.requiredTrue]],
     },
       {

@@ -2,12 +2,16 @@ import { Injectable } from '@angular/core';
 import { Geolocation } from '@capacitor/geolocation';
 import { HttpClient } from "@angular/common/http";
 import { Device } from '@capacitor/device';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocationService {
   httpClient: HttpClient
+
+  public positionWhenPermissionAccept$ = new BehaviorSubject<google.maps.LatLngLiteral  | null>(null);
+
   constructor(
   ) { }
 
@@ -41,6 +45,23 @@ export class LocationService {
       }
     } catch (error) {
       console.error('Error requesting permissions', error)
+    }
+  }
+
+  async requestLocationAndGetPosition(): Promise<void> {
+    try {
+      // Solicitar permisos
+      const permissions = await Geolocation.requestPermissions();
+      if (permissions.location === 'granted') {
+        const position = await Geolocation.getCurrentPosition();
+        this.positionWhenPermissionAccept$.next({lat: position.coords.latitude, lng: position.coords.longitude});
+      } else {
+        throw new Error('Permiso de geolocalización no concedido');
+      }
+      const position = await Geolocation.getCurrentPosition();
+    } catch (error) {
+      console.error('Error al obtener la posición:', error);
+      this.positionWhenPermissionAccept$.next(null);
     }
   }
 

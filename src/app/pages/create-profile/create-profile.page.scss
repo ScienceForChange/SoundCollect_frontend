@@ -13,3 +13,9 @@
   line-height: 120.2%;
   letter-spacing: -0.02em;
 }
+// button desactivado si disabled
+.my-btn-login[disabled] {
+  background: #CCC;
+  color: white;
+  pointer-events: none;
+}

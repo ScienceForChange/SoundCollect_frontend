@@ -11,10 +11,10 @@ INJECTED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app
 	android:name
 		ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:27:13-62
 manifest
-ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:1-43:12
-INJECTED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:1-43:12
-INJECTED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:1-43:12
-INJECTED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:1-43:12
+ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:2:1-44:12
 MERGED from [:capacitor-app] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:capacitor-browser] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/browser/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-21:12
 MERGED from [:capacitor-camera] /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/node_modules/@capacitor/camera/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-13:12
@@ -193,6 +193,10 @@ MERGED from [com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalm
 MERGED from [com.google.android.gms:play-services-maps:19.0.0] /Users/albertoalmenara/.gradle/caches/transforms-3/f9d222b39d6217a3c5677ec2b41c9682/transformed/play-services-maps-19.0.0/AndroidManifest.xml:24:5-67
 	android:name
 		ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:42:22-64
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:43:5-71
+	android:name
+		ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:43:22-68
 meta-data#android.support.FILE_PROVIDER_PATHS
 ADDED from /Users/albertoalmenara/Proyectos/Programacion/SFC/soundCollect_app/android/app/src/main/AndroidManifest.xml:31:13-112
 	android:resource
